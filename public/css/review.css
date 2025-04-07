@@ -1,0 +1,238 @@
+.wtc-review-main-container{
+    margin-top:2em;
+    min-height: 80vh; 
+    height: auto;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:3em;
+    font-size: clamp(1rem, 1.2vw, 2rem);
+}
+.wtc-review-main-container .wtc-review-heading{
+    text-align: left;
+    font-size: 1.7em;
+}
+.wtc-review-main-box{
+    margin-top:2em;
+    min-height: 80vh; 
+    height: auto;
+    width:100%;
+    background-color: rgba(255, 255, 255, 0.93);
+    border-radius: 1em;
+    display: grid;
+    grid-template-columns: 28em 1fr;
+    gap:2em;
+}
+/* writing review Stylling start here */
+.wtc-review-write_mainBox{
+    background-color: #f9f9f5;
+    border-radius: 1em;
+    padding:0 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.wtc-review-write_mainBox .wtc-leave-review-heading{
+    padding:1.2em 0;
+    font-size: 1.4em;
+    text-align: center;
+}
+.wtc-review-input_box{
+    width:100%;
+}
+.wtc-review-input_box form{
+    margin-top: 1em;
+    height: 5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.wtc-review-input_box form #wtc-review-rating{
+    position: absolute;
+    top:-2em;
+    right:1em;
+} 
+.wtc-review-input_box form .wtc-review-submit-btn{
+    padding:1em 1.7em;
+    font-weight: 600;
+    border:0.1em solid transparent;
+    background-color: #092030;
+    color:#f0f0f0;
+    cursor: pointer;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    transition: all 0.3s ease;
+}
+.wtc-review-input_box form .wtc-review-submit-btn:hover{
+  border:0.1em solid rgb(10, 8, 4);
+  background-color: rgba(10, 34, 49, 0.953);
+}
+
+.wtc-review-input_box form input{
+    padding:1em 1.2em;
+    flex:1;  
+    border:0.05em solid black;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    outline: none;
+}
+.wtc-review-input_box form input:focus{ 
+    border:0.05em solid rgb(9, 163, 9);
+}
+/* writing review Stylling End here */
+
+/* Review Preview Stylling start here */
+.wtc-your-review-heading{
+    margin-top:2em;
+    text-align: center;
+    padding:0.8em 0;
+}
+.wtc-review-see-container{
+    background-color: #f9f9f5;
+    padding:2em 1em;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    gap:3em;
+    justify-content: flex-start;
+    align-items:center;
+}
+.wtc-review-card-box{
+    min-height: 6em;
+    height: auto;
+    background-color: #fbfbfbe8;
+    box-shadow: 0 0 2em rgba(230, 199, 199, 0.382);
+    width:100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    border-radius: 1em;
+}
+.wtc-review-user-card-image_box{
+    height: 2.4em;
+    width:2.4em;
+    border-radius: 50%;
+    background-color: #d28129;
+    margin-bottom: 1.6em;
+    margin-left:0.7em;
+    overflow: hidden;
+}
+.wtc-review-user-card-image_box img{
+    height: 100%;
+    width:100%;
+    object-fit: cover;
+    object-position: center;
+}
+.wtc-review-user-name-username_box_likeBox-Description{
+    padding:0 1em;
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.wtc-review-user-name-username_box_likeBox{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.wtc-review-user-name .wtc-review-user-name-text{
+   font-size: 1em;
+   color:rgb(36, 35, 32);
+}
+.wtc-review-user-name p{
+    font-size: 0.8em;
+    color:rgb(70, 70, 70);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+ .wtc-review-user-name p:hover{
+    color:rgb(20, 51, 101);
+    text-decoration: underline;
+    text-decoration-color: rgb(18, 30, 7);
+}
+.wtc-review-likeBtn{
+    height: 2.4em;
+    width:2.4em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.wtc-review-likeBtn:hover{
+    background-color: rgba(182, 180, 180, 0.793);
+}
+.wtc-user-review-description{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.wtc-user-review-description-preview-para{
+    font-size: 0.8em;
+}
+/* Hidden form for edit review : */
+.CloseEditForm{
+    display: none; 
+}
+.openEditForm{
+    display: block;
+    flex: 1;
+    width: 25em !important;
+}
+.openEditForm textarea{
+    width: 25em !important;
+}
+.wtc-review-edit-delete-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.wtc-review-deleteBtn,.wtc-review-edit,#editReviewUpdateButton{
+    margin-top:0.4em;
+    padding:0.5em 1em;
+    border:none;
+    color:white;
+    cursor: pointer;
+    border-radius: 0.6em;
+    transition: all 0.2s linear;
+}
+#editReviewUpdateButton{
+    background-color: #2dc43d;
+}
+#editReviewUpdateButton:hover{
+    background-color: #07d71c;
+}
+.wtc-review-edit{
+    margin-right:0.3em;
+    background-color: #09bbe3;
+}
+.wtc-review-edit:hover{
+    background-color: #31d7fc;
+}
+.wtc-review-deleteBtn{
+    margin-left:0.3em;
+    background-color: #e33409;
+}
+.wtc-review-deleteBtn:hover{
+    background-color: #d72f05;
+    color:rgb(232, 230, 230);
+}
+.wtc-no-review-found{
+    font-size: 1.3em;
+    font-weight: 600;
+    text-align: center;
+}
+/* Review Preview Stylling End here */
+@media (max-width:1050px){
+    .wtc-review-main-box{
+        grid-template-columns: 1fr;
+    }
+    .wtc-leave-review{
+        font-size: 1.6em !important;
+    }
+}

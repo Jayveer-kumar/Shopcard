@@ -1,0 +1,36 @@
+<%-layout("layouts/boilerPlateCode.ejs")%> 
+<body> 
+    <div class="login_box_container">
+    <div class="login-box-img">
+        <img src="/src/shopping-lifestyle-consumer-concept-6534.avif" alt="">
+    </div>
+    <div class="container">
+        <div class="form-box">
+            <form class="  hidden loginForm" method="post" action="http://localhost:8080/shopcard/authenticate/login">
+                <h2>Login</h2>
+                <input type="text" name="user[username]" placeholder="Username" required autocomplete="username">
+                <input type="password" name="user[password]" placeholder="Password" required autocomplete="current-password">
+                <button type="submit">Login</button>
+                <p>Don't have an account? <a href="#" id="showRegister">Sign up</a></p>
+            </form>
+            <form class="  registerForm" method="post" action="http://localhost:8080/shopcard/authenticate/register" enctype="multipart/form-data">
+                <h2>Sign up</h2>
+                <input type="text" name="user[name]" placeholder="Full Name" required>
+                <input type="text" name="user[username]" placeholder="Username" required>
+                <input type="email" name="user[email]" placeholder="Email" required autocomplete="email">
+                <!-- Image Start -->
+                
+                <input type="file" id="registration-image"  name="user[image]"  placeholder="Upload an Image" accept="image/*" required>
+                <img class="registration-image-preview" src="" alt="preview-image">
+                <label for="registration-image" class="registration-image-selection-btn">Upload Image</label>
+                <p class="no-image-selected">No image Selected</p>
+                <!-- Image End -->
+                <input type="password" name="user[password]" placeholder="Password" required autocomplete="new-password">
+                <button type="submit">Register</button>
+                <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+            </form>            
+        </div>
+    </div>
+</div>
+<script src="/javascript/login.js"></script>
+</body>

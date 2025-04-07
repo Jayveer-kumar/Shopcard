@@ -1,0 +1,120 @@
+.search_r_main_box{
+    min-height: 100vh;
+    min-width: 100%;
+    height: auto;
+    margin-top:0.2em; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding:0 2em;
+}
+
+.search_r_required_card_container{
+  width: 100%;
+  height: auto;
+  flex: 1;
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(14em,0.2fr));
+  justify-content: flex-start;
+  gap:1em;
+}
+._search_route_card_link{
+  text-decoration: none;
+  color:black;
+}
+.search_r_required_card_container .search_route_data_card{
+  height: 23em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding:0.3em 0.7em;
+  position: relative;
+  background: #fff;
+  border-radius: 0.5em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  border:0.01em solid rgba(4, 4, 4, 0.121);
+}
+.search_route_data_card .search_route_card_image_box{
+  padding:0.5em 0;
+  height: 13em;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+.search_route_card_image_box img{
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.search_route_card_description_box{
+  width: 100%;
+  height: 10em;  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 1em;
+  padding:0.3em;
+}
+.search_route_card_description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.7em;
+  color:#2c2c2c85;
+}
+
+.search_route_card_description_box .search_route_card_prizeBox{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap:0.6em;
+  align-items: center;
+  position: relative;
+}
+.search_route_card_fPrice ,.search_route_card_off_prize ,.search_route_card_free_delivery{
+  font-size: 0.8em;
+}
+.search_route_card_off_prize{
+  color:#0d740d;
+}
+.search_route_card_fPrice{
+  text-decoration: line-through;
+  color: #595858;
+}
+.search_route_card_bank_offer{
+  font-size: 0.8em;
+  color:#0d740d;
+  font-weight: 600;
+}
+
+.search_route_card_like_box{
+  position: absolute;
+  top:1em;
+  right:1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.search_route_data_card:hover{
+  box-shadow:  0 0 1em #9393934c;
+  .search_route_card_like_box{
+    opacity: 1;
+    visibility: visible;
+  }
+  /* .search_route_card_image_box{
+    transform: scale(1.05);
+    transition: all 0.9s linear;
+  } */
+}

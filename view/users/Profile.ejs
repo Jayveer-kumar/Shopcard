@@ -1,0 +1,46 @@
+<%-layout("layouts/boilerPlateCode.ejs")%> 
+<body>
+    <div class="us-Profile-main_container">
+        <div class="us-Profile_head_Box">
+            <div class="us-Profile_wel_sys">
+                <h3>Welcome to your account <span><%-user.name %></span> </h3>
+                <p class="user_profile_head_mail"><%-user.email %></p>
+            </div>
+            <div class="us_Profile_imageBox">
+                <img src="<%-user.image.url %>" alt="<%-user.name %>">
+            </div>
+        </div>
+        <div class="us-Profile_info_selection_box">
+            <div class="us-Profile_personal_infoB">
+                <div class="us-Profile_personal_infoHead">
+                    <i class="fa-solid fa-user"></i>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+                <div class="us-Profile_presonal_des">
+                    <h3>Personal Information</h3>
+                    <a class="profile_per_des" href="*">Provide and update your personal Information</a>
+                </div>
+            </div>            
+            <div class="us-Profile_OrderHistoryB">
+                <div class="us-Profile_orderHistoryHead">
+                    <i class="fa-solid fa-box-open"></i>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+                <div class="us-Profile_orderHistory_des">
+                    <h3>Order History</h3>
+                    <a href="*"> View Your Order History and track your order</a>
+                </div>
+            </div>
+            <div class="us-Profile_AddressBookB">
+                <div class="us-Profile_AddressBook_Head">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+                <div class="us-Profile_AddressBook_des">
+                    <h3>Address Book</h3>
+                    <a href="*">Manage your address and default shipping order </a>
+                </div>
+            </div>
+        </div>
+    </div> 
+</body>

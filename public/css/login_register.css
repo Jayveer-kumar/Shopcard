@@ -1,0 +1,218 @@
+/* Main login box container */
+.login_box_container {  
+    width: 90%;
+    max-width: 55em; 
+    min-height: 25em; 
+    height: max-content;       
+    margin: 100px auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(17em,1fr));
+}
+.login_box_container .login-box-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 1em;
+}
+/* Inner container */
+.login_box_container .container {
+    height: 100%;
+    background: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* overflow: hidden; */
+}
+
+
+/* Form headings */
+.login_box_container .container h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Input fields */
+.login_box_container .container input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.login_box_container .container input:focus{
+    outline:1px solid rgb(57, 228, 57);
+}
+.login_box_container .container input[type="file"]{
+   display: none;
+}
+.registration-image-selection-btn{
+    display: inline-block;
+    padding: 0.6em 1.1em;
+    background-color: #081e35;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: all 0.3s ease;
+}
+.registration-image-selection-btn:hover{
+    background-color: #081e35e8;
+}
+.no-image-selected{
+    display: inline-block;
+    font-size: 0.7em;
+    font-weight: 600;
+}
+.registration-image-preview{
+    display: none;
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    background-color: burlywood;
+    border-radius: 10px;
+    margin: 2px;
+}
+/* Buttons */
+
+
+.login_box_container .container button {
+    width: 100%;
+    padding: 10px;
+    background: #fcfdfe;
+    border:0.1em solid #07192c !important;
+    color:#07192c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+.login_box_container .container button::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0%;
+    left:0;
+    bottom: -5%;
+    background:linear-gradient(to right , #069de97b , #08ee6c3b);
+    transition: height 1s ease;
+    z-index: 100;
+}
+.login_box_container .container button:hover::before{
+    top:-5%;
+    height: 110%;
+    width:100%;
+} 
+
+
+
+/* Water Effect (Layer 1)  final */
+/* .login_box_container .container button::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0%;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(6, 157, 233, 0.7), rgba(8, 238, 108, 0.7));
+    transition: height 1.5s ease-in-out;
+    clip-path: polygon(0% 95%, 15% 90%, 30% 85%, 45% 90%, 60% 85%, 75% 90%, 90% 85%, 100% 95%);
+    animation: waveMove1 3s infinite ease-in-out;
+} */
+
+/* Water Effect (Layer 2 - Second Wave) Final */
+/* .login_box_container .container button::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0%;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(6, 157, 233, 0.5), rgba(8, 238, 108, 0.5));
+    transition: height 1.5s ease-in-out;
+    clip-path: polygon(0% 90%, 10% 85%, 25% 80%, 40% 85%, 55% 80%, 70% 85%, 85% 80%, 100% 90%);
+    animation: waveMove2 4s infinite ease-in-out;
+} */
+
+/* Hover Effects - Water Rising final */
+/* .login_box_container .container button:hover::before,
+.login_box_container .container button:hover::after {
+    height: 100%;
+} */
+
+/* First Wave Motion Final */
+/* @keyframes waveMove1 {
+    0% { clip-path: polygon(0% 95%, 15% 90%, 30% 85%, 45% 90%, 60% 85%, 75% 90%, 90% 85%, 100% 95%); }
+    50% { clip-path: polygon(0% 90%, 15% 85%, 30% 80%, 45% 85%, 60% 80%, 75% 85%, 90% 80%, 100% 90%); }
+    100% { clip-path: polygon(0% 95%, 15% 90%, 30% 85%, 45% 90%, 60% 85%, 75% 90%, 90% 85%, 100% 95%); }
+} */
+
+/* Second Wave Motion final */
+/* @keyframes waveMove2 {
+    0% { clip-path: polygon(0% 90%, 10% 85%, 25% 80%, 40% 85%, 55% 80%, 70% 85%, 85% 80%, 100% 90%); }
+    50% { clip-path: polygon(0% 85%, 10% 80%, 25% 75%, 40% 80%, 55% 75%, 70% 80%, 85% 75%, 100% 85%); }
+    100% { clip-path: polygon(0% 90%, 10% 85%, 25% 80%, 40% 85%, 55% 80%, 70% 85%, 85% 80%, 100% 90%); }
+} */
+
+
+/* .login_box_container .container button {
+    position: relative;
+    padding: 12px 24px;
+    font-size: 16px;
+    color: #fff;
+    background: #f20c0c;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.4s ease;
+}
+
+.login_box_container .container button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, #acb5bf, #d56911);
+    z-index: -1;
+    transition: transform 0.4s ease;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.login_box_container .container button:hover::before {
+    transform: scaleX(1);
+}
+
+.login_box_container .container button:hover {
+    color: #fff;
+} */
+
+
+
+/* Paragraphs */
+.login_box_container .container p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Links */
+.login_box_container .container a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login_box_container .container a:hover {
+    text-decoration: underline;
+}
+
+/* Hide login form initially */
+.loginForm {
+    display: none;
+}

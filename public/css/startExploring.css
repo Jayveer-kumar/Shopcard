@@ -1,0 +1,482 @@
+#startExplore_box{
+    margin-top: 5em;
+    height: auto;
+    width: 100%;
+    background-color: rgb(255, 253, 253);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.explore-head_t_in{
+    height:10em;
+    width: 100%;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: clamp(1rem,3vw,2rem);
+}
+.explore-head_t_in h2{
+    font-size: 1.5em;
+    text-align: center;
+}
+.explore_selectorsbox{
+    margin-top:1em;
+    height: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.explore_selectors{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0.1em;
+    background-color: rgb(255, 255, 255);
+    border:0.05em solid rgb(184, 225, 215);
+    border-radius: 2em; 
+    box-shadow: 0 1em 1em rgba(29, 32, 31, 0.197);
+}
+.explore_selectors button{
+    font-size: 0.5em;
+    font-weight: 600;
+    border:none;
+    background-color: #ffffff;
+    padding:0.7em 2em;
+    border-radius: 1.4em;
+    cursor: pointer;
+    i{
+        margin-right:0.3em;
+    }
+}
+.explore_selectors .activeBtn{
+    background-color: rgb(9, 16, 25);
+    color:rgba(255, 255, 255, 0.979);
+}
+.explore-card_container{
+    margin-top:1em;
+    height: max-content;
+    width:100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(25em,1fr));
+    gap:1.5em;
+    justify-content: center;
+    padding:0 2em;
+    margin-bottom: 5em;
+}
+.explore-card-box{
+    padding:2em;
+    height: 24em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    font-size: clamp(1rem,1vw,1.4rem);
+    position: relative;
+    border-radius: 2em;
+    background-color: #ffffff;
+    box-shadow: 0 0 3em rgba(106, 103, 103, 0.251);
+}
+.ex-card-imgBox{
+    height: 5em;
+    width: 5em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgba(208, 216, 216, 0.205);
+    border-radius: 3em;
+    box-shadow: 0 0 2em rgba(105, 103, 103, 0.467);
+}
+.ex-card-imgBox img{
+    height: 100%;
+    width:100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+#remainingProduct{
+    font-size: 1em;
+    color:rgba(0, 0, 0, 0.43);
+}
+#ex-item-title{
+    font-size: 2em;
+}
+.ex-card-item-li-sbg{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+#ex-itemfor_link{
+    text-decoration: none;
+    position: relative;
+    color:rgb(9, 29, 31);
+    transition: all 0.2s ease;
+    cursor:  pointer !important;
+    z-index: 100;
+    i{
+        margin-left:0.6em;
+    }
+}
+.explore-card-box:hover{
+    #ex-itemfor_link{
+        text-decoration: underline;
+        color:rgb(31, 177, 226);
+    }
+}
+#ex_card_sbg{
+    position: absolute;
+    bottom:0.3em;
+    right:0;
+    height: 100%;
+    width:100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+}
+
+/* Listing Backend Data Stylling */
+.hm-listing-data-box{
+    padding:0 3em;
+    height: auto;
+    min-height: 80vh;
+    width:100%;
+    margin-top:5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.hm-listings-head{
+    font-size: clamp(1rem,2vh,1.5rem);
+    max-height: 30em;
+    width:100%;
+}
+/* Sort Button stylling Start here  */
+.hm-listing_sort_box{
+    height: 6em;
+    padding:1em 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.hm-listing_sort_box .hm-listing-SortBtn{
+    padding:0.5em 1em;
+    margin-right: 2em;
+    background-color: #fff;
+    color:black;
+    border:0.1em solid rgba(95, 94, 94, 0.422);
+    border-radius: 1em;
+    cursor: pointer;
+    position: relative;
+}
+.hm-listing_sort_box .hm-listing-SortBtn i{
+    font-size: 0.8em;
+    margin:0 0.3em;
+}
+
+/*  Selection Filter Buttons Stylling Start Here */
+#filterapplyBtn{
+    padding:0.7em 2em;
+    background-color: rgb(8, 33, 33);
+    color:white;
+    border-radius: 0.8em;
+    cursor: pointer;
+}
+#filterclearBtn{
+    padding:0.7em 1em;
+    background-color: rgba(99, 97, 97, 0.271);
+    color:rgb(21, 29, 28);
+    border-radius: 0.5em;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.hm-listing_sort_box button input[type="checkbox"]{
+    width: 1.3em;
+    height: 1.3em;
+}
+
+.activeFilterBtn{
+    border:0.1em solid rgba(6, 108, 232, 0.858) !important;    
+}
+.removeFilterContainer{
+    border:0.1em solid rgba(95, 94, 94, 0.422) !important;
+}
+
+
+/* Filter Buttons Stylling Start Here */
+.hm-listing-SortBtn >div{
+    position: absolute;
+    top:-2em !important;
+    min-width:20em;
+    max-height: 20em;
+    background-color: rgb(255, 255, 255);
+    border:0.1em solid rgba(0, 0, 0, 0.318);
+    box-shadow: 0 0 0.5em #0c0c0c32;
+    z-index: 1000;
+    border-radius: 1em;
+    padding:1em 0.4em;
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden;
+    pointer-events: auto; 
+    transition: opacity 0.3s ease, transform 0.5s ease, visibility 0.5s !important;
+}
+.hide_filter_Box_smoothly{
+    opacity: 0 !important;
+    transform: translateY(20px) !important;
+    visibility: hidden !important;
+}
+.hm-listing-SortBtn >div >:first-child{
+    max-height: 15em !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:1em;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding:1em;
+    overflow-y: auto !important;
+}
+.hm-listing-SortBtn >div >:first-child>div{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.hm-listing-SortBtn >div >:first-child>div input[type="radio"]{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 1.5em;
+    height: 1.5em;
+    border: 2px solid #0fdeed;
+    border-radius: 1em;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    background-color: white;
+}
+.hm-listing-SortBtn >div >:first-child>div input[type="radio"]:checked{
+    background-color: #ffffff;
+}
+.hm-listing-SortBtn >div >:first-child>div input[type="radio"]:checked::before{
+    content: "";
+    width: 0.8em;
+    height: 0.8em;
+    background-color: #13dff1;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.hm-listing-SortBtn >div >:first-child>div label{
+    padding:0 0.4em;
+    color:#062e42;
+    font-size: 1.2em;
+}
+.hm-listing-SortBtn >div >:last-child{
+    margin-top:1em;
+    height: 20%;
+    width: 100%;
+    padding:0 0.7em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Note* Price selection box or selection Box se thoda alag hai isiliye iski stylling thodi different hai */
+
+/* Price Selection Stylling Start Here*/
+.hm-lis-price_selectBox{
+    width:100%;
+    font-size: 0.5em;
+ }
+ 
+ #hm_lis_price{
+     margin-top:0.6em;
+ }
+ #priceSelectionMainHeading{
+     font-size: 2.5em;
+     color:black !important;
+ }
+  
+ #price_selc_showMaxPara{
+     font-size: 1.7em;
+     font-weight: 400 !important;
+ }
+ .price_min_max_box{
+     margin-top:3em;
+     width:100%;
+     height: 12em;
+     display: flex;
+     justify-content: space-between;
+     align-items:center;
+     gap:1em;
+ }
+ .minPrice ,.maxPrice{
+     height: 10em;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     align-items: center;
+ }
+ .minPrice  p ,.maxPrice p{
+     width:100%;
+     color:rgba(0, 0, 0, 0.747) !important;
+     font-size: 2em !important;
+ }
+ .minPrice  input ,.maxPrice input{
+     width:100%;
+     height: 6em !important;
+     margin:0 0.7em !important;
+     padding:0 0.5em;
+     border: 0.16em solid rgb(159, 241, 237);
+     border-radius: 0.4em;
+ }
+ .minPrice input:focus, .maxPrice input:focus {
+     border: 0.16em solid rgb(20, 193, 205) !important;
+     outline: none !important;
+ }
+ 
+ input[type="number"]::-webkit-outer-spin-button,
+ input[type="number"]::-webkit-inner-spin-button {
+     -webkit-appearance: none;
+      margin: 0;
+ }
+
+/* Filter Buttons Stylling Start Here */ 
+
+.hm-listings-head h2{
+    font-size: 2.2em;
+}
+.hm-listings-head p{
+    margin-top:1em;
+    font-size: 1.5em;
+    color:rgba(0, 0, 0, 0.675);
+    font-weight: 600;
+}
+.hm-listing-data{
+    margin-top:4em;
+    min-height: 50vh;
+    width:100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(17em,1fr));
+    gap:2em;
+}
+.hm-listing-dt-card-box{
+   height: 27em;
+   width:100%;
+   max-width: 30em;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   overflow: hidden;
+   border-radius: 1em;
+   box-shadow: 0 0 2em rgba(174, 167, 167, 0.541);
+   position: relative;
+}
+.ProductLink{
+    text-decoration: none;
+    color:black;
+}
+.hm-listing-dt-card-box_img{
+  height: 13em;
+  width:100%;
+  background-color: #ffffff;
+}
+.hm-listing-dt-card-box_img img{
+    width: 100%;
+    height: 100%;  
+    object-fit: contain;  
+    object-position: center; 
+    border-radius: 1em;
+}
+.hm-listing-dt-card-box_dis{
+    padding:1em;
+    font-size: clamp(1rem,2vh,1.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #fff;
+}
+.hm-listing-item_title{
+    font-size: 1.4em; 
+    font-weight: 600;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2;
+   -webkit-box-orient: vertical;
+}
+.hm-listing_item_discription{   
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    letter-spacing: 0.03em;
+}
+.hm-listing_item_discription:first-child{
+    font-size: 1em;
+}
+.hm-listing_item_discription:nth-child(2){
+    font-weight: 300;
+    color:rgb(56, 56, 56);
+}
+.hm_listing_price_cardBtn{
+    margin-top:1em;
+    padding:1em 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+}
+.hm_listing_price_cardBtn button{ 
+    padding:0.7em 1em;
+    border:0.2em solid transparent;
+    color:rgba(255, 255, 255, 0.988);
+    border-radius: 1em;
+    background-color: rgb(15, 130, 116);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+#listing_item_likeBtn{
+    position: absolute;
+    top:1em;
+    right:2em;
+    width:2em;
+    height: 2em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(235, 228, 228);
+    color:black;
+    cursor: pointer;
+}
+.hm-listing_item_addCard:hover{
+    transform: translateX(0.1em);
+    background-color: #f8b90c;
+    color:rgb(15, 12, 12);
+    border:0.2em solid white;
+}
+.hm-listing_item_price:hover{
+    transform: translateX(-0.1em);
+    background-color: #f8b90c;
+    color:rgb(15, 12, 12);
+    border:0.2em solid white;
+}
+.Special_offer_girls_main_box{
+   height: auto;
+   min-height: 70vh;
+   width:100%;
+   padding:2em 3em;
+   margin:5em auto;
+   background-color: rgb(204, 234, 235);
+}

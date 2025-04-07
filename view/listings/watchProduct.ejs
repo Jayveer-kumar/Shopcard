@@ -1,0 +1,217 @@
+<%-layout("layouts/boilerPlateCode.ejs")%>
+
+<!-- <body>    -->
+
+<div class="watch_product_container">
+    <div class="wtc-productimageBox">
+        <div class="wtc-product-image_selectionBox"> 
+            <% for(let image=0;image<product.image.length; image++){%>
+            <div data-aos="fade-up"  data-aos-offset="20" data-aos-delay="10" data-aos-duration="500" class="wtc-product-image_1Box">
+                <img class="wtc-product-image_1 select-prodct-img" src="<%-product.image[image]%>" alt="">
+            </div>
+            <%} %>
+        </div> 
+       <img data-aos="fade-up" data-aos-offset="20" data-aos-delay="10" data-aos-duration="500" class="wtc-productimage" src="<%-product.image[0] %>" alt="Product image">
+       <div class="wtc-productLikeBox"><i class="fa-solid fa-heart"></i></div>
+       <div class="wtc-buy-productBtn_box">
+        <a href="/shopcard/<%=product._id%>/checkout"  data-aos="fade-down" data-aos-offset="-100">
+         <button class="buy_Productbutton">
+            <i class="fa-solid fa-cart-arrow-down"></i> Buy Now 
+         </button>
+        </a>
+       </div>
+    </div>
+    <div data-aos="fade-up" data-aos-offset="20" data-aos-delay="10" data-aos-duration="500" class="wtc-productDescription">
+        <p id="product_path">Home/Give the gift of the choice</p>
+        <h3 class="wtc-productTitle"><%-product.title %></h3>
+        <button class="wtc-productPrizeBtn"> &#8377; <%-product.prize.toLocaleString("en-in") %></button>
+        <% if(product.sizes.length>0){%>
+        <p class="wtc-productSizes">Size</p>
+        <div class="wtc-productSizeBox">            
+            <% for(let productSize =0; productSize<product.sizes.length;productSize++){%>
+            <button class="wtc_product-sizeBtn"> <%-product.sizes[productSize]%></button>
+            <%} %>            
+        </div>
+        <%} %>
+        <% if(product.color.length>0){%>
+        <p class="wtc-product-color">Color</p>
+        <div class="wtc-product-colorBox">  
+            <% for(let colorImage =0; colorImage<product.color.length;colorImage++){%>
+            <div>
+                <img class="select-prodct-img" data-product-color="<%-product.color[colorImage].colorName%>" src="<%-product.color[colorImage].image%>" alt="Product image">
+            </div>
+            <%} %>            
+        </div> 
+        <%} %>
+        <div class="wtc-item-qunt-cartBox">
+            <div class="wtc-item-quantityBox">
+                 <div class="wtc-decrease-quantity"><i class="fa-solid fa-minus minusQuantity"></i></div>
+                 <p class="wtc-item-current-quantity"> 1</p>
+                 <div class="wtc-increase-quantity"><i class="fa-solid fa-plus plusQuantity"></i></div>
+            </div>
+            <div class="wtc-item-addCartBox">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span>Add To Cart</span>
+            </div>
+
+        </div> 
+        <hr>
+        <div class="wtc-product-offerContainer">
+            <div class="product-offerBox">
+                <i class="fa-solid fa-tag"></i>
+                <p>Bank Offer5% Unlimited Cashback on Shopcard Axis Bank Credit Card</p>
+                <span>T&C</span>
+            </div>
+            <div class="product-offerBox">
+                <i class="fa-solid fa-tag"></i>
+                <p>Bank Offer10% instant discount on SBI Credit Card EMI Transactions, up to ₹1,500 on orders of ₹5,000 and above</p>
+                <span>T&C</span>
+            </div>
+            <div class="product-offerBox">
+                <i class="fa-solid fa-tag"></i>
+                <p>Bank Offer10% off up to ₹1000 on HDFC Bank Credit Card EMI on 6 months and above tenure. Min. Txn Value: ₹5000</p>
+                <span>T&C</span>
+            </div>
+            <div class="product-offerBox">
+                <i class="fa-solid fa-tag"></i>
+                <p>Special PriceGet extra 36% off price inclusive of cashback/coupon</p>
+                <span>T&C</span>
+            </div>
+            <div class="product-offerBox">
+                <i class="fa-solid fa-tag"></i>
+                <p>Bank Offer12% off up to ₹1,200 on Axis Bank RuPay Credit Card Txns of ₹5,000 and above</p>
+                <span>T&C</span>
+            </div>
+            <div class="product-offerBox">
+                <i class="fa-solid fa-tag"></i>
+                <p>Bank Offer10% off up to ₹1,500 on HSBC Bank Credit Card EMI Txns on orders of ₹5,000 and above</p>
+                <span>T&C</span>
+            </div>
+        </div>
+        <div class="wtc-product-description_box">
+          <h6>Product Description</h6>  
+        <p class="wtc-product-Description">            
+            <%-product.description %>
+        </p>
+       </div>
+    </div>
+</div> 
+<div class="wtc-category-productContainer">
+    <h2 data-aos="fade-down" class="wtc-category-peopleLike">Customers also purchased</h2>
+    <div class="hm-listing-data"> 
+       <% for(let product of categoryProduct){ %>
+       <a class="ProductLink"  href="http://localhost:8080/shopcard/<%-product._id%>"> 
+        <div data-aos="fade-up" data-aos-offset="300" data-aos-delay="10" data-aos-duration="500"  class="hm-listing-dt-card-box">
+          <div class="hm-listing-dt-card-box_img">
+            <img src="<%- product.image[0]%>">
+          </div>
+          <div class="hm-listing-dt-card-box_dis">
+            <p class="hm-listing-item_title"> <%- product.title %> </p>
+            <p class="hm-listing_item_discription"> <%- product.description %> </p>
+            <div class="hm_listing_price_cardBtn">
+              <button class="hm-listing_item_price">  &#8377; <%- product.prize %> </button>
+              <button class="hm-listing_item_addCard"> <i class="fa-solid fa-cart-shopping"></i> Add To Card</button>
+            </div>
+          </div>
+          <div id="listing_item_likeBtn"><i class="fa-solid fa-heart"></i></div>
+        </div>
+        </a>
+        
+        <% } %>
+      
+    </div>
+</div>
+
+<!-- Review Section Start here -->
+<div class="wtc-review-main-container">
+    <h3 class="wtc-review-heading">Rate & Review This Product</h3> 
+    <div class="wtc-review-main-box">
+        <!-- write Review Section -->
+    <div class="wtc-review-write_mainBox">
+        <h3 class="wtc-leave-review-heading">Leave a Review</h3> 
+        <div class="wtc-review-input_box">
+            <form action="/shopcard/<%=product._id %>/review" class="wtc-review-form" method="post" >
+                <input type="range" min="1" max="5" name="reviews[rating]" id="wtc-review-rating" value="1" required>
+                <label for="wtc-review-rating" id="wtc-review-rating">Rating</label>
+                <input type="search" placeholder="Tell Us What You Think!" name="reviews[Comment]" class="wtc-review-input" required>
+                <button type="submit" class="wtc-review-submit-btn">Post</button>
+            </form>
+        </div>
+        <!--User Preview -->
+        <h3 class="wtc-your-review-heading">Your Review Preview</h3>
+        <div class="wtc-review-card-box">
+            <div class="wtc-review-user-card-image_box">
+                 <img src="<%=currentUser?currentUser.image.url:"https://img.freepik.com/premium-photo/photo-portrait-lovely-young-woman-appearing-cheerful-stylish_1077802-148047.jpg?w=900" %>" alt="">
+            </div>
+            <div class="wtc-review-user-name-username_box_likeBox-Description">
+                <div class="wtc-review-user-name-username_box_likeBox">
+                <div class="wtc-review-user-name">
+                    <h3 class="wtc-review-user-name-text"><%=currentUser?currentUser.name:"Anonymous Reviewer" %></h3>
+                    <p><%=currentUser?currentUser.username:"@guest_user" %></p>
+                </div>
+                <div class="wtc-review-likeBtn"><i class="fa-solid fa-heart"></i></div>
+              </div>
+              <div class="wtc-user-review-description">
+                <p class="wtc-user-review-description-preview-para" >Amazing product! Highly recommend.</p>
+                <!-- Preview Form -->
+                <div class="wtc-review-edit-delete-box">
+                    <form id="previewForm" onsubmit="return false;">
+                        <button class="wtc-review-edit">Edit</button>
+                    </form>
+                    <form id="previewForm" onsubmit="return false;">
+                        <button class="wtc-review-deleteBtn">Delete</button>
+                    </form>
+                    <!--Edit Preview Form -->
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <!-- All Review  -->
+    <div class="wtc-review-see-container">
+        <%if(product.ratings.reviews.length){ %>
+        <% for(let productReview of product.ratings.reviews){ %>
+        <div data-aos="fade-up" class="wtc-review-card-box">
+            <div class="wtc-review-user-card-image_box">
+                <img src="<%= productReview.userId.image.url %>" alt=""> 
+            </div>
+            <div class="wtc-review-user-name-username_box_likeBox-Description">
+                <div class="wtc-review-user-name-username_box_likeBox">
+                <div class="wtc-review-user-name">
+                    <h3 class="wtc-review-user-name-text"> <%= productReview.userId.name %>  </h3>
+                    <p> <%= productReview.userId.username %></p>
+                </div>
+                <div class="wtc-review-likeBtn"><i class="fa-solid fa-heart"></i></div>
+              </div>
+              <div class="wtc-user-review-description">
+                 <p id="wtc_review_descriptionPara"><%= productReview.comment %></p>
+                
+                <form id="reviewEditForm" class="CloseEditForm" action="/shopcard/<%= product.id %>/review/<%= productReview.id%>?_method=put" method="post" >
+                    <textarea name="comment"><%= productReview.comment %></textarea>
+                    <button id="editReviewUpdateButton" type="submit">Update</button>
+                </form>
+                <div class="wtc-review-edit-delete-box">
+                <!--Edit  Review Button -->
+                <button class="wtc-review-edit reviewEditButton">Edit</button>
+                
+                 <!--Delete Review Form -->
+                <form action="/shopcard/<%= product.id %>/review/<%= productReview.id%>?_method=Delete" method="post">
+                    <button class="wtc-review-deleteBtn">Delete</button>
+                </form>
+                <!--Edit Review Form -->
+               </div>
+              </div>
+            </div>
+        </div>
+        <%} %>
+        <%} %>
+        <%if(product.ratings.reviews.length==0){ %>
+        <p class="wtc-no-review-found">Looks like no one has reviewed this product yet. Be the first to leave your feedback!</p>
+        <%} %>
+    </div>
+</div>
+</div>
+ 
+<script src="/javascript/watch.js"></script>
+
+<!-- </body>   -->

@@ -1,0 +1,158 @@
+<%-layout("layouts/boilerPlateCode.ejs")%>
+
+<div class="buy_route_main_container">
+  <p class="buy_route_path_para">Home/Watch/buy</p>
+  <div class="buy_route_product_and_payment_main_container">
+    <div class="buy_route_address_and_product_showBox">
+        <!-- Product ka overview dene ke liye means user ne konsa product select kiya hai -->
+    <div class="buy_route_product_container_with_heading" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" >
+            <h3 class="buy_route_product_Heading">Review Item And Shipping</h3>
+            <div class="buy_route_product_container">
+            <div class="buy_route_selected_product_image">
+                <img src="<%=buyProduct.image[0]%>" alt="">            
+            </div>
+            <div class="buy_route_selected_product_description_box">
+                <p class="buy_route_selected_product_title"><%=buyProduct.title %></p>
+                <% if(buyProduct.color.length>0){ %>
+                <p class="buy_route_selected_product_color_show">Color : <span class="buy_route_selected_product_color"><%=buyProduct.color[0].colorName %></span></p>
+                <%} %>
+            </div> 
+            <% if(buyProduct.sizes.length>0){ %>
+            <div class="buy_route_selected_product_sizesBox">
+                <p class="buy_route_selected_product_size" >Selected Size</p>
+                <p class="buy_route_product_size_value" >Size : <span class="buy_product_sizeValue"> Not Selected! </span></p>
+            </div>
+            <%} %>
+            <div class="buy_route_selected_product_prize_box">
+                <p class="buy_route_selected_product_prize"><%=buyProduct.prize%></p>
+                <p class="buy_route_selected_product_quantity_show"> Quantity :  <span class="buy_route_selected_product_quantity">1</span> </p>
+            </div>
+        </div>
+    </div>
+    <div class="buy_r_Product_return_allow_box">        
+        <input type="checkbox" id="buy_product_return_allow" >
+        <label for="buy_product_return_allow">Returning Customers?</label>
+    </div>
+     <!-- Address input lene ke liye Box -->
+    <div class="buy_route_add_address_box" data-aos="fade-down" data-aos-duration="500" data-aos-delay="100" > 
+        <div class="buy_route_address_header">
+            <h3>Deleivery Information</h3>
+            <button class="buy_route_address_save_btn"> Save Information</button>
+        </div>
+        <form action="">
+        <div class="buy_route_address_input_main_Box">
+            <!-- name Input lene ke liye Box -->
+            <div class="buy_Product_address_input_f_name_l_name">
+                <div class="buy_Product_address_firstname">
+                    <p>First Name <sup style="color: #0080ff;">*</sup> </p>
+                    <input type="text" id="buy_item_Firstname" placeholder="Type here.."  >
+                    <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300">First name is required!</p>
+                </div>
+                <div class="buy_Product_address_lastname">
+                    <p>Last Name <sup style="color: #0080ff;">*</sup> </p>
+                    <input type="text" id="buy_item_Lastname" placeholder="Type here.."  >
+                    <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300" >Last name is required!</p>
+                </div>
+            </div>
+             <!--Permanent Address -->
+             <div class="buy_product_permanent_address_box">
+                <p class="buy_product_permanent_addrees_para"> Permanent Address <sup style="color:#0080ff;">*</sup></p>
+                <input type="text" placeholder="Type here.." >
+                <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300" >Permanent address is required!</p>
+             </div>
+            <!--City or Zip code -->
+            <div class="buy_product_address_city_zip_code_box">
+                <div class="buy_product_address_city_input_box">
+                    <p>City/Town <sup style="color: #0080ff;">*</sup> </p>
+                    <input type="text" placeholder="Type here.."  >
+                    <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300">City / Town is required!</p>
+                </div>
+                <div class="buy_product_address_zipcode_input_box">
+                    <p>Zipcode <sup style="color: #0080ff;">*</sup> </p>
+                    <input type="text" placeholder="Type here.." id="buy_product_zipcode_input" maxlength="6">
+                    <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300">Zipcode is required!</p>
+                </div>
+            </div>
+             <!--Mobile Number or Email id --> 
+            <div class="buy_product_address_mobile_num_Email_box">
+                <div class="buy_product_address_Mobile_input_box">
+                    <p>Mobile <sup style="color: #0080ff;">*</sup> </p>
+                    <input type="text" placeholder="Type here.." id="buy_product_mobile_number_input"  >
+                    <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300" >Mobile number is required!</p>
+                </div>
+                <div class="buy_product_address_Email_input_box">
+                    <p>Email <sup style="color: #0080ff;">*</sup> </p>
+                    <input type="email" placeholder="Type here.."  id="buy_product_email_input">
+                    <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300">Email i'd is required!</p>
+                </div>
+            </div>
+            <div class="buy_product_from_submit_box">
+                <button id="place_order_button">Place Order</button>
+            </div> 
+        </div>
+    </form>
+    </div>
+    </div>
+    <div class="buy_route_order_container" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200" >
+       <h3 id="OrderSummeryHeading">Order Summary</h3>
+       <div class="buy_route_applyCoopon_container">
+        <input type="text" placeholder="Enter Coupon Code">
+        <button class="applyCouponButton">Apply Coupon</button>
+       </div>
+       <div class="buy_route_paymentDetails_container">
+        <hr>
+        <h3 id="paymentDetailsHeading"> Payment Details</h3>
+        <div class="buy_route_payment_selection_box">
+            <div>
+                <input type="radio" id="cash_on_delivery" class="payment_method" name="payment_method">
+                <label for="cash_on_delivery">Cash on Delivery</label>
+            </div>
+            <div>
+                <input type="radio" id="Shopcard_payment" class="payment_method" name="payment_method">
+                <label for="Shopcard_payment">Shopcard</label>
+            </div>
+            <div>
+                <input type="radio" id="paypal_payment" class="payment_method" name="payment_method">
+                <label for="paypal_payment">Paypal</label>
+            </div>
+            <div>
+                <input type="radio" id="credit_card_debit_card" class="payment_method" name="payment_method">
+                <label for="credit_card_debit_card">Credit or Debit card </label>
+            </div>
+        </div>
+        <!-- agar user Debit card Select karta hai to uske card ki information lene ke liye card  -->
+         <div class="buy_route_credit_debit_card_input_container">
+            <form action="" >
+            <div>
+                <p>Email <sup style="color:#0080ff">*</sup></p>
+                <input type="email" placeholder="Type here..">
+            </div>
+            <div>
+                <p>Card Holder Name <sup style="color: #0080ff;">*</sup></p>
+                <input type="text" placeholder="Type here..">
+            </div>
+            <div>
+                <p>Card Number <sup style="color:#0080ff">*</sup> </p>
+                <input type="text" placeholder="0000****1234" maxlength="16" >
+            </div>
+            <div class="buy_route_debit_card_cvv_expireDate_box">
+                <div>
+                    <p>Expiry Date (MM/YY)<sup style="color:  #0080ff;">*</sup> </p>
+                    <input type="text" placeholder="MM/YY" maxlength="5">
+                </div>
+                <div>
+                    <p>CVV <sup style="color: #0080ff;">*</sup></p>
+                    <input type="password" placeholder="CVV" maxlength="4" autocomplete="on" >
+                </div>
+            </form>
+            </div>
+         </div>
+       </div>
+       <hr>
+    </div><!--buy_route_order_container End Here-->
+    </div>   
+</div>
+<script src="/javascript/buyProduct.js"></script>
+
+
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shopcart</title>
+    <link rel="stylesheet" href="/css/Nav_footer.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/startExploring.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/watchProduct.css">
+    <link rel="stylesheet" href="/css/review.css">     
+    <link rel="stylesheet" href="/css/login_register.css">
+    <link rel="stylesheet" href="/css/user_profile.css">
+    <link rel="stylesheet" href="/css/buy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Github Transition Cdn Link To get Smooth Transition -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> 
+    <!-- Sweet Alert library link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5/dark.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body   >
+    <%-include("../includes/navbar.ejs") %>
+    <div id="bodyContainer">
+        <%-include("../includes/flash.ejs") %> 
+        <%-body -%> 
+    </div>
+    <%-include("../includes/footer.ejs") %>
+    
+    <!-- Github Transition Cdn Link To get Smooth Transition Start Here -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"  defer></script>
+    <script defer>
+        window.addEventListener("load", () => {
+            if (typeof AOS !== "undefined") {
+                AOS.init();
+            } else {
+                console.error("AOS did not loaded!");
+            }
+        });
+
+    </script>
+     <!-- Github Transition Cdn Link To get Smooth Transition End Here -->
+    <script src="/javascript/nav_side.js" defer></script>
+    <!-- <script src="/javascript/index.js" defer ></script>  -->
+</body>
+</html>

@@ -1,0 +1,65 @@
+<body>
+<nav>
+    <div class="logo_box_container">
+      <span id="logo_icon">
+        <i class="fa-solid fa-cart-shopping"></i>
+      </span>
+      <span id="web-name">Shop Cart</span>
+    </div>
+    <!-- For Large Screen Navbar -->
+    <div class="search_input_box_container"> 
+      <div class="search-crown-box" ><i class="fa-solid fa-crown"></i></div>
+      <form action="/shopcard/search" method="get">
+      <input id="Search_product_input" type="search" placeholder="Search for Product , Brand and more" name="q">
+      <button type="button" class="search_product_icon" > <i class="fa-solid fa-magnifying-glass"></i>  </button>
+    </form>
+      <!-- ak Container uske liye jab user kuch type kare to live product preview ke liye backend se fecth karke show karne ke liye  -->
+      <div class="search-input-preview-container ">
+       <h2>Popular Categories</h2>  
+       <hr> 
+       <div class="search-product-preview-card_container">   
+        <!-- <div class="search-product-preview-card active_preview_search_card ">
+          <div class="search-product-card-img">
+            <img src="https://m.media-amazon.com/images/I/71KC6lKyTsL._SY695_.jpg" alt="">
+          </div>
+          <div class="search-product-card-description">
+            <p class="search-product-title" >I am title</p>
+            <p class="search-product-price" >I am title</p> 
+          </div>
+        </div> -->
+
+       </div>       
+      </div>
+    </div> 
+    <div class="user_cd-profile">  
+      <div class="dark-mode">
+        <i class="fa-solid fa-moon"></i>
+      </div>
+     <% if(currentUser){ %>
+      <div class="user-profile_box"> <a href="/shopcard"> <i class="fa-solid fa-user"></i> </a></div>
+      <div class="user-card"><i class="fa-solid fa-cart-shopping"></i></div>
+      <div class="registerBox"><a href="/shopcard/authenticate/logout"><button class="registerBtn">Logout</button> </a> </div> 
+    <% } %>
+    <% if(!currentUser){ %>
+      <div class="registerBox"><a href="/shopcard/authenticate/register"> <button class="registerBtn">Register</button> </a> </div>   
+      <div class="LoginBox"> <a href="/shopcard/authenticate/register"> <button class="LoginBtn">Login</button> </a> </div> 
+    <% } %>        
+    </div>
+    <!-- For Small Screen Sidebar -->
+    <div class="user-sm-sc_cd-profile">
+      <i id="barIcon" class="fa-solid fa-bars"></i>
+      <div class="small_scr_side">    
+      <% if(currentUser) { %>
+      <div class="user-profile_box userProfile_box"> <a href="/shopcard"><i class="fa-solid fa-user"></i></a></div>
+      <div class="user-card userCard_box"><i class="fa-solid fa-cart-shopping"></i></div>
+      <div class="registerBox"><a href="/shopcard/authenticate/logout"><button class="registerBtn">logout</button> </a> </div> 
+      <% } %>
+      <% if(!currentUser) { %>
+      <div class="registerBox small_scr_rgtBtn"> <a href="/shopcard/authenticate/register"> <button class="registerBtn"> Register </button> </a> </div>   
+      <div class="LoginBox"> <a href="/shopcard/authenticate/login"><button class="LoginBtn"> Login</button> </a> </div> 
+      <% } %>
+    </div>
+    </div> 
+</nav> 
+<!-- <script src="/javascript/nav_side.js"></script> -->
+</body>

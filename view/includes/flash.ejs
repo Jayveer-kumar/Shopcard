@@ -1,0 +1,40 @@
+<body>   
+<%if((successMessage && successMessage.length)||(errorMessage && errorMessage.length)){ %>
+<div class="flash-message-container">
+    <%if((successMessage && successMessage.length)) {  %>  
+    <div class="flash-success-message">
+        <p class="successMessage"><%-successMessage %></p>
+        <button class="removeSuccessmessage"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+  <% } %>
+  <%if((errorMessage && errorMessage.length)) {  %> 
+    <div class="flash-error-message">
+        <p class="errorMessage"><%-errorMessage %> </p>
+        <button class="removeSuccessmessage"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <% } %>
+</div>
+<% }%>
+<script>
+
+  document.addEventListener("DOMContentLoaded", () => {
+  let removeSuccessmessage = document.querySelectorAll(".removeSuccessmessage");
+
+  if (removeSuccessmessage.length > 0) {
+    removeSuccessmessage.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        let flashContainer = document.querySelector(".flash-message-container");
+        if (!flashContainer.classList.contains("closeFlashMessage")) {
+          flashContainer.classList.add("closeFlashMessage");
+        }
+
+        setTimeout(() => {
+          flashContainer.style.display = "none";
+        }, 1000);
+      });
+    });
+  } else {
+  }
+});
+</script>
+</body>
