@@ -101,3 +101,7 @@ let checkValidation_for_address=function(){
     })
     return isValid;  
 }
+
+function validation_for_payment(){
+    
+}
