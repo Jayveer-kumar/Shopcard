@@ -70,33 +70,30 @@ document.addEventListener("DOMContentLoaded",()=>{
         event.preventDefault();
     });
 
-    let reviewEditForm=document.getElementById("reviewEditForm");
-    let reviewEditButton=document.querySelector(".reviewEditButton");
-    let editReviewUpdateButton=document.getElementById("editReviewUpdateButton");
+    let reviewEditForms=document.querySelectorAll(".reviewEditForm");
+    let reviewEditButtons=document.querySelectorAll(".reviewEditButton");
+    let editReviewUpdateButtons=document.querySelectorAll(".editReviewUpdateButton");
+    let allOldReviewParagraphs=document.querySelectorAll(".wtc_review_descriptionPara");
 
-    if(reviewEditButton !==null){
-        reviewEditButton.addEventListener("click", (event) => {
-            event.preventDefault();
-            reviewEditForm.classList.remove("CloseEditForm");
-            reviewEditForm.classList.add("openEditForm");
-            console.log("OpenForm class Added : ");
-            let oldReviewPara = document.getElementById("wtc_review_descriptionPara");
+    if(reviewEditButtons !==null){
+        reviewEditButtons.forEach((button,index)=>{
+          button.addEventListener("click",(event)=>{
             const newUrl = window.location.pathname + "?edit=true";
-            history.pushState(null, "", newUrl);
-            // Edit form dikhana        
-            oldReviewPara.style.display = "none";
-            reviewEditForm.style.display = "block";
-            reviewEditButton.style.display = "none";
-        })
-
-        if (reviewEditForm.style.display === "block") {
-            editReviewUpdateButton.addEventListener("click", (event) => {
-                event.preventDefault();
-                reviewEditForm.classList.add("CloseEditForm");
-                reviewEditForm.classList.remove("openEditForm");
-                console.log("OpenForm class removed : ");
+            history.pushState(null, "", newUrl);      
+            allOldReviewParagraphs[index].style.display = "none";
+            reviewEditForms[index].classList.remove("CloseEditForm");
+            reviewEditForms[index].classList.add("openEditForm");
+            button.style.display="none";
+          })
+    })// End Here
+        editReviewUpdateButtons.forEach((button,index)=>{
+            button.addEventListener("click",(event)=>{
+             reviewEditForms[index].classList.add("CloseEditForm");   
+             reviewEditForms[index].classList.remove("openEditForm");
+             allOldReviewParagraphs[index].style.display = "block";
             })
-        }
+        })// End Here
+
     }  
     
 })

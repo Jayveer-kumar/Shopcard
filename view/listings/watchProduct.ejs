@@ -184,13 +184,12 @@
                 <div class="wtc-review-likeBtn"><i class="fa-solid fa-heart"></i></div>
               </div>
               <div class="wtc-user-review-description">
-                 <p id="wtc_review_descriptionPara"><%= productReview.comment %></p>
-                
-                <form id="reviewEditForm" class="CloseEditForm" action="/shopcard/<%= product.id %>/review/<%= productReview.id%>?_method=put" method="post" >
+                 <p class="wtc_review_descriptionPara"><%= productReview.comment %></p>                
+                <form class="CloseEditForm reviewEditForm" action="/shopcard/<%= product.id %>/review/<%= productReview.id%>?_method=put" method="post" >
                     <textarea name="comment"><%= productReview.comment %></textarea>
-                    <button id="editReviewUpdateButton" type="submit">Update</button>
-                </form>
-                <div class="wtc-review-edit-delete-box">
+                    <button class="editReviewUpdateButton" type="submit">Update</button>
+                </form> 
+                <div class="wtc-review-edit-delete-box"> 
                 <!--Edit  Review Button -->
                 <button class="wtc-review-edit reviewEditButton">Edit</button>
                 

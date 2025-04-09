@@ -5,14 +5,8 @@ const Review=require("../models/reviewSchema.js");
 const wrapAsync=require("../utills/asyncWrap.js");
 const ExpressError=require("../utills/expressError.js");
 const {reviewSchema}=require("../joiSchema.js");
+const {isReviewOwner,isLoggesIn}=require("../middleware.js");
 
-function isLoggedIn(req,res,next){
-  if(req.isAuthenticated()){
-      return next();
-  }
-  req.flash("error","Please Login first : ");
-  res.redirect("/shopcard/authenticate/register");
-}
 
 const validateReview=(req,res,next)=>{
   try{
@@ -59,7 +53,7 @@ router.get("/:id", wrapAsync(async (req, res) => {
   }
 })); 
 
-router.get("/:id/checkout", wrapAsync(async(req,res)=>{
+router.get("/:id/checkout", isLoggesIn, wrapAsync(async(req,res)=>{
  let {id}=req.params;
  if (id.length > 24 || id.length < 24 || !id) {
   throw new ExpressError(400, "Requested Product is not Found");
@@ -74,7 +68,7 @@ router.get("/:id/checkout", wrapAsync(async(req,res)=>{
 }))
 
 // Review Routes
-router.post("/:id/review", isLoggedIn,wrapAsync(async (req, res, next) =>{
+router.post("/:id/review", isLoggesIn,wrapAsync(async (req, res, next) =>{
   try {
     let { id } = req.params;
     if (!id) return next(new ExpressError(400, "Invalid Product Id"));
@@ -98,23 +92,23 @@ router.post("/:id/review", isLoggedIn,wrapAsync(async (req, res, next) =>{
   }
 }));
 // Update Review 
-router.put("/:id/review/:reviewId", isLoggedIn,wrapAsync( async (req,res)=>{ 
+router.put("/:id/review/:reviewId", isLoggesIn,isReviewOwner,wrapAsync( async (req,res)=>{   
   let {id,reviewId}=req.params;
   let updatedReview=req.body.comment;
   if(!updatedReview){
     req.flash("errorMessage","Please Submit valid review : ");
     return res.redirect(`/shopcard/${id}`);
   }
-  let result=await Review.findByIdAndUpdate(reviewId,{comment:updatedReview},{new:true});
-  if(!result){
-    req.flash("errorMessage","Review Not Found : ");
+  let review=await Review.findByIdAndUpdate(reviewId,{comment:updatedReview},{new:true});
+  if(!review){
+    req.flash("errorMessage","Review Not Found : "); 
     return res.redirect(`/shopcard/${id}`);
   }
   req.flash("successMessage","Review Updated Successfully : ");
-  res.redirect(`/shopcard/${id}`);  
+  res.redirect(`/shopcard/${id}`); 
 }));
 
-router.delete("/:id/review/:reviewId",isLoggedIn,wrapAsync( async(req,res,next)=>{
+router.delete("/:id/review/:reviewId",isLoggesIn,isReviewOwner,wrapAsync( async(req,res,next)=>{
   let {id,reviewId}=req.params;
   let review=await Review.findByIdAndDelete(reviewId);
   if(!review) return next(new ExpressError(400,"Requested Review Not Found :"));

@@ -212,9 +212,12 @@
     justify-content: flex-start;
     gap:1em;
 }
-.buy_route_payment_selection_box label{
+.buy_route_payment_selection_box label ,
+.buy_route_payment_selection_box input[type="radio"]
+{
     font-size: 0.9em;
     padding:0 0.3em;
+    cursor: pointer;
 }
 .buy_route_credit_debit_card_input_container{
    margin:1em 0;

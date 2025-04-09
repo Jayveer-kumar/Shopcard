@@ -177,22 +177,33 @@
 }
 /* Hidden form for edit review : */
 .CloseEditForm{
-    display: none; 
+    display: none !important; 
 }
 .openEditForm{
-    display: block;
+    display: block !important;
     flex: 1;
     width: 25em !important;
 }
 .openEditForm textarea{
-    width: 25em !important;
+    margin-top:0.3em;
+    width: 90% !important;
+    height: 4em;
+    resize: none;
+    border:0.01em solid #00000072;
+    border-radius: 0.5em;
+    padding:0.3em 0.6em;
+    transition: all 0.3s ease;
+}
+.openEditForm textarea:focus{
+    outline: 0.03em solid #000000c6;
+    box-shadow: 0 0 0.6em rgba(11, 15, 11, 0.208);
 }
 .wtc-review-edit-delete-box{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.wtc-review-deleteBtn,.wtc-review-edit,#editReviewUpdateButton{
+.wtc-review-deleteBtn,.wtc-review-edit,.editReviewUpdateButton{
     margin-top:0.4em;
     padding:0.5em 1em;
     border:none;
@@ -201,10 +212,10 @@
     border-radius: 0.6em;
     transition: all 0.2s linear;
 }
-#editReviewUpdateButton{
+.editReviewUpdateButton{
     background-color: #2dc43d;
 }
-#editReviewUpdateButton:hover{
+.editReviewUpdateButton:hover{
     background-color: #07d71c;
 }
 .wtc-review-edit{

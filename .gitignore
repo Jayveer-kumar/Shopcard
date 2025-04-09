@@ -1,0 +1,14 @@
+# Node modules (ye bahut heavy folder hota hai)
+node_modules/
+
+# Environment files (secrets waale)
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Temp files
+test.css
+test.html
+test.js

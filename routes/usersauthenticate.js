@@ -8,7 +8,7 @@ const passport = require("passport");
 const multer  = require('multer');
 const {storage}=require("../cloudConfig.js");
 const upload = multer({ storage });
-
+const {savedRedirectUrl}=require("../middleware.js");
 
 const validateUser = (req, res, next) => {
     try{
@@ -57,12 +57,12 @@ router.post("/login", (req, res, next) => {
         req.body.password = req.body.user.password;
     }
     next();
-}, passport.authenticate("local", {
+}, savedRedirectUrl, passport.authenticate("local", {
     failureRedirect: "/shopcard/authenticate/login",
     failureFlash: true
 }), (req, res) => {
     req.flash("successMessage", `Welcome Back ${req.user.name}`);
-    let redirectPath=req.session.returnTo||"/shopcard";
+    let redirectPath=res.locals.redirectUrl||"/shopcard";
     res.redirect(`${redirectPath}`);
 });
 
