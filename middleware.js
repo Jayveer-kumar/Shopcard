@@ -4,7 +4,7 @@ const asyncWrap = require("./utills/asyncWrap");
 module.exports.isLoggesIn =(req,res,next)=>{
     if(!req.isAuthenticated()){
         req.session.redirectUrl=req.originalUrl;
-        req.flash("errorMessage","Please Login first : ");
+        req.flash("errorMessage","Please Login to continue shoping : ");
         return res.redirect("/shopcard/authenticate/register");        
     }
     return next();
