@@ -27,6 +27,11 @@ router.get("/", wrapAsync(async (req, res) => {
   res.render("listings/index.ejs", { allProduct }); 
 }));
 
+// Privacy Policy route
+router.get("/privacy-policy",(req,res)=>{
+  res.render("listings/privacyPolicy.ejs");
+})
+
 //  Search Route 
 router.get("/search",async (req,res)=>{
   let SearchQuery=req.query.q;

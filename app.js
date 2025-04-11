@@ -61,9 +61,6 @@ passport.deserializeUser(User.deserializeUser());
 
 
 app.use((req,res,next)=>{
-  // if (!req.isAuthenticated() && req.path !== "/shopcard/authenticate/login") {
-  //   req.session.returnTo = req.originalUrl;
-  // }
   res.locals.successMessage=req.flash("successMessage");
   res.locals.errorMessage=req.flash("errorMessage");
   res.locals.currentUser=req.user;

@@ -363,7 +363,7 @@
     min-height: 50vh;
     width:100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(17em,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(17em,0.4fr));
     gap:2em;
 }
 .hm-listing-dt-card-box{
@@ -373,6 +373,7 @@
    display: flex;
    flex-direction: column;
    justify-content: space-between;
+   background-color: #fff;
    align-items: center;
    overflow: hidden;
    border-radius: 1em;
@@ -387,6 +388,7 @@
   height: 13em;
   width:100%;
   background-color: #ffffff;
+  padding:1em 0;
 }
 .hm-listing-dt-card-box_img img{
     width: 100%;

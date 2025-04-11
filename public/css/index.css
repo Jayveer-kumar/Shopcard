@@ -21,7 +21,8 @@ html, body{
     margin:4em 0;
     min-height: calc(100vh - 10em); 
     padding-bottom: 3em; 
-    flex: 1;    
+    flex: 1;   
+    background-color: #e9eaeabb; 
     overflow-x: hidden;
 }
 
