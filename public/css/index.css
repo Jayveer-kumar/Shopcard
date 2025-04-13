@@ -10,6 +10,8 @@
     --button-initial-color:#081e25;
     --button-hover-color:#0a2b3c;
     --button-text-color:#fff;
+    --explore-btn-color:#0e233e;
+    --explore-btn-hover-color:#0e233ef0;
 }
 
 body.dark {
@@ -85,10 +87,10 @@ html, body{
     padding:1.4em 2em;
     font-size: 0.5em;
     font-weight: 600;
-    background-color: rgb(14, 35, 62);
+    background-color: #0e233e;
     border:none;
     outline: none;
-    color:rgba(255, 255, 255, 0.721);
+    color:var(--md-wht--color);
     border-radius: 1.7em;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -97,7 +99,7 @@ html, body{
     margin-left:0.4em;
 }
 #explore_home_btn:hover{
-    background-color: rgba(14, 35, 62, 0.94);
+    background-color: var(--explore-btn-hover-color);
 }
 .hero-section_container .hero-image-box{
     flex-basis: 60%;
@@ -269,6 +271,7 @@ html, body{
     white-space: nowrap;
     flex-wrap: nowrap;
     scroll-padding-right: 2em;
+    padding:1em 0;
 }
 .user-rel-hm-card{
     flex: 0 0 15em;
