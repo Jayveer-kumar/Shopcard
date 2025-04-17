@@ -4,7 +4,8 @@
     --body-text-hero-color:#061827; /* Dark Mode Color  */
     --body-text-color:#000;
     --body-text-light-color:#fff;
-    --text-md-black-color:#666565;
+    --body-dark-light-color:#fff;
+    --text-md-black-color:#484848;
     --icon-color:#000;
     --dark-red-color: #e00d0d;
     --button-initial-color:#081e25;
@@ -12,6 +13,10 @@
     --button-text-color:#fff;
     --explore-btn-color:#0e233e;
     --explore-btn-hover-color:#0e233ef0;
+    --buttons-slider-Box-color:#b8e1d7;
+    --buttons-slider-Box-Shadow:#1d201f32;
+    --text-hover-link-color1:#1fb1e2;
+    --text-hover-link-color2:#0e233e;
 }
 
 body.dark {

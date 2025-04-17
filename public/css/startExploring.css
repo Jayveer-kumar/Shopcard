@@ -2,7 +2,8 @@
     margin-top: 5em;
     height: auto;
     width: 100%;
-    background-color: rgb(255, 253, 253);
+    /* background-color: #fffdfd; */
+    background-color: var(--body-background-color);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -33,10 +34,10 @@
     justify-content: space-between;
     align-items: center;
     padding:0.1em;
-    background-color: rgb(255, 255, 255);
-    border:0.05em solid rgb(184, 225, 215);
+    background-color: var( --body-dark-light-color);
+    border:0.05em solid var(--buttons-slider-Box-color);
     border-radius: 2em; 
-    box-shadow: 0 1em 1em rgba(29, 32, 31, 0.197);
+    box-shadow: 0 1em 1em var( --buttons-slider-Box-Shadow);
 }
 .explore_selectors button{
     font-size: 0.5em;
@@ -51,8 +52,8 @@
     }
 }
 .explore_selectors .activeBtn{
-    background-color: rgb(9, 16, 25);
-    color:rgba(255, 255, 255, 0.979);
+    background-color: var(--button-initial-color);
+    color:var(--body-text-light-color);
 }
 .explore-card_container{
     margin-top:1em;
@@ -75,8 +76,9 @@
     font-size: clamp(1rem,1vw,1.4rem);
     position: relative;
     border-radius: 2em;
-    background-color: #ffffff;
-    box-shadow: 0 0 3em rgba(106, 103, 103, 0.251);
+    background-color: var(--body-background-color);
+    /* box-shadow: 0 0 3em rgba(106, 103, 103, 0.251); */
+    box-shadow: 0 0 3em var(--buttons-slider-Box-Shadow);
 }
 .ex-card-imgBox{
     height: 5em;
@@ -84,9 +86,8 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background-color: rgba(208, 216, 216, 0.205);
     border-radius: 3em;
-    box-shadow: 0 0 2em rgba(105, 103, 103, 0.467);
+    box-shadow: 0 0 1em var(--buttons-slider-Box-Shadow);
 }
 .ex-card-imgBox img{
     height: 100%;
@@ -97,10 +98,11 @@
 }
 #remainingProduct{
     font-size: 1em;
-    color:rgba(0, 0, 0, 0.43);
+    color:var(--text-md-black-color);
 }
 #ex-item-title{
     font-size: 2em;
+    color:var(--body-text-color);
 }
 .ex-card-item-li-sbg{
     display: flex;
@@ -122,7 +124,7 @@
 .explore-card-box:hover{
     #ex-itemfor_link{
         text-decoration: underline;
-        color:rgb(31, 177, 226);
+        color:var(--text-hover-link-color1);
     }
 }
 #ex_card_sbg{
@@ -153,6 +155,12 @@
     max-height: 30em;
     width:100%;
 }
+.Listing_main_heading{
+    color:var(--body-text-color) !important;
+}
+.listing_head_para{
+    color:var(--text-md-black-color) !important;
+}
 /* Sort Button stylling Start here  */
 .hm-listing_sort_box{
     height: 6em;
@@ -164,9 +172,9 @@
 .hm-listing_sort_box .hm-listing-SortBtn{
     padding:0.5em 1em;
     margin-right: 2em;
-    background-color: #fff;
+    background-color: var(--body-dark-light-color);
     color:black;
-    border:0.1em solid rgba(95, 94, 94, 0.422);
+    border:0.1em solid var(--buttons-slider-Box-Shadow);
     border-radius: 1em;
     cursor: pointer;
     position: relative;
@@ -179,15 +187,15 @@
 /*  Selection Filter Buttons Stylling Start Here */
 #filterapplyBtn{
     padding:0.7em 2em;
-    background-color: rgb(8, 33, 33);
-    color:white;
+    background-color: var( --button-initial-color);
+    color:var(--body-text-light-color);
     border-radius: 0.8em;
     cursor: pointer;
 }
 #filterclearBtn{
     padding:0.7em 1em;
-    background-color: rgba(99, 97, 97, 0.271);
-    color:rgb(21, 29, 28);
+    background: var(--buttons-slider-Box-Shadow);
+    color:var(--body-text-color);
     border-radius: 0.5em;
     cursor: pointer;
     text-decoration: underline;
@@ -212,9 +220,9 @@
     top:-2em !important;
     min-width:20em;
     max-height: 20em;
-    background-color: rgb(255, 255, 255);
-    border:0.1em solid rgba(0, 0, 0, 0.318);
-    box-shadow: 0 0 0.5em #0c0c0c32;
+    background-color: var(--body-dark-light-color);
+    border:0.1em solid var(--buttons-slider-Box-Shadow);
+    box-shadow: 0 0 0.5em var(--buttons-slider-Box-Shadow);
     z-index: 1000;
     border-radius: 1em;
     padding:1em 0.4em;
@@ -251,21 +259,22 @@
     -moz-appearance: none;
     width: 1.5em;
     height: 1.5em;
-    border: 2px solid #0fdeed;
+    /* border: 2px solid #0fdeed; */
+    border:2px solid var(--text-hover-link-color1);
     border-radius: 1em;
     outline: none;
     cursor: pointer;
     position: relative;
-    background-color: white;
+    background-color: var(--body-dark-light-color);
 }
 .hm-listing-SortBtn >div >:first-child>div input[type="radio"]:checked{
-    background-color: #ffffff;
+    background-color: var(--body-dark-light-color);
 }
 .hm-listing-SortBtn >div >:first-child>div input[type="radio"]:checked::before{
     content: "";
     width: 0.8em;
     height: 0.8em;
-    background-color: #13dff1;
+    background-color: var(--text-hover-link-color1);
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -325,7 +334,7 @@
  }
  .minPrice  p ,.maxPrice p{
      width:100%;
-     color:rgba(0, 0, 0, 0.747) !important;
+     color:var(--body-text-color) !important;
      font-size: 2em !important;
  }
  .minPrice  input ,.maxPrice input{
@@ -333,11 +342,11 @@
      height: 6em !important;
      margin:0 0.7em !important;
      padding:0 0.5em;
-     border: 0.16em solid rgb(159, 241, 237);
+     border: 0.16em solid var(--text-hover-link-color1);
      border-radius: 0.4em;
  }
  .minPrice input:focus, .maxPrice input:focus {
-     border: 0.16em solid rgb(20, 193, 205) !important;
+     border: 0.16em solid var(--text-hover-link-color1) !important;
      outline: none !important;
  }
  
@@ -355,7 +364,6 @@
 .hm-listings-head p{
     margin-top:1em;
     font-size: 1.5em;
-    color:rgba(0, 0, 0, 0.675);
     font-weight: 600;
 }
 .hm-listing-data{
@@ -373,11 +381,11 @@
    display: flex;
    flex-direction: column;
    justify-content: space-between;
-   background-color: #fff;
+   background-color:var(--body-dark-light-color);
    align-items: center;
    overflow: hidden;
    border-radius: 1em;
-   box-shadow: 0 0 2em rgba(174, 167, 167, 0.541);
+   box-shadow: 0 0 2em var(--buttons-slider-Box-Shadow);
    position: relative;
 }
 .ProductLink{
@@ -387,7 +395,7 @@
 .hm-listing-dt-card-box_img{
   height: 13em;
   width:100%;
-  background-color: #ffffff;
+  background-color: transparent;
   padding:1em 0;
 }
 .hm-listing-dt-card-box_img img{
@@ -404,7 +412,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    background-color: #fff;
+    background-color: transparent;
 }
 .hm-listing-item_title{
     font-size: 1.4em; 
@@ -429,7 +437,7 @@
 }
 .hm-listing_item_discription:nth-child(2){
     font-weight: 300;
-    color:rgb(56, 56, 56);
+    color:var( --text-md-black-color);
 }
 .hm_listing_price_cardBtn{
     margin-top:1em;
@@ -442,9 +450,10 @@
 .hm_listing_price_cardBtn button{ 
     padding:0.7em 1em;
     border:0.2em solid transparent;
-    color:rgba(255, 255, 255, 0.988);
+    color:var(--body-text-light-color);
     border-radius: 1em;
-    background-color: rgb(15, 130, 116);
+    /* background-color: rgb(15, 130, 116); */
+    background-color: var(--button-initial-color);
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -459,7 +468,7 @@
     justify-content: center;
     align-items: center;
     background-color: rgb(235, 228, 228);
-    color:black;
+    color:  var(--icon-color);
     cursor: pointer;
 }
 .hm-listing_item_addCard:hover{
