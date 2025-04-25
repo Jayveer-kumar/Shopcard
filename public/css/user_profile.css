@@ -1,5 +1,6 @@
 .us-Profile-main_container{
     min-height: 80vh;
+    margin-top:5em;
     width:100%;
     padding:3em 5em;
     display: flex;
@@ -15,22 +16,23 @@
 }
 .us-Profile_wel_sys{
     font-size: 1rem;
-    padding:1em 2em;
-    box-shadow: 0 0 2em rgba(200, 199, 199, 0.329);
+    padding:1em 2em;    
+    background-color: var(--CardBackground2);
+    box-shadow: var(--card_shadow) 0px 1px 30px -10px;
     border-radius: 0.7em;
     border:0.1em solid rgba(0, 0, 0, 0.107);
 }
 .us-Profile_wel_sys h3{
     font-size: 1.5em;
-    color:rgba(7, 7, 7, 0.868);
+    color:var(--CardTextDarkColor);
 }
 .us-Profile_wel_sys h3 span{
-    color:rgb(8, 65, 65);
+    color:var(--CardTextMediumColor);
 }
 .us-Profile_wel_sys p{
     padding:0.5em 0;
     font-size: 1em;
-    color:rgb(68, 68, 68);
+    color:var(--CardTextMediumColor);
 }
 .us_Profile_imageBox{
     width: max-content;
@@ -39,7 +41,7 @@
     width:10em;
     overflow: hidden;
     border-radius: 50%;
-    box-shadow: 0 0 2em rgb(188, 187, 187);
+    box-shadow: 0 0 1em #bcbbbb88;
     border:0.1em solid rgba(0, 0, 0, 0.508);
 }
 .us_Profile_imageBox img{
@@ -65,8 +67,8 @@
    padding:1em;
    border:0.1em solid rgb(225, 225, 225);
    border-radius: 1em;
-   box-shadow: 0 0 1em rgba(199, 197, 197, 0.396);
-   background-color: rgb(237, 241, 245);
+   background-color: var(--CardBackground2);
+   box-shadow: var(--card_shadow) 0px 1px 30px -10px;
    cursor: pointer;
    transition: all 0.1s ease;
 }
@@ -90,6 +92,7 @@
     width:2.4em;
     border-radius: 50%;
     cursor: pointer;
+    color:var(--CardTextDarkColor);
     transition: all 0.2s ease;}
 .us-Profile_info_selection_box > div > :first-child i:hover{
     color:rgb(17, 125, 179);
@@ -97,6 +100,7 @@
 }
 .us-Profile_info_selection_box > div >:nth-child(2){
     margin-bottom: 2em;
+    color:var( --CardTextDarkColor) !important;
 }
 .us-Profile_info_selection_box > div >:nth-child(2) h3{
     padding-bottom: 0.4em;
@@ -104,7 +108,7 @@
 }
 .us-Profile_info_selection_box > div >:nth-child(2) a{
     font-size: 1em;
-    color:rgba(19, 16, 16, 0.856);
+    color:var(--CardTextMediumColor);
     text-decoration: none;
     transition: all 0.1s ease;
     cursor: pointer;

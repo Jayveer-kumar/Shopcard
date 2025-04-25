@@ -77,7 +77,8 @@
     font-size: clamp(1rem,1vw,1.4rem);
     position: relative;
     border-radius: 2em;
-    background-color: var(--cardColor);
+    /* background-color: var(--cardColor); */
+    background-color: var( --CardBackground);
     transition: all 0.2s ease;
     cursor: pointer;
 }
@@ -101,11 +102,11 @@
 }
 #remainingProduct{
     font-size: 1em;
-    color:var(--md_blackText);
+    color:var(--CardTextMediumColor);
 }
 #ex-item-title{
     font-size: 2em;
-    color:var(--blackText);
+    color:var(--CardTextDarkColor);
 }
 .ex-card-item-li-sbg{
     display: flex;
@@ -116,7 +117,7 @@
 #ex-itemfor_link{
     text-decoration: none;
     position: relative;
-    color:var(--md_blackText);
+    color:var(--links);
     transition: all 0.2s ease;
     cursor:  pointer !important;
     z-index: 100;
@@ -378,8 +379,7 @@
    display: flex;
    flex-direction: column;
    justify-content: space-between;
-   /* background-color:var(--cardColor); */
-   background-color: var(--blackCard);
+   background-color: var(--CardBackground);
    align-items: center;
    overflow: hidden;
    border-radius: 1em;
@@ -387,12 +387,12 @@
    transition: all 0.2s ease;
 }
 .hm-listing-dt-card-box:hover{
-    box-shadow: var(--card_shadow) 0px 18px 50px -10px;
+    box-shadow: var(--card_shadow) 0px 5px 20px -10px;
     transform: translateY(-0.2em); 
 }
 .ProductLink{
     text-decoration: none;
-    color:black;
+    color:var(--CardTextDarkColor);
 }
 .hm-listing-dt-card-box_img{
   height: 13em;
@@ -440,7 +440,7 @@
 }
 .hm-listing_item_discription:nth-child(2){
     font-weight: 300;
-    color:var( --text-md-black-color);
+    color:var(--CardTextMediumColor) !important;
 }
 .hm_listing_price_cardBtn{
     margin-top:1em;
@@ -467,33 +467,32 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ebe4e4;
-    color:  var(--icon-color);
+    background-color: var(--CardButtonBackground);
+    color:var(--CardButtonColor);
     cursor: pointer;
 }
 .hm-listing_item_addCard{
-   background-color: #1e1e1e;
-   color: #fffffd;
+   background-color: var(--CardButtonBackground);
+   color: var(--CardButtonColor);
 }
 .hm-listing_item_addCard:hover{
-    transform: translateX(0.1em);
     background-color: #1a1a1ae7;
     color:#c8c8c8;
     border:0.2em solid white;
 }
 .hm-listing_item_price{
-    background-color: #000000;
-    color:#fefefe;
+    background-color: var(--CardButtonBackground);
+    color: var(--CardButtonColor);
+    border:0.2em solid white;
 }
 .hm-listing_item_price:hover{
-    transform: translateX(-0.1em);
     background-color: #000000d5;
     color:#bcbcbc;
     border:0.2em solid white;
 }
 .Special_offer_girls_main_box{
    height: auto;
-   min-height: 70vh;
+   /* min-height: 70vh; */
    width:100%;
    padding:2em 3em;
    margin:5em auto;

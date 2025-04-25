@@ -2,7 +2,7 @@
     min-height: 100vh;
     min-width: 100%;
     height: auto;
-    margin-top:0.2em; 
+    margin-top:5em; 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -11,7 +11,7 @@
 }
 .buy_route_path_para{
     font-size: 0.8em;
-    color:#111111a0;
+    color:var(--mdBlack);
     padding:1em 0;
 }
 .buy_route_product_and_payment_main_container{
@@ -22,6 +22,7 @@
     grid-template-columns:45em 1fr;
     gap:1.5em;
     justify-content: center;
+    background-color: transparent;
 }
 .buy_route_address_and_product_showBox{
     width: 100%;
@@ -41,9 +42,12 @@
     border-radius: 0.3em;
     padding:0.7em 0.4em;
     overflow: hidden;
+    background-color: var(--CardBackground2);
+    box-shadow: var(--card_shadow) 0px 1px 30px -10px;
 }
 .buy_route_product_Heading{
-    padding:1em 0.2em;
+    padding:0.5em 0.2em;
+    color:var(--CardTextDarkColor);
 }
 .buy_route_product_container{
     height: 10em;
@@ -57,7 +61,7 @@
    height: 10em;
    width: 10em;
    padding:0.7em;
-   background-color: #fbebeaae;
+   background-color: transparent;
    border-radius: 0.4em;
    margin-bottom: 1.5em;
 }
@@ -69,9 +73,11 @@
 .buy_route_selected_product_title,.buy_route_selected_product_prize ,.buy_route_selected_product_size{
     font-size: 1.2em;
     font-weight: 600;
+    color:var(--CardTextDarkColor);
 }
 .buy_route_selected_product_color_show ,.buy_route_selected_product_quantity_show, .buy_route_product_size_value{
     font-size: 0.8em !important;
+    color:var(--CardTextMediumColor);
 }
 .buy_route_add_address_box{
     width: 100%;
@@ -82,6 +88,11 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    background-color: var(--CardBackground2);
+    box-shadow: var(--card_shadow) 0px 1px 30px -10px;
+}
+.buy_r_Product_return_allow_box{
+    color:var(--CardTextDarkColor);
 }
 .buy_route_address_header{
     width: 100%;
@@ -90,12 +101,15 @@
     align-items: center;
     padding:1.2em;
 }
+.buy_route_address_header h3{
+    color:var(--CardTextDarkColor);
+}
 .buy_route_address_save_btn{
     border:none;
-    background-color: #082028c8;
+    background-color: var( --CardButtonBackground);
     padding:0.4em 0.8em;
     border-radius: 0.4em;
-    color: #dee9f2;
+    color: var(--CardButtonColor);
     cursor: pointer;
 }
 /* Input Boxes Stylling */
@@ -112,6 +126,7 @@
 .buy_route_address_input_main_Box >div div p{
     font-size: 0.9em;
     padding:0.4em 0;
+    color:var(--CardTextMediumColor);
 }
 .buy_product_form_invalid_msg{
     color:red;
@@ -125,6 +140,7 @@
     height: 3em;
     padding: 0 0.5em;
     border:0.01em solid #8e8c8c46;
+    background-color: var(--inputBoxColor);
     border-radius: 0.4em;
 }
 .buy_route_address_input_main_Box >div div >input:focus
@@ -164,6 +180,8 @@
     border:0.01em solid #00000046;
     border-radius: 0.3em;
     padding:1em 1.4em;
+    background-color: var(--CardBackground2);
+    box-shadow: var(--card_shadow) 0px 1px 30px -10px;
 }
 .buy_route_order_container hr{
     margin: 1em 0;
@@ -171,6 +189,7 @@
 }
 #OrderSummeryHeading,#paymentDetailsHeading{
     padding:0.7em 0;
+    color:var(--CardTextDarkColor);
 }
 .buy_route_applyCoopon_container{
     padding:0.3em 0.2em;
@@ -178,7 +197,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ebe9e9;
+    background-color: var(--inputBoxColor);
     border-radius: 1em;
     overflow: hidden;
 }
@@ -187,6 +206,7 @@
     border:none;
     background-color: transparent;
     padding:0 0.6em;
+    color: var(--CardTextMediumColor);
 }
 .applyCouponButton{
     border:0.01em solid #027e16ef;
@@ -218,6 +238,7 @@
     font-size: 0.9em;
     padding:0 0.3em;
     cursor: pointer;
+    color: var(--CardTextDarkColor);
 }
 .buy_route_credit_debit_card_input_container{
    margin:1em 0;
@@ -242,6 +263,7 @@
 .buy_route_credit_debit_card_input_container div p{
     font-size: 0.9em;
     padding:0.4em 0;
+    color: var(--CardTextDarkColor);
 }
 .buy_route_credit_debit_card_input_container div input{
     width: 100%;
@@ -249,6 +271,8 @@
     padding: 0 0.5em;
     border:0.01em solid #8e8c8c46;
     border-radius: 0.4em;
+    background-color: var(--inputBoxColor);
+    color: var(--CardTextMediumColor);
 }
 .buy_route_debit_card_cvv_expireDate_box{
     display: flex;

@@ -2,7 +2,7 @@
     min-height: 100vh;
     min-width: 100%;
     height: auto;
-    margin-top:0.2em; 
+    margin-top:5em; 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -33,13 +33,12 @@
   align-items: flex-start;
   padding:0.3em 0.7em;
   position: relative;
-  background: var(--blackCard);
+  background-color: var(--CardBackground2);
   border-radius: 0.5em;
   transition: all 0.3s ease;
   cursor: pointer;
   position: relative;
   border:0.01em solid rgba(4, 4, 4, 0.121);
-
 }
 .search_route_data_card .search_route_card_image_box{
   padding:0.5em 0;
@@ -62,6 +61,9 @@
   font-size: 1em;
   padding:0.3em;
 }
+.search_route_card_title{
+  color:var(--CardTextDarkColor);
+}
 .search_route_card_description {
   display: -webkit-box;
   -webkit-line-clamp: 2; /* Number of lines to show */
@@ -69,7 +71,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 0.7em;
-  color:#2c2c2c85;
+  color:var(--CardTextMediumColor);
 }
 
 .search_route_card_description_box .search_route_card_prizeBox{
@@ -81,15 +83,19 @@
   align-items: center;
   position: relative;
 }
+.search_route_card_prize{
+  color:var(--CardTextDarkColor);
+}
 .search_route_card_fPrice ,.search_route_card_off_prize ,.search_route_card_free_delivery{
   font-size: 0.8em;
+  color:var(--CardTextMediumColor);
 }
 .search_route_card_off_prize{
   color:#0d740d;
 }
 .search_route_card_fPrice{
   text-decoration: line-through;
-  color: #595858;
+  color:var(--CardTextMediumColor);
 }
 .search_route_card_bank_offer{
   font-size: 0.8em;

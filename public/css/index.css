@@ -14,10 +14,18 @@
     --card_shadow: #00000033;  
     --cardColor: #fefefe;
     --blackText: #000000;
-    /* --md_blackText: #3c3c3c; */
     --md_blackText: #b9b9b9;
     --blackCard:#fefefe;
     --blackCard2:#e7e8e9;
+
+    /* New updated Card Colors  */
+    --CardBackground:#d7d9da;
+    --CardBackground2:#fefefe;
+    --CardButtonBackground: #1c1b1b;
+    --CardButtonColor: #ffffff;
+    --CardTextDarkColor: #111111;
+    --CardTextMediumColor:#373737;
+    --inputBoxColor: #ffffff;
 }
 :root .darkMode{
     --bodyBackColor: #030b0e;
@@ -33,11 +41,19 @@
     --links:#dedede;
     --card_shadow: #ffffff61; 
     --cardColor: #e2e2e2;
-    /* --cardColor:black; */
     --blackText: #000000;
     --blackCard:#000000;
     --blackCard2:#0e0e0e;
     --md_blackText: #3c3c3c;
+
+    /* New updated Card Colors  */
+    --CardBackground:#1f1f1f;
+    --CardBackground2:#121212;
+    --CardButtonBackground: #d5d5d5;
+    --CardButtonColor: #1a1a1a;
+    --CardTextDarkColor: #eeeeee;
+    --CardTextMediumColor:#d9d8d8;
+    --inputBoxColor: #1d1d1d;
 }
 *{
     margin:0;
@@ -51,7 +67,6 @@ html, body{
     scroll-behavior: smooth;
 }
 #bodyContainer {
-    margin:4em 0;
     min-height: calc(100vh - 10em); 
     padding-bottom: 3em; 
     flex: 1;   
@@ -70,6 +85,7 @@ html, body{
     padding-top:3.4rem;
     padding-left:2rem;
     padding-right:2rem;
+    margin-top:3em;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -294,18 +310,8 @@ html, body{
     justify-content: space-evenly;
     align-items: center;
     border-radius: 1em;
-}
-.Volleyboll{
-    background-color: rgba(228, 215, 197, 0.711);
-}
-.tShirt{
-    background-color: rgb(175, 182, 169);
-}
-.colPerFume{
-    background-color: rgb(240, 237, 230);
-}
-.jhumkaCollection{
-    background-color: rgba(0, 0, 0, 0.381);
+    background-color: var(--CardBackground);
+
 }
 .rel-item-info-box{
     display: flex;
@@ -313,6 +319,7 @@ html, body{
     justify-content: space-between;
     align-items: center;
     font-size: 1rem;
+    color: var(--CardTextDarkColor);
 }
 .rel-item-info{
     height: 50%;
@@ -406,14 +413,14 @@ html, body{
     scroll-behavior: smooth;
     white-space: nowrap;
     flex-wrap: nowrap;
-    padding:1.5em;
+    padding:1em 0.3em;
     scroll-padding-right: 2em;
+    background-color: transparent;
 }
 .new-Arival-card-box{
     flex: 0 0 18em;
     height: 27em;
-    background: var(--bodyBackColor);
-    color:var(--textColor);
+    background: var(--CardBackground);
     display: flex;   
     flex-direction: column;
     justify-content: flex-start;
@@ -423,7 +430,6 @@ html, body{
     transition: all 0.2s ease;
 }
 .new-Arival-card-box:hover{
-    /* box-shadow: -1em 0 2em var(--textColor); */
     box-shadow: var(--card_shadow) 0px 18px 50px -10px;
     transform: scale(1.01);
 }
@@ -447,7 +453,8 @@ html, body{
     right:1em;
     cursor: pointer;
     border-radius: 50%;
-    background-color:var(--md_white_color);
+    background-color:var(--CardButtonBackground);
+    color:var(--CardButtonColor);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -490,6 +497,8 @@ html, body{
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
+    color:var(--CardTextDarkColor);
+    padding:0 0.4em;
 }
 .item-color-box{
     min-height: 3em;
