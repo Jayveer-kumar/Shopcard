@@ -12,13 +12,14 @@
 .wtc-review-main-container .wtc-review-heading{
     text-align: left;
     font-size: 1.7em;
+    color:var(--textColor);
 }
 .wtc-review-main-box{
     margin-top:2em;
     min-height: 80vh; 
     height: auto;
     width:100%;
-    background-color: rgba(255, 255, 255, 0.93);
+    background-color: transparent;
     border-radius: 1em;
     display: grid;
     grid-template-columns: 28em 1fr;
@@ -26,18 +27,21 @@
 }
 /* writing review Stylling start here */
 .wtc-review-write_mainBox{
-    background-color: #f9f9f5;
+    background-color: var(--blackCard);
+    color:white;
     border-radius: 1em;
     padding:0 1em;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    box-shadow: 0 0 1em rgba(230, 199, 199, 0.195);
 }
 .wtc-review-write_mainBox .wtc-leave-review-heading{
     padding:1.2em 0;
     font-size: 1.4em;
     text-align: center;
+    color:var(--textColor);
 }
 .wtc-review-input_box{
     width:100%;
@@ -55,12 +59,13 @@
     top:-2em;
     right:1em;
 } 
+
 .wtc-review-input_box form .wtc-review-submit-btn{
     padding:1em 1.7em;
     font-weight: 600;
     border:0.1em solid transparent;
-    background-color: #092030;
-    color:#f0f0f0;
+    background-color: #00aa0e;
+    color:white;
     cursor: pointer;
     border-top-right-radius: 0.5em;
     border-bottom-right-radius: 0.5em;
@@ -68,13 +73,12 @@
 }
 .wtc-review-input_box form .wtc-review-submit-btn:hover{
   border:0.1em solid rgb(10, 8, 4);
-  background-color: rgba(10, 34, 49, 0.953);
 }
-
 .wtc-review-input_box form input{
     padding:1em 1.2em;
     flex:1;  
     border:0.05em solid black;
+    background-color: var(--md_blackText);
     border-top-left-radius: 0.5em;
     border-bottom-left-radius: 0.5em;
     outline: none;
@@ -89,9 +93,10 @@
     margin-top:2em;
     text-align: center;
     padding:0.8em 0;
+    color:var(--textColor);
 }
 .wtc-review-see-container{
-    background-color: #f9f9f5;
+    background-color:var(--blackCard);
     padding:2em 1em;
     border-radius: 1em;
     display: flex;
@@ -99,12 +104,13 @@
     gap:3em;
     justify-content: flex-start;
     align-items:center;
+    box-shadow: 0 0 1em rgba(230, 199, 199, 0.155);
+    color:var(--textColor);
 }
 .wtc-review-card-box{
     min-height: 6em;
     height: auto;
-    background-color: #fbfbfbe8;
-    box-shadow: 0 0 2em rgba(230, 199, 199, 0.382);
+    background-color: var( --blackCard2);
     width:100%;
     display: flex;
     justify-content:center;
@@ -115,7 +121,6 @@
     height: 2.4em;
     width:2.4em;
     border-radius: 50%;
-    background-color: #d28129;
     margin-bottom: 1.6em;
     margin-left:0.7em;
     overflow: hidden;
@@ -140,12 +145,12 @@
     align-items: center;
 }
 .wtc-review-user-name .wtc-review-user-name-text{
-   font-size: 1em;
-   color:rgb(36, 35, 32);
+   font-size: 1em;  
+   color:var(--textColor);
 }
 .wtc-review-user-name p{
     font-size: 0.8em;
-    color:rgb(70, 70, 70);
+    color:var(--links);
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -174,6 +179,7 @@
 }
 .wtc-user-review-description-preview-para{
     font-size: 0.8em;
+    color:var(--links);
 }
 /* Hidden form for edit review : */
 .CloseEditForm{

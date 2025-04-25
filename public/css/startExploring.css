@@ -2,8 +2,7 @@
     margin-top: 5em;
     height: auto;
     width: 100%;
-    /* background-color: #fffdfd; */
-    background-color: var(--body-background-color);
+    background-color: var(--bodyBackColor);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -21,6 +20,7 @@
 .explore-head_t_in h2{
     font-size: 1.5em;
     text-align: center;
+    color:var(--mdBlack);
 }
 .explore_selectorsbox{
     margin-top:1em;
@@ -34,16 +34,17 @@
     justify-content: space-between;
     align-items: center;
     padding:0.1em;
-    background-color: var( --body-dark-light-color);
-    border:0.05em solid var(--buttons-slider-Box-color);
+    background-color: var(--color);
+    border:0.01em solid var(--links);
     border-radius: 2em; 
-    box-shadow: 0 1em 1em var( --buttons-slider-Box-Shadow);
+    box-shadow: var(--card_shadow) 0px 18px 50px -10px;
 }
 .explore_selectors button{
     font-size: 0.5em;
     font-weight: 600;
     border:none;
-    background-color: #ffffff;
+    background-color: var(--color);
+    color:var(--mdBlack);
     padding:0.7em 2em;
     border-radius: 1.4em;
     cursor: pointer;
@@ -52,8 +53,8 @@
     }
 }
 .explore_selectors .activeBtn{
-    background-color: var(--button-initial-color);
-    color:var(--body-text-light-color);
+    background-color: var(--textColor);
+    color:var(--color);
 }
 .explore-card_container{
     margin-top:1em;
@@ -76,9 +77,12 @@
     font-size: clamp(1rem,1vw,1.4rem);
     position: relative;
     border-radius: 2em;
-    background-color: var(--body-background-color);
-    /* box-shadow: 0 0 3em rgba(106, 103, 103, 0.251); */
-    box-shadow: 0 0 3em var(--buttons-slider-Box-Shadow);
+    background-color: var(--cardColor);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.explore-card-box:hover{
+    box-shadow: var(--card_shadow) 0px 18px 50px -10px;
 }
 .ex-card-imgBox{
     height: 5em;
@@ -87,7 +91,6 @@
     justify-content: flex-start;
     align-items: center;
     border-radius: 3em;
-    box-shadow: 0 0 1em var(--buttons-slider-Box-Shadow);
 }
 .ex-card-imgBox img{
     height: 100%;
@@ -98,11 +101,11 @@
 }
 #remainingProduct{
     font-size: 1em;
-    color:var(--text-md-black-color);
+    color:var(--md_blackText);
 }
 #ex-item-title{
     font-size: 2em;
-    color:var(--body-text-color);
+    color:var(--blackText);
 }
 .ex-card-item-li-sbg{
     display: flex;
@@ -113,7 +116,7 @@
 #ex-itemfor_link{
     text-decoration: none;
     position: relative;
-    color:rgb(9, 29, 31);
+    color:var(--md_blackText);
     transition: all 0.2s ease;
     cursor:  pointer !important;
     z-index: 100;
@@ -124,7 +127,6 @@
 .explore-card-box:hover{
     #ex-itemfor_link{
         text-decoration: underline;
-        color:var(--text-hover-link-color1);
     }
 }
 #ex_card_sbg{
@@ -156,10 +158,10 @@
     width:100%;
 }
 .Listing_main_heading{
-    color:var(--body-text-color) !important;
+    color:var(--textColor) !important;
 }
 .listing_head_para{
-    color:var(--text-md-black-color) !important;
+    color:var(--mdBlack) !important;
 }
 /* Sort Button stylling Start here  */
 .hm-listing_sort_box{
@@ -172,8 +174,8 @@
 .hm-listing_sort_box .hm-listing-SortBtn{
     padding:0.5em 1em;
     margin-right: 2em;
-    background-color: var(--body-dark-light-color);
-    color:black;
+    background-color: var(--buttonPrimary);
+    color:var(--color);
     border:0.1em solid var(--buttons-slider-Box-Shadow);
     border-radius: 1em;
     cursor: pointer;
@@ -187,8 +189,8 @@
 /*  Selection Filter Buttons Stylling Start Here */
 #filterapplyBtn{
     padding:0.7em 2em;
-    background-color: var( --button-initial-color);
-    color:var(--body-text-light-color);
+    background-color: #100e0e;
+    color:#fefefe;
     border-radius: 0.8em;
     cursor: pointer;
 }
@@ -199,6 +201,7 @@
     border-radius: 0.5em;
     cursor: pointer;
     text-decoration: underline;
+    background-color: #fa790f;
 }
 
 .hm-listing_sort_box button input[type="checkbox"]{
@@ -220,9 +223,9 @@
     top:-2em !important;
     min-width:20em;
     max-height: 20em;
-    background-color: var(--body-dark-light-color);
-    border:0.1em solid var(--buttons-slider-Box-Shadow);
-    box-shadow: 0 0 0.5em var(--buttons-slider-Box-Shadow);
+    background-color: var(--cardColor);
+    border:0.01em solid var(--lowBlack);
+    box-shadow: var(--card_shadow) 0px 18px 50px -10px;
     z-index: 1000;
     border-radius: 1em;
     padding:1em 0.4em;
@@ -259,22 +262,21 @@
     -moz-appearance: none;
     width: 1.5em;
     height: 1.5em;
-    /* border: 2px solid #0fdeed; */
-    border:2px solid var(--text-hover-link-color1);
+    border:2px solid var(--blackText);
     border-radius: 1em;
     outline: none;
     cursor: pointer;
     position: relative;
-    background-color: var(--body-dark-light-color);
+    background-color: var(--cardColor);
 }
 .hm-listing-SortBtn >div >:first-child>div input[type="radio"]:checked{
-    background-color: var(--body-dark-light-color);
+    background-color: var(--blackText);
 }
 .hm-listing-SortBtn >div >:first-child>div input[type="radio"]:checked::before{
     content: "";
     width: 0.8em;
     height: 0.8em;
-    background-color: var(--text-hover-link-color1);
+    background-color: #2eb6ff;
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -283,7 +285,7 @@
 }
 .hm-listing-SortBtn >div >:first-child>div label{
     padding:0 0.4em;
-    color:#062e42;
+    color:var(--blackText);
     font-size: 1.2em;
 }
 .hm-listing-SortBtn >div >:last-child{
@@ -302,7 +304,7 @@
 .hm-lis-price_selectBox{
     width:100%;
     font-size: 0.5em;
- }
+}
  
  #hm_lis_price{
      margin-top:0.6em;
@@ -315,6 +317,7 @@
  #price_selc_showMaxPara{
      font-size: 1.7em;
      font-weight: 400 !important;
+     color:var(--blackText);
  }
  .price_min_max_box{
      margin-top:3em;
@@ -334,7 +337,7 @@
  }
  .minPrice  p ,.maxPrice p{
      width:100%;
-     color:var(--body-text-color) !important;
+     color:var(--md_blackText) !important;
      font-size: 2em !important;
  }
  .minPrice  input ,.maxPrice input{
@@ -342,11 +345,12 @@
      height: 6em !important;
      margin:0 0.7em !important;
      padding:0 0.5em;
-     border: 0.16em solid var(--text-hover-link-color1);
+     border: 0.16em solid var(--md_blackText);
+     background-color: #fefefe;
      border-radius: 0.4em;
  }
  .minPrice input:focus, .maxPrice input:focus {
-     border: 0.16em solid var(--text-hover-link-color1) !important;
+     border: 0.16em solid #2eb6ff !important;
      outline: none !important;
  }
  
@@ -358,14 +362,6 @@
 
 /* Filter Buttons Stylling Start Here */ 
 
-.hm-listings-head h2{
-    font-size: 2.2em;
-}
-.hm-listings-head p{
-    margin-top:1em;
-    font-size: 1.5em;
-    font-weight: 600;
-}
 .hm-listing-data{
     margin-top:4em;
     min-height: 50vh;
@@ -373,6 +369,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(17em,0.4fr));
     gap:2em;
+    background-color: var(--bodyBackColor);
 }
 .hm-listing-dt-card-box{
    height: 27em;
@@ -381,12 +378,17 @@
    display: flex;
    flex-direction: column;
    justify-content: space-between;
-   background-color:var(--body-dark-light-color);
+   /* background-color:var(--cardColor); */
+   background-color: var(--blackCard);
    align-items: center;
    overflow: hidden;
    border-radius: 1em;
-   box-shadow: 0 0 2em var(--buttons-slider-Box-Shadow);
    position: relative;
+   transition: all 0.2s ease;
+}
+.hm-listing-dt-card-box:hover{
+    box-shadow: var(--card_shadow) 0px 18px 50px -10px;
+    transform: translateY(-0.2em); 
 }
 .ProductLink{
     text-decoration: none;
@@ -431,6 +433,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     letter-spacing: 0.03em;
+    color:var(--textColor) !important;
 }
 .hm-listing_item_discription:first-child{
     font-size: 1em;
@@ -450,10 +453,7 @@
 .hm_listing_price_cardBtn button{ 
     padding:0.7em 1em;
     border:0.2em solid transparent;
-    color:var(--body-text-light-color);
     border-radius: 1em;
-    /* background-color: rgb(15, 130, 116); */
-    background-color: var(--button-initial-color);
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -467,20 +467,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(235, 228, 228);
+    background-color: #ebe4e4;
     color:  var(--icon-color);
     cursor: pointer;
 }
+.hm-listing_item_addCard{
+   background-color: #1e1e1e;
+   color: #fffffd;
+}
 .hm-listing_item_addCard:hover{
     transform: translateX(0.1em);
-    background-color: #f8b90c;
-    color:rgb(15, 12, 12);
+    background-color: #1a1a1ae7;
+    color:#c8c8c8;
     border:0.2em solid white;
+}
+.hm-listing_item_price{
+    background-color: #000000;
+    color:#fefefe;
 }
 .hm-listing_item_price:hover{
     transform: translateX(-0.1em);
-    background-color: #f8b90c;
-    color:rgb(15, 12, 12);
+    background-color: #000000d5;
+    color:#bcbcbc;
     border:0.2em solid white;
 }
 .Special_offer_girls_main_box{
@@ -489,5 +497,4 @@
    width:100%;
    padding:2em 3em;
    margin:5em auto;
-   background-color: rgb(204, 234, 235);
 }

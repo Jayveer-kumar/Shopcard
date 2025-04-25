@@ -1,4 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+    // Dark Mode Switching Logic Start Here
+    let mainBody=document.getElementById("bodyContainer");
+    let modeSwitchButton=document.querySelector(".modeSwitchButton");
+    let modeIcon=modeSwitchButton.children[0];
+
+    // Also save and set the mode in Local Storage
+        // Check if dark mode is already set in local storage
+    if(localStorage.getItem("darkMode")==="true"){
+        mainBody.classList.add("darkMode");
+        modeIcon.classList.remove("fa-moon");
+        modeIcon.classList.add("fa-sun");
+    }else{
+        mainBody.classList.remove("darkMode");
+        modeIcon.classList.remove("fa-sun");
+        modeIcon.classList.add("fa-moon");
+    }
+    function toggleMode(){
+        mainBody.classList.toggle("darkMode");
+        // Change the icon based on the mode
+        if(mainBody.classList.contains("darkMode")){
+            localStorage.setItem("darkMode","true");
+            modeIcon.classList.remove("fa-moon");
+            modeIcon.classList.add("fa-sun");
+        }else{
+            localStorage.setItem("darkMode","false");
+            modeIcon.classList.remove("fa-sun");
+            modeIcon.classList.add("fa-moon");
+        }
+    }
+    modeSwitchButton.addEventListener("click",toggleMode);
+    // Dark Mode Switching Logic End Here
     let small_scr_side = document.querySelector(".small_scr_side");
     let sideBarIcon = document.getElementById("barIcon");
     function checkWindowWidth() {
@@ -89,22 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // heroImageChangePrevBtn.addEventListener("click", function (event) {
     //     console.log("Prev Slide button Clicked : ");
     // });
-  
-   
-    // Hero section image change Logic End Here 
-
-    
-
-    // Darkmode Switch Logic
-    // let darkModeSwitchButton=document.querySelector(".dark-mode");
-    // darkModeSwitchButton.addEventListener("click",()=>{
-    //     let checkBody=document.body;
-    //    checkBody.classList.toggle("dark-mode");
-    // }) 
-    
-    // Left , right Button => next-img-sld , prev-img-sld
-
-    // current image = hero_section_image   all here is id 
     
 })
 

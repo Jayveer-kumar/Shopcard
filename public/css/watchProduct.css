@@ -3,7 +3,7 @@
     width:100%;
     min-height: 40em;
     height: auto;
-    background-color: #ffffff;
+    background-color: var(--bodyBackColor);
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(23em,1fr));
     padding:3em 5em;
@@ -15,7 +15,7 @@
    min-height: 10em;
    height: 25em;
    width:80%;
-   background-color: rgb(255, 255, 255);
+   background-color: transparent;
    position: relative;
 }
 .wtc-productimage{
@@ -40,13 +40,13 @@
     gap:0.5em;
     padding:0.5em;
     overflow: hidden; 
-    box-shadow:  0 1em 2em rgb(180, 178, 178);
+    box-shadow: var(--card_shadow) 0px 18px 50px -10px;    
 }
 .wtc-product-image_selectionBox  >div{
     max-width: 4em;
     width:4em;
     height: 100%;
-    border:0.03em solid #0781ba50;
+    border:0.03em solid var(--card_shadow);
     border-radius: 0.3em;
     overflow: hidden;
     cursor: pointer;    
@@ -63,7 +63,7 @@
     right:1em;
     height: 2.5em;
     width:2.5em;
-    background-color: rgba(154, 154, 154, 0.441);
+    background-color: #9a9a9a70;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -84,7 +84,6 @@
     width: 70%;
     height: 100%;
     text-decoration: none;
-    color:#fff;
 }
 .wtc-buy-productBtn_box a >button{
     margin:auto;
@@ -92,11 +91,11 @@
     height: 100%;
     border-radius: 1em;
     border:none;
-    background-color: rgb(8, 30, 37);
+    background-color: var( --buttonPrimary);
+    color:var(--color);
     font-size: 1.2em;
     font-weight: 600;
     cursor: pointer;
-    color:#ffffff;
     i{
         margin:0 0.5em;
     }
@@ -114,7 +113,7 @@
     max-width:30%;
     width:10em;
     height: 80%;
-    background-color: #f1f1f1;
+    background-color: var(--cardColor);
     border-radius: 1em;
     display: flex;
     justify-content: space-around;
@@ -124,8 +123,8 @@
 .wtc-item-quantityBox >div{
     height: 2em;
     width:2em;
-    border:0.02em solid rgba(0, 0, 0, 0.362);
-    background-color: #ffffff;
+    border:0.02em solid var(--card_shadow);
+    background-color: transparent;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -135,19 +134,19 @@
 }
 .wtc-item-quantityBox >div:hover{
     background-color: #ffffff;
-    border:0.02em solid rgba(0, 0, 0, 0.896); 
+    border:0.02em solid #000000e4; 
 }
 .wtc-item-addCartBox{
     max-width: 50%;
     width:17em;
     height: 80%;
-    background-color: rgb(8, 30, 37);
+    background-color: var( --buttonPrimary) !important;
+    color:var(--color) !important;
     border-radius: 1em;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1rem;
-    color:#fff;
     cursor: pointer;
 }
 .wtc-item-addCartBox i{
@@ -163,7 +162,7 @@
    min-height: 20em;
    height: auto;
    width:100%;
-   background-color: #fff;
+   background-color: transparent;
    padding:0 2em;
    display: flex;
    flex-direction: column;
@@ -173,18 +172,19 @@
 }
 #product_path{
     font-size: 1em;
-    color:rgba(89, 87, 87, 0.616);
+    color:var( --md_blackText);
     margin-bottom: 0.5em;
 }
 .wtc-productTitle{
     font-size: 2.3em;
     margin-bottom:1em;
+    color:var(--links);
 }
 .wtc-productPrizeBtn{
     padding:0.3em 1em;
-    border:0.1em solid #07aeba;
-    background-color: #ffffff;
-    color:#07aeba;
+    border:1px solid #07aeba;
+    background-color: var(--buttonSecondry);
+    color:var(--color);
     font-size: 1.2em;
     font-weight: 600;
     border-radius: 0.5em;
@@ -192,6 +192,7 @@
 .wtc-productSizes{
     padding:0.4em 0;
     font-size: 1.1em;
+    color:var(--mdBlack);
 }
 .wtc-productSizeBox{
     min-height: 4em;
@@ -205,16 +206,16 @@
     height: 60%;
     max-width: 6em;
     width:5em;
-    background-color: #fff;
-    color:black;
+    background-color: var(--buttonPrimary);
+    color:var(--color);
     font-weight: 600;
     border-radius: 0.5em;
     border:0.2em solid #00000015;
     cursor: pointer;
 }
 .wtc-product-size-active{
-    color:#07aeba !important;
-    border:0.2em solid #07aeba !important;
+    color:#d92901 !important;
+    border:0.2em solid #f1380f !important;
 }
 .wtc-product-color{
     margin-top: 2em;
@@ -246,11 +247,13 @@
 .wtc-product-description_box h6{
     margin-top:1em;
     font-size: 1em;  
+    color:var(--textColor);
 }
 .wtc-product-Description{
     margin-top:1em;
     font-size: 1em;
     letter-spacing: 0.02em;
+    color:var(--mdBlack);
 }
 
 /* Product Offer Stylling Start Here */
@@ -278,6 +281,7 @@
 }
 .wtc-product-offerContainer>div >p{
     padding:0 0.5em;
+    color:var(--textColor);
 }
 .wtc-product-offerContainer>div >span{
    cursor: pointer;
@@ -299,6 +303,7 @@
 }
 .wtc-category-peopleLike{
     font-size: 2em;
+    color:var(--textColor);
 }
 .activeLike{
     color:red;

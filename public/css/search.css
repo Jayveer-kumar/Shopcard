@@ -14,7 +14,7 @@
   width: 100%;
   height: auto;
   flex: 1;
-  background-color: #ffffff;
+  background-color: transparent;
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(14em,0.2fr));
   justify-content: flex-start;
@@ -33,12 +33,13 @@
   align-items: flex-start;
   padding:0.3em 0.7em;
   position: relative;
-  background: #fff;
+  background: var(--blackCard);
   border-radius: 0.5em;
   transition: all 0.3s ease;
   cursor: pointer;
   position: relative;
   border:0.01em solid rgba(4, 4, 4, 0.121);
+
 }
 .search_route_data_card .search_route_card_image_box{
   padding:0.5em 0;
