@@ -1,6 +1,6 @@
 /* CSS Variables for Dark mode and light mode */
 :root{
-    --bodyBackColor: #f6fafa;
+    --bodyBackColor: #fbffff;
     --heroSectionBackColor:#add098b3;
     --buttonPrimary: #1e1e1e;
     --buttonSecondry: #081e25;
@@ -8,7 +8,7 @@
     --color:white;
     --mdBlack: #060606;
     --textColor: #132713cd;
-    --lowBlack: #313131;
+    --lowBlack: #62626215;
     --md_white_color: #e3e3e3;
     --links:#081225;  
     --card_shadow: #00000033;  
@@ -19,7 +19,7 @@
     --blackCard2:#e7e8e9;
 
     /* New updated Card Colors  */
-    --CardBackground:#d7d9da;
+    --CardBackground:#ebedee;
     --CardBackground2:#fefefe;
     --CardButtonBackground: #1c1b1b;
     --CardButtonColor: #ffffff;
@@ -36,7 +36,7 @@
     --color:#000000;   
     --mdBlack: #efefef;
     --textColor: #ffffff;
-    --lowBlack: #afafaf;
+    --lowBlack: #afafaf80;
     --md_white_color: #0d0b0b; 
     --links:#dedede;
     --card_shadow: #ffffff61; 

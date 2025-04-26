@@ -467,9 +467,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--CardButtonBackground);
-    color:var(--CardButtonColor);
+    background-color: var(--lowBlack);
     cursor: pointer;
+}
+.listing_item_likeBtn svg{
+    fill: var(--buttonSecondry);
+}
+.activeLikeBtn svg{
+    fill: #f51137 !important;
 }
 .hm-listing_item_addCard{
    background-color: var(--CardButtonBackground);
@@ -490,10 +495,55 @@
     color:#bcbcbc;
     border:0.2em solid white;
 }
-.Special_offer_girls_main_box{
-   height: auto;
-   /* min-height: 70vh; */
+.Services_to_help_you_container{
+   min-height: 30em;
+   max-height: auto;
    width:100%;
    padding:2em 3em;
-   margin:5em auto;
+   margin:4em auto;
+}
+#owrService{
+    color:var(--CardTextDarkColor);
+    padding: 1em 0;
+}
+.servicesShowMainCardContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(14em,0.3fr));
+    justify-content: center;
+    gap:2em;
+}
+.serviceShowCardBox{
+    border: 0.4px solid var(--links);
+    border-radius: 10px;
+    height: 22em;
+    overflow: hidden;
+    background-color: var(--CardBackground);
+    box-shadow: var(--card_shadow) 0px 10px 30px -10px;
+}
+.serviceShowDescription{
+    background-color: var(--lowBlack);
+    height: 10em;
+    padding:1em;
+}
+.serviceShowDescription h2{
+    color: var(--CardTextDarkColor);
+}
+.serviceShowCardImage{
+    height: 12em;
+    width: 100%;
+    background-color: transparent !important;
+}
+.serviceShowCardImage img{
+    height: 100%;
+    width:100%;
+    object-fit: cover;
+    object-position: center;
+    background-color: transparent !important;
+}
+.serviceShowDescription p{
+    color:var(--CardTextMediumColor);
+    margin:1em 0;
+}
+.serviceShowCardImage{
+    background-color: yellow;
 }

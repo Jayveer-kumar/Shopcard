@@ -156,14 +156,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     })
 
-    // Product Like Logic 
-    let allLikeBox = document.querySelectorAll(".fa-heart");
-    allLikeBox.forEach((card) => {
-        card.addEventListener("click", function () {
-            this.classList.add("activeLike");
+    // Add Event Listner on Like Button
+    const likeBtns=document.querySelectorAll(".listing_item_likeBtn");
+    likeBtns.forEach((likeBtn)=>{
+        likeBtn.addEventListener("click",function(event){
+            event.preventDefault();
+            likeBtn.classList.toggle("activeLikeBtn");
+            console.log(likeBtn);
         })
     })
-
 
     // Funcation to add Cards based on user Selection
     function addCard_userSelection(card) {

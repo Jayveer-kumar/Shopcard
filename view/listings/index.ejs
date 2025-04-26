@@ -472,7 +472,11 @@
                 <button class="hm-listing_item_addCard"> <i class="fa-solid fa-cart-shopping"></i> Add To Card</button>
               </div>
             </div>
-            <div id="listing_item_likeBtn"><i class="fa-solid fa-heart"></i></div>
+            <div id="listing_item_likeBtn" class="listing_item_likeBtn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"  />
+              </svg>
+            </div>
           </div>
           <% } %>
         </a>
@@ -481,12 +485,50 @@
 
       <!-- Listing Data Section End Here --> 
 
-       <!-- Special Offers for girls object container start here -->   
-        <div class="Special_offer_girls_main_box">
-          <div class="special-offer_image_container"></div>
-          <div class="special-offer-text-head"></div>        
+       <!-- Services  --> 
+        <div class="Services_to_help_you_container">
+          <hr> 
+          <h2 id="owrService">Services To Help You Shop</h2> 
+          <div class="servicesShowMainCardContainer">
+            <div class="serviceShowCardBox">
+              <div class="serviceShowDescription">
+                <h2>Frequently Asked Questions</h2>
+               <p>Find answers to common questions about shopping, orders, returns, and more.</p>
+              </div>
+              <div class="serviceShowCardImage">
+                <img src="https://img.freepik.com/free-photo/front-view-young-siblings-with-laptop_23-2148355137.jpg?t=st=1745660213~exp=1745663813~hmac=924b4c2b13de3ddf0ad8d78ae0e42bffac404f4c832670d46849a76ce2cb0879&w=1380" alt="">
+              </div>
+            </div>
+            <div class="serviceShowCardBox">
+              <div class="serviceShowDescription">
+                <h2>Online Payment Process</h2>
+                <p>Enjoy secure and fast payments through credit cards, UPI, wallets & more.</p>
+              </div>
+              <div class="serviceShowCardImage">
+                <img src="https://img.freepik.com/free-vector/nfc-technology-concept-illustration_114360-14387.jpg?t=st=1745660490~exp=1745664090~hmac=eebe614f47209fcb6cfc5b0778db840281dfb38ef69ba8ca62b9d7d26c683347&w=826" alt="">
+              </div>
+            </div>
+            <div class="serviceShowCardBox">
+              <div class="serviceShowDescription">
+                <h2>Home Delivery</h2>
+                <p>We deliver right to your doorstep with safety and speed, across the country.</p>
+              </div>
+              <div class="serviceShowCardImage">
+                <img src="https://img.freepik.com/free-photo/young-delivery-girl-red-polo-shirt-yellow-cap-holding-cardboard-boxes-showing-clipboard-with-blank-pages-asking-signatyre-looking-confident_141793-28722.jpg?ga=GA1.1.528019809.1739184205&semt=ais_hybrid&w=740" alt="">
+              </div>
+            </div>
+            <div class="serviceShowCardBox">
+              <div class="serviceShowDescription">
+                <h2>24/7 Customer Support</h2>
+                <p>Need help? Our support team is available anytime via chat, email, or call.</p>
+              </div>
+              <div class="serviceShowCardImage">
+                 <img src="https://img.freepik.com/free-photo/welcome-sign_329181-11708.jpg?ga=GA1.1.528019809.1739184205&semt=ais_hybrid&w=740" alt="">
+              </div>
+            </div>
+          </div>      
         </div>
-       <!-- Special Offers for girls object container End here --> 
+       <!-- Servicess --> 
 
        <pre data-Product="<%=JSON.stringify(allProduct) %>" id="DataValueforfilter" style="display: none;" ></pre> 
        <script src="/javascript/index.js" ></script>  

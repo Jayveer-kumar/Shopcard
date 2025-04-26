@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let modeIcon=modeSwitchButton.children[0];
 
     // Also save and set the mode in Local Storage
-        // Check if dark mode is already set in local storage
+    // Check if dark mode is already set in local storage
     if(localStorage.getItem("darkMode")==="true"){
         mainBody.classList.add("darkMode");
         modeIcon.classList.remove("fa-moon");

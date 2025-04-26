@@ -440,7 +440,6 @@ nav .user_cd-profile{
 }
 .supportSectionBox .supportSectionOptionBox ,
 .QuickLinksBox .QuickLinksOptionBox,
-.SocialMediaLinks .socialmediaLinksOption,
 .Policies-legal .policies-legal_container{
     min-height: 12em;
     display: flex;
@@ -448,6 +447,67 @@ nav .user_cd-profile{
     justify-content: space-around;
     align-items: flex-start;
 }
+/* Social Midea Links Stylling Start Here */
+.socialmediaLinksOption{
+    display: flex;
+    gap:10px;
+}
+.socialmediaLinksOption a {
+background-color: white;
+padding:1em;
+border-radius: 50%;
+height: 50px;
+width: 50px;
+box-sizing: border-box;
+flex-shrink: 0;
+display: grid;
+place-items: center;
+box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+}
+.socialmediaLinksOption a:hover{
+    background-color: var(--accent-color); 
+    fill: white;
+}
+.socialmediaLinksOption a svg{
+    height: 20px;
+}
+.socialmediaLinksOption a::before{
+    content: attr(data-social);
+    position: absolute;
+    background-color: var(--accent-color);
+    color:white;
+    text-decoration: none;
+    padding:0.5em 1em;
+    border-radius: 100px;
+    box-shadow: 0 5px 10px rgba(0,0.0,0.05);
+    transform: translateY(-35px) rotate(25deg);
+    opacity: 0;
+    transition:200ms ease ;
+}
+.socialmediaLinksOption a::after{
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid var(--accent-color); 
+    transform: translateY(0) rotate(25deg);  
+    opacity: 0;  
+    transition:200ms ease; 
+}
+
+.socialmediaLinksOption a:hover::before{
+    transform: translateY(-65px) rotate(0);
+    opacity: 1;
+}
+.socialmediaLinksOption a:hover::after{
+    transform: translateY(-42px) rotate(0);
+    opacity: 1;
+}
+
+
+/* Social Midea Links Stylling End Here  */
 .footer-sc-head-line{
     color:var(--md-wht--color);
 }
