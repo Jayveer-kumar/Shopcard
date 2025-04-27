@@ -7,12 +7,12 @@
     background-color: var(--bodyBackColor);
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(23em,1fr));
-    padding:3em 5em;
+    padding:3em;
     gap:3em;
 }
 .wtc-productimageBox{
    margin-left: 2em;
-   margin-top: 2em;
+   margin-top: 1em;
    min-height: 10em;
    height: 25em;
    width:80%;
@@ -28,7 +28,7 @@
 .wtc-product-image_selectionBox{
     position: absolute;
     top:0;
-    left:-4.5em;
+    left:-2.5em;
     min-height: 10%;
     height: auto;
     max-width: 100%;
@@ -64,7 +64,8 @@
     right:1em;
     height: 2.5em;
     width:2.5em;
-    background-color: #9a9a9a70;
+    background-color: var(--CardBackground);
+    color: var(--CardTextMediumColor);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -173,7 +174,7 @@
 }
 #product_path{
     font-size: 1em;
-    color:var( --md_blackText);
+    color:var(  --CardTextMediumColor);
     margin-bottom: 0.5em;
 }
 .wtc-productTitle{

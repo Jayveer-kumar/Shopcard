@@ -1,16 +1,8 @@
 // Import necessary function 
 
-import { generateFakePrize } from "./search.js";
+import { generateFakePrize , addCard_userSelection } from "./search.js";
 
 document.addEventListener("DOMContentLoaded", () => { 
-
-    let sampleAnswer =generateFakePrize(50000);
-    if(sampleAnswer){
-        console.log("Function is working  : ",sampleAnswer);
-    }else{
-        console.log("function is not working : ");
-    }
-
 
     // User Releted Product ko move karne ka logic
     const scrollContainer = document.querySelector(".user-releted-card_box");

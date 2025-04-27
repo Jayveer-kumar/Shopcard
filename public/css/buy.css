@@ -198,15 +198,16 @@
     justify-content: space-between;
     align-items: center;
     background-color: var(--inputBoxColor);
-    border-radius: 1em;
+    border:0.01em solid #8e8c8c46;
+    border-radius: 0.4em;
     overflow: hidden;
 }
 .buy_route_applyCoopon_container input{
     height: 100%;
-    border:none;
-    background-color: transparent;
     padding:0 0.6em;
+    background-color: transparent;
     color: var(--CardTextMediumColor);
+    border:none;
 }
 .applyCouponButton{
     border:0.01em solid #027e16ef;
@@ -227,10 +228,25 @@
     outline:none;
 }
 .buy_route_payment_selection_box{
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     gap:1em;
+    overflow: hidden;
+}
+.buy_route_payment_methods_imageBox{
+    width: 100%;
+    height: 2.5em;
+    display: flex;
+    gap: 1em;
+    img{
+        width: 20%;
+        height: 100%;
+        object-fit: contain;
+        border: 1px solid var(--CardTextDarkColor);
+        border-radius: 0.5em;
+    }
 }
 .buy_route_payment_selection_box label ,
 .buy_route_payment_selection_box input[type="radio"]
