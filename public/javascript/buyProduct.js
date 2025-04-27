@@ -1,4 +1,8 @@
-document.addEventListener("DOMContentLoaded",()=>{
+// import { generateFakePrize } from "./search";
+document.addEventListener("DOMContentLoaded",()=>{  
+    // let sampleAnswer=generateFakePrize(50000);
+    // console.log(sampleAnswer);
+  
     let params=new URLSearchParams(window.location.search);
     let productSize=params.get("Size");
     let productQuantity=params.get("Quantity");

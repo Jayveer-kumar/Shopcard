@@ -1,5 +1,17 @@
+// Import necessary function 
+
+import { generateFakePrize } from "./search.js";
 
 document.addEventListener("DOMContentLoaded", () => { 
+
+    let sampleAnswer =generateFakePrize(50000);
+    if(sampleAnswer){
+        console.log("Function is working  : ",sampleAnswer);
+    }else{
+        console.log("function is not working : ");
+    }
+
+
     // User Releted Product ko move karne ka logic
     const scrollContainer = document.querySelector(".user-releted-card_box");
     const prevSlideBtn = document.getElementById("rel_slide_prev");

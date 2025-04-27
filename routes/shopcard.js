@@ -72,7 +72,7 @@ router.post("/:id/like",isLoggesIn,wrapAsync(async(req,res)=>{
     
   }
 }))
-router.get("/:id/checkout", isLoggesIn, wrapAsync(async(req,res)=>{
+router.get("/:id/checkout",  wrapAsync(async(req,res)=>{
  let {id}=req.params;
  if (id.length > 24 || id.length < 24 || !id) {
   throw new ExpressError(400, "Requested Product is not Found");

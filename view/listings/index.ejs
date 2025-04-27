@@ -467,8 +467,14 @@
             <div class="hm-listing-dt-card-box_dis">
               <p class="hm-listing-item_title"> <%- product.title %> </p>
               <p class="hm-listing_item_discription"> <%- product.description %> </p>
+              <p class="hm-listing_item_offer"> <i class="fa-solid fa-crown"></i> shopcard <span>Offers 30% Off</span>  &nbsp; for only this Product  </p>
+              <!-- Here we create a div for more incoming features  -->
+              <div class="hm-listing_item_deliveryPara" >
+                <p> <span>Free Delivery</span> <i class="fa-solid fa-truck-fast"></i>   </p>
+                <!-- Create paragraph to show how many discount user can get on to this product -->                
+              </div>
               <div class="hm_listing_price_cardBtn">
-                <button class="hm-listing_item_price">  &#8377; <%- product.prize %> </button>
+                <button class="hm-listing_item_price"> <i class="fa-solid fa-indian-rupee-sign"></i> <%- product.prize %> </button>
                 <button class="hm-listing_item_addCard"> <i class="fa-solid fa-cart-shopping"></i> Add To Card</button>
               </div>
             </div>
@@ -535,6 +541,5 @@
         </div>
        <!-- Servicess --> 
 
-       <pre data-Product="<%=JSON.stringify(allProduct) %>" id="DataValueforfilter" style="display: none;" ></pre> 
-       <script src="/javascript/index.js" ></script>  
-
+ <pre data-Product="<%=JSON.stringify(allProduct) %>" id="DataValueforfilter" style="display: none;" ></pre> 
+ <script  type="module" src="/javascript/index.js" ></script>  

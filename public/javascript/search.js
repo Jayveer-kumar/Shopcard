@@ -139,6 +139,8 @@ function generateFakePrize(originalPrize){
     };
 }
 
+
+
 function addCard_userSelection(card) {
     // Create a anchor tag so be able to see this card in detail and also buy this product
     let cardLink = document.createElement("a");
@@ -258,7 +260,6 @@ function sizeBasedSortCard(){
 }
 
 // Function to hide Filter Cards
-
 function hideFilterBox(cardName) {       
     // Remove old AOS attributes
     cardName.removeAttribute("data-aos");
@@ -285,3 +286,5 @@ function hideFilterBox(cardName) {
         cardName.classList.remove("hide_filter_Box_smoothly"); // After get Transition then remove this class
     }, 300); // Match transition duration 
 }
+
+export{generateFakePrize ,addCard_userSelection};

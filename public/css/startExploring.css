@@ -404,6 +404,7 @@
     border-radius: 1em;
 }
 .hm-listing-dt-card-box_dis{
+    flex:1;
     padding:1em;
     font-size: clamp(1rem,2vh,1.5rem);
     display: flex;
@@ -438,9 +439,25 @@
     font-weight: 300;
     color:var(--CardTextMediumColor) !important;
 }
+.hm-listing_item_offer ,.hm-listing_item_deliveryPara{
+    font-size: 0.8em;
+    color: var(--CardTextMediumColor);    
+}
+.hm-listing_item_deliveryPara{
+    width: 100%;
+    padding:0.3em 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:0.5em;
+}
+.hm-listing_item_offer span{
+    color:#049104 !important;
+    padding-left: 0.3em;
+}
 .hm_listing_price_cardBtn{
     margin-top:1em;
-    padding:1em 0;
+    /* padding:1em 0; */
     width: 100%;
     display: flex;
     justify-content: space-between;
