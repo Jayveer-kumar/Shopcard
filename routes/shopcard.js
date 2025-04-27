@@ -6,7 +6,7 @@ const wrapAsync=require("../utills/asyncWrap.js");
 const ExpressError=require("../utills/expressError.js");
 const {reviewSchema}=require("../joiSchema.js");
 const {isReviewOwner,isLoggesIn}=require("../middleware.js");
-
+const User=require("../models/user.js");
 
 const validateReview=(req,res,next)=>{
   try{
@@ -58,6 +58,20 @@ router.get("/:id", wrapAsync(async (req, res) => {
   }
 })); 
 
+// Product Add Like Route 
+router.post("/:id/like",isLoggesIn,wrapAsync(async(req,res)=>{
+  let {id}=req.params;
+  if (id.length > 24 || id.length < 24 || !id) {
+    throw new ExpressError(400, "Requested Product is not Found");
+  }
+  else {
+    let product = await Product.findById(id);
+    if(!product) return next(new ExpressError(400,"Requested Product not Found!"));
+    let userId=req.user.id;
+    let user= await User.findById(userId);
+    
+  }
+}))
 router.get("/:id/checkout", isLoggesIn, wrapAsync(async(req,res)=>{
  let {id}=req.params;
  if (id.length > 24 || id.length < 24 || !id) {

@@ -37,17 +37,42 @@
     width: 100%;
     padding: 10px;
     margin: 5px 0;
-    border: 1px solid var(--lowBlack);
+    border: 1px solid var( --card_shadow);
     color:var(--CardTextDarkColor);
     border-radius: 5px;
     background-color: transparent;
 }
 .login_box_container .container input:focus{
-    outline:1px solid #11be11;
+    outline:1px solid #c614dd;
+    border:1px solid transparent;
 }
 .login_box_container .container input[type="file"]{
    display: none;
 }
+.login_box_container .container .passwordBox{
+    width: 100%;
+    border: 1px solid var( --card_shadow);  
+    border-radius: 5px;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    input{
+        border:none;
+        padding: 10px;
+        margin: 0;
+    }
+    input:focus{
+        outline: none;
+    }
+}
+.login_box_container .container .passwordBox i{
+    cursor: pointer;
+    color:var(--CardTextMediumColor);
+    font-size: 0.8em;
+    margin-right: 1em;
+}
+
 .registration-image-selection-btn{
     display: inline-block;
     padding: 0.6em 1.1em;

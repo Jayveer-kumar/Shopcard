@@ -7,7 +7,13 @@ const userSchema = new mongoose.Schema({
     image:{
         url:String,
         fileName:String
-    }
+    },
+    likedProduct:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"Product"
+        }
+    ]
 }); 
 
 userSchema.plugin(passportLocalMongoose); 

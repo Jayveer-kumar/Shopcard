@@ -386,10 +386,6 @@
    position: relative;
    transition: all 0.2s ease;
 }
-.hm-listing-dt-card-box:hover{
-    box-shadow: var(--card_shadow) 0px 5px 20px -10px;
-    transform: translateY(-0.2em); 
-}
 .ProductLink{
     text-decoration: none;
     color:var(--CardTextDarkColor);
@@ -469,12 +465,21 @@
     align-items: center;
     background-color: var(--lowBlack);
     cursor: pointer;
+    opacity: 0;
+    transition: all 0.2s ease;
 }
 .listing_item_likeBtn svg{
     fill: var(--buttonSecondry);
 }
 .activeLikeBtn svg{
     fill: #f51137 !important;
+}
+.hm-listing-dt-card-box:hover{
+    box-shadow: var(--card_shadow) 0px 5px 20px -10px;
+    transform: translateY(-0.2em);
+    #listing_item_likeBtn{
+        opacity: 1;
+    } 
 }
 .hm-listing_item_addCard{
    background-color: var(--CardButtonBackground);
@@ -518,10 +523,10 @@
     height: 22em;
     overflow: hidden;
     background-color: var(--CardBackground);
-    box-shadow: var(--card_shadow) 0px 10px 30px -10px;
+    box-shadow: var(--card_shadow) 0px 10px 10px -10px;
 }
 .serviceShowDescription{
-    background-color: var(--lowBlack);
+    background-color: var(--CardBackground);
     height: 10em;
     padding:1em;
 }

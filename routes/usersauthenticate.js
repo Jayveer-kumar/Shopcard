@@ -51,20 +51,20 @@ router.post("/register", validateUser, upload.single("user[image]"), async (req,
     }
 });
 
-router.post("/login", (req, res, next) => {
+router.post("/login", (req, res, next) => { 
     if (req.body.user) {
         req.body.username = req.body.user.username;
         req.body.password = req.body.user.password;
+    } next(); // pass control to the next middleware
+    }, savedRedirectUrl,  passport.authenticate("local", {
+        failureRedirect: "/shopcard/authenticate/register",
+        failureFlash: true
+    }), (req, res) => {
+        req.flash("successMessage", `Welcome Back ${req.user.name}`);
+        let redirectPath=res.locals.redirectUrl||"/shopcard";
+        res.redirect(`${redirectPath}`);      
     }
-    next();
-}, savedRedirectUrl, passport.authenticate("local", {
-    failureRedirect: "/shopcard/authenticate/login",
-    failureFlash: true
-}), (req, res) => {
-    req.flash("successMessage", `Welcome Back ${req.user.name}`);
-    let redirectPath=res.locals.redirectUrl||"/shopcard";
-    res.redirect(`${redirectPath}`);
-});
+);
 
 
 router.get("/logout",async(req,res,next)=>{

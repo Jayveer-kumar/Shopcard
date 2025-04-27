@@ -36,7 +36,7 @@
     --color:#000000;   
     --mdBlack: #efefef;
     --textColor: #ffffff;
-    --lowBlack: #afafaf80;
+    --lowBlack: #a7a6a6c7;
     --md_white_color: #0d0b0b; 
     --links:#dedede;
     --card_shadow: #ffffff61; 
@@ -47,7 +47,7 @@
     --md_blackText: #3c3c3c;
 
     /* New updated Card Colors  */
-    --CardBackground:#1f1f1f;
+    --CardBackground:#8585851f;
     --CardBackground2:#121212;
     --CardButtonBackground: #d5d5d5;
     --CardButtonColor: #1a1a1a;
@@ -432,6 +432,9 @@ html, body{
 .new-Arival-card-box:hover{
     box-shadow: var(--card_shadow) 0px 18px 50px -10px;
     transform: scale(1.01);
+    .new-arivl-col-like_box{
+        opacity: 1;
+    }
 }
 .newArival-card-img-box{
     height: 17em;
@@ -453,11 +456,12 @@ html, body{
     right:1em;
     cursor: pointer;
     border-radius: 50%;
-    background-color:var(--CardButtonBackground);
+    background-color:var(--lowBlack);
     color:var(--CardButtonColor);
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
     i{
         font-size: 1.2em;
     }

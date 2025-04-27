@@ -7,14 +7,17 @@
     <div class="container">
         <div class="form-box">
             <form class="  hidden loginForm" method="post" action="http://localhost:8080/shopcard/authenticate/login">
-                <h2>Login</h2>
+                <h2> Login</h2>
                 <input type="text" name="user[username]" placeholder="Username" required autocomplete="username">
-                <input type="password" name="user[password]" placeholder="Password" required autocomplete="current-password">
+                <div class="passwordBox">
+                     <input type="password" name="user[password]" id="loginPassword" placeholder="Password" required autocomplete="current-password">
+                     <i class="fa-solid fa-eye-slash" id="loginEyeIcon"></i> <!-- Not Visiable password eye icon -->
+                </div>
                 <button type="submit">Login</button>
-                <p>Don't have an account? <a href="#" id="showRegister">Sign up</a></p>
+                <p>Don't have an account? <a href="" id="showRegister">Sign up</a></p>
             </form>
-            <form class="  registerForm" method="post" action="http://localhost:8080/shopcard/authenticate/register" enctype="multipart/form-data">
-                <h2>Sign up</h2>
+            <form   class="registerForm" method="post" action="http://localhost:8080/shopcard/authenticate/register" enctype="multipart/form-data">
+                <h2>  Sign up</h2>
                 <input type="text" name="user[name]" placeholder="Full Name" required>
                 <input type="text" name="user[username]" placeholder="Username" required>
                 <input type="email" name="user[email]" placeholder="Email" required autocomplete="email">
@@ -25,9 +28,12 @@
                 <label for="registration-image" class="registration-image-selection-btn">Upload Image</label>
                 <p class="no-image-selected">No image Selected</p>
                 <!-- Image End -->
-                <input type="password" name="user[password]" placeholder="Password" required autocomplete="new-password">
+                <div class="passwordBox">
+                    <input type="password" name="user[password]" id="registerPassword" placeholder="Password" required autocomplete="new-password">
+                    <i class="fa-solid fa-eye-slash" id="registerEyeIcon"></i> <!-- Not Visiable password eye icon -->
+                </div>
                 <button type="submit">Register</button>
-                <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+                <p>Already have an account? <a href="" id="showLogin">Login</a></p>
             </form>            
         </div>
     </div>
