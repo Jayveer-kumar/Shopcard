@@ -5,10 +5,10 @@ module.exports.isLoggesIn =(req,res,next)=>{
     if(!req.isAuthenticated()){
         req.session.redirectUrl=req.originalUrl;
         req.flash("errorMessage","Please Login to continue shoping : ");
-        return res.redirect("/shopcard/authenticate/register");        
+        return res.redirect("/shopcard/authenticate/register");
+        // return res.status(302).json({ message: "Login required", redirectUrl: "/shopcard/authenticate/register?action=login" });        
     }
-    return next();
-    
+    return next();    
 }
 
 module.exports.savedRedirectUrl=(req,res,next)=>{

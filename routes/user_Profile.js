@@ -13,7 +13,6 @@ function isLoggedIn(req,res,next){
 
 // Render User Profile Page
 router.get("/", isLoggedIn, (req,res)=>{   
-    req.flash("successMessage","You Got Your Profile: "); 
     res.render("users/Profile.ejs",{user:res.locals.currentUser});
 });
 

@@ -69,10 +69,35 @@ router.post("/:id/like",isLoggesIn,wrapAsync(async(req,res)=>{
     if(!product) return next(new ExpressError(400,"Requested Product not Found!"));
     let userId=req.user.id;
     let user= await User.findById(userId);
-    
+    if(!user) return next(new ExpressError(400,"Requested Product not Found!"));
+    user.likedProduct.push(product._id);
+    await user.save(); 
+    console.log("User Liked One Product SuccessFull :  ");
+    res.json({message:"Product added to your cart."});
   }
 }))
-router.get("/:id/checkout",  wrapAsync(async(req,res)=>{
+
+// Product delete Like Route
+
+router.delete("/:id/like",isLoggesIn,wrapAsync(async(req,res)=>{
+  let {id}=req.params;
+  if (id.length > 24 || id.length < 24 || !id) {
+    throw new ExpressError(400, "Requested Product is not Found");
+  }
+  else {
+    let product = await Product.findById(id);
+    if(!product) return next(new ExpressError(400,"Requested Product not Found!"));
+    let userId=req.user.id;
+    let user= await User.findById(userId);
+    if(!user) return next(new ExpressError(400,"Requested Product not Found!"));
+    user.likedProduct = user.likedProduct.filter(id=> id.toString() !==product._id.toString() );
+    await user.save();
+    console.log("User Removed  One Liked Product to there Cart SuccessFull :  ");
+    res.json({message:"Product removed from your cart"});
+  }
+}))
+
+router.get("/:id/checkout", isLoggesIn,  wrapAsync(async(req,res)=>{
  let {id}=req.params;
  if (id.length > 24 || id.length < 24 || !id) {
   throw new ExpressError(400, "Requested Product is not Found");

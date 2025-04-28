@@ -163,10 +163,55 @@ document.addEventListener("DOMContentLoaded", () => {
     // Add Event Listner on Like Button
     const likeBtns=document.querySelectorAll(".listing_item_likeBtn");
     likeBtns.forEach((likeBtn)=>{
-        likeBtn.addEventListener("click",function(event){
+        likeBtn.addEventListener("click",async(event)=>{
             event.preventDefault();
-            likeBtn.classList.toggle("activeLikeBtn");
-            console.log(likeBtn);
+            // likeBtn.classList.toggle("activeLikeBtn");
+            // console.dir(likeBtn.parentElement.method);
+            // activeLikeBtn if contains that means we send delete request to the server else send post request to the server
+            
+            // console.log(likeBtn.getAttribute("data-isLiked"));
+            if(likeBtn.classList.contains("activeLikeBtn")){
+                // Product is already liked
+                likeBtn.classList.remove("activeLikeBtn");
+                let likeForm = likeBtn.parentElement;
+                let productId=likeForm.children[0].name;
+                let likedResponse= await  fetch(`/shopcard/${productId}/like`,{
+                    method:"delete",
+                    headers:{
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({productId}),
+                    redirect:"manual"
+                })
+                if(likedResponse.ok){
+                    console.log(likedResponse);
+                }else if(likedResponse.status===302){
+                    window.location.href="/shopcard/authenticate/register?action=login";
+                }else{
+                    console.log('An error occurred:', likedResponse.status);
+                }
+            }else{
+                // Product is not liked 
+                let likeForm = likeBtn.parentElement;
+                let productId=likeForm.children[0].name;
+                console.log("Product is Not Liked : ");
+                likeBtn.classList.add("activeLikeBtn");
+                let likedResponse= await  fetch(`/shopcard/${productId}/like`,{
+                    method:"post",
+                    headers:{
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({productId}),
+                    redirect:"manual"
+                })
+                if(likedResponse.ok){
+                    console.log(likedResponse);
+                }else if(likedResponse.status===302){
+                    window.location.href="/shopcard/authenticate/register?action=login";
+                }else{
+                    console.log('An error occurred:', likedResponse.status);
+                }
+            }            
         })
     })
 
