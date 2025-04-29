@@ -4,9 +4,19 @@ const asyncWrap = require("./utills/asyncWrap");
 module.exports.isLoggesIn =(req,res,next)=>{
     if(!req.isAuthenticated()){
         req.session.redirectUrl=req.originalUrl;
-        req.flash("errorMessage","Please Login to continue shoping : ");
-        return res.redirect("/shopcard/authenticate/register");
-        // return res.status(302).json({ message: "Login required", redirectUrl: "/shopcard/authenticate/register?action=login" });        
+        console.log("Below is Complete Request Object : ");
+        console.log(req);
+        // Now check if request is AJAX (Fetch) 
+        if(req.get("X-Requested-With")==="XMLHttpRequest"){
+            // fetch request hai, JSON response bhejna for user like and dislike approach handle smoothly   
+            req.flash("errorMessage","Please Login to Like & Dislike Product : "); 
+            req.session.redirectUrl=req.referer;        
+            return res.status(401).json({ message: "You must be logged in.", redirectUrl: "/shopcard/authenticate/register?action=login" });
+        }else{
+            // normal browser request hai, page render karna
+            req.flash("errorMessage","Please Login to continue shoping : ");
+            return res.redirect("/shopcard/authenticate/register");    
+        }   
     }
     return next();    
 }

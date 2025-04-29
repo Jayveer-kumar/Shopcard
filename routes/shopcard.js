@@ -72,7 +72,6 @@ router.post("/:id/like",isLoggesIn,wrapAsync(async(req,res)=>{
     if(!user) return next(new ExpressError(400,"Requested Product not Found!"));
     user.likedProduct.push(product._id);
     await user.save(); 
-    console.log("User Liked One Product SuccessFull :  ");
     res.json({message:"Product added to your cart."});
   }
 }))
@@ -92,7 +91,6 @@ router.delete("/:id/like",isLoggesIn,wrapAsync(async(req,res)=>{
     if(!user) return next(new ExpressError(400,"Requested Product not Found!"));
     user.likedProduct = user.likedProduct.filter(id=> id.toString() !==product._id.toString() );
     await user.save();
-    console.log("User Removed  One Liked Product to there Cart SuccessFull :  ");
     res.json({message:"Product removed from your cart"});
   }
 }))

@@ -178,15 +178,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 let likedResponse= await  fetch(`/shopcard/${productId}/like`,{
                     method:"delete",
                     headers:{
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest' // important flag to tell server this is ajax/fetch request
                     },
                     body: JSON.stringify({productId}),
                     redirect:"manual"
                 })
                 if(likedResponse.ok){
-                    console.log(likedResponse);
-                }else if(likedResponse.status===302){
+                    let likedMessage=await likedResponse.json();
+                    showLikeMessageBox(likedMessage.message,"#f44336");
+                }else if(likedResponse.status===401){
                     window.location.href="/shopcard/authenticate/register?action=login";
+                    
                 }else{
                     console.log('An error occurred:', likedResponse.status);
                 }
@@ -194,19 +197,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Product is not liked 
                 let likeForm = likeBtn.parentElement;
                 let productId=likeForm.children[0].name;
-                console.log("Product is Not Liked : ");
                 likeBtn.classList.add("activeLikeBtn");
                 let likedResponse= await  fetch(`/shopcard/${productId}/like`,{
                     method:"post",
                     headers:{
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest' // important flag to tell server this is ajax/fetch request
                     },
                     body: JSON.stringify({productId}),
                     redirect:"manual"
                 })
                 if(likedResponse.ok){
-                    console.log(likedResponse);
-                }else if(likedResponse.status===302){
+                    let likedMessage=await likedResponse.json();
+                    showLikeMessageBox(likedMessage.message,"#4caf50");
+                }else if(likedResponse.status===401){
                     window.location.href="/shopcard/authenticate/register?action=login";
                 }else{
                     console.log('An error occurred:', likedResponse.status);
@@ -277,6 +281,30 @@ document.addEventListener("DOMContentLoaded", () => {
         mainCardAppendContainer.appendChild(cardLink);
     }
 })
+
+function showLikeMessageBox(messageText, color = "#4caf50") {
+    console.log("Show Like function is Executed : and we access below Box");
+    const msgBox = document.getElementById("userlikeMsgBox");
+    console.log(msgBox);
+    msgBox.textContent = messageText;
+    msgBox.style.backgroundColor = "#f0f0f0";
+    msgBox.style.color = "#333";
+    msgBox.classList.remove("userLikehidden");
+
+    // Animate border color dynamically
+    msgBox.style.setProperty('--bar-color', color);
+
+    // Trigger reflow to restart animation
+    msgBox.classList.remove("userLikemsg-box");
+    void msgBox.offsetWidth;
+    msgBox.classList.add("userLikemsg-box");
+
+    // Hide after 3.2 seconds
+    setTimeout(() => {
+        msgBox.classList.add("userLikehidden");
+    }, 3200);
+}
+
 
 function colorBasedSortCard(){
     let filterBox=document.querySelector(".hm-listing-sort-color-box");

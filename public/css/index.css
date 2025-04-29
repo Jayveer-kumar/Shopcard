@@ -26,6 +26,7 @@
     --CardTextDarkColor: #111111;
     --CardTextMediumColor:#373737;
     --inputBoxColor: #ffffff;
+    --bar-color: #4caf50;
 }
 :root .darkMode{
     --bodyBackColor: #030b0e;
@@ -564,6 +565,43 @@ html, body{
         color:#ffd900;
     }
 }
+
+/* User Like and Dislike Box */
+.userLikemsg-box{
+    position: fixed;
+    top: 100px;
+    right: 10px;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 15px 35px;
+    border-radius: 8px;
+    box-shadow: var(--card_shadow) 0px 18px 50px -10px;
+    z-index: 9999;
+    font-weight: 500;
+    min-width: 200px;
+    text-align: center;
+    overflow: hidden;
+}
+.userLikemsg-box::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: var(--bar-color, #4caf50);
+  width: 0;
+  animation: fillBar 1s forwards;
+}
+
+@keyframes fillBar {
+    to {
+      width: 100%;
+    }
+}
+.userLikehidden{
+    display: none;
+}
+
 
 @media (max-width: 1250px) {
     .hero-section_container .hero-image-box {
