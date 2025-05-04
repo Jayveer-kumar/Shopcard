@@ -45,6 +45,13 @@ router.get("/search",async (req,res)=>{
   return res.render("listings/search.ejs",{product}); 
 });
 
+router.get("/liked-product",isLoggesIn,wrapAsync(async(req,res)=>{
+  const userId=req.user._id;
+  const user= await User.findById(userId).populate("LikedProduct");
+  if(!user) return  next(new ExpressError(400,"User Not Found"));
+  return res.json(user.likedProduct);
+}))
+
 // Product Show Route
 router.get("/:id", wrapAsync(async (req, res) => {
   let { id } = req.params;
@@ -69,7 +76,13 @@ router.post("/:id/like",isLoggesIn,wrapAsync(async(req,res)=>{
     if(!product) return next(new ExpressError(400,"Requested Product not Found!"));
     let userId=req.user.id;
     let user= await User.findById(userId);
-    if(!user) return next(new ExpressError(400,"Requested Product not Found!"));
+    if(!user) return next(new ExpressError(400,"User Not Registered!"));
+    // Before Saving to new product inside user likedProductArray first check if the same product is allready exist or not 
+    user.likedProduct.foreach((product)=>{
+      if(product._id.toString()===id.toString()){
+       return  res.json({message:"Product is already added to your cart."});
+      }
+    })
     user.likedProduct.push(product._id);
     await user.save(); 
     res.json({message:"Product added to your cart."});

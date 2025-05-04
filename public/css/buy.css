@@ -298,6 +298,8 @@
     outline:0.1em solid rgb(0, 213, 255);
 }
 
+
+
 @media(max-width:1150px){
    .buy_route_product_and_payment_main_container{
     grid-template-columns:1fr;

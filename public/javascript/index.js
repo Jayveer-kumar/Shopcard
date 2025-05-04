@@ -4,6 +4,14 @@ import { generateFakePrize , addCard_userSelection } from "./search.js";
 
 document.addEventListener("DOMContentLoaded", () => { 
 
+    // Testing purpose Start Here
+
+    // 1.  user liked product ko Handle Karna 
+
+    handleUserLikedProduct_when_page_reload();
+
+    // Testing purpose End Here
+
     // User Releted Product ko move karne ka logic
     const scrollContainer = document.querySelector(".user-releted-card_box");
     const prevSlideBtn = document.getElementById("rel_slide_prev");
@@ -390,4 +398,29 @@ function hideFilterBox(cardName) {
         cardName.style.visibility = "hidden";// Completely hide after transition
         cardName.classList.remove("hide_filter_Box_smoothly"); // After get Transition then remove this class
     }, 300); // Match transition duration 
+}
+
+
+
+async  function handleUserLikedProduct_when_page_reload(){
+    try{
+      let response= await  fetch("/shopcard/liked-product",{
+        method:"GET",
+        headers:{
+            "Content-Type":"application/json",
+            "X-Requested-With":"XMLHttpRequest",
+        },
+      })
+      if(response.ok){
+       let userLikedProduct = await response.json();
+       console.log(userLikedProduct);
+      }else if(response.status===401 ){
+        console.info("Please Login to See Your Liked Product : ");
+      }
+      else{
+        console.info("Failed to Fetch User Liked Product : ");
+      }
+    } catch(err){
+        console.error("An Error Occured When Fetching User Liked Product : ")
+    }
 }
