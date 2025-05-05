@@ -24,7 +24,8 @@ const validateReview=(req,res,next)=>{
 // Product Main Route
 router.get("/", wrapAsync(async (req, res) => {
   let allProduct = await Product.find();
-  res.render("listings/index.ejs", { allProduct }); 
+  const user=req.user;
+  res.render("listings/index.ejs", { allProduct,user }); 
 }));
 
 // Privacy Policy route
@@ -60,8 +61,9 @@ router.get("/:id", wrapAsync(async (req, res) => {
   }
   else {
     let product = await Product.findById(id).populate({path:"ratings.reviews",populate:{path:"userId"}});
+    const user=req.user;
     let categoryProduct = await Product.find({ category: product.category });
-    res.render("listings/watchProduct.ejs", { product, categoryProduct });
+    res.render("listings/watchProduct.ejs", { product, categoryProduct,user });
   }
 })); 
 
@@ -78,11 +80,9 @@ router.post("/:id/like",isLoggesIn,wrapAsync(async(req,res)=>{
     let user= await User.findById(userId);
     if(!user) return next(new ExpressError(400,"User Not Registered!"));
     // Before Saving to new product inside user likedProductArray first check if the same product is allready exist or not 
-    user.likedProduct.foreach((product)=>{
-      if(product._id.toString()===id.toString()){
-       return  res.json({message:"Product is already added to your cart."});
-      }
-    })
+    if(user.likedProduct.includes(id)){
+      return res.json({message:"Product is already added to your cart!"})
+    }
     user.likedProduct.push(product._id);
     await user.save(); 
     res.json({message:"Product added to your cart."});
@@ -90,7 +90,6 @@ router.post("/:id/like",isLoggesIn,wrapAsync(async(req,res)=>{
 }))
 
 // Product delete Like Route
-
 router.delete("/:id/like",isLoggesIn,wrapAsync(async(req,res)=>{
   let {id}=req.params;
   if (id.length > 24 || id.length < 24 || !id) {

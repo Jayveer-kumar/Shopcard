@@ -105,7 +105,14 @@ document.addEventListener("DOMContentLoaded", () => {
       event.stopPropagation();
       console.log("Search icon Clicked : ");
     }) 
-
+    // Open & Close User Cart Container
+    let userCartOpen_CloseBtn=document.querySelector('.user-card');
+    userCartOpen_CloseBtn.addEventListener("click",toggleUserCart);
+    function toggleUserCart(){
+        let userCard_container=document.querySelector(".userCard_container");
+        userCard_container.classList.toggle("openUserCardContainer");
+        console.log(userCard_container);
+    }
     // Hero section image change Logic Start Here    
   
     let imageSourceContainer = ["/src/hero-section-image-2.png","/src/hero-section-image-3.png","/src/hero-section-image-4.png","/src/hero-section-image-5.png","/src/hero-section-img.png"];
@@ -124,12 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
 })
 
-function addTransition(element){
 
-}
-function removeTransition(element){
-
-}
 let mainCardAppendContainer=document.querySelector(".search-product-preview-card_container");
 function showLiveSearchProduct(card){
     // Create an anchor tag show we able to use this card  in watch route

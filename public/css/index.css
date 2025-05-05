@@ -566,6 +566,58 @@ html, body{
     }
 }
 
+/* User Card Stylling Start Here */
+.userCard_container{
+   position: fixed;
+   top:60px;
+   right:-500px;
+   height: 90vh;
+   width: 25em;
+   padding: 0.5em;
+   background-color: var(--blackCard); 
+   border-radius: 1em;
+   box-shadow: -10px 10px 50px var(--card_shadow);
+   z-index: 800;
+   transition: all 0.6s ease-in-out;
+}
+.openUserCardContainer{
+    right:0px; 
+}
+.userCard_container h2{
+    text-align: center;
+    color: var(--CardTextDarkColor);
+    padding:1em;
+}
+.user_add_toCard_Product_box{
+    height: 8em;
+    width: 100%;
+    box-shadow: 0 10px 20px var(--card_shadow);
+    background-color: var(--CardBackground);
+    border-radius: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.user_add_toCard_image_desciption_box{
+    height: 100%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:1em;
+}
+.user_add_toCard_image{
+    height: 100%;
+    width: 60%;
+}
+.user_add_toCard_image img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+/* User Card Stylling End Here */
+
 /* User Like and Dislike Box */
 .userLikemsg-box{
     position: fixed;
@@ -609,6 +661,12 @@ html, body{
         width: 100%;    
         display: flex;
         justify-content: center;
+    }
+    .user_cd-profile{
+        display: block ;
+    }
+    .user-sm-sc_cd-profile{
+        display: none ;
     }
 }
 
@@ -660,7 +718,9 @@ html, body{
      .wtc-item-addCartBox > i {
     font-size: 0.9em !important;
     }
-
+    .userCard_container{
+        width: 20em;
+    }
 }
 
 @media (max-width:880px){
@@ -693,7 +753,7 @@ html, body{
         position: relative;
         top:0;
         right:-2em;
-        display: block;
+        display: block !important;
         i{
             font-size: 1.3em;
         }
@@ -704,12 +764,18 @@ html, body{
     .rel-slide_btn button{
         padding:0.5em 0.8em;    
     }
+    .userCard_container{
+        width:22em;
+    }
 }
 
 @media (max-width:600px){
     .hm-prevBtn ,.hm-nextBtn{
         font-size: 0.7em;
-    }   
+    }  
+    .userCard_container{
+        width:18em;
+    } 
 }
 @media (max-width:500px){
     #Square2{

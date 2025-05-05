@@ -12,6 +12,7 @@
             <%} %>
         </div> 
        <img data-aos="fade-up" data-aos-offset="20" data-aos-delay="10" data-aos-duration="500" class="wtc-productimage" src="<%-product.image[0] %>" alt="Product image">
+       <!-- Like  -->
        <div class="wtc-productLikeBox"><i class="fa-solid fa-heart"></i></div>
        <div class="wtc-buy-productBtn_box">
         <a href="/shopcard/<%=product._id%>/checkout"  data-aos="fade-down" data-aos-offset="-100">
@@ -20,12 +21,6 @@
          </button>
         </a>
        </div>
-       <!-- Show all image of current product without user selection  (Start) -->
-        <!-- <div class="wtc-product_more_imagesContainer">
-            <img style="width: 200px; " src="https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHNoaXJ0fGVufDB8fDB8fHww" alt="">           
-            <img style="width: 200px; " src="https://img.freepik.com/free-photo/vertical-shot-concentrated-businessman-listening-carefully-with-crossed-hands_181624-29443.jpg?ga=GA1.1.528019809.1739184205&semt=ais_hybrid&w=740" alt="">
-        </div> -->
-       <!-- Show all image of current product without user selection  (End) -->
     </div>
     <div data-aos="fade-up" data-aos-offset="20" data-aos-delay="10" data-aos-duration="500" class="wtc-productDescription">
         <p id="product_path">Home/Give the gift of the choice</p>
@@ -102,6 +97,8 @@
        </div>
     </div>
 </div> 
+
+
 <div class="wtc-category-productContainer">
     <h2 data-aos="fade-down" class="wtc-category-peopleLike">Customers also purchased</h2>
     <div class="hm-listing-data"> 
@@ -119,11 +116,28 @@
               <button class="hm-listing_item_addCard"> <i class="fa-solid fa-cart-shopping"></i> Add To Card</button>
             </div>
           </div>
-          <div id="listing_item_likeBtn" class="listing_item_likeBtn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"  />
-            </svg>
-          </div>
+          <!-- Create a form so be able to send a post  ,delete request for like Here Start -->
+
+           <% if(user) { %>
+            <form action="/shopcard/<%-product._id%>/like" method="post"> 
+              <input type="hidden" name="<%-product._id%>" value="<%-product._id%>"> 
+              <div id="listing_item_likeBtn"  data-product-id="<%=product._id %>"  data-isLiked="false"  class="listing_item_likeBtn <%=  user && user.likedProduct.includes(product._id)? "activeLikeBtn" :"" %> ">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"  />
+              </svg>
+             </div>
+            </form>
+            <% } else { %>
+            <form action="/shopcard/<%-product._id%>/like" method="post"> 
+              <input type="hidden" name="<%-product._id%>" value="<%-product._id%>"> 
+              <div id="listing_item_likeBtn"  data-product-id="<%=product._id %>"  data-isLiked="false"  class="listing_item_likeBtn  ">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"  />
+              </svg>
+             </div>
+            </form>           
+            <% }  %>
+          <!-- Create a form so be able to send a post  ,delete request for like End Start -->
         </div>
         </a>
         

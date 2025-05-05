@@ -285,7 +285,7 @@ nav .user_cd-profile{
     top:10.2em;
     right:-11em; 
     display: none;
-    z-index: 1000;
+    z-index: 1000 !important;
     i{
         cursor: pointer;
     }    
