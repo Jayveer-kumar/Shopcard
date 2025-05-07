@@ -6,8 +6,7 @@ module.exports.isLoggesIn =(req,res,next)=>{
         req.session.redirectUrl=req.originalUrl;
         // Now check if request is AJAX (Fetch) 
         if(req.get("X-Requested-With")==="XMLHttpRequest"){
-            // this is fetch request , Now we send  JSON response  for user like and dislike  handle smoothly   
-            req.flash("errorMessage","Please Login to Like & Dislike Product : "); 
+            // this is fetch request , Now we send  JSON response  for user like and dislike  handle smoothly 
             req.session.redirectUrl=req.referer;        
             return res.status(401).json({ message: "You must be logged in.", redirectUrl: "/shopcard/authenticate/register?action=login" });
         }else{

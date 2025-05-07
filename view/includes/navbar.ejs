@@ -17,28 +17,33 @@
       <div class="search-input-preview-container ">
        <h2>Popular Categories</h2>  
        <hr> 
-       <div class="search-product-preview-card_container">   
-        <!-- <div class="search-product-preview-card active_preview_search_card ">
-          <div class="search-product-card-img">
-            <img src="https://m.media-amazon.com/images/I/71KC6lKyTsL._SY695_.jpg" alt="">
-          </div>
-          <div class="search-product-card-description">
-            <p class="search-product-title" >I am title</p>
-            <p class="search-product-price" >I am title</p> 
-          </div>
-        </div> -->
-
+       <div class="search-product-preview-card_container">
        </div>       
       </div>
     </div> 
     <div class="user_cd-profile">  
       <div class="dark-mode modeSwitchButton" >
         <i  class="fa-solid fa-moon"></i>
+        <span>Mode</span>
       </div>
      <% if(currentUser){ %>
-      <div class="user-profile_box"> <a href="/shopcard/user-profile"> <i class="fa-solid fa-user"></i> </a></div>
-      <div class="user-card"><i class="fa-solid fa-cart-shopping"></i></div>
-      <div class="registerBox"><a href="/shopcard/authenticate/logout"><button class="registerBtn">Logout</button> </a> </div> 
+      <!-- <div class="user-profile_box"> <a href="/shopcard/user-profile">   <i class="fa-solid fa-user"></i> <span>My Account</span> </a></div> -->
+      <div class="user-profile_box">
+        <span>My Account <i id="nav_my_accountArrow" class="fa-solid fa-angle-down"></i> </span> 
+        <div class="user-profile_Container">
+          <div><a href="/shopcard/user-profile">   <i class="fa-solid fa-user"></i> <span>My Profile</span> </a></div>
+          <div><i class="fa-solid fa-ticket"></i>  <span>My Coupons</span> </div>
+          <div><i class="fa-solid fa-cart-flatbed-suitcase"></i> <span>Orders</span> </div>
+          <div><i class="fa-solid fa-gifts"></i> <span> Gift Card </span> </div>
+          <div><i class="fa-solid fa-star-of-david"></i> <span>Shopcard Zone</span> </div>
+          <div> <a href="/shopcard/authenticate/logout"> <i class="fa-solid fa-power-off"></i> <span>Logout</span> </a> </div>
+        </div>
+      </div>
+      <div class="home-nav-watchList">
+        <i class="fa-solid fa-heart"></i>
+        <span>WatchList</span>
+      </div>
+      <div class="user-card">  <i class="fa-solid fa-cart-shopping"></i> <span> Cart</span>  </div> 
     <% } %>
     <% if(!currentUser){ %>
       <div class="registerBox"><a href="/shopcard/authenticate/register?action=register"> <button class="registerBtn">Register</button> </a> </div>   

@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     handleUserLikedProduct_when_page_reload();
 
+   
+
     // Testing purpose End Here
 
     // User Releted Product ko move karne ka logic

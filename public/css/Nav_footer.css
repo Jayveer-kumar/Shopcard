@@ -32,7 +32,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:0 2em;
+    padding:0 4em;
     position: fixed;
     left:0;
     top:0;
@@ -226,25 +226,92 @@ nav .user_cd-profile{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap:1em;
     transition: all 0.2s ease;
 }
-.user_cd-profile .user-profile_box,.user-card,.search-product ,.dark-mode{
+.user_cd-profile .user-profile_box,.user-card,.search-product ,.dark-mode,.home-nav-watchList{
     min-height: 2.5em;
     min-width: 2.5em;
     margin:0 0.6em;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap:0.5em;
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.1s linear; 
+}
+.user-profile_box{
+    position: relative;
+}
+.user-profile_Container{
+    position: absolute;
+    /* bottom: -22.1em; */
+    top:105%;
+    width: max-content;
+    height: 22em;  
+    width: 14em;  
+    left:-3em;  
+    z-index: 100;
+    display: none;
+}
+#nav_my_accountArrow{
+    transition: transform 0.3s ease;
+}
+.rotate-account-arrow{
+    transform: rotate(180deg);
+}
+.Open_user-profile_Container{
+    display: block !important;
+    background-color: var(--CardBackground2) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-evenly !important;
+    align-items:flex-start !important;
+    gap:1em !important;
+    box-shadow: 10px  10px 20px var(--card_shadow);
+    border-radius: 0.5em;
+}
+.Open_user-profile_Container::before{
+   content: "";
+   position: absolute;
+   top:-10px;
+   left:50%;
+   transform: translateX(-50%);
+   border-left: 10px solid transparent;
+   border-right: 10px solid transparent;
+   border-bottom: 10px  solid #f9e4e4;
+   height: 0;
+   width: 0;
+}
+.Open_user-profile_Container:nth-child(2)>div{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:0.5em;
+    padding:0.5em 1em;
+    i{
+        color:var(--icon_color);
+    }
+    span{
+        color:var(--CardTextMediumColor);
+    }
+    a span{
+        padding:0 1em;
+    }
+    transition: all 0.3s ease;
+}
+.Open_user-profile_Container:nth-child(2) >div:hover{
+    background-color: #08281112;
 }
 .user-profile_box a{
     text-decoration: none !important;
     color:var(--ble-color-txt);
 }
-.user_cd-profile .user-profile_box:hover,.user-card:hover ,.search-product:hover,.dark-mode:hover{
-    background: var(--hover-clor-icon);
+.user_cd-profile .user-profile_box:hover,.user-card:hover ,.search-product:hover,.dark-mode:hover,.home-nav-watchList:hover{
+    /* background: var(--hover-clor-icon); */
+    color: var(--links) !important;
 }
 .user_cd-profile .LoginBox, .registerBox {
     margin-left:0.9em;

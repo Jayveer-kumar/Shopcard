@@ -103,16 +103,33 @@ document.addEventListener("DOMContentLoaded", () => {
     let search_product_icon=document.querySelector(".search_product_icon");
     search_product_icon.addEventListener("click",(event)=>{
       event.stopPropagation();
-      console.log("Search icon Clicked : ");
+    })
+    // Open & Close User Profile Section in navbar when user hover on my account Section
+    let userMyAccountBtn=document.querySelector(".user-profile_box");
+    let userAccountMainBox=document.querySelector(".user-profile_Container");
+    let nav_my_accountArrow=document.getElementById("nav_my_accountArrow");
+    userMyAccountBtn.addEventListener("mouseenter",()=>{
+       userAccountMainBox.classList.add("Open_user-profile_Container");
+       nav_my_accountArrow.classList.add("rotate-account-arrow");
     }) 
+    userMyAccountBtn.addEventListener("mouseleave",()=>{
+        userAccountMainBox.classList.remove("Open_user-profile_Container");
+        nav_my_accountArrow.classList.remove("rotate-account-arrow");
+    })
     // Open & Close User Cart Container
+    let close_userCard_containerBtn=document.getElementById("close_userCard_container");
     let userCartOpen_CloseBtn=document.querySelector('.user-card');
+    let userCard_container=document.querySelector(".userCard_container");
     userCartOpen_CloseBtn.addEventListener("click",toggleUserCart);
-    function toggleUserCart(){
-        let userCard_container=document.querySelector(".userCard_container");
-        userCard_container.classList.toggle("openUserCardContainer");
-        console.log(userCard_container);
+    function toggleUserCart(){        
+        userCard_container.classList.toggle("openUserCardContainer");        
     }
+    close_userCard_containerBtn.addEventListener("click",()=>{
+        userCard_container.classList.remove("openUserCardContainer");
+        console.log(userCard_container)
+    })
+
+    console.log(close_userCard_containerBtn);
     // Hero section image change Logic Start Here    
   
     let imageSourceContainer = ["/src/hero-section-image-2.png","/src/hero-section-image-3.png","/src/hero-section-image-4.png","/src/hero-section-image-5.png","/src/hero-section-img.png"];

@@ -10,7 +10,7 @@
     --textColor: #132713cd;
     --lowBlack: #62626251;
     --md_white_color: #e3e3e3;
-    --links:#081225;  
+    --links:#14a427;  
     --card_shadow: #00000033;  
     --cardColor: #fefefe;
     --blackText: #000000;
@@ -27,6 +27,8 @@
     --CardTextMediumColor:#373737;
     --inputBoxColor: #ffffff;
     --bar-color: #4caf50;
+    --icon_color:#19af0c;
+    --specialCard:#ededed13;
 }
 :root .darkMode{
     --bodyBackColor: #030b0e;
@@ -55,6 +57,8 @@
     --CardTextDarkColor: #eeeeee;
     --CardTextMediumColor:#d9d8d8;
     --inputBoxColor: #1d1d1d;
+    --icon_color:#d4e1d9;
+    --specialCard:#0e0e0e17;
 }
 *{
     margin:0;
@@ -583,6 +587,15 @@ html, body{
 .openUserCardContainer{
     right:0px; 
 }
+#close_userCard_container{
+    position: absolute;
+    top:1em;
+    left:1em;
+    padding:1em 1.2em;
+    background-color: var(--CardButtonColor);
+    border: 0.1em solid var(--buttonPrimary);
+    cursor: pointer;
+}
 .userCard_container h2{
     text-align: center;
     color: var(--CardTextDarkColor);
@@ -591,30 +604,48 @@ html, body{
 .user_add_toCard_Product_box{
     height: 8em;
     width: 100%;
-    box-shadow: 0 10px 20px var(--card_shadow);
-    background-color: var(--CardBackground);
+    box-shadow: 0 8px 20px var(--card_shadow);
+    background-color: var(--specialCard);
     border-radius: 1em;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
 }
 .user_add_toCard_image_desciption_box{
     height: 100%;
-    width: 70%;
+    width: 100%;
     display: flex;
-    align-items: center;
     justify-content: flex-start;
-    gap:1em;
 }
 .user_add_toCard_image{
     height: 100%;
-    width: 60%;
+    width: 30%;
+    padding:1em;
 }
 .user_add_toCard_image img{
     height: 100%;
     width: 100%;
     object-fit: contain;
     object-position: center;
+}
+.user_add_toCard_description{
+    flex:1;
+    padding:0.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+#user_add_toCard_des_me_title{
+    color:green;
+}
+#removeCardProduct{
+    align-self: flex-end;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    border:none;
+    background-color: var(--buttonSecondry);
+    color:var(--md_white_color);
 }
 /* User Card Stylling End Here */
 
