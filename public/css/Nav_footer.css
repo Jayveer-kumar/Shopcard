@@ -240,13 +240,17 @@ nav .user_cd-profile{
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.1s linear; 
+    color:var(--CardTextMediumColor) !important;
+}
+.home-nav-watchList a{
+    text-decoration: none;
+    color:var(--CardTextMediumColor) ;
 }
 .user-profile_box{
     position: relative;
 }
 .user-profile_Container{
     position: absolute;
-    /* bottom: -22.1em; */
     top:105%;
     width: max-content;
     height: 22em;  

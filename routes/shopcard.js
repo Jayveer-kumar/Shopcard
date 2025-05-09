@@ -48,9 +48,17 @@ router.get("/search",async (req,res)=>{
 
 router.get("/liked-product",isLoggesIn,wrapAsync(async(req,res)=>{
   const userId=req.user._id;
-  const user= await User.findById(userId).populate("LikedProduct");
+  const user= await User.findById(userId).populate("likedProduct");
   if(!user) return  next(new ExpressError(400,"User Not Found"));
   return res.json(user.likedProduct);
+}))
+
+router.get("/watchlist",isLoggesIn, wrapAsync(async (req,res)=>{
+  const userId=req.user._id;
+  const user= await User.findById(userId).populate('likedProduct');
+  if(!user) return  next(new ExpressError(400,"User Not Found"));
+  let userLikedProduct=user.likedProduct;
+  return  res.render("listings/watchlist.ejs",{userLikedProduct});
 }))
 
 // Product Show Route
