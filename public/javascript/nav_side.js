@@ -128,8 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
         userCard_container.classList.remove("openUserCardContainer");
         console.log(userCard_container)
     })
-
-    console.log(close_userCard_containerBtn);
     // Hero section image change Logic Start Here    
   
     let imageSourceContainer = ["/src/hero-section-image-2.png","/src/hero-section-image-3.png","/src/hero-section-image-4.png","/src/hero-section-image-5.png","/src/hero-section-img.png"];

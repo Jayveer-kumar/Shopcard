@@ -14,7 +14,6 @@ function isLoggedIn(req,res,next){
 // Render User Profile Page
 router.get("/", isLoggedIn, (req,res)=>{   
     res.render("users/Profile.ejs",{user:res.locals.currentUser});
-    console.log(res.locals.currentUser);
 });
 
 module.exports=router;

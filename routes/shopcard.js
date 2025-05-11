@@ -58,7 +58,7 @@ router.get("/watchlist",isLoggesIn, wrapAsync(async (req,res)=>{
   const user= await User.findById(userId).populate('likedProduct');
   if(!user) return  next(new ExpressError(400,"User Not Found"));
   let userLikedProduct=user.likedProduct;
-  return  res.render("listings/watchlist.ejs",{userLikedProduct});
+  return  res.render("listings/watchlist.ejs",{userLikedProduct,user:res.locals.currentUser});
 }))
 
 // Product Show Route

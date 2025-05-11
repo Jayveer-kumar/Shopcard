@@ -1,4 +1,4 @@
-import { generateFakePrize } from "./search";
+// import { generateFakePrize } from "./search";
 
 // let productOriginalPrice=document.querySelector(".watchlist-user-product-price");
 
@@ -6,7 +6,9 @@ import { generateFakePrize } from "./search";
 // let discountOffPara=document.querySelector(".watchlist-user-product-discount-off");
 
 
+console.log("File Are Ready :");
+
 let productPriceMainPara=document.querySelectorAll(".watchlist-user-product-price-main");
 productPriceMainPara.forEach((para)=>{
-    console.log(para);
+    console.dir(para);
 })
