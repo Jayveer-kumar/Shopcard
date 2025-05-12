@@ -30,6 +30,7 @@
     </div>
 
  <%  for(let product of userLikedProduct){ %>
+    <a href="/shopcard/<%=product._id%>" class="watchlist-product-link-in-view" >
     <div class="watchlist-user-product-box">
         <div class="watchlist-user-product-image">
             <img src="<%=product.image[0] %>" alt="">
@@ -38,13 +39,14 @@
             <div class="watchlist-user-product-description">
                 <p class="watchlist-user-product-title" ><%=product.description %></p>
                 <p class="watchlist-user-product-brand" ><b><%=product.Brand %></b></p>
-                <p class="watchlist-user-product-price-main" > <span class="watchlist-user-product-price" > <%=product.prize %>  </span> <span class="watchlist-user-product-discount" > product Discount </span> <span class="watchlist-user-product-discount-off" > product Discount Off </span> </p>
+                <p class="watchlist-user-product-price-main" >  <span class="watchlist-user-product-price" > <%=product.prize %>  </span> <span class="watchlist-user-product-discount" > product Discount </span> <span class="watchlist-user-product-discount-off" > product Discount Off </span> </p>
             </div>
             <div class="watchlist-user-product-deleteBtn">
                 <i class="fa-solid fa-trash"></i>
             </div>
         </div>
     </div>
+    </a>
  <%} %>
   </div>
 </div>

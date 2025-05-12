@@ -314,8 +314,10 @@ nav .user_cd-profile{
     color:var(--ble-color-txt);
 }
 .user_cd-profile .user-profile_box:hover,.user-card:hover ,.search-product:hover,.dark-mode:hover,.home-nav-watchList:hover{
-    /* background: var(--hover-clor-icon); */
-    color: var(--links) !important;
+    color: var(--icon_color) !important;
+}
+.home-nav-watchList a:hover{
+   color: var(--icon_color); 
 }
 .user_cd-profile .LoginBox, .registerBox {
     margin-left:0.9em;

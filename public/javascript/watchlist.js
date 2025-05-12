@@ -1,14 +1,12 @@
-// import { generateFakePrize } from "./search";
-
-// let productOriginalPrice=document.querySelector(".watchlist-user-product-price");
-
-// let discountPara=document.querySelector(".watchlist-user-product-discount");
-// let discountOffPara=document.querySelector(".watchlist-user-product-discount-off");
-
-
-console.log("File Are Ready :");
+import { generateFakePrize } from "./search.js";
 
 let productPriceMainPara=document.querySelectorAll(".watchlist-user-product-price-main");
 productPriceMainPara.forEach((para)=>{
-    console.dir(para);
+    let actualPrice = para.children[0];
+    let discountPrice = para.children[1];
+    let offPrice = para.children[2];
+    let {fakePrice , discountPercentage}=generateFakePrize(actualPrice.textContent);
+    discountPrice.innerHTML=`&#8377;${fakePrice}`;
+    offPrice.textContent = `${discountPercentage}%Off`;
+    actualPrice.innerHTML=`&#8377;${actualPrice.textContent}`; 
 })

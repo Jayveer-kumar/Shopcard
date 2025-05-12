@@ -61,11 +61,17 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     const availablityBtn = document.getElementById("hm-listing-availablity");
     const availablity_container = document.querySelector(".hm-listing_availablity_container");
-    availablityBtn.addEventListener("click", () => {
+    if(availablity_container){
+     availablityBtn.addEventListener("click", () => {
         availablityBtn.classList.add("activeFilterBtn");
         availablity_container.style.opacity = "1";
         availablity_container.style.display = "block";
-    })
+      })
+    }else{
+        
+    }
+   
+
     // filter apply Logic 
     const filterapplyBtn = document.querySelectorAll("#filterapplyBtn");
     filterapplyBtn.forEach((button)=>{
@@ -90,13 +96,17 @@ document.addEventListener("DOMContentLoaded",()=>{
     const pricecontainer = document.querySelector(".hm-listing-price-container");
     const priceBtn = document.getElementById("hm-listing-price");
 
+    if(priceBtn){
     priceBtn.addEventListener("click", () => {
         pricecontainer.style.opacity = "1";
         pricecontainer.style.display = "block";
         // priceBtn.classList.add("activeFilterBtn");
     });
+    }
+    
 
     const priceFilterApplyBtn = document.querySelector(".priceFilterApply");
+    if(priceFilterApplyBtn){    
     priceFilterApplyBtn.addEventListener("click", () => {
         // Get user Selected Price 
         let priceMin = document.getElementById("priceMin").value;
@@ -124,6 +134,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
 
     })
+}
 
     
 

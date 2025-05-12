@@ -77,7 +77,6 @@
     font-size: clamp(1rem,1vw,1.4rem);
     position: relative;
     border-radius: 2em;
-    /* background-color: var(--cardColor); */
     background-color: var( --CardBackground);
     transition: all 0.2s ease;
     cursor: pointer;
