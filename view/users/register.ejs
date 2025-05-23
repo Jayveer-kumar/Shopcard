@@ -5,7 +5,8 @@
         <img src="/src/shopping-lifestyle-consumer-concept-6534.avif" alt="">
     </div>
     <div class="container">
-        <div class="form-box">
+        <div class="form-box">  
+                      
             <form class="  hidden loginForm" method="post" action="http://localhost:8080/shopcard/authenticate/login">
                 <h2> Login</h2>
                 <input type="text" name="user[username]" placeholder="Username" required autocomplete="username">
@@ -16,6 +17,7 @@
                 <button type="submit">Login</button>
                 <p>Don't have an account? <a href="" id="showRegister">Sign up</a></p>
             </form>
+
             <form   class="registerForm" method="post" action="http://localhost:8080/shopcard/authenticate/register" enctype="multipart/form-data">
                 <h2>  Sign up</h2>
                 <input type="text" name="user[name]" placeholder="Full Name" required>
@@ -34,7 +36,8 @@
                 </div>
                 <button type="submit">Register</button>
                 <p>Already have an account? <a href="" id="showLogin">Login</a></p>
-            </form>            
+            </form> 
+
         </div>
     </div>
 </div>
