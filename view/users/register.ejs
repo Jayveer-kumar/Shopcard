@@ -10,9 +10,13 @@
             <form class="  hidden loginForm" method="post" action="http://localhost:8080/shopcard/authenticate/login">
                 <h2> Login</h2>
                 <input type="text" name="user[username]" placeholder="Username" required autocomplete="username">
-                <div class="passwordBox">
+                <div class="passwordBox"> 
                      <input type="password" name="user[password]" id="loginPassword" placeholder="Password" required autocomplete="current-password">
                      <i class="fa-solid fa-eye-slash" id="loginEyeIcon"></i> <!-- Not Visiable password eye icon -->
+                </div>
+                <!-- Reset Password Link --> 
+                <div class="mb-3 flex justify-content-end">
+                    <a href="/shopcard/authenticate/forgetPassword" class="text-decoration-none">Forgot Password?</a>
                 </div>
                 <button type="submit">Login</button>
                 <p>Don't have an account? <a href="" id="showRegister">Sign up</a></p>
@@ -39,7 +43,7 @@
             </form> 
 
         </div>
-    </div>
+    </div> 
 </div>
 <script src="/javascript/login.js"></script>
 </body>

@@ -13,8 +13,11 @@ const userSchema = new mongoose.Schema({
             type:mongoose.Schema.Types.ObjectId,
             ref:"Product"
         }
-    ]
-}); 
+    ],
+    // Password reset token and its expiry time
+    passwordResetToken: String,
+    passwordResetExpires: Date
+});
 
 userSchema.plugin(passportLocalMongoose); 
 
