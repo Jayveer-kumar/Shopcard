@@ -28,6 +28,11 @@ router.get("/", wrapAsync(async (req, res) => {
   res.render("listings/index.ejs", { allProduct,user }); 
 }));
 
+// Explore Page Route
+router.get("/explore", (req, res) => {
+  res.render("listings/Explore.ejs");
+});
+
 // Privacy Policy route
 router.get("/privacy-policy",(req,res)=>{
   res.render("listings/privacyPolicy.ejs");
@@ -42,8 +47,8 @@ router.get("/search",async (req,res)=>{
   if(req.query.json==="true"){
     return res.json(product);
   }
-  // nhi to ejs search page render karenge
-  return res.render("listings/search.ejs",{product}); 
+  // nhi to ejs search page render karenge 
+  return res.render("listings/search.ejs",{product});  
 });
 
 router.get("/liked-product",isLoggesIn,wrapAsync(async(req,res)=>{
@@ -51,7 +56,7 @@ router.get("/liked-product",isLoggesIn,wrapAsync(async(req,res)=>{
   const user= await User.findById(userId).populate("likedProduct");
   if(!user) return  next(new ExpressError(400,"User Not Found"));
   return res.json(user.likedProduct);
-}))
+}));
 
 router.get("/watchlist",isLoggesIn, wrapAsync(async (req,res)=>{
   const userId=req.user._id;

@@ -1,49 +1,292 @@
 <%-layout("layouts/boilerPlateCode.ejs")%> 
+
+<head>
+    <style>
+        /* Button Loader Styles */
+        .btn-loading {
+            position: relative;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+        
+        .spinner-border-sm {
+            width: 1rem;
+            height: 1rem;
+            margin-right: 8px;
+            border: 2px solid transparent;
+            border-top: 2px solid #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        button:disabled {
+            cursor: not-allowed;
+        }
+        
+        /* Smooth transitions */
+        button {
+            transition: all 0.3s ease;
+        }
+        
+        .loading-text {
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        /* Hide loader by default */
+        .loader-hidden {
+            display: none !important;
+        }
+        
+        .loader-visible {
+            display: inline-flex !important;
+        }
+    </style>
+</head>
+
 <body> 
     <div class="login_box_container">
-    <div class="login-box-img">
-        <img src="/src/shopping-lifestyle-consumer-concept-6534.avif" alt="">
-    </div>
-    <div class="container">
-        <div class="form-box">  
-                      
-            <form class="  hidden loginForm" method="post" action="http://localhost:8080/shopcard/authenticate/login">
-                <h2> Login</h2>
-                <input type="text" name="user[username]" placeholder="Username" required autocomplete="username">
-                <div class="passwordBox"> 
-                     <input type="password" name="user[password]" id="loginPassword" placeholder="Password" required autocomplete="current-password">
-                     <i class="fa-solid fa-eye-slash" id="loginEyeIcon"></i> <!-- Not Visiable password eye icon -->
-                </div>
-                <!-- Reset Password Link --> 
-                <div class="mb-3 flex justify-content-end">
-                    <a href="/shopcard/authenticate/forgetPassword" class="text-decoration-none">Forgot Password?</a>
-                </div>
-                <button type="submit">Login</button>
-                <p>Don't have an account? <a href="" id="showRegister">Sign up</a></p>
-            </form>
-
-            <form   class="registerForm" method="post" action="http://localhost:8080/shopcard/authenticate/register" enctype="multipart/form-data">
-                <h2>  Sign up</h2>
-                <input type="text" name="user[name]" placeholder="Full Name" required>
-                <input type="text" name="user[username]" placeholder="Username" required>
-                <input type="email" name="user[email]" placeholder="Email" required autocomplete="email">
-                <!-- Image Start -->
-                
-                <input type="file" id="registration-image"  name="user[image]"  placeholder="Upload an Image" accept="image/*" required>
-                <img class="registration-image-preview" src="" alt="preview-image">
-                <label for="registration-image" class="registration-image-selection-btn">Upload Image</label>
-                <p class="no-image-selected">No image Selected</p>
-                <!-- Image End -->
-                <div class="passwordBox">
-                    <input type="password" name="user[password]" id="registerPassword" placeholder="Password" required autocomplete="new-password">
-                    <i class="fa-solid fa-eye-slash" id="registerEyeIcon"></i> <!-- Not Visiable password eye icon -->
-                </div>
-                <button type="submit">Register</button>
-                <p>Already have an account? <a href="" id="showLogin">Login</a></p>
-            </form> 
-
+        <div class="login-box-img">
+            <img src="/src/shopping-lifestyle-consumer-concept-6534.avif" alt="">
         </div>
-    </div> 
-</div>
-<script src="/javascript/login.js"></script>
+        <div class="container">
+            <div class="form-box">  
+                          
+                <form class="hidden loginForm" id="loginForm" method="post" action="http://localhost:8080/shopcard/authenticate/login">
+                    <h2>🔐 Login</h2>
+                    <input type="text" name="user[username]" placeholder="Username" required autocomplete="username">
+                    <div class="passwordBox"> 
+                         <input type="password" name="user[password]" id="loginPassword" placeholder="Password" required autocomplete="current-password">
+                         <i class="fa-solid fa-eye-slash" id="loginEyeIcon"></i>
+                    </div>
+                    <!-- Reset Password Link --> 
+                    <div class="mb-3 flex justify-content-end">
+                        <a href="/shopcard/authenticate/forgetPassword" class="text-decoration-none">Forgot Password?</a>
+                    </div>
+                    
+                    <button type="submit" id="loginBtn">
+                        <span id="loginBtnText">🚀 Login</span>
+                        <span id="loginBtnLoader" class="loading-text loader-hidden">
+                            <span class="spinner-border-sm"></span>
+                            Logging in...
+                        </span>
+                    </button>
+                    
+                    <p>Don't have an account? <a href="" id="showRegister">Sign up</a></p>
+                </form>
+
+                <form class="registerForm" id="registerForm" method="post" action="http://localhost:8080/shopcard/authenticate/register" enctype="multipart/form-data">
+                    <h2>📝 Sign up</h2>
+                    <input type="text" name="user[name]" placeholder="Full Name" required>
+                    <input type="text" name="user[username]" placeholder="Username" required>
+                    <input type="email" name="user[email]" placeholder="Email" required autocomplete="email">
+                    
+                    <!-- Image Start -->
+                    <input type="file" id="registration-image" name="user[image]" placeholder="Upload an Image" accept="image/*" required>
+                    <img class="registration-image-preview" src="" alt="preview-image">
+                    <label for="registration-image" class="registration-image-selection-btn">Upload Image</label>
+                    <p class="no-image-selected">No image Selected</p>
+                    <!-- Image End -->
+                    
+                    <div class="passwordBox">
+                        <input type="password" name="user[password]" id="registerPassword" placeholder="Password" required autocomplete="new-password">
+                        <i class="fa-solid fa-eye-slash" id="registerEyeIcon"></i>
+                    </div>
+                    
+                    <button type="submit" id="registerBtn">
+                        <span id="registerBtnText">✨ Register</span>
+                        <span id="registerBtnLoader" class="loading-text loader-hidden">
+                            <span class="spinner-border-sm"></span>
+                            Creating account...
+                        </span>
+                    </button>
+                    
+                    <p>Already have an account? <a href="" id="showLogin">Login</a></p>
+                </form> 
+
+            </div>
+        </div> 
+    </div>
+
+    <!-- Original JavaScript -->
+    <script src="/javascript/login.js"></script>
+    
+    <!-- Button Loader JavaScript -->
+    <script>
+        // Login Form Loader
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            const loginBtn = document.getElementById('loginBtn');
+            const loginBtnText = document.getElementById('loginBtnText');
+            const loginBtnLoader = document.getElementById('loginBtnLoader');
+            const usernameInput = document.querySelector('input[name="user[username]"]');
+            const passwordInput = document.querySelector('input[name="user[password]"]');
+            
+            // Validate inputs before showing loader
+            if (!usernameInput.value.trim() || !passwordInput.value.trim()) {
+                return; // Let browser show validation
+            }
+            
+            // Show loader
+            loginBtnText.classList.add('loader-hidden');
+            loginBtnLoader.classList.remove('loader-hidden');
+            loginBtnLoader.classList.add('loader-visible');
+            loginBtn.disabled = true;
+            loginBtn.classList.add('btn-loading');
+            
+            // Visual feedback
+            loginBtn.style.transform = 'scale(0.98)';
+            
+            // Safety timeout (reset after 15 seconds if no response)
+            setTimeout(() => {
+                resetLoginButton();
+            }, 15000);
+        });
+        
+        // Register Form Loader
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            const registerBtn = document.getElementById('registerBtn');
+            const registerBtnText = document.getElementById('registerBtnText');
+            const registerBtnLoader = document.getElementById('registerBtnLoader');
+            const nameInput = document.querySelector('input[name="user[name]"]');
+            const usernameInput = document.querySelector('input[name="user[username]"]');
+            const emailInput = document.querySelector('input[name="user[email]"]');
+            const passwordInput = document.querySelector('input[name="user[password]"]');
+            const imageInput = document.getElementById('registration-image');
+            
+            // Validate all inputs before showing loader
+            if (!nameInput.value.trim() || 
+                !usernameInput.value.trim() || 
+                !emailInput.value.trim() || 
+                !passwordInput.value.trim() ||
+                !imageInput.files.length) {
+                return; // Let browser show validation
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value)) {
+                alert('Please enter a valid email address!');
+                e.preventDefault();
+                return;
+            }
+            
+            // Password length validation
+            if (passwordInput.value.length < 6) {
+                alert('Password must be at least 6 characters long!');
+                e.preventDefault();
+                return;
+            }
+            
+            // Show loader
+            registerBtnText.classList.add('loader-hidden');
+            registerBtnLoader.classList.remove('loader-hidden');
+            registerBtnLoader.classList.add('loader-visible');
+            registerBtn.disabled = true;
+            registerBtn.classList.add('btn-loading');
+            
+            // Visual feedback
+            registerBtn.style.transform = 'scale(0.98)';
+            
+            // Safety timeout (reset after 20 seconds - registration might take longer)
+            setTimeout(() => {
+                resetRegisterButton();
+            }, 20000);
+        });
+        
+        // Reset Login Button Function
+        function resetLoginButton() {
+            const loginBtn = document.getElementById('loginBtn');
+            const loginBtnText = document.getElementById('loginBtnText');
+            const loginBtnLoader = document.getElementById('loginBtnLoader');
+            
+            if (loginBtn && loginBtnText && loginBtnLoader) {
+                loginBtnText.classList.remove('loader-hidden');
+                loginBtnLoader.classList.add('loader-hidden');
+                loginBtnLoader.classList.remove('loader-visible');
+                loginBtn.disabled = false;
+                loginBtn.classList.remove('btn-loading');
+                loginBtn.style.transform = 'scale(1)';
+            }
+        }
+        
+        // Reset Register Button Function
+        function resetRegisterButton() {
+            const registerBtn = document.getElementById('registerBtn');
+            const registerBtnText = document.getElementById('registerBtnText');
+            const registerBtnLoader = document.getElementById('registerBtnLoader');
+            
+            if (registerBtn && registerBtnText && registerBtnLoader) {
+                registerBtnText.classList.remove('loader-hidden');
+                registerBtnLoader.classList.add('loader-hidden');
+                registerBtnLoader.classList.remove('loader-visible');
+                registerBtn.disabled = false;
+                registerBtn.classList.remove('btn-loading');
+                registerBtn.style.transform = 'scale(1)';
+            }
+        }
+        
+        // Reset buttons on page navigation
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                resetLoginButton();
+                resetRegisterButton();
+            }
+        });
+        
+        // Form switching functionality (if needed)
+        const showRegisterLink = document.getElementById('showRegister');
+        const showLoginLink = document.getElementById('showLogin');
+        
+        if (showRegisterLink) {
+            showRegisterLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                resetLoginButton();
+                resetRegisterButton();
+            });
+        }
+        
+        if (showLoginLink) {
+            showLoginLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                resetLoginButton();
+                resetRegisterButton();
+            });
+        }
+        
+        // Additional validation messages
+        function showValidationMessage(message) {
+            // Create a temporary alert
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-warning';
+            alertDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 9999;
+                padding: 15px;
+                background-color: #fff3cd;
+                border: 1px solid #ffeaa7;
+                border-radius: 5px;
+                color: #856404;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            `;
+            alertDiv.innerHTML = message;
+            
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.parentNode.removeChild(alertDiv);
+                }
+            }, 3000);
+        }
+        
+        console.log('🎯 Login/Register page loader functionality loaded successfully!');
+    </script>
 </body>

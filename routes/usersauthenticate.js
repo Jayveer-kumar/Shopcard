@@ -130,7 +130,7 @@ router.post("/forgetPassword", async (req, res) => {
     // Send Email
     const mailOptions = {
       from: process.env.EMAIL_USER || "Jayveerk394@gmail.com",
-      to: user.email,
+      to: "jasanjatav@gmail.com", // Change to user.email in production
       subject: `Password Reset Request - ${timestamp}`,
       html: `
         <h2>Password Reset Request</h2>
@@ -238,7 +238,7 @@ router.post('/reset-password/:token', async (req, res) => {
         // Send confirmation email
         const confirmationMailOptions = {
             from: process.env.EMAIL_USER || 'Jayveerk394@gmail.com',
-            to:  user.email,
+            to:  "jasanjatav@gmail.com", // Change to user.email in production
             subject: 'Password Successfully Reset',
             html: `
                 <h2>Password Reset Successful</h2>

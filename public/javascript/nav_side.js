@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let mainBody=document.getElementById("bodyContainer");
     let modeSwitchButton=document.querySelector(".modeSwitchButton");
     let modeIcon=modeSwitchButton.children[0];
+    let modeText=modeSwitchButton.children[1];
 
     // Also save and set the mode in Local Storage
     // Check if dark mode is already set in local storage
@@ -11,10 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
         mainBody.classList.add("darkMode");
         modeIcon.classList.remove("fa-moon");
         modeIcon.classList.add("fa-sun");
+        modeText.innerText="Light";
     }else{
         mainBody.classList.remove("darkMode");
         modeIcon.classList.remove("fa-sun");
         modeIcon.classList.add("fa-moon");
+        modeText.innerText="Dark";
     }
     function toggleMode(){
         mainBody.classList.toggle("darkMode");
@@ -23,10 +26,12 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem("darkMode","true");
             modeIcon.classList.remove("fa-moon");
             modeIcon.classList.add("fa-sun");
+            modeText.innerText="Light";
         }else{
             localStorage.setItem("darkMode","false");
             modeIcon.classList.remove("fa-sun");
             modeIcon.classList.add("fa-moon");
+            modeText.innerText="Dark";
         }
     }
     modeSwitchButton.addEventListener("click",toggleMode);
@@ -108,6 +113,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let userMyAccountBtn=document.querySelector(".user-profile_box");
     let userAccountMainBox=document.querySelector(".user-profile_Container");
     let nav_my_accountArrow=document.getElementById("nav_my_accountArrow");
+    
+    if(!userMyAccountBtn) return;
+    
     userMyAccountBtn.addEventListener("mouseenter",()=>{
        userAccountMainBox.classList.add("Open_user-profile_Container");
        nav_my_accountArrow.classList.add("rotate-account-arrow");
@@ -116,6 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         userAccountMainBox.classList.remove("Open_user-profile_Container");
         nav_my_accountArrow.classList.remove("rotate-account-arrow");
     })
+
     // Open & Close User Cart Container
     let close_userCard_containerBtn=document.getElementById("close_userCard_container");
     let userCartOpen_CloseBtn=document.querySelector('.user-card');
@@ -126,7 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     close_userCard_containerBtn.addEventListener("click",()=>{
         userCard_container.classList.remove("openUserCardContainer");
-        console.log(userCard_container)
     })
     // Hero section image change Logic Start Here    
   

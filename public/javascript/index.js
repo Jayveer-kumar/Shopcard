@@ -406,10 +406,7 @@ async  function handleUserLikedProduct_when_page_reload(){
             "X-Requested-With":"XMLHttpRequest",
         },
       })
-      if(response.ok){
-       let userLikedProduct = await response.json();
-       console.log(userLikedProduct);
-      }else if(response.status===401 ){
+      if(response.status===401 ){
         console.info("Please Login to See Your Liked Product : ");
       }
       else{
