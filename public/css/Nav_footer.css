@@ -1,34 +1,10 @@
 /* Navbar Stylling Start Here*/
-:root{
-    --md-wht--color:#ecebeacc;
-    --lw-wht-color:#18171779;
-    --drk-wht-color:#fff;
-    --back-color:#1a1d1c;
-    --ble-color-txt:#061827;
-    --hover-clor-icon:#55555533;
-    --dark-red-color:#e00d0d;
-}
-.dark-mode{
-    --md-wht--color:#151515cc;
-    --lw-wht-color:#f4f2f279;
-    --drk-wht-color:#0a0e19;
-    --back-color:#fafafa;
-    --ble-color-txt:#e4e4e4;
-    --hover-clor-icon:#55555533; 
-    --dark-red-color:#e00d0d;
-}
-
-.dark-mode section{
-    width: 100% !important;
-    height: auto !important;
-    background-color: red !important;
-}
 
 nav{
     min-width: 100%; 
     height: 3.5rem; 
     padding:0.4em 0;
-    background: var(--drk-wht-color);
+    background: var(--color-card-bg);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -53,6 +29,7 @@ nav{
     font-size: 1.4em;
     position: relative;
     cursor: pointer;
+    color: var(--color-text-primary);
 }
 #logo_icon::before{
    position: absolute; 
@@ -63,7 +40,8 @@ nav{
 #web-name{
     font-size: 1.2em;
     font-weight: 600;
-    color:rgb(52, 88, 39);
+    /* color:rgb(52, 88, 39); */
+    color: var(--color-text-primary);
     cursor: pointer;
 }
 .search_input_box_container{
@@ -74,8 +52,8 @@ nav{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border:0.01em solid #0a0e1980;
-    background-color: #ffffff;
+    border:0.01em solid var(--color-muted);
+    background-color: var(--color-card-bg);
     border-radius: 2em;
     transition: border 0.4s ease , box-shadow 0.3s ease;    
 }
@@ -88,15 +66,12 @@ nav{
     display: flex;
     overflow: hidden;
 }
-.activeInputBox{
-    border:0.05em solid #2994e6;
-    box-shadow: 0 0 1em #2994e629;
-}
+
 .search_input_box_container .search-crown-box{
     width: 3em;
     height: 2.4em;
-    background-color: #0e233e;
-    color:white;
+    background-color: var(--color-action);
+    color:var(--color-button-text);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,9 +92,9 @@ nav{
 .search_input_box_container form button{
    border-left: 0.02em solid black;
    cursor: pointer;
-   background-color: #0e233e;
    font-size: 1em;
-   color:var(--drk-wht-color);
+   background-color: var(--color-action);
+   color: var(--color-button-text);
 }
 /* Search input Live Preview Box stylling start here  :   */
 .search-input-preview-container{
@@ -129,12 +104,12 @@ nav{
     width: 100%;
     height: auto;
     overflow-y: auto; 
-    background-color:#fff;
-    color: black;
+    background-color:var(--color-card-bg);
+    color: var(--color-text-primary);
     z-index: 10; 
     padding:1em 1.5em;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px var(--color-muted);
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, transform 0.5s ease, visibility 0.5s !important;
@@ -154,23 +129,22 @@ nav{
 }
 .search-product-preview-card_container a{
     text-decoration: none !important;
-    color:black;
 }
 .search-product-preview-card{
     height: 3em;
-    background-color: #ffffff;
+    background-color: transparent;
     border-radius: 0.2em;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding:0.2em 0;
+    padding:0.4em 0;
     cursor: pointer;
     transform: translateY(0);
     transition: all 0.3s ease;
 }
 .search-product-preview-card:hover{
     transform: translateY(-0.2em); 
-    box-shadow: 0 0.2em 0.8em #ffdada;
+    box-shadow: 0 0.2em 0.8em var(--color-muted);
 }
 .search-product-card-img{
     height: 100%;
@@ -194,18 +168,18 @@ nav{
     position: absolute;
     top:-1.2em;
     left:0;
-    color:rgb(9, 33, 35);
+    color: var(--color-text-primary);
     font-size: 0.7em;
     display: flex;
     flex-direction: row-reverse;
     i{
         padding-right: 0.4em;
-        color:rgb(36, 180, 36) !important;
+        color: var(--color-text-primary);
     }
 }
 
 .search-product-card-description .search-product-title{
-    color:#061827;
+    color:var(--color-text-primary);
     font-weight: 600;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -215,7 +189,8 @@ nav{
 }
 .search-product-card-description .search-product-price{
     padding:0 0.2em;
-    color:rgba(18, 171, 18, 0.948);
+    color: var(--color-price);
+    font-weight: 700;
 }
 
 /* Search input Live Preview Box stylling End here  :   */
@@ -240,7 +215,7 @@ nav .user_cd-profile{
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.1s linear; 
-    color:var(--CardTextMediumColor) !important;
+    color: var(--color-text-primary);
 }
 .home-nav-watchList a{
     text-decoration: none;
@@ -267,13 +242,13 @@ nav .user_cd-profile{
 }
 .Open_user-profile_Container{
     display: block !important;
-    background-color: var(--CardBackground2) !important;
+    background-color: var(--color-card-bg) !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-evenly !important;
     align-items:flex-start !important;
     gap:1em !important;
-    box-shadow: 10px  10px 20px var(--card_shadow);
+    box-shadow: 10px  10px 20px var(--color-muted);
     border-radius: 0.5em;
 }
 .Open_user-profile_Container::before{
@@ -284,7 +259,7 @@ nav .user_cd-profile{
    transform: translateX(-50%);
    border-left: 10px solid transparent;
    border-right: 10px solid transparent;
-   border-bottom: 10px  solid #f9e4e4;
+   border-bottom: 10px  solid var(--color-card-bg);
    height: 0;
    width: 0;
 }
@@ -296,10 +271,10 @@ nav .user_cd-profile{
     gap:0.5em;
     padding:0.5em 1em;
     i{
-        color:var(--icon_color);
+        color: var(--color-action);
     }
     span{
-        color:var(--CardTextMediumColor);
+        color: var(--color-action);
     }
     a span{
         padding:0 1em;
@@ -307,17 +282,16 @@ nav .user_cd-profile{
     transition: all 0.3s ease;
 }
 .Open_user-profile_Container:nth-child(2) >div:hover{
-    background-color: #08281112;
+    background-color: var(--color-muted);
+    border-radius: 0.5em;
 }
 .user-profile_box a{
     text-decoration: none !important;
-    color:var(--ble-color-txt);
 }
-.user_cd-profile .user-profile_box:hover,.user-card:hover ,.search-product:hover,.dark-mode:hover,.home-nav-watchList:hover{
-    color: var(--icon_color) !important;
-}
-.home-nav-watchList a:hover{
-   color: var(--icon_color); 
+
+
+.home-nav-watchList a:hover ,.user-card:hover ,.dark-mode:hover,.nav_my_account_text:hover{
+   opacity: 0.8;
 }
 .user_cd-profile .LoginBox, .registerBox {
     margin-left:0.9em;
@@ -330,26 +304,24 @@ nav .user_cd-profile{
 .user_cd-profile .LoginBox button {
     padding: 0.7em 1.2em;
     border-radius: 2em;
-    border:0.11em solid rgb(8, 20, 36);
-    background-color: #ffffff;
+    border:0.11em solid var(--color-action);
+    background-color: var(--color-action);
+    color: var(--color-button-text);
     cursor: pointer;
     transition: all 0.2s ease;
 }
 .registerBtn a , .LoginBtn a{
     text-decoration: none;
-    color: var(--lw-wht-color);
 }
  .registerBox button:hover,
  .LoginBox button:hover {
-    background-color: var(--ble-color-txt);
-    color:var(--drk-wht-color);
     text-decoration: underline;
+    opacity: 0.9;
 }
 
 
 .registerBtn a:hover , .LoginBtn a:hover{
     text-decoration: underline;
-    color: var(--drk-wht-color);
 }
 
 /* Sidebar  Stylling */
@@ -365,11 +337,12 @@ nav .user_cd-profile{
 }
 #barIcon{
     padding-right:2em;
+    color: var(--color-action);
 }
 .small_scr_side{        
     width: 10em; 
     height: 15em;    
-    background: var(--drk-wht-color);
+    background-color: var(--color-card-bg);
     border-radius: 1em;
     display:flex;
     flex-direction: column;
@@ -378,10 +351,9 @@ nav .user_cd-profile{
     position: fixed;
     top:3.5em;
     right:-15em;
-    border:0.02em solid var(--back-color);
-
+    box-shadow:  0 0 2em var(--color-muted);
 }
-.small_scr_side .user-profile_box , .userCard_box{
+.small_scr_side .userProfile_box , .userCard_box{
     position: relative;
     height: 2.5em;
     width: 2.5em;
@@ -389,7 +361,10 @@ nav .user_cd-profile{
     display: flex;
     justify-content: center;
     align-items: center;
-    color:var(--ble-color-txt);
+    color:var(--color-action);
+}
+.userProfile_box a i{
+    color: var(--color-action);
 }
 .small_scr_side .user-profile_box:hover , .userCard_box:hover{ 
    background-color: var(--lw-wht-color);
@@ -407,17 +382,15 @@ nav .user_cd-profile{
 .small_scr_side .LoginBox button {
     padding: 0.4em 1em;
     border-radius: 2em;
-    border:0.11em solid var(--ble-color-txt);
-    background-color: var(--drk-wht-color);
-    color: var(--ble-color-txt);
+    border:0.11em solid var(--color-action);
+    background-color: var(--color-action);
+    color: var(--color-button-text);
     cursor: pointer;
     transition: all 0.2s ease;
 }
 .small_scr_side .registerBox button:hover,
 .small_scr_side .LoginBox button:hover{
-    border:0.11em solid var(--drk-wht-color) !important;
-    background-color: var(--back-color);
-    color:var(--drk-wht-color);
+    opacity: 0.9;
 }
 .openSidebar{
     right:1em;
@@ -427,45 +400,33 @@ nav .user_cd-profile{
     right:-10em;
     transition: right 0.3s ease;
 }
-.search_productBox::before{
-    position: absolute;
-    content:"Search Products";
-    top:1.7em;
-    left:-8em;
-    background:var(--back-color);
-    color:var(--drk-wht-color);
-    padding: 0.5em;
-    font-size: 0.9em;
-    border-radius: 5px;
-    white-space: nowrap;
-    opacity: 0;
-    display: none;
-    transition: opacity 0.3s ease;
-}
+
 .userProfile_box::before{
     position: absolute;
     content:"Profile";
     top:42%;
     left:-8em;
-    background:var(--back-color);
-    color:var(--drk-wht-color);
+    background:var(--color-bg);
+    color:var(--color-text-primary);
     padding: 0.5em;
     font-size: 0.9em;
     border-radius: 5px;
+    border: 1px solid var(--color-action);
     white-space: nowrap;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 .userCard_box::before{
     position: absolute;
-    content:"See Cart";
+    content:"Cart";
     top:42%;
     left:-8em;
-    background:var(--back-color);
-    color:var(--drk-wht-color);
+    background:var(--color-bg);
+    color:var(--color-text-primary);
     padding: 0.5em;
     font-size: 0.9em;
     border-radius: 5px;
+    border: 1px solid var(--color-action);
     white-space: nowrap;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -488,13 +449,12 @@ nav .user_cd-profile{
     min-height: 30em;
     height: auto;
     width:100%;
-    background:var(--back-color);
+    background:var(--color-bg);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     padding:2em 4em;
-    color:rgb(244, 245, 244);
 }
 .footerContainer{
     max-width: 100vw;
@@ -505,11 +465,10 @@ nav .user_cd-profile{
 }
 .footerContainer .supportSectionBox ,
 .QuickLinksBox ,.SocialMediaLinks ,.Policies-legal{
-    min-height: 20em;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: flex-start;
+    gap: 2em;
 }
 .supportSectionBox .supportSectionOptionBox ,
 .QuickLinksBox .QuickLinksOptionBox,
@@ -526,7 +485,7 @@ nav .user_cd-profile{
     gap:10px;
 }
 .socialmediaLinksOption a {
-background-color: white;
+background-color: var(--color-card-bg);
 padding:1em;
 border-radius: 50%;
 height: 50px;
@@ -582,11 +541,11 @@ box-shadow: 0 5px 10px rgba(0,0,0,0.05);
 
 /* Social Midea Links Stylling End Here  */
 .footer-sc-head-line{
-    color:var(--md-wht--color);
+    color:var(--color-text-primary);
 }
 footer a{
     text-decoration: none;
-    color:var(--md-wht--color);
+    color:var(--color-text-primary);
 }
 
 .footer_link_sty{
@@ -600,15 +559,15 @@ footer a{
     width:0;
     bottom: 0;
     left:0;
-    background-color: rgba(74, 240, 243, 0.929);
+    background-color: var(--color-text-primary);
     transition: width 0.4s ease-in-out;
 }
 .footer_link_sty:hover::before {
     width: 100%;
 }
 .footer_link_sty:hover{
-    color:var(--drk-wht-color);
     transform: translateX(0.4em);
+    opacity: 0.9;
 }
 .footer_link_sty::before {
     transition: width 0.4s ease-in-out;
@@ -623,6 +582,7 @@ footer a{
 }
 .copyrightSection p{
     text-align: start;
+    color: var(--color-text-primary);
 }
 @media (max-width:900px){
     .footerContainer{
@@ -666,7 +626,6 @@ footer a{
 .flash-message-container .flash-success-message ,.flash-error-message{
     height: 3em;
     width: 100%;
-    /* background-color: rgb(255, 250, 250);   */
     background-color: var(--drk-wht-color);
     border:0.1em solid rgb(40, 222, 40);
     border-radius: 0.7em;
@@ -674,7 +633,6 @@ footer a{
     justify-content: space-between;
     align-items: center;
     padding:0 1.5em;
-    /* box-shadow:  0 0 1em rgb(162, 164, 161); */
     box-shadow:  0 0 1em var(--md-wht--color);
     p{
         font-weight: 600;

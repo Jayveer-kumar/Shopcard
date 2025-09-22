@@ -2,7 +2,8 @@
     margin-top: 5em;
     height: auto;
     width: 100%;
-    background-color: var(--bodyBackColor);
+    /* background-color: var(--bodyBackColor); */
+    background-color: transparent;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -20,7 +21,7 @@
 .explore-head_t_in h2{
     font-size: 1.5em;
     text-align: center;
-    color:var(--mdBlack);
+    color:var(--color-text-primary);
 }
 .explore_selectorsbox{
     margin-top:1em;
@@ -34,8 +35,8 @@
     justify-content: space-between;
     align-items: center;
     padding:0.1em;
-    background-color: var(--color);
-    border:0.01em solid var(--links);
+    background-color: var(--color-bg);
+    border:0.01em solid var(--color-text-primary);
     border-radius: 2em; 
     box-shadow: var(--card_shadow) 0px 18px 50px -10px;
 }
@@ -43,8 +44,8 @@
     font-size: 0.5em;
     font-weight: 600;
     border:none;
-    background-color: var(--color);
-    color:var(--mdBlack);
+    background-color: transparent;
+    color:var(--color-text-primary);
     padding:0.7em 2em;
     border-radius: 1.4em;
     cursor: pointer;
@@ -53,8 +54,8 @@
     }
 }
 .explore_selectors .activeBtn{
-    background-color: var(--textColor);
-    color:var(--color);
+    background-color: var(--color-action);
+    color:var(--color-button-text);
 }
 .explore-card_container{
     margin-top:1em;
@@ -77,12 +78,12 @@
     font-size: clamp(1rem,1vw,1.4rem);
     position: relative;
     border-radius: 2em;
-    background-color: var( --CardBackground);
+    background-color: var( --color-card-bg);
     transition: all 0.2s ease;
     cursor: pointer;
 }
 .explore-card-box:hover{
-    box-shadow: var(--card_shadow) 0px 18px 50px -10px;
+   box-shadow: var(--color-muted) 0px 4px 6px -1px, var(--color-muted) 0px 2px 4px -1px;
 }
 .ex-card-imgBox{
     height: 5em;
@@ -101,11 +102,11 @@
 }
 #remainingProduct{
     font-size: 1em;
-    color:var(--CardTextMediumColor);
+    color:var(--color-muted);
 }
 #ex-item-title{
     font-size: 2em;
-    color:var(--CardTextDarkColor);
+    color:var(--color-text-primary);
 }
 .ex-card-item-li-sbg{
     display: flex;
@@ -116,7 +117,7 @@
 #ex-itemfor_link{
     text-decoration: none;
     position: relative;
-    color:var(--links);
+    color:var(--color-text-primary);
     transition: all 0.2s ease;
     cursor:  pointer !important;
     z-index: 100;
@@ -158,10 +159,10 @@
     width:100%;
 }
 .Listing_main_heading{
-    color:var(--textColor) !important;
+    color:var(--color-text-primary) !important;
 }
 .listing_head_para{
-    color:var(--mdBlack) !important;
+    color:var(--color-text-primary-low) !important;
 }
 /* Sort Button stylling Start here  */
 .hm-listing_sort_box{
@@ -174,9 +175,9 @@
 .hm-listing_sort_box .hm-listing-SortBtn{
     padding:0.5em 1em;
     margin-right: 2em;
-    background-color: var(--buttonPrimary);
-    color:var(--color);
-    border:0.1em solid var(--buttons-slider-Box-Shadow);
+    border: 0.1em solid var(--color-text-primary);
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
     border-radius: 1em;
     cursor: pointer;
     position: relative;
@@ -189,19 +190,29 @@
 /*  Selection Filter Buttons Stylling Start Here */
 #filterapplyBtn{
     padding:0.7em 2em;
-    background-color: #100e0e;
-    color:#fefefe;
+    background-color: var(--color-bg);
+    color:var(--color-text-primary);
+    border: 0.1em solid var(--color-text-primary);
     border-radius: 0.8em;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+#filterapplyBtn:hover{
+    background-color: var(--color-text-primary);
+    color: var(--color-bg);
 }
 #filterclearBtn{
     padding:0.7em 1em;
-    background: var(--buttons-slider-Box-Shadow);
-    color:var(--body-text-color);
+    background: var(--color-bg);
+    color:#eb2b2bd4;
+    border: 0.1em solid var(--color-text-primary);
     border-radius: 0.5em;
     cursor: pointer;
-    text-decoration: underline;
-    background-color: #fa790f;
+    transition: all 0.3s ease;
+}
+#filterclearBtn:hover{
+    background-color:#eb2b2bd4;
+    color: var(--color-text-primary);
 }
 
 .hm-listing_sort_box button input[type="checkbox"]{
@@ -223,9 +234,9 @@
     top:-2em !important;
     min-width:20em;
     max-height: 20em;
-    background-color: var(--cardColor);
-    border:0.01em solid var(--lowBlack);
-    box-shadow: var(--card_shadow) 0px 18px 50px -10px;
+    background-color: var(--color-card-bg);
+    border:0.01em solid var(--color-text-primary);
+    box-shadow: var(--color-muted) 0px 5px 15px 0px;
     z-index: 1000;
     border-radius: 1em;
     padding:1em 0.4em;
@@ -262,21 +273,19 @@
     -moz-appearance: none;
     width: 1.5em;
     height: 1.5em;
-    border:2px solid var(--blackText);
+    border:1px solid var(--color-text-primary);
     border-radius: 1em;
     outline: none;
     cursor: pointer;
     position: relative;
-    background-color: var(--cardColor);
+    background-color: transparent;
 }
-.hm-listing-SortBtn >div >:first-child>div input[type="radio"]:checked{
-    background-color: var(--blackText);
-}
+
 .hm-listing-SortBtn >div >:first-child>div input[type="radio"]:checked::before{
     content: "";
     width: 0.8em;
     height: 0.8em;
-    background-color: #2eb6ff;
+    background-color: var(--color-text-primary);
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -285,7 +294,7 @@
 }
 .hm-listing-SortBtn >div >:first-child>div label{
     padding:0 0.4em;
-    color:var(--blackText);
+    color:var(--color-text-primary);
     font-size: 1.2em;
 }
 .hm-listing-SortBtn >div >:last-child{
@@ -311,13 +320,13 @@
  }
  #priceSelectionMainHeading{
      font-size: 2.5em;
-     color:black !important;
+     color:var(--color-text-primary) !important;
  }
   
  #price_selc_showMaxPara{
      font-size: 1.7em;
      font-weight: 400 !important;
-     color:var(--blackText);
+     color:var(--color-text-primary-low);
  }
  .price_min_max_box{
      margin-top:3em;
@@ -337,7 +346,7 @@
  }
  .minPrice  p ,.maxPrice p{
      width:100%;
-     color:var(--md_blackText) !important;
+     color:var(--color-text-primary) !important;
      font-size: 2em !important;
  }
  .minPrice  input ,.maxPrice input{
@@ -345,8 +354,9 @@
      height: 6em !important;
      margin:0 0.7em !important;
      padding:0 0.5em;
-     border: 0.16em solid var(--md_blackText);
-     background-color: #fefefe;
+     border: 0.16em solid var(--color-text-primary-low);
+     background-color: var(--color-card-bg);
+     color: var(--color-text-primary-low);
      border-radius: 0.4em;
  }
  .minPrice input:focus, .maxPrice input:focus {
@@ -360,8 +370,10 @@
       margin: 0;
  }
 
-/* Filter Buttons Stylling Start Here */ 
+/* Filter Buttons Stylling End Here */ 
 
+
+/* Backend Data Card Styling Start Here */
 .hm-listing-data{
     margin-top:4em;
     min-height: 50vh;
@@ -369,7 +381,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(17em,0.4fr));
     gap:2em;
-    background-color: var(--bodyBackColor);
+    background-color: transparent;
 }
 .hm-listing-dt-card-box{
    height: 27em;
@@ -378,7 +390,7 @@
    display: flex;
    flex-direction: column;
    justify-content: space-between;
-   background-color: var(--CardBackground);
+   background-color: var(--color-card-bg);
    align-items: center;
    overflow: hidden;
    border-radius: 1em;
@@ -387,7 +399,6 @@
 }
 .ProductLink{
     text-decoration: none;
-    color:var(--CardTextDarkColor);
 }
 .hm-listing-dt-card-box_img{
   height: 13em;
@@ -421,6 +432,7 @@
    -webkit-line-clamp: 2; /* number of lines to show */
            line-clamp: 2;
    -webkit-box-orient: vertical;
+   color: var(--color-text-primary);
 }
 .hm-listing_item_discription{   
     font-weight: 600;
@@ -429,18 +441,17 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     letter-spacing: 0.03em;
-    color:var(--textColor) !important;
+    color: var(--color-text-primary-low);
 }
 .hm-listing_item_discription:first-child{
     font-size: 1em;
 }
 .hm-listing_item_discription:nth-child(2){
     font-weight: 300;
-    color:var(--CardTextMediumColor) !important;
 }
 .hm-listing_item_offer ,.hm-listing_item_deliveryPara{
     font-size: 0.8em;
-    color: var(--CardTextMediumColor);    
+    color: var(--color-text-primary-low);    
 }
 .hm-listing_item_deliveryPara{
     width: 100%;
@@ -456,7 +467,6 @@
 }
 .hm_listing_price_cardBtn{
     margin-top:1em;
-    /* padding:1em 0; */
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -464,11 +474,23 @@
 }
 .hm_listing_price_cardBtn button{ 
     padding:0.7em 1em;
-    border:0.2em solid transparent;
+    background-color: var(--color-bg);
+    border:0.1em solid var(--color-text-primary);
+    color: var(--color-text-primary) !important;
     border-radius: 1em;
     cursor: pointer;
     transition: all 0.2s ease;
 }
+
+.hm-listing_item_addCard:hover{
+   background-color: #ffdd00;
+   color: var(--color-bg);
+}
+.hm-listing_item_price:hover{
+    background-color: var(--color-text-primary) !important;
+    color: var(--color-bg) !important;
+}
+
 #listing_item_likeBtn{
     position: absolute;
     top:1em;
@@ -479,13 +501,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--lowBlack);
+    background-color: var(--color-muted);
     cursor: pointer;
     opacity: 0;
     transition: all 0.2s ease;
 }
 .listing_item_likeBtn svg{
-    fill: var(--buttonSecondry);
+    fill: var(--color-action);
 }
 .activeLikeBtn svg{
     fill: #f51137 !important;
@@ -497,25 +519,8 @@
         opacity: 1;
     } 
 }
-.hm-listing_item_addCard{
-   background-color: var(--CardButtonBackground);
-   color: var(--CardButtonColor);
-}
-.hm-listing_item_addCard:hover{
-    background-color: #1a1a1ae7;
-    color:#c8c8c8;
-    border:0.2em solid white;
-}
-.hm-listing_item_price{
-    background-color: var(--CardButtonBackground);
-    color: var(--CardButtonColor);
-    border:0.2em solid white;
-}
-.hm-listing_item_price:hover{
-    background-color: #000000d5;
-    color:#bcbcbc;
-    border:0.2em solid white;
-}
+
+
 .Services_to_help_you_container{
    min-height: 30em;
    max-height: auto;

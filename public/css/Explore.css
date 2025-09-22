@@ -1,5 +1,6 @@
 .ExplorePageMainContainer {
-    height: 100vh;
+    min-height: 100vh;
+    max-height: auto;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -8,7 +9,7 @@
 }
 
 .ExplorePageContainer {
-    height: 90vh;
+    /* height: 90vh; */
     width: 95%;
     border-radius: 10px;
     display: flex;
@@ -53,7 +54,8 @@
 }
 
 .explorepg-fashion-text {
-    color: #ff6b35;
+    /* color: #ff6b35; */
+    color: #4caf50;
     font-weight: 800;
 }
 
@@ -72,7 +74,8 @@
     height: 60px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    /* box-shadow: 0 0 2em #ff6b35; */
+    box-shadow: 0 0 2em #4caf50;
 }
 
 .explorepg-header-right {
@@ -104,19 +107,30 @@
     padding: 1em 2em;
     border-radius: 2em;
     cursor: pointer;
+    transform: translateY(0);
+    transition: all 0.5s ease;
 }
 
 .explorepg-head-shopnow {
-    background-color: #40afff;
+    /* background-color: #40afff; */
+    background-color: #4caf50;
     color: #ffffff;
-    border: none;
+    border: 1px solid #ffffff;    
 }
 
 .explorepg-head-learnmore {
     background-color: white;
-    border: 1px solid black;
-    color: #40afff;
+    /* border: 1px solid #40afff;
+    color: #40afff; */
+    border: 1px solid #4caf50;
+    color: #4caf50;
 }
+.explorepg-header-right-lnkbtn button:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 0 2em #4caf50;
+}
+
+
 
 .explorepg-hd-card-container {
     margin: 2em;
@@ -128,15 +142,10 @@
 }
 
 .explorepg-hd-card-container div {
-    height: auto;
+    height: 19em;
     width: 100%;
     padding: 1em;
 }
-
-.explorepg-hd-card-container::-webkit-scrollbar {
-    display: none;
-}
-
 
 .explorepg-hd-card-container div img {
     height: 100%;
@@ -144,6 +153,11 @@
     object-fit: cover;
     border-radius: 1em;
 }
+
+
+
+
+
 
 .explorepg-head-cardlarge {
     grid-column: 1;

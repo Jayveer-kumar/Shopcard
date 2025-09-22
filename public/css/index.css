@@ -1,71 +1,40 @@
 /* CSS Variables for Dark mode and light mode */
+
+
+/* New Updated Colors */
+
 :root{
-    --bodyBackColor: #f4f5f6;
-    --heroSectionBackColor:#add098b3;
-    --buttonPrimary: #1e1e1e;
-    --buttonSecondry: #081e25;
-    --buttonSecondryHover: #0c2b34;
-    --color:white;
-    --mdBlack: #060606;
-    --textColor: #132713cd;
-    --lowBlack: #62626251;
-    --md_white_color: #e3e3e3;
-    --links:#146fb0;  
-    --card_shadow: #00000033;  
-    --cardColor: #fefefe;
-    --blackText: #000000;
-    --md_blackText: #b9b9b9;
-    --blackCard:#fefefe;
-    --blackCard2:#f3f6f9;
-
-    /* New updated Card Colors  */
-    --darkCard:#fff;
-    --CardBackground:#ebedee;
-    --CardBackground2:#fefefe;
-    --CardButtonBackground: #1c1b1b;
-    --CardButtonColor: #ffffff;
-    --CardTextDarkColor: #111111;
-    --CardTextMediumColor:#373737;
-    --inputBoxColor: #ffffff;
-    --bar-color: #4caf50;
-    --icon_color:#19af0c;
-    --specialCard:#ededed13;
+  --color-bg: #f4f4f4d6;          /* Background */
+  --color-card-bg: #ffffffff;    /* Card Background */
+  --color-text-primary: #173317; /* Primary Text / Heading */
+  --color-text-primary-low: #173317e0; /* Primary Text Low / Para */
+  --color-action: #173317;    /* Button & Active Icon */
+  --color-disabled: #D9D9D9;  /* Disabled state */
+  --color-muted: #B3BDB3;     /* Placeholder / Low visibility text */
+  --color-button-text: #FFFFFF;     /* White for contrast */ 
+  --color-price:#4fd826;
 }
-:root .darkMode{
-    --bodyBackColor: #030b0e;
-    --heroSectionBackColor:#11161ccf;
-    --buttonPrimary:#d4d4d4;
-    --buttonSecondry: #d7d7d7;
-    --buttonSecondryHover: #c6c6c6;
-    --color:#000000;   
-    --mdBlack: #efefef;
-    --textColor: #ffffff;
-    --lowBlack: #a7a6a6c7;
-    --md_white_color: #0d0b0b; 
-    --links:#10a8c6;
-    --card_shadow: #ffffff61; 
-    --cardColor: #e2e2e2;
-    --blackText: #000000;
-    --blackCard:#000000;
-    --blackCard2:#0e0e0e;
-    --md_blackText: #3c3c3c;
 
-    /* New updated Card Colors  */
-    --darkCard:#0e0e0eea;
-    --CardBackground:#8585851f;
-    --CardBackground2:#121212;
-    --CardButtonBackground: #d5d5d5;
-    --CardButtonColor: #1a1a1a;
-    --CardTextDarkColor: #eeeeee;
-    --CardTextMediumColor:#d9d8d8;
-    --inputBoxColor: #1d1d1d;
-    --icon_color:#e2f1fa;
-    --specialCard:#0e0e0e17;
+html[data-theme="dark"]{
+  --color-bg: #121212;           /* Background */
+  --color-card-bg: #1E1E1E;      /* Card/Section background */
+  --color-text-primary: #FFFFFF; /* Main text */
+  --color-text-primary-low: #edededbd; /* Primary Text Low / Para */
+  --color-action: #173317;       /* Buttons, active icons */
+  --color-disabled: #555555;     /* Disabled */
+  --color-muted: #B3BDB3;        /* Placeholder, low visibility text */
+  --color-button-text: #FFFFFF;        /* For text/icons on accent */ 
+  --color-price:#4fd826;
 }
+
+
+
+
 *{
     margin:0;
     padding:0;
     box-sizing: border-box;
+    transition: background-color 0.6s ease, color 0.6s ease;
 }
 html, body{
     width: 100%;
@@ -77,7 +46,7 @@ html, body{
     min-height: calc(100vh - 10em); 
     padding-bottom: 3em; 
     flex: 1;   
-    background-color: var(--bodyBackColor); 
+    background-color: var(--color-bg); 
     overflow-x: hidden;
 }
 
@@ -85,7 +54,7 @@ html, body{
 /* Hero Section Stylling Start Here */
 .hero-section_container{
     width: 100%;
-    min-height: 85vh;
+    min-height: 95vh;
     max-height: auto;
     background-color: var(--heroSectionBackColor);
     color:var(--ble-color-txt);
@@ -98,20 +67,22 @@ html, body{
     justify-content: center;
     position: relative;
     overflow: hidden;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
 .sm-text-line{   
     width:50%;
     padding:1.4em;
     font-size: clamp(1rem,2vw,2rem);
-    color:var(--lowBlack);
+    /* color:var(--lowBlack); */
 }
 .sm-text-line h2{
     font-size: 0.8em;
-    color:var(--textColor);
+    /* color:var(--textColor); */
+    color: var(--color-muted);
 }
 .sm-text-line h1{
     font-size: 2.3em;
-    color:var(--textColor);
+    color:var(--color-text-primary);
 }
 .sm-text-line #explore_home_btn{
     margin-top:2em;
@@ -120,10 +91,13 @@ html, body{
     padding:1.4em 2em;
     font-size: 0.5em;
     font-weight: 600;
-    background-color: var(--buttonSecondry);
-    border:none;
+    background-color: var(--color-action);
+    /* background-color: transparent; */
+
+    border: solid var(--color-muted);
+    border-width: 1px 1px 2px 1px;
     outline: none;
-    color:var(--md_white_color);
+    color:var(--color-muted);
     border-radius: 1.7em;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -223,145 +197,229 @@ html, body{
     display: flex;
     justify-content: center;
     align-items: center;
-    button{
-        padding: 0.7em 1em;
-        font-size: 1em;
-        border-radius: 0.5em;
-        border:0.1em solid var(--buttonSecondry);
-        background:var(--buttonPrimary);
-        transition: all 0.1s ease;
-        color:var(--md_white_color);
-        cursor: pointer;
-    }
 }
-
+.slideBtn {
+    padding: 0.7em 1em;
+    font-size: 1em;
+    border-radius: 0.5em;
+    border: 0.1em solid var(--color-text-primary);
+    background-color: var(--color-bg);
+    transition: all 0.1s ease;
+    color: var(--color-text-primary);
+    cursor: pointer;
+}
 .hm-prevBtn{
     left:1em;
 }
 .hm-nextBtn{
     right:1em;
 }
-.hm-prevBtn button:hover , .hm-nextBtn button:hover{
-  background-color:var(--color);
-  color:var(--mdBlack);
+.slideBtn:hover{
+    background: var(--color-text-primary);
+    color: var(--color-bg);
 }
 
+
+
 /* user related Product stylling Start */
-#user-related-product-box{
+#user-related-product-box {
     height: 35rem;
     width: 100vw;
     max-width: 100%;
-    padding:2em;
-    background:var(--bodyBackColor);
-    font-size: clamp(2rem,1.3vw,2rem);
+    padding: 2em;
+    background: var(--color-bg);
+    font-size: clamp(2rem, 1.3vw, 2rem);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
-.user-related-head-box{
-    width: 100vw;
+
+.user-related-head-box {
+    width: 100%;
     max-width: 100%;
-    font-size: clamp(1rem,2vw,1rem);
+    font-size: clamp(1rem, 2vw, 1rem);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 2em;
 }
-#user-related-head{
-   font-size: 2em;
-   font-weight: 600;
-   color:var(--mdBlack);
+
+#user-related-head {
+    font-size: 2em;
+    font-weight: 600;
+    color: var(--color-text-primary);
 }
-#user-related-head span{
-   color:var(--lowBlack);
+
+#user-related-head span {
+    color: var(--color-muted);
+    font-weight: 400;
 }
-.rel-slide_btn{
+
+.rel-slide_btn {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-around;
+    gap: 0.5em;
 }
-.rel-slide_btn button{
-    padding:1em 1.4em;
-    border:0.1em solid var(--md_white_color);
-    color: var(--md_white_color);
-    background:var(--buttonPrimary);
-    margin-right:0.5em;
+
+.rel-slide_btn button {
+    padding: 1em 1.4em;
     border-radius: 0.5em;
-    cursor: pointer; 
-    transition: all 0.2s ease;   
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
-.rel-slide_btn button:hover{
-    background-color:var(--color);
-    color:var(--mdBlack);
-    border:0.1em solid var(--mdBlack);
+.rel-slide_btn button:disabled ,.new-arval-prev-next-btn button:disabled{
+    opacity: 0.4;
+    cursor: not-allowed;
 }
-.user-releted-card_box{
-    min-width: 100%;
+.user-releted-card_box {
+    width: 100%;
     display: flex;
     flex-wrap: nowrap;
-    gap:1em;
-    overflow-x: auto;
+    gap: 1em;
+    overflow-x: hidden;
     scrollbar-width: none;
-    -ms-overflow-style:none;
+    -ms-overflow-style: none;
     scroll-behavior: smooth;
-    white-space: nowrap;
-    flex-wrap: nowrap;
-    scroll-padding-right: 2em;
-    padding:1em 0;
+    padding: 1em 0;
+    position: relative;
 }
-.user-rel-hm-card{
-    flex: 0 0 15em;
+
+.user-releted-card_box::-webkit-scrollbar {
+    display: none;
+}
+
+.user-rel-hm-card {
+    flex: 0 0 16em;
+    /* Increased width */
     height: 9em;
-    border:0.1em solid transparent; 
-    display: flex;   
-    justify-content: space-evenly;
+    /* Increased height */
+    border: 0.1em solid transparent;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     border-radius: 1em;
-    background-color: var(--CardBackground);
-
+    background-color: var(--color-card-bg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    padding: 1em;
 }
-.rel-item-info-box{
+
+.user-rel-hm-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Specific background colors for different cards */
+/* .user-rel-hm-card.Volleyboll {
+    background: linear-gradient(135deg, #ff9a8b, #fecfef);
+}
+
+.user-rel-hm-card.tShirt {
+    background: linear-gradient(135deg, #a8edea, #fed6e3);
+}
+
+.user-rel-hm-card.colPerFume {
+    background: linear-gradient(135deg, #d299c2, #fef9d7);
+}
+
+.user-rel-hm-card.jhumkaCollection {
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+} */
+
+
+
+.rel-item-info-box {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     font-size: 1rem;
-    color: var(--CardTextDarkColor);
-}
-.rel-item-info{
-    height: 50%;
-    margin:0;
-    padding:0 1em;
-    span{
-      position: relative;
-      top:-2em;
-      font-size: 0.9em;
-      font-weight: 200;
-    }
-    h4{
-        font-size: 1.8em;
-        font-weight: 600;
-    }
-}
-#rel-collection_btn{
-   margin-top:2.5em;
-   padding:1em 2em;
-   font-weight: 600;
-   border:0.1em solid var(--mdBlack);
-   border-radius: 2em;
-   background: var(--color);
-   color:var(--mdBlack);
-   cursor: pointer;
-}
-.rel-item-image{
+    color: var(--color-text-primary);
     flex: 1;
 }
-.rel-item-image img{
-    width: 100%;
-    max-width: 6em;
-    height: auto;
-    filter: drop-shadow(0 0 2em rgba(101, 181, 61, 0.804));
+
+.rel-item-info {
+    margin: 0;
+    padding: 0 1em 0 0;
 }
+
+.rel-item-info h4 {
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-top: 0.5em;
+    line-height: 1.2;
+}
+
+.rel-item-info .rel-collection {
+    font-size: 0.8em;
+    font-weight: 200;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.rel-collection_btn {
+    margin-top: 1em;
+    padding: 0.8em 1.5em;
+    font-weight: 600;
+    border: 0.1em solid var(--color-text-primary);
+    border-radius: 2em;
+    background: var(--color-bg);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: all 0.3s ease;
+}
+
+.rel-collection_btn:hover {
+    background: var(--color-text-primary);
+    color: var(--color-bg);
+}
+
+.rel-item-image {
+    flex: 0 0 6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rel-item-image img {
+    width: 100%;
+    max-width: 5em;
+    height: auto;
+    filter: drop-shadow(0 0 1em rgba(101, 181, 61, 0.3));
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #user-related-product-box {
+        padding: 1em;
+        height: auto;
+    }
+
+    .user-related-head-box {
+        flex-direction: column;
+        gap: 1em;
+        text-align: center;
+    }
+
+    .user-rel-hm-card {
+        flex: 0 0 16em;
+        height: 9em;
+    }
+
+    .rel-item-info h4 {
+        font-size: 1.2em;
+    }
+}
+
+
+/* User Related Styling End Here */
+
+
+
 
 /* New Arival Collection Stylling */
 #newArival-product-box{
@@ -372,6 +430,7 @@ html, body{
     flex-direction: column;
     justify-content: space-between;
     font-size: clamp(1rem,2vw,1rem);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
 .new-arivale-para{
     min-height: 4em;
@@ -384,9 +443,9 @@ html, body{
    font-size: 1.5em;
    letter-spacing: 0.01em;
    font-weight: 600;
-   color: var(--mdBlack);
+   color: var(--color-text-primary);
    span{
-    color:var(--lowBlack);
+    color:var(--color-muted);
    }
 }
 .new-arval-prev-next-btn{
@@ -397,18 +456,10 @@ html, body{
     margin-right: 0.3em;
     padding:1em 1.6em;
     font-weight: 600;
-    border:0.1em solid var(--md_white_color);
     border-radius: 0.4em;
-    background: var(--buttonPrimary);
-    color:var(--md_white_color);
-    transition: all 0.2s ease;
     cursor: pointer;
 }
-.new-arval-prev-next-btn button:hover{
-    background: var(--color);
-    color:var(--mdBlack);
-    border: 0.1em solid var(--mdBlack);
-}
+
 .new-arival-slider-box{
     min-width: 100%;
     display: flex;
@@ -427,7 +478,7 @@ html, body{
 .new-Arival-card-box{
     flex: 0 0 18em;
     height: 27em;
-    background: var(--CardBackground);
+    background-color: var(--color-card-bg);
     display: flex;   
     flex-direction: column;
     justify-content: flex-start;
@@ -437,7 +488,7 @@ html, body{
     transition: all 0.2s ease;
 }
 .new-Arival-card-box:hover{
-    box-shadow: var(--card_shadow) 0px 18px 50px -10px;
+    box-shadow: var(--color-muted) 0px 4px 6px -1px, var(--color-muted) 0px 2px 4px -1px;
     transform: scale(1.01);
     .new-arivl-col-like_box{
         opacity: 1;
@@ -463,8 +514,8 @@ html, body{
     right:1em;
     cursor: pointer;
     border-radius: 50%;
-    background-color:var(--lowBlack);
-    color:var(--CardButtonColor);
+    background-color: transparent;
+    color:var(--color-muted);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -486,9 +537,9 @@ html, body{
    padding:0.6em;
    font-size: 0.9em;
    font-weight: 600;
-   background-color: var(--buttonSecondry);
-   color:var(--md_white_color);
-   border:none;
+   background-color: var(--color-bg);
+   color:var(--color-text-primary);
+   border:0.1em solid var(--color-text-primary);
    transition: all 0.3s ease;
    border-radius: 0.7em;
    cursor: pointer;
@@ -543,10 +594,11 @@ html, body{
 }
 .new-arival-title h2{
     font-size: 1.3em;
+    color: var(--color-text-primary);
 }
 .new-arival-title p{
     font-size: 0.9em;
-    color:var(--lowBlack);
+    color:var(--color-muted);
 }
 .newArival-rating-price-box{
     padding-left: 0.4em;
@@ -559,14 +611,15 @@ html, body{
 .newArival-rating-price-box button{
     padding:0.6em 1em;
     font-weight: 600;
-    border:0.16em solid var(--buttonSecondry);
-    color:var(--md_white_color);
-    background-color: var(--buttonSecondry);
+    background-color: var(--color-bg);
+    color:var(--color-text-primary);
+    border:0.1em solid var(--color-text-primary);
     border-radius: 0.5em;
     cursor: pointer;
 }
 .newArival-rating-price-box p{
     padding-right:0.3em;
+    color: var(--color-muted);
     i{
         color:#ffd900;
     }
