@@ -13,6 +13,8 @@
 }
 
 
+# For Dark Theme 
+
 :root[data-theme="dark"] {
   --color-bg: #121212;           /* Background */
   --color-card-bg: #1E1E1E;      /* Card/Section background */

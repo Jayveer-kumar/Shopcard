@@ -3,29 +3,125 @@
 
 /* New Updated Colors */
 
-:root{
-  --color-bg: #f4f4f4d6;          /* Background */
-  --color-card-bg: #ffffffff;    /* Card Background */
-  --color-text-primary: #173317; /* Primary Text / Heading */
-  --color-text-primary-low: #173317e0; /* Primary Text Low / Para */
-  --color-action: #173317;    /* Button & Active Icon */
-  --color-disabled: #D9D9D9;  /* Disabled state */
-  --color-muted: #B3BDB3;     /* Placeholder / Low visibility text */
-  --color-button-text: #FFFFFF;     /* White for contrast */ 
+/* :root{
+  --color-bg: #f4f4f4d6;         
+  --color-card-bg: #ffffffff;    
+  --color-text-primary: #173317; 
+  --color-text-primary-low: #173317e0; 
+  --color-action: #173317;   
+  --color-disabled: #D9D9D9; 
+  --color-muted: #B3BDB3;    
+  --color-button-text: #FFFFFF;      
   --color-price:#4fd826;
 }
 
 html[data-theme="dark"]{
-  --color-bg: #121212;           /* Background */
-  --color-card-bg: #1E1E1E;      /* Card/Section background */
-  --color-text-primary: #FFFFFF; /* Main text */
-  --color-text-primary-low: #edededbd; /* Primary Text Low / Para */
-  --color-action: #173317;       /* Buttons, active icons */
-  --color-disabled: #555555;     /* Disabled */
-  --color-muted: #B3BDB3;        /* Placeholder, low visibility text */
-  --color-button-text: #FFFFFF;        /* For text/icons on accent */ 
+  --color-bg: #121212;           
+  --color-card-bg: #1E1E1E;      
+  --color-text-primary: #FFFFFF; 
+  --color-text-primary-low: #edededbd;
+  --color-action: #173317;      
+  --color-disabled: #555555;   
+  --color-muted: #B3BDB3;       
+  --color-button-text: #FFFFFF;       
   --color-price:#4fd826;
+} */
+
+/* New Additional Colors */
+
+:root {
+  /* Existing Colors (Improved) */
+  --color-bg: #f8faf8;                    /* Slightly warmer background */
+  --color-card-bg: #ffffff;               /* Pure white for cards */
+  --color-text-primary: #173317;          /* Your main brand color - headings */
+  --color-text-primary-low: #173317e0;    /* Primary text with transparency */
+  --color-text-secondary: #4a5a4a;        /* Regular text - better contrast */
+  --color-text-muted: #6b7c6b;           /* Muted text - improved readability */
+  --color-action: #173317;                /* Primary buttons */
+  --color-price: #4fd826;                 /* Price color */
+  --color-button-text: #ffffff;           /* Button text */
+  
+  /* Missing Essential Colors for E-commerce */
+  --color-success: #22c55e;               /* Success messages, in stock */
+  --color-warning: #f59e0b;               /* Warnings, low stock */
+  --color-error: #ef4444;                 /* Errors, out of stock */
+  --color-info: #3b82f6;                  /* Information, notifications */
+  
+  /* Interactive States */
+  --color-action-hover: #0f290f;          /* Darker green for hover */
+  --color-action-active: #0a1f0a;         /* Even darker for active state */
+  --color-action-disabled: #d1d5db;       /* Disabled button state */
+  
+  /* Secondary Actions */
+  --color-secondary: #f3f4f6;             /* Secondary buttons background */
+  --color-secondary-hover: #e5e7eb;       /* Secondary button hover */
+  --color-secondary-text: #374151;        /* Secondary button text */
+  
+  /* Borders and Dividers */
+  --color-border: #e5e7eb;                /* General borders */
+  --color-border-light: #f3f4f6;          /* Light borders */
+  --color-divider: #d1d5db;               /* Dividers, separators */
+  
+  /* Special E-commerce Colors */
+  --color-discount: #dc2626;              /* Discount badges, sale prices */
+  --color-rating: #fbbf24;                /* Star ratings */
+  --color-new: #8b5cf6;                   /* New product badges */
+  --color-bestseller: #f97316;            /* Bestseller badges */
+  
+  /* Background Variations */
+  --color-bg-soft: #f9faf9;               /* Soft background for sections */
+  --color-bg-overlay: #00000080;          /* Modal/overlay background */
+  
+  /* Link Colors */
+  --color-link: #173317;                  /* Regular links */
+  --color-link-hover: #0f290f;            /* Link hover state */
+  --color-link-visited: #4a5a4a;          /* Visited links */
 }
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --color-bg: #0f1419;
+  --color-card-bg: #1a1f2e;
+  --color-text-primary: #ffffff;
+  --color-text-primary-low: #ffffffd0;
+  --color-text-secondary: #b0b0b0;
+  --color-text-muted: #888888;
+  --color-action: #5def31;                /* Keep green bright in dark mode */
+  --color-price: #4fd826;
+  --color-button-text: #173317;           /* Dark text on green button */
+  
+  /* Dark theme variations for other colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
+  
+  --color-action-hover: #45c41f;
+  --color-action-active: #3ab018;
+  --color-action-disabled: #374151;
+  
+  --color-secondary: #374151;
+  --color-secondary-hover: #4b5563;
+  --color-secondary-text: #d1d5db;
+  
+  --color-border: #374151;
+  --color-border-light: #2d3748;
+  --color-divider: #4b5563;
+  
+  --color-discount: #f87171;
+  --color-rating: #fbbf24;
+  --color-new: #a78bfa;
+  --color-bestseller: #fb923c;
+  
+  --color-bg-soft: #1a202c;
+  --color-bg-overlay: #000000b3;
+  
+  --color-link: #4fd826;
+  --color-link-hover: #45c41f;
+  --color-link-visited: #888888;
+}
+
+
 
 
 
@@ -56,8 +152,7 @@ html, body{
     width: 100%;
     min-height: 95vh;
     max-height: auto;
-    background-color: var(--heroSectionBackColor);
-    color:var(--ble-color-txt);
+    background-color: var(--color-bg);
     padding-top:3.4rem;
     padding-left:2rem;
     padding-right:2rem;
@@ -73,12 +168,10 @@ html, body{
     width:50%;
     padding:1.4em;
     font-size: clamp(1rem,2vw,2rem);
-    /* color:var(--lowBlack); */
 }
 .sm-text-line h2{
     font-size: 0.8em;
-    /* color:var(--textColor); */
-    color: var(--color-muted);
+    color: var(--color-text-secondary);
 }
 .sm-text-line h1{
     font-size: 2.3em;
@@ -91,13 +184,11 @@ html, body{
     padding:1.4em 2em;
     font-size: 0.5em;
     font-weight: 600;
-    background-color: var(--color-action);
-    /* background-color: transparent; */
-
-    border: solid var(--color-muted);
-    border-width: 1px 1px 2px 1px;
-    outline: none;
-    color:var(--color-muted);
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-text-primary);
+    color:var(--color-text-primary);
+    /* border-width: 1px 1px 2px 1px; */
+    outline: none;    
     border-radius: 1.7em;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -202,10 +293,10 @@ html, body{
     padding: 0.7em 1em;
     font-size: 1em;
     border-radius: 0.5em;
-    border: 0.1em solid var(--color-text-primary);
-    background-color: var(--color-bg);
-    transition: all 0.1s ease;
-    color: var(--color-text-primary);
+    border: 0.1em solid var(--color-info);
+    background-color: var(--color-card-bg);
+    color: var(--color-info);
+    transition: all 0.1s ease;    
     cursor: pointer;
 }
 .hm-prevBtn{
@@ -215,8 +306,8 @@ html, body{
     right:1em;
 }
 .slideBtn:hover{
-    background: var(--color-text-primary);
-    color: var(--color-bg);
+    background: var(--color-info);
+    color: var(--color-card-bg);
 }
 
 
@@ -253,7 +344,7 @@ html, body{
 }
 
 #user-related-head span {
-    color: var(--color-muted);
+    color: var(--color-text-secondary);
     font-weight: 400;
 }
 
@@ -336,7 +427,7 @@ html, body{
     justify-content: space-between;
     align-items: flex-start;
     font-size: 1rem;
-    color: var(--color-text-primary);
+    color: var(--color-text-primary-low);
     flex: 1;
 }
 
@@ -355,7 +446,7 @@ html, body{
 .rel-item-info .rel-collection {
     font-size: 0.8em;
     font-weight: 200;
-    color: var(--color-muted);
+    color: var(--color-text-secondary);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -439,13 +530,13 @@ html, body{
     align-items: center;
     font-size: 1rem;
 }
-.new-arivale-para #new-arival-text{
-   font-size: 1.5em;
+#new-arival-text{
+   font-size: 2em;
    letter-spacing: 0.01em;
    font-weight: 600;
    color: var(--color-text-primary);
    span{
-    color:var(--color-muted);
+    color:var(--color-text-secondary);
    }
 }
 .new-arval-prev-next-btn{
@@ -559,7 +650,7 @@ html, body{
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
-    color:var(--CardTextDarkColor);
+    color:var(--color-text-secondary);
     padding:0 0.4em;
 }
 .item-color-box{
@@ -598,7 +689,6 @@ html, body{
 }
 .new-arival-title p{
     font-size: 0.9em;
-    color:var(--color-muted);
 }
 .newArival-rating-price-box{
     padding-left: 0.4em;
@@ -616,6 +706,11 @@ html, body{
     border:0.1em solid var(--color-text-primary);
     border-radius: 0.5em;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+.newArival-rating-price-box button:hover{
+    background-color: var(--color-text-primary);
+    color:var(--color-bg);
 }
 .newArival-rating-price-box p{
     padding-right:0.3em;
@@ -633,9 +728,9 @@ html, body{
    height: 90vh;
    width: 25em;
    padding: 0.5em;
-   background-color: var(--blackCard); 
+   background-color: var(--color-card-bg); 
    border-radius: 1em;
-   box-shadow: -10px 10px 50px var(--card_shadow);
+   box-shadow: -10px 10px 50px var(--color-divider);
    z-index: 800;
    transition: all 0.6s ease-in-out;
 }
@@ -647,20 +742,21 @@ html, body{
     top:1em;
     left:1em;
     padding:1em 1.2em;
-    background-color: var(--CardButtonColor);
-    border: 0.1em solid var(--buttonPrimary);
+    background-color: var(--color-card-bg);
+    border: 0.1em solid var(--color-info);
+    color: var(--color-info);
     cursor: pointer;
 }
 .userCard_container h2{
     text-align: center;
-    color: var(--CardTextDarkColor);
+    color: var(--color-text-primary);
     padding:1em;
 }
 .user_add_toCard_Product_box{
     height: 8em;
     width: 100%;
-    box-shadow: 0 8px 20px var(--card_shadow);
-    background-color: var(--specialCard);
+    box-shadow: 0 8px 20px var(--color-divider);
+    background-color: var(--color-card-bg);
     border-radius: 1em;
     display: flex;
     justify-content: flex-start;
@@ -690,56 +786,150 @@ html, body{
     flex-direction: column;
 }
 
-#user_add_toCard_des_me_title{
-    color:green;
+.user_add_toCard_des_me_title{
+    color:var(--color-text-primary);
+}
+.user_add_toCard_quantity{
+    color:var(--color-text-secondary);
 }
 #removeCardProduct{
     align-self: flex-end;
     padding: 0.5em 1em;
     border-radius: 0.5em;
     cursor: pointer;
-    border:none;
-    background-color: var(--buttonSecondry);
-    color:var(--md_white_color);
+    border:0.1em solid var(--color-warning);
+    background-color: var(--color-card-bg);
+    color:var(--color-warning);
+    transition: all 0.3s ease;
+}
+#removeCardProduct:hover{
+    background-color: var(--color-warning);
+    color:var(--color-card-bg);
 }
 /* User Card Stylling End Here */
 
+
+
 /* User Like and Dislike Box */
-.userLikemsg-box{
+
+
+.userLikemsg-box {
     position: fixed;
     top: 100px;
     right: 10px;
-    background-color: #f0f0f0;
-    color: #333;
-    padding: 15px 35px;
-    border-radius: 8px;
-    box-shadow: var(--card_shadow) 0px 18px 50px -10px;
+    background-color: var(--color-card-bg);
+    color: var(--color-text-primary);
+    padding: 16px 32px;
+    border-radius: 12px;
+    border: 1px solid var(--color-border-light);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 
+                0 4px 6px -2px rgba(0, 0, 0, 0.05);
     z-index: 9999;
     font-weight: 500;
-    min-width: 200px;
+    min-width: 220px;
     text-align: center;
     overflow: hidden;
-}
-.userLikemsg-box::after{
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  background-color: var(--bar-color, #4caf50);
-  width: 0;
-  animation: fillBar 1s forwards;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(100%);
 }
 
+/* Show state */
+.userLikemsg-box:not(.userLikehidden) {
+    transform: translateX(0);
+}
+
+/* Different message types */
+.userLikemsg-box.success {
+    border-left: 4px solid var(--color-success);
+}
+
+.userLikemsg-box.success::after {
+    background: linear-gradient(90deg, 
+        var(--color-success) 0%, 
+        color-mix(in srgb, var(--color-success) 80%, white) 100%);
+}
+
+.userLikemsg-box.error {
+    border-left: 4px solid var(--color-error);
+}
+
+.userLikemsg-box.error::after {
+    background: linear-gradient(90deg, 
+        var(--color-error) 0%, 
+        color-mix(in srgb, var(--color-error) 80%, white) 100%);
+}
+
+.userLikemsg-box.warning {
+    border-left: 4px solid var(--color-warning);
+}
+
+.userLikemsg-box.warning::after {
+    background: linear-gradient(90deg, 
+        var(--color-warning) 0%, 
+        color-mix(in srgb, var(--color-warning) 80%, white) 100%);
+}
+
+.userLikemsg-box.info {
+    border-left: 4px solid var(--color-info);
+}
+
+.userLikemsg-box.info::after {
+    background: linear-gradient(90deg, 
+        var(--color-info) 0%, 
+        color-mix(in srgb, var(--color-info) 80%, white) 100%);
+}
+
+/* Default (like/favorite) */
+.userLikemsg-box::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        var(--color-price) 0%, 
+        color-mix(in srgb, var(--color-price) 70%, white) 100%);
+    width: 0;
+    animation: fillBar 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    border-radius: 0 0 12px 12px;
+}
+
+/* Animation improvements */
 @keyframes fillBar {
-    to {
-      width: 100%;
+    0% {
+        width: 0%;
+        opacity: 0.8;
+    }
+    100% {
+        width: 100%;
+        opacity: 1;
     }
 }
-.userLikehidden{
+
+/* Hidden state */
+.userLikehidden {
     display: none;
 }
 
+/* Hover effect */
+.userLikemsg-box:hover {
+    transform: translateX(-5px) scale(1.02);
+    box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.15), 
+                0 8px 10px -2px rgba(0, 0, 0, 0.08);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .userLikemsg-box {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 
+                0 4px 6px -2px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+}
+
+[data-theme="dark"] .userLikemsg-box:hover {
+    box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.4), 
+                0 8px 10px -2px rgba(0, 0, 0, 0.3);
+}
 
 @media (max-width: 1250px) {
     .hero-section_container .hero-image-box {
