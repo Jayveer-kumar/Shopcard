@@ -52,7 +52,7 @@ nav{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border:0.01em solid var(--color-muted);
+    border:0.01em solid var(--color-link-visited);
     background-color: var(--color-card-bg);
     border-radius: 2em;
     transition: border 0.4s ease , box-shadow 0.3s ease;    
@@ -83,11 +83,12 @@ nav{
     height: 2.44em;
     padding:0 1em;
     background-color: transparent;
-    border:none;
+    border:none;    
 }
 .search_input_box_container form input{
   width:100%;  
   outline: none;
+  color: var(--color-text-primary);
 }
 .search_input_box_container form button{
    border-left: 0.02em solid black;
@@ -109,7 +110,7 @@ nav{
     z-index: 10; 
     padding:1em 1.5em;
     border-radius: 10px;
-    box-shadow: 0 4px 10px var(--color-muted);
+    box-shadow: 0 4px 10px var(--color-link-visited);
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, transform 0.5s ease, visibility 0.5s !important;
@@ -144,7 +145,7 @@ nav{
 }
 .search-product-preview-card:hover{
     transform: translateY(-0.2em); 
-    box-shadow: 0 0.2em 0.8em var(--color-muted);
+    box-shadow: 0 0.2em 0.1em var(--color-info);
 }
 .search-product-card-img{
     height: 100%;
@@ -168,13 +169,14 @@ nav{
     position: absolute;
     top:-1.2em;
     left:0;
-    color: var(--color-text-primary);
+    color: var(--color-link-visited);
     font-size: 0.7em;
     display: flex;
     flex-direction: row-reverse;
     i{
         padding-right: 0.4em;
         color: var(--color-text-primary);
+        /* color: var(--color-link-visited); */
     }
 }
 
@@ -204,7 +206,7 @@ nav .user_cd-profile{
     gap:1em;
     transition: all 0.2s ease;
 }
-.user_cd-profile .user-profile_box,.user-card,.search-product ,.dark-mode,.home-nav-watchList{
+.user_cd-profile .user-profile_box,.user-card,.dark-mode,.home-nav-watchList{
     min-height: 2.5em;
     min-width: 2.5em;
     margin:0 0.6em;
@@ -214,19 +216,19 @@ nav .user_cd-profile{
     gap:0.5em;
     border-radius: 50%;
     cursor: pointer;
-    transition: all 0.1s linear; 
+    transition: all 0.3s linear; 
     color: var(--color-text-primary);
 }
 .home-nav-watchList a{
     text-decoration: none;
-    color:var(--CardTextMediumColor) ;
+    color: var(--color-text-primary);
 }
 .user-profile_box{
     position: relative;
 }
 .user-profile_Container{
     position: absolute;
-    top:105%;
+    top:103%;
     width: max-content;
     height: 22em;  
     width: 14em;  
@@ -248,7 +250,7 @@ nav .user_cd-profile{
     justify-content: space-evenly !important;
     align-items:flex-start !important;
     gap:1em !important;
-    box-shadow: 10px  10px 20px var(--color-muted);
+    box-shadow: 0 4px 10px var(--color-link-visited) !important;
     border-radius: 0.5em;
 }
 .Open_user-profile_Container::before{
@@ -271,10 +273,10 @@ nav .user_cd-profile{
     gap:0.5em;
     padding:0.5em 1em;
     i{
-        color: var(--color-action);
+        color: var(--color-link);
     }
     span{
-        color: var(--color-action);
+        color: var(--color-text-primary);
     }
     a span{
         padding:0 1em;
@@ -284,6 +286,8 @@ nav .user_cd-profile{
 .Open_user-profile_Container:nth-child(2) >div:hover{
     background-color: var(--color-muted);
     border-radius: 0.5em;
+    box-shadow: 0 2px 4px var(--color-info), 
+            0 -2px 4px var(--color-info);
 }
 .user-profile_box a{
     text-decoration: none !important;
@@ -496,6 +500,11 @@ display: grid;
 place-items: center;
 box-shadow: 0 5px 10px rgba(0,0,0,0.05);
 }
+
+/* if there is dark mode then fill icon color to white for only social media links */
+[data-theme="dark"] .socialmediaLinksOption a {
+    fill: white;
+}
 .socialmediaLinksOption a:hover{
     background-color: var(--accent-color); 
     fill: white;
@@ -613,6 +622,7 @@ footer a{
     top: 10%;
     right: 5%;
     max-height: 4em;
+    background-color: transparent;
     max-width: max-content;
     min-width: 17em;
     padding: 1em;
@@ -626,31 +636,37 @@ footer a{
 .flash-message-container .flash-success-message ,.flash-error-message{
     height: 3em;
     width: 100%;
-    background-color: var(--drk-wht-color);
-    border:0.1em solid rgb(40, 222, 40);
+    background-color: var(--color-card-bg);
+    border:0.1em solid var(--color-border-light);
     border-radius: 0.7em;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding:0 1.5em;
-    box-shadow:  0 0 1em var(--md-wht--color);
+    box-shadow:  0 0 1em var(--color-info);
     p{
         font-weight: 600;
     }
 }
+.successMessage{
+    color: var(--color-success);
+}
+.errorMessage{
+    color: var(--color-error);
+}
 .flash-error-message{
-    border:0.1em solid rgb(238, 44, 14) !important;
+    border:0.1em solid var(--color-error) !important;
 }
 .flash-success-message button ,.flash-error-message button{
-    background-color: var(--drk-wht-color);
+    background-color: transparent;
     padding:0.5em 1em !important;
-    border:0.1em solid rgb(0, 0, 0);
+    border:0.1em solid var(--color-warning);
     margin-left:0.8em;
     border-radius: 0.5em;
     cursor: pointer;
     i{
         font-size: 1.2em;
-        color:var(--dark-red-color);
+        color:var(--color-error);
     }
 }
 

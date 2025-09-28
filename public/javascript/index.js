@@ -335,6 +335,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let mainCardAppendContainer = document.querySelector(".hm-listing-data");
     mainCardAppendContainer.appendChild(cardLink);
   }
+
+  // logic for frequent asked question
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(item=>{
+    const question = item.querySelector('.faq-question');
+    question.addEventListener("click",()=>{
+      item.classList.toggle('active');
+    })
+  })
 })
 
 function showLikeMessageBox(messageText, color = "#4caf50") {

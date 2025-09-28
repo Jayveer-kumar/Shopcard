@@ -124,7 +124,7 @@
 }
 .explore-card-box:hover{
     box-shadow: 
-    0 4px 20px color-mix(in srgb, var(--color-success) 20%, transparent),
+    0 4px 20px color-mix(in srgb, var(--color-info) 20%, transparent),
     0 2px 8px color-mix(in srgb, var(--color-success) 15%, transparent);
     border-color: var(--color-success);
     #ex-itemfor_link{
@@ -161,6 +161,7 @@
 }
 .Listing_main_heading{
     color:var(--color-text-primary) !important;
+    font-size: 2em;
 }
 .listing_head_para{
     color:var(--color-text-secondary) !important;
@@ -442,7 +443,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     letter-spacing: 0.03em;
-    color: var(--color-text-primary-low);
+    color: var(--color-text-secondary);
 }
 .hm-listing_item_discription:first-child{
     font-size: 1em;
@@ -452,7 +453,7 @@
 }
 .hm-listing_item_offer ,.hm-listing_item_deliveryPara{
     font-size: 0.8em;
-    color: var(--color-text-primary-low);    
+    color: var(--color-text-secondary) !important;    
 }
 .hm-listing_item_deliveryPara{
     width: 100%;
@@ -475,21 +476,24 @@
 }
 .hm_listing_price_cardBtn button{ 
     padding:0.7em 1em;
-    background-color: var(--color-bg);
     border:0.1em solid var(--color-text-primary);
-    color: var(--color-text-primary) !important;
     border-radius: 1em;
     cursor: pointer;
     transition: all 0.2s ease;
 }
-
+.hm-listing_item_price{
+    background-color: var(--color-action);
+    color: var(--color-button-text) !important;
+}
+.hm-listing_item_addCard{
+    background-color: var(--color-secondary) !important;
+    color: var(--color-secondary-text) !important;
+}
 .hm-listing_item_addCard:hover{
-   background-color: #ffdd00;
-   color: var(--color-bg);
+   background-color: var(--color-secondary-hover) !important;
 }
 .hm-listing_item_price:hover{
-    background-color: var(--color-text-primary) !important;
-    color: var(--color-bg) !important;
+    background-color: var(--color-action-hover) !important;
 }
 
 #listing_item_likeBtn{
@@ -502,13 +506,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-muted);
+    background-color: var(--color-secondary-hover);
     cursor: pointer;
     opacity: 0;
     transition: all 0.2s ease;
 }
 .listing_item_likeBtn svg{
-    fill: var(--color-action);
+    fill: var(--color-secondary);
 }
 .activeLikeBtn svg{
     fill: #f51137 !important;
@@ -521,56 +525,176 @@
     } 
 }
 
+.services-container {
+  width: 100%;
+  /* max-width: 1200px; */
+  margin: 4em 2em;
+  padding: 2em 1em;
+}
 
-.Services_to_help_you_container{
-   min-height: 30em;
-   max-height: auto;
-   width:100%;
-   padding:2em 3em;
-   margin:4em auto;
+.services-container hr {
+  border: 0;
+  height: 1px;
+  background-color: var(--color-divider);
+  margin-bottom: 1em;
 }
-#owrService{
-    color:var(--CardTextDarkColor);
-    padding: 1em 0;
+
+#ourService {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: var(--color-text-primary);
+  margin-bottom: 2em;
+  text-align: center; /* Center heading, change to left if needed */
 }
-.servicesShowMainCardContainer{
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(14em,0.3fr));
-    justify-content: center;
-    gap:2em;
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1em;
+  justify-items: center; /* Cards centered in each grid cell */
 }
-.serviceShowCardBox{
-    border: 0.4px solid var(--links);
-    border-radius: 10px;
-    height: 22em;
-    overflow: hidden;
-    background-color: var(--CardBackground);
-    box-shadow: var(--card_shadow) 0px 10px 10px -10px;
+
+.service-card {
+  background-color: var(--color-card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.3s ease;
+  margin: 0 0.4em;
 }
-.serviceShowDescription{
-    background-color: var(--CardBackground);
-    height: 10em;
-    padding:1em;
+
+.service-card:hover {
+  transform: translateY(-5px);
 }
-.serviceShowDescription h2{
-    color: var(--CardTextDarkColor);
+
+.service-info {
+  padding: 1em;
+  flex: 1; /* Make info take available vertical space */
 }
-.serviceShowCardImage{
-    height: 12em;
-    width: 100%;
-    background-color: transparent !important;
+
+.service-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5em;
+  color: var(--color-text-primary);
 }
-.serviceShowCardImage img{
-    height: 100%;
-    width:100%;
-    object-fit: cover;
-    object-position: center;
-    background-color: transparent !important;
+
+.service-info p {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
 }
-.serviceShowDescription p{
-    color:var(--CardTextMediumColor);
-    margin:1em 0;
+
+.service-image {
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
 }
-.serviceShowCardImage{
-    background-color: yellow;
+
+.service-image img {
+  width: 100%;
+  height: 180px; /* fixed image height, adjust if needed */
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
 }
+
+.service-card:hover .service-image img {
+  transform: scale(1.05); /* slight zoom effect on hover */
+}
+
+/* Responsive tweak for very small screens */
+@media (max-width: 500px) {
+  .service-image img {
+    height: 140px;
+  }
+
+  .service-info h3 {
+    font-size: 1rem;
+  }
+
+  .service-info p {
+    font-size: 0.85rem;
+  }
+}
+
+
+/* Frequently Asked Questions */
+
+.faq-container {
+  max-width: auto;
+  margin: 2em auto;
+  padding: 3em;
+}
+.faq-head{
+    margin: 3em 0;
+}
+.faq-head h2{
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    margin-bottom: 0.5em;
+    color: var(--color-text-primary);
+    text-align: center;
+}
+.faq-head .faq-description{
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--color-text-secondary);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 1.5em auto;
+}
+.faq-item {
+  border: 1px solid var(--color-border-light);
+  border-radius: 8px;
+  margin-bottom: 1em;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background-color: var(--color-card-bg);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 1em;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+  background-color: var(--color-bg-soft);
+}
+
+.faq-question i {
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1em;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px; /* adjust based on content */
+  padding: 1em;
+}
+
+.faq-answer p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+/* End of Frequently Asked Questions */
