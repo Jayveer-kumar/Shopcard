@@ -339,9 +339,20 @@ nav .user_cd-profile{
         cursor: pointer;
     }    
 }
+.small_scr_top-head{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5em;
+    padding:0 1em;
+    height: 3.5em;
+    background-color: var(--color-card-bg);
+}
 #barIcon{
-    padding-right:2em;
+    padding-right:-1em;
     color: var(--color-action);
+    cursor: pointer;
 }
 .small_scr_side{        
     width: 10em; 
@@ -355,7 +366,7 @@ nav .user_cd-profile{
     position: fixed;
     top:3.5em;
     right:-15em;
-    box-shadow:  0 0 2em var(--color-muted);
+    box-shadow:  0 0 0.1em var(--color-info);
 }
 .small_scr_side .userProfile_box , .userCard_box{
     position: relative;

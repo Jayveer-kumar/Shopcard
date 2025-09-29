@@ -9,10 +9,10 @@
     padding:3em;
     font-size: clamp(1rem, 1.2vw, 2rem);
 }
-.wtc-review-main-container .wtc-review-heading{
+.wtc-review-heading{
     text-align: left;
     font-size: 1.7em;
-    color:var(--textColor);
+    color:var(--color-text-primary);
 }
 .wtc-review-main-box{
     margin-top:2em;
@@ -27,21 +27,20 @@
 }
 /* writing review Stylling start here */
 .wtc-review-write_mainBox{
-    background-color: var(--blackCard);
-    color:white;
+    background-color: var(--color-card-bg);
+    border: 0.1em solid var(--color-border);
     border-radius: 1em;
     padding:0 1em;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    box-shadow: 0 0 1em rgba(230, 199, 199, 0.195);
 }
 .wtc-review-write_mainBox .wtc-leave-review-heading{
     padding:1.2em 0;
     font-size: 1.4em;
     text-align: center;
-    color:var(--textColor);
+    color:var(--color-text-primary);
 }
 .wtc-review-input_box{
     width:100%;
@@ -58,13 +57,14 @@
     position: absolute;
     top:-2em;
     right:1em;
+    color: var(--color-text-secondary);
 } 
 
 .wtc-review-input_box form .wtc-review-submit-btn{
     padding:1em 1.7em;
     font-weight: 600;
-    border:0.1em solid transparent;
-    background-color: #00aa0e;
+    border:0.1em solid var(--color-border);
+    background-color: var(--color-action);
     color:white;
     cursor: pointer;
     border-top-right-radius: 0.5em;
@@ -72,20 +72,23 @@
     transition: all 0.3s ease;
 }
 .wtc-review-input_box form .wtc-review-submit-btn:hover{
-  border:0.1em solid rgb(10, 8, 4);
+  border:0.1em solid var(--color-border);
+  background-color: var(--color-action-hover);
 }
 .wtc-review-input_box form input{
     padding:1em 1.2em;
     flex:1;  
-    border:0.05em solid black;
-    background-color: var(--inputBoxColor);
-    color: var(--CardTextDarkColor);
+    border: 0.05em solid var(--color-border);
+    border-right: none;
+    background-color: var(--color-bg-soft);
+    color: var(--color-text-primary);
     border-top-left-radius: 0.5em;
     border-bottom-left-radius: 0.5em;
     outline: none;
 }
 .wtc-review-input_box form input:focus{ 
-    border:0.05em solid rgb(9, 163, 9);
+    border:0.05em solid var(--color-info);
+    border-right: none;
 }
 /* writing review Stylling End here */
 
@@ -94,10 +97,11 @@
     margin-top:2em;
     text-align: center;
     padding:0.8em 0;
-    color:var(--textColor);
+    color:var(--color-text-primary);
 }
 .wtc-review-see-container{
-    background-color:var(--blackCard);
+    background-color: var(--color-card-bg);
+    border: 0.1em solid var(--color-border);
     padding:2em 1em;
     border-radius: 1em;
     display: flex;
@@ -105,13 +109,12 @@
     gap:3em;
     justify-content: flex-start;
     align-items:center;
-    box-shadow: 0 0 1em rgba(230, 199, 199, 0.155);
-    color:var(--textColor);
 }
 .wtc-review-card-box{
     min-height: 6em;
     height: auto;
-    background-color: var( --blackCard2);
+    background-color: transparent;
+    border: 0.01em solid var(--color-border);
     width:100%;
     display: flex;
     justify-content:center;
@@ -121,6 +124,7 @@
 .wtc-review-user-card-image_box{
     height: 2.4em;
     width:2.4em;
+    border: 0.01em solid var(--color-border);
     border-radius: 50%;
     margin-bottom: 1.6em;
     margin-left:0.7em;
@@ -145,25 +149,27 @@
     justify-content: space-between;
     align-items: center;
 }
-.wtc-review-user-name .wtc-review-user-name-text{
+.wtc-review-user-name h3{
    font-size: 1em;  
-   color:var(--textColor);
+   color:var(--color-text-primary);
 }
 .wtc-review-user-name p{
     font-size: 0.8em;
-    color:var(--links);
+    color:var(--color-text-primary-low);
+    opacity: 0.9;
     cursor: pointer;
     transition: all 0.3s ease;
 }
  .wtc-review-user-name p:hover{
-    color:rgb(20, 51, 101);
+    color:var(--color-info);
     text-decoration: underline;
-    text-decoration-color: rgb(18, 30, 7);
 }
 .wtc-review-likeBtn{
-    height: 2.4em;
-    width:2.4em;
+    height: 2em;
+    width:2em;
     border-radius: 50%;
+    background-color: var(--color-secondary);
+    color: var(--color-secondary-text);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -171,16 +177,16 @@
     cursor: pointer;
 }
 .wtc-review-likeBtn:hover{
-    background-color: rgba(182, 180, 180, 0.793);
+    background-color: var(--color-secondary-hover);
 }
 .wtc-user-review-description{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.wtc-user-review-description-preview-para{
-    font-size: 0.8em;
-    color:var(--links);
+.wtc-user-review-description-preview-para , .wtc_review_descriptionPara{
+    font-size: 0.9em;
+    color:var(--color-secondary-text);
 }
 /* Hidden form for edit review : */
 .CloseEditForm{
@@ -196,14 +202,16 @@
     width: 90% !important;
     height: 4em;
     resize: none;
-    border:0.01em solid #00000072;
+    border:0.01em solid var(--color-divider);
+    color: var(--color-text-primary);
+    background-color: transparent;
     border-radius: 0.5em;
     padding:0.3em 0.6em;
     transition: all 0.3s ease;
 }
 .openEditForm textarea:focus{
-    outline: 0.03em solid #000000c6;
-    box-shadow: 0 0 0.6em rgba(11, 15, 11, 0.208);
+    outline: 0.03em solid var(--color-info);
+    box-shadow: 0 0 0.3em var(--color-info);
 }
 .wtc-review-edit-delete-box{
     display: flex;
@@ -214,27 +222,35 @@
     margin-top:0.4em;
     padding:0.5em 1em;
     border:none;
-    color:white;
     cursor: pointer;
     border-radius: 0.6em;
     transition: all 0.2s linear;
 }
+
 .editReviewUpdateButton{
-    background-color: #2dc43d;
-}
-.editReviewUpdateButton:hover{
-    background-color: #07d71c;
-}
+    border: 0.1em solid var(--color-border);
+    background-color: var(--color-action);
+    color: var(--color-card-bg);
+}  
+ .editReviewUpdateButton:hover{
+    background-color: var(--color-action-hover);
+    color: var(--color-card-bg);
+}  
+
 .wtc-review-edit{
     margin-right:0.3em;
-    background-color: #09bbe3;
+    border: 0.1em solid var(--color-divider);
+    color: var(--color-text-primary);
+    background-color: var(--color-secondary);
 }
 .wtc-review-edit:hover{
-    background-color: #31d7fc;
+    background-color: var(--color-secondary-hover);
 }
 .wtc-review-deleteBtn{
     margin-left:0.3em;
-    background-color: #e33409;
+    background-color: transparent;
+    border: 0.1em solid var(--color-error);
+    color: var(--color-error);
 }
 .wtc-review-deleteBtn:hover{
     background-color: #d72f05;
@@ -244,6 +260,7 @@
     font-size: 1.3em;
     font-weight: 600;
     text-align: center;
+    color: var(--color-text-primary);
 }
 /* Review Preview Stylling End here */
 @media (max-width:1050px){

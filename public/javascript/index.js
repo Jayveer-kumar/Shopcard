@@ -7,46 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   handleUserLikedProduct_when_page_reload();
 
-  // User Releted Product ko move karne ka logic
-
-    //   const scrollContainer = document.querySelector(".user-releted-card_box");
-    //   const prevSlideBtn = document.getElementById("rel_slide_prev");
-    //   const nextSlideBtn = document.getElementById("rel_slide_next");
-
-    //   const scrollAmount = 320;
-
-    //   function updateButtonStates(){
-    //     const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
-    //     // Update button opacity based on scroll Position
-    //     prevSlideBtn.style.opacity = scrollContainer.scrollLeft <= 0 ? '0.4':'1';
-    //     nextSlideBtn.style.opacity = scrollContainer.scrollLeft >= maxScrollLeft ? '0.4':'1';
-
-    //     // Disabled / enabled buttons
-    //     prevSlideBtn.disabled  = scrollContainer.scrollLeft <= 0;
-    //     nextSlideBtn.disabled = scrollContainer.scrollLeft >= maxScrollLeft;
-    //   }
-
-    //   if(prevSlideBtn !==null && nextSlideBtn !==null) {
-    //   nextSlideBtn.addEventListener("click", () => {
-    //       scrollContainer.scrollLeft += scrollAmount;
-    //       setTimeout(updateButtonStates,100);
-    //   })
-    //   prevSlideBtn.addEventListener("click", () => {
-    //       scrollContainer.scrollLeft -= 200;
-    //       setTimeout(updateButtonStates,100);
-    //   })
-
-    //   scrollContainer.addEventListener("scroll",updateButtonStates);
-
-    //   // Initialize button states
-    //   setTimeout(updateButtonStates,100)
-    //  }
-
-    //  window.addEventListener("resize",()=>{
-    //     setTimeout(updateButtonStates,100);
-    //  })
-
     // User Related Products Slider
     initializeSlider('.user-releted-card_box', 'rel_slide_prev', 'rel_slide_next', 320);
     // New Arrivals Slider

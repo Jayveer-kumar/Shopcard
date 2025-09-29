@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let allProductImage = document.querySelectorAll(".select-prodct-img");
     allProductImage.forEach((image) => {
         image.addEventListener("click", (ele) => {
-            productMainimage.setAttribute("src", ele.target.currentSrc);
+            productMainimage.setAttribute("src", ele.target.currentSrc); 
         })
     })
     // Increase and decrease product quantity

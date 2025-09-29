@@ -1,21 +1,42 @@
-document.addEventListener("DOMContentLoaded", () => { 
+document.addEventListener("DOMContentLoaded", () => {
   // Dark Mode Switching Logic Start Here
   let mainBody = document.documentElement;
-  let modeSwitchButton = document.querySelector(".modeSwitchButton");
-  let modeIcon = modeSwitchButton.children[0];
-  let modeText = modeSwitchButton.children[1];
+  let modeSwitchButtons = document.querySelectorAll(
+    ".modeSwitchButton, .nav_sml_modeSwitchButton"
+  );
 
-  const setTheme = (theme) =>{
-    mainBody.dataset.theme= theme;
-    localStorage.setItem("theme",theme);
-    modeIcon.className = theme === "dark" ? "fa-solid fa-sun" : "fa-solid fa-moon";
-    modeText.innerText = theme === "dark" ? "Light" : "Dark";
-  }
-  setTheme(localStorage.getItem("theme") || "light");
+  modeSwitchButtons.forEach((btn) => {
+    let modeIcon = btn.children[0];
+    let modeText = btn.children[1];
 
-  modeSwitchButton.addEventListener("click",()=>{
-    setTheme(mainBody.dataset.theme === "light" ? "dark" : "light");
-  })
+    const setTheme = (theme) => {
+      document.body.dataset.theme = theme;
+      localStorage.setItem("theme", theme);
+      modeIcon.className =
+        theme === "dark" ? "fa-solid fa-sun" : "fa-solid fa-moon";
+      modeText.innerText = theme === "dark" ? "Light" : "Dark";
+    };
+
+    // Initial theme
+    setTheme(localStorage.getItem("theme") || "light");
+
+    // Click event
+    btn.addEventListener("click", () => {
+      const newTheme =
+        document.body.dataset.theme === "light" ? "dark" : "light";
+      setTheme(newTheme);
+
+      // Update all other buttons too
+      modeSwitchButtons.forEach((otherBtn) => {
+        if (otherBtn !== btn) {
+          otherBtn.children[0].className =
+            newTheme === "dark" ? "fa-solid fa-sun" : "fa-solid fa-moon";
+          otherBtn.children[1].innerText =
+            newTheme === "dark" ? "Light" : "Dark";
+        }
+      });
+    });
+  });
 
   // Dark Mode Switching Logic End Here
   let small_scr_side = document.querySelector(".small_scr_side");

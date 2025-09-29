@@ -54,8 +54,16 @@
     <% } %>        
     </div>
     <!-- For Small Screen Sidebar -->
-    <div class="user-sm-sc_cd-profile">
-      <i id="barIcon" class="fa-solid fa-bars"></i>
+    <div class="user-sm-sc_cd-profile"> 
+      
+      <div class="small_scr_top-head">
+        <div class="dark-mode modeSwitchButton nav_sml_modeSwitchButton" > 
+          <i  class="fa-solid fa-moon"></i>
+          <span>Mode</span>
+        </div>
+       <i id="barIcon" class="fa-solid fa-bars"></i>
+      </div>
+       
       <div class="small_scr_side">    
       <% if(currentUser) { %>
       <div class="user-profile_box userProfile_box"> <a href="/shopcard"><i class="fa-solid fa-user"></i></a></div>
@@ -67,6 +75,7 @@
       <div class="LoginBox"> <a href="/shopcard/authenticate/register?action=login"><button class="LoginBtn"> Login</button> </a> </div> 
       <% } %>
     </div>
+
     </div> 
 </nav> 
 <!-- <script src="/javascript/nav_side.js"></script> -->
