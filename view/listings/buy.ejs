@@ -24,7 +24,7 @@
             </div>
             <%} %>
             <div class="buy_route_selected_product_prize_box">
-                <p class="buy_route_selected_product_prize"><%=buyProduct.prize%></p>
+                <p class="buy_route_selected_product_prize"> &#8377; <%=buyProduct.prize%></p>
                 <p class="buy_route_selected_product_quantity_show"> Quantity :  <span class="buy_route_selected_product_quantity">1</span> </p>
             </div>
         </div>
@@ -44,31 +44,31 @@
             <!-- name Input lene ke liye Box -->
             <div class="buy_Product_address_input_f_name_l_name">
                 <div class="buy_Product_address_firstname">
-                    <p>First Name <sup style="color: #0080ff;">*</sup> </p>
+                    <p>First Name <sup style="color: var(--color-error)">*</sup> </p>
                     <input type="text" id="buy_item_Firstname" placeholder="Type here.."  >
                     <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300">First name is required!</p>
                 </div>
                 <div class="buy_Product_address_lastname">
-                    <p>Last Name <sup style="color: #0080ff;">*</sup> </p>
+                    <p>Last Name <sup style="color: var(--color-error)">*</sup> </p>
                     <input type="text" id="buy_item_Lastname" placeholder="Type here.."  >
                     <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300" >Last name is required!</p>
                 </div>
             </div>
              <!--Permanent Address -->
              <div class="buy_product_permanent_address_box">
-                <p style="color: var(--CardTextMediumColor);" class="buy_product_permanent_addrees_para"> Permanent Address <sup style="color:#0080ff;">*</sup></p>
+                <p style="color:var(--color-text-primary-low);" class="buy_product_permanent_addrees_para"> Permanent Address <sup style="color:var(--color-error)">*</sup></p>
                 <input type="text" placeholder="Type here.." >
                 <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300" >Permanent address is required!</p>
              </div>
             <!--City or Zip code -->
             <div class="buy_product_address_city_zip_code_box">
                 <div class="buy_product_address_city_input_box">
-                    <p>City/Town <sup style="color: #0080ff;">*</sup> </p>
+                    <p>City/Town <sup style="color: var(--color-error)">*</sup> </p>
                     <input type="text" placeholder="Type here.."  >
                     <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300">City / Town is required!</p>
                 </div>
                 <div class="buy_product_address_zipcode_input_box">
-                    <p>Zipcode <sup style="color: #0080ff;">*</sup> </p>
+                    <p>Zipcode <sup style="color: var(--color-error)">*</sup> </p>
                     <input type="text" placeholder="Type here.." id="buy_product_zipcode_input" maxlength="6">
                     <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300">Zipcode is required!</p>
                 </div>
@@ -76,12 +76,12 @@
              <!--Mobile Number or Email id --> 
             <div class="buy_product_address_mobile_num_Email_box">
                 <div class="buy_product_address_Mobile_input_box">
-                    <p>Mobile <sup style="color: #0080ff;">*</sup> </p>
+                    <p>Mobile <sup style="color: var(--color-error)">*</sup> </p>
                     <input type="text" placeholder="Type here.." id="buy_product_mobile_number_input"  >
                     <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300" >Mobile number is required!</p>
                 </div>
                 <div class="buy_product_address_Email_input_box">
-                    <p>Email <sup style="color: #0080ff;">*</sup> </p>
+                    <p>Email <sup style="color: var(--color-error)">*</sup> </p>
                     <input type="email" placeholder="Type here.."  id="buy_product_email_input">
                     <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300">Email i'd is required!</p>
                 </div>
@@ -130,25 +130,30 @@
          <div class="buy_route_credit_debit_card_input_container">
             <form action="" >
             <div>
-                <p>Email <sup style="color:#0080ff">*</sup></p>
+                <p>Email <sup style="color:var(--color-error)">*</sup></p>
                 <input type="email" placeholder="Type here..">
+                <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300" >Email is required!</p>
             </div>
             <div>
-                <p>Card Holder Name <sup style="color: #0080ff;">*</sup></p>
+                <p>Card Holder Name <sup style="color: var(--color-error);">*</sup></p>
                 <input type="text" placeholder="Type here..">
+                <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300" >Card Holder name is required!</p>
             </div>
             <div>
-                <p>Card Number <sup style="color:#0080ff">*</sup> </p>
+                <p>Card Number <sup style="color: var(--color-error);">*</sup> </p>
                 <input type="text" placeholder="0000****1234" maxlength="16" >
+                <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300" >Card number is required!</p>
             </div>
             <div class="buy_route_debit_card_cvv_expireDate_box">
                 <div>
-                    <p>Expiry Date (MM/YY)<sup style="color:  #0080ff;">*</sup> </p>
+                    <p>Expiry Date (MM/YY)<sup style="color:  var(--color-error);">*</sup> </p>
                     <input type="text" placeholder="MM/YY" maxlength="5">
+                    <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300" >Expiry date is required!</p>
                 </div>
                 <div>
-                    <p>CVV <sup style="color: #0080ff;">*</sup></p>
+                    <p>CVV <sup style="color: var(--color-error)">*</sup></p>
                     <input type="password" placeholder="CVV" maxlength="4" autocomplete="on" >
+                    <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300" >CVV is required!</p>
                 </div>
             </form>
             </div>

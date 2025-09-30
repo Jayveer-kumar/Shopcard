@@ -8,10 +8,11 @@
     justify-content: flex-start;
     align-items: flex-start;
     padding:0 3em;
+    background-color: var(--color-bg);
 }
 .buy_route_path_para{
     font-size: 0.8em;
-    color:var(--mdBlack);
+    color:var(--color-text-muted);
     padding:1em 0;
 }
 .buy_route_product_and_payment_main_container{
@@ -38,16 +39,15 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    border:0.01em solid #00000046;
+    border:0.01em solid var(--color-border);
     border-radius: 0.3em;
     padding:0.7em 0.4em;
     overflow: hidden;
-    background-color: var(--CardBackground2);
-    box-shadow: var(--card_shadow) 0px 1px 30px -10px;
+    background-color: var(--color-card-bg);
 }
 .buy_route_product_Heading{
     padding:0.5em 0.2em;
-    color:var(--CardTextDarkColor);
+    color:var(--color-text-primary);
 }
 .buy_route_product_container{
     height: 10em;
@@ -70,29 +70,32 @@
     width:100%;
     object-fit: contain;
 }
-.buy_route_selected_product_title,.buy_route_selected_product_prize ,.buy_route_selected_product_size{
+.buy_route_selected_product_title ,.buy_route_selected_product_size{
     font-size: 1.2em;
     font-weight: 600;
-    color:var(--CardTextDarkColor);
+    color:var(--color-text-primary);
+}
+.buy_route_selected_product_prize{
+    color: var(--color-price);
 }
 .buy_route_selected_product_color_show ,.buy_route_selected_product_quantity_show, .buy_route_product_size_value{
     font-size: 0.8em !important;
-    color:var(--CardTextMediumColor);
+    color:var(--color-text-primary-low);
 }
+
 .buy_route_add_address_box{
     width: 100%;
     min-height: 10em;
     height: auto;
-    border:0.01em solid #00000046;
+    border:0.01em solid var(--color-border);
     border-radius: 0.3em;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-color: var(--CardBackground2);
-    box-shadow: var(--card_shadow) 0px 1px 30px -10px;
+    background-color: var(--color-card-bg);
 }
 .buy_r_Product_return_allow_box{
-    color:var(--CardTextDarkColor);
+    color:var(--color-text-primary);
 }
 .buy_route_address_header{
     width: 100%;
@@ -102,15 +105,19 @@
     padding:1.2em;
 }
 .buy_route_address_header h3{
-    color:var(--CardTextDarkColor);
+    color:var(--color-text-primary);
 }
 .buy_route_address_save_btn{
-    border:none;
-    background-color: var( --CardButtonBackground);
+    background-color: var(--color-secondary);
+    color:var(--color-secondary-text);
+    border: 0.01em solid var(--color-border);
     padding:0.4em 0.8em;
     border-radius: 0.4em;
-    color: var(--CardButtonColor);
+    transition: all 0.3s ease;
     cursor: pointer;
+}
+.buy_route_address_save_btn:hover{
+    background-color: var(--color-secondary-hover);
 }
 /* Input Boxes Stylling */
 .buy_route_address_input_main_Box >div{
@@ -126,10 +133,10 @@
 .buy_route_address_input_main_Box >div div p{
     font-size: 0.9em;
     padding:0.4em 0;
-    color:var(--CardTextMediumColor);
+    color:var(--color-text-primary-low);
 }
 .buy_product_form_invalid_msg{
-    color:red;
+    color:var(--color-error) !important;
     font-size: 0.9em;
     display: none;
 }
@@ -139,14 +146,15 @@
     width: 100%;
     height: 3em;
     padding: 0 0.5em;
-    border:0.01em solid #8e8c8c46;
-    background-color: var(--inputBoxColor);
+    color: var(--color-text-primary);
+    border:0.01em solid var(--color-border);
+    background-color: transparent;
     border-radius: 0.4em;
 }
 .buy_route_address_input_main_Box >div div >input:focus
 ,.buy_route_address_input_main_Box .buy_product_permanent_address_box input:focus
 {
-    outline:0.1em solid rgb(0, 213, 255);
+    outline:0.1em solid var(--color-info);
 }
 .buy_route_address_input_main_Box .buy_product_permanent_address_box{
     display: flex;
@@ -157,9 +165,9 @@
     flex-direction: row-reverse;
 }
 .buy_product_from_submit_box #place_order_button{
-    border:0.01em solid #027e16ef;
-    background-color: #027e16ef;
-    color:#ffffff;
+    border: 0.01em solid var(--color-border);
+    background-color: var(--color-action);
+    color: var(--color-button-text);
     border-radius: 1.4em;
     padding:0.7em 1.3em;
     cursor: pointer;
@@ -167,9 +175,7 @@
     text-wrap: nowrap;
 }
 #place_order_button:hover{
-    border:0.01em solid #027e16ef;
-    background: #ffffff;
-    color:#027e16ef;
+    background: var(--color-action-hover);
 }
 .buy_route_order_container{
     min-height: 10em;
@@ -177,19 +183,18 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    border:0.01em solid #00000046;
+    border:0.01em solid var(--color-border);
     border-radius: 0.3em;
     padding:1em 1.4em;
-    background-color: var(--CardBackground2);
-    box-shadow: var(--card_shadow) 0px 1px 30px -10px;
+    background-color: var(--color-card-bg);
 }
 .buy_route_order_container hr{
     margin: 1em 0;
-    color:rgba(168, 168, 168, 0.497);
+    color:var(--color-divider);
 }
 #OrderSummeryHeading,#paymentDetailsHeading{
     padding:0.7em 0;
-    color:var(--CardTextDarkColor);
+    color:var(--color-text-primary);
 }
 .buy_route_applyCoopon_container{
     padding:0.3em 0.2em;
@@ -197,8 +202,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--inputBoxColor);
-    border:0.01em solid #8e8c8c46;
+    background-color: transparent;
+    border:0.01em solid var(--color-border);
     border-radius: 0.4em;
     overflow: hidden;
 }
@@ -206,27 +211,31 @@
     height: 100%;
     padding:0 0.6em;
     background-color: transparent;
-    color: var(--CardTextMediumColor);
+    color: var(--color-text-primary);
     border:none;
 }
+.buy_route_applyCoopon_container input:focus{
+    outline:none;
+}
+.buy_route_applyCoopon_container:focus-within{
+    border: 0.01em solid var(--color-info);
+}
 .applyCouponButton{
-    border:0.01em solid #027e16ef;
-    background-color: #027e16ef;
-    color:#ffffff;
+    border:0.01em solid var(--color-action);
+    background-color: var(--color-action);
+    color: var(--color-button-text);
     border-radius: 1.4em;
     padding:0.7em 1em;
     cursor: pointer;
     transition: all 0.3s ease;
     text-wrap: nowrap;
 }
+
 .applyCouponButton:hover{
-    border:0.01em solid #027e16ef;
-    background: #ffffff;
-    color:#027e16ef;
+    background: var(--color-action-hover);
 }
-.buy_route_applyCoopon_container input:focus{
-    outline:none;
-}
+
+
 .buy_route_payment_selection_box{
     width: 100%;
     display: flex;
@@ -254,7 +263,7 @@
     font-size: 0.9em;
     padding:0 0.3em;
     cursor: pointer;
-    color: var(--CardTextDarkColor);
+    color: var(--color-text-primary-low);
 }
 .buy_route_credit_debit_card_input_container{
    margin:1em 0;
@@ -279,23 +288,23 @@
 .buy_route_credit_debit_card_input_container div p{
     font-size: 0.9em;
     padding:0.4em 0;
-    color: var(--CardTextDarkColor);
+    color: var(--color-secondary-text);
 }
 .buy_route_credit_debit_card_input_container div input{
     width: 100%;
     height: 3em;
     padding: 0 0.5em;
-    border:0.01em solid #8e8c8c46;
+    border:0.01em solid var(--color-border);
     border-radius: 0.4em;
-    background-color: var(--inputBoxColor);
-    color: var(--CardTextMediumColor);
+    background-color: transparent;
+    color: var(--color-text-primary);
 }
 .buy_route_debit_card_cvv_expireDate_box{
     display: flex;
     gap:1em;
 }
 .buy_route_credit_debit_card_input_container div input:focus{
-    outline:0.1em solid rgb(0, 213, 255);
+    outline:0.1em solid var(--color-info);
 }
 
 

@@ -5,10 +5,14 @@
     min-height: 25em; 
     height: max-content;       
     margin: 6em auto;
+    border: 0.01em solid var(--color-border);
     border-radius: 10px;
-    box-shadow: var(--card_shadow) 0px 18px 50px -10px;
+    box-shadow: var(--color-divider) 0px 0 50px -10px;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(17em,1fr));
+}
+.login_box_container .login-box-img {
+    background-color: var(--color-card-bg);
 }
 .login_box_container .login-box-img img{
     height: 100%;
@@ -22,14 +26,14 @@
     height: 100%;
     background: transparent;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: var(--card_shadow) 0px 18px 50px -10px;
+    /* box-shadow: var(--card_shadow) 0px 18px 50px -10px; */
+    background-color: var(--color-card-bg);
 }
 /* Form headings */
 .login_box_container .container h2 {
     text-align: center;
     margin-bottom: 15px;
-    color: var(--CardTextDarkColor);
+    color: var(--color-text-primary);
 }
 
 /* Input fields */
@@ -37,13 +41,13 @@
     width: 100%;
     padding: 10px;
     margin: 5px 0;
-    border: 1px solid var( --card_shadow);
-    color:var(--CardTextDarkColor);
+    border: 1px solid var( --color-border);
+    color:var(--color-text-primary);
     border-radius: 5px;
     background-color: transparent;
 }
 .login_box_container .container input:focus{
-    outline:1px solid #c614dd;
+    outline:1px solid var(--color-info);
     border:1px solid transparent;
 }
 .login_box_container .container input[type="file"]{
@@ -51,24 +55,30 @@
 }
 .login_box_container .container .passwordBox{
     width: 100%;
-    border: 1px solid var( --card_shadow);  
+    border: 1px solid var( --color-border);  
     border-radius: 5px;
     margin: 5px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    input{
-        border:none;
-        padding: 10px;
-        margin: 0;
-    }
-    input:focus{
-        outline: none;
-    }
+}
+
+.login_box_container .container .passwordBox input{
+    border: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.login_box_container .container .passwordBox input:focus{
+    outline: none;
+}
+
+.login_box_container .container .passwordBox:focus-within{
+    border: 1px solid var(--color-info);
 }
 .login_box_container .container .passwordBox i{
     cursor: pointer;
-    color:var(--CardTextMediumColor);
+    color:var(--color-text-muted);
     font-size: 0.8em;
     margin-right: 1em;
 }
@@ -76,18 +86,22 @@
 .registration-image-selection-btn{
     display: inline-block;
     padding: 0.6em 1.1em;
-    background-color: var(--CardButtonBackground);
-    color:var(--CardButtonColor);
+    background-color: var(--color-secondary);
+    color:var(--color-secondary-text);
+    border: 0.01em solid var(--color-border);
     border-radius: 5px;
     cursor: pointer;
     font-size: 0.8em;
     transition: all 0.3s ease;
 }
+.registration-image-selection-btn:hover{
+    background-color: var(--color-secondary-hover);
+}
 .no-image-selected{
     display: inline-block;
     font-size: 0.7em;
     font-weight: 600;
-    color:var(--CardTextMediumColor);
+    color:var(--color-text-muted);
 }
 .registration-image-preview{
     display: none;
@@ -95,8 +109,8 @@
     height: 5em;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #ddd;
-    background-color: burlywood;
+    border: 2px solid var(--color-border);
+    background-color: transparent;
     border-radius: 10px;
     margin: 2px;
 }
@@ -104,9 +118,9 @@
 .login_box_container .container button {
     width: 100%;
     padding: 10px;
-    background: var(--CardButtonBackground);
+    background: var(--color-action);
     border:0.1em solid #07192c !important;
-    color:var(--CardButtonColor);
+    color:var(--color-button-text);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -120,12 +134,12 @@
 .login_box_container .container p {
     text-align: center;
     margin-top: 10px;
-    color: var(--CardTextMediumColor);
+    color: var(--color-text-primary-low);
 }
 
 /* Links */
 .login_box_container .container a {
-    color: #007bff;
+    color: var(--color-info);
     text-decoration: none;
 }
 

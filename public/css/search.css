@@ -8,6 +8,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     padding:0 2em;
+    background-color: var(--color-bg);
 }
 
 .search_r_required_card_container{
@@ -19,10 +20,11 @@
   grid-template-columns: repeat(auto-fit,minmax(14em,0.2fr));
   justify-content: flex-start;
   gap:1em;
+  background-color: transparent;
 }
 ._search_route_card_link{
   text-decoration: none;
-  color:black;
+  color:var(--color-info);
 }
 .search_r_required_card_container .search_route_data_card{
   height: 23em;
@@ -33,12 +35,12 @@
   align-items: flex-start;
   padding:0.3em 0.7em;
   position: relative;
-  background-color: var(--CardBackground2);
+  background-color: var(--color-card-bg);
   border-radius: 0.5em;
   transition: all 0.3s ease;
   cursor: pointer;
   position: relative;
-  border:0.01em solid rgba(4, 4, 4, 0.121);
+  border:0.01em solid var(--color-border);
 }
 .search_route_data_card .search_route_card_image_box{
   padding:0.5em 0;
@@ -62,7 +64,7 @@
   padding:0.3em;
 }
 .search_route_card_title{
-  color:var(--CardTextDarkColor);
+  color:var(--color-text-primary);
 }
 .search_route_card_description {
   display: -webkit-box;
@@ -71,7 +73,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 0.7em;
-  color:var(--CardTextMediumColor);
+  color:var(--color-text-primary-low);
 }
 
 .search_route_card_description_box .search_route_card_prizeBox{
@@ -84,22 +86,24 @@
   position: relative;
 }
 .search_route_card_prize{
-  color:var(--CardTextDarkColor);
+  color:var(--color-price);
 }
 .search_route_card_fPrice ,.search_route_card_off_prize ,.search_route_card_free_delivery{
   font-size: 0.8em;
-  color:var(--CardTextMediumColor);
 }
 .search_route_card_off_prize{
-  color:#0d740d;
+  color: var(--color-discount);
 }
 .search_route_card_fPrice{
   text-decoration: line-through;
-  color:var(--CardTextMediumColor);
+  color:var(--color-text-muted);
+}
+.search_route_card_free_delivery{
+  color:var(--color-text-primary-low);
 }
 .search_route_card_bank_offer{
   font-size: 0.8em;
-  color:#0d740d;
+  color:var(--color-info);
   font-weight: 600;
 }
 
@@ -111,12 +115,12 @@
   justify-content: center;
   align-items: center;
   opacity: 0;
-  color:var(--CardTextMediumColor);
+  color:var(--color-text-muted);
   visibility: hidden;
   transition: all 0.3s ease;
 }
 .search_route_data_card:hover{
-  box-shadow:  0 0 1em #9393934c;
+  box-shadow:  0 0 1em var(--color-divider);
   .search_route_card_like_box{
     opacity: 1;
     visibility: visible;

@@ -82,11 +82,13 @@ html[data-theme="dark"]{
 [data-theme="dark"] {
   --color-bg: #0f1419;
   --color-card-bg: #1a1f2e;
+  /* --color-card-bg: #242527; */
   --color-text-primary: #ffffff;
   --color-text-primary-low: #ffffffd0;
   --color-text-secondary: #b0b0b0;
   --color-text-muted: #888888;
-  --color-action: #5def31;                /* Keep green bright in dark mode */
+  /* --color-action: #5def31;                */
+  --color-action: #ACFFB7;                /* Brighter green for dark mode */
   --color-price: #4fd826;
   --color-button-text: #173317;           /* Dark text on green button */
   
@@ -96,7 +98,7 @@ html[data-theme="dark"]{
   --color-error: #f87171;
   --color-info: #60a5fa;
   
-  --color-action-hover: #45c41f;
+  --color-action-hover: #8bfc9a;
   --color-action-active: #3ab018;
   --color-action-disabled: #374151;
   
