@@ -1,3 +1,9 @@
+.privacy-policy{
+    min-height: 100vh;
+    max-height: fit-content;
+    width: 100%;
+    background-color: var(--color-bg);
+}
 .privacy_policy_main_box{
     width: 70%;
     margin:5em auto;
@@ -5,11 +11,19 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
-    background-color: var(--CardBackground2);
+    /* align-items: flex-start; */
+
+    align-items: center;
+    background-color: var(--color-card-bg); 
+    border: 0.1em solid var(--color-border);
+    /* color:var(--color-text-primary) !important; */
+    border-radius: 1em;
 }
-.privacy_policy_main_box h4{
-    color:var(--CardTextDarkColor);
+.privacy_policy_main_box >  #privacy_policy_Heading{
+    text-align: center !important;
+    font-size: 2em !important;
+    color:var(--color-text-primary) !important;
+    margin: 0.4em 0 1em 0 !important;
 }
 .disclaimer{
     margin:1em 0;
@@ -24,12 +38,27 @@
     gap: 1em;
     justify-content: center;
     align-items: center; 
-    color:var(--CardTextMediumColor);
+}
+.privacy-policy-head-common{
+    font-size: 1.2em;
+    color:var(--color-text-primary);
+}
+.disclaimer-head-para{
+    font-size: 0.9em;
+    color:var(--color-text-secondary); 
+    font-weight: 100;
+    letter-spacing: 0.02em;
+}
+.privacy-policy-detail{
+    font-size: 0.93em;
+    letter-spacing: 0.02em;
+    font-weight: 100;
+    color:var(--color-text-primary-low) !important;
+    opacity: 0.8;
 }
 .privacy-policy-head-intro{ 
     font-size: 1.1em;
     margin:1em 0;  
-    color:var(--CardTextMediumColor); 
 }
 .privacy-policy-detail{
     font-size: 0.93em;
@@ -38,6 +67,6 @@
     color: var(--CardTextDarkColor);
 }
 .privacy-policy-detail a{
-    color:#0073ff;
+    color:var(--color-info);
     text-decoration: underline;
 }
