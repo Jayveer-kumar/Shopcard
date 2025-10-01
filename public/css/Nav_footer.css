@@ -644,23 +644,23 @@ footer a{
     min-width: 17em;
     padding: 1em;
     z-index: 1000;
-    transition: opacity 2s ease transform 2s ease;
+    transition: opacity 1s ease , transform 1s ease;
 } 
 .closeFlashMessage{
-    opacity: 0.6;
+    opacity: 0;
     transform: translateY(-10em);
 }
 .flash-message-container .flash-success-message ,.flash-error-message{
     height: 3em;
     width: 100%;
     background-color: var(--color-card-bg);
-    border:0.1em solid var(--color-border-light);
+    border:0.1em solid var(--color-border);
     border-radius: 0.7em;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding:0 1.5em;
-    box-shadow:  0 0 1em var(--color-info);
+    box-shadow:  0 0 1em var(--color-border-light);
     p{
         font-weight: 600;
     }
@@ -671,9 +671,6 @@ footer a{
 .errorMessage{
     color: var(--color-error);
 }
-.flash-error-message{
-    border:0.1em solid var(--color-error) !important;
-}
 .flash-success-message button ,.flash-error-message button{
     background-color: transparent;
     padding:0.5em 1em !important;
@@ -681,9 +678,15 @@ footer a{
     margin-left:0.8em;
     border-radius: 0.5em;
     cursor: pointer;
-    i{
-        font-size: 1.2em;
-        color:var(--color-error);
-    }
+}
+.flash-success-message button i ,.flash-error-message button i{
+    font-size: 1.2em;
+    color:var(--color-error);
+    transform: rotate(0);
+    transition: transform 0.3s ease;
 }
 
+/* And Rotate flash message close button icon when we hover over it */
+.flash-success-message button:hover i ,.flash-error-message button:hover i{
+    transform: rotate(90deg);
+}

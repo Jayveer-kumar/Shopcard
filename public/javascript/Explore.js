@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentIndex = 0;
   const cards = document.querySelectorAll(".explorepg-product-card");
   const container = document.querySelector(".explorepg-cards-container");
-  const leftBtn = document.querySelector(".explorepg-nav-left");
-  const rightBtn = document.querySelector(".explorepg-nav-right");
+  const leftBtn = document.querySelector(".explorepg-best-seller-nav-left");
+  const rightBtn = document.querySelector(".explorepg-best-seller-nav-right");
 
   const cardWidth = 250 + 24; // Card width + gap
 

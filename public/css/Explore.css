@@ -6,10 +6,10 @@
     justify-content: center;
     align-items: center;
     margin-top: 3em;
+    background-color: var(--color-bg);
 }
 
 .ExplorePageContainer {
-    /* height: 90vh; */
     width: 95%;
     border-radius: 10px;
     display: flex;
@@ -27,7 +27,6 @@
 .explorepg-header-left {
     height: 100%;
     width: 55%;
-    /* border: 2px solid black; */
     display: flex;
     justify-content: end;
     align-items: center;
@@ -48,14 +47,14 @@
     /* add font size with help of clamp function so it can we responsive */
     font-size: clamp(1.8rem, 4.5vw + 0.5rem, 3.6rem);
     font-weight: 800;
-    color: #2d3748;
+    color: var(--color-text-primary);
     line-height: 1.2;
     margin: 0;
 }
 
 .explorepg-fashion-text {
     /* color: #ff6b35; */
-    color: #4caf50;
+    color: var(--color-price);
     font-weight: 800;
 }
 
@@ -75,7 +74,7 @@
     border-radius: 50%;
     object-fit: cover;
     /* box-shadow: 0 0 2em #ff6b35; */
-    box-shadow: 0 0 2em #4caf50;
+    box-shadow: 0 0 2em var(--color-price);
 }
 
 .explorepg-header-right {
@@ -92,7 +91,7 @@
 
 .explorepg-header-right-mean {
     text-align: left;
-    color: #2d3748;
+    color:  var(--color-text-primary-low);
 }
 
 .explorepg-header-right-lnkbtn {
@@ -190,7 +189,7 @@
 }
 
 #explorepg-cateogry-m-heading {
-    color: #2d3748;
+    color: var(--color-text-primary);
 }
 
 .explorepg-category-show-box-container {
@@ -208,7 +207,8 @@
     min-width: 5em;
     max-width: fit-content;
     border-radius: 2em;
-    box-shadow: 0 0 2em #dfa3ed90;
+    background-color: var(--color-card-bg);
+    box-shadow: 0 0 5px var(--color-new);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -216,15 +216,11 @@
     padding: 1em 0.4em;
     transition: all 0.3s ease;
     transform: translateY(0);
-    /* Initial state */
 }
 
 .explorepg-category-show-box:hover {
     cursor: pointer;
     transform: translateY(-10px);
-    /* Upward movement  negative value */
-    box-shadow: 0 5px 3em #dfa3ed90;
-    /* Increase Shadow  */
 }
 
 
@@ -242,6 +238,7 @@
 
 .explorepg-category-show-box h4 {
     margin-top: 0.5em;
+    color: var(--color-text-primary-low);
 }
 
 
@@ -251,11 +248,13 @@
 .explorepg-best-seller-main_box {
     width: 100%;
     padding: 2em;
-    background-color: #f8f9fa;
+    /* background-color: #f8f9fa; */
+    background-color: transparent;
 }
 
 /* Header Section */
 .explorepg-best-seller-header {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -265,14 +264,32 @@
 .explorepg-best-seller-title {
     font-size: clamp(1.5rem, 4vw, 2.5rem);
     font-weight: 700;
-    color: #2d3748;
+    color: var(--color-text-primary);
     margin: 0;
 }
-
+.explorepg-best-seller-right-header{
+    flex: 1;
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    justify-content: flex-end;
+}
+.explorepg-best-seller-nav-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
 .explorepg-view-all-btn {
     padding: 0.8em 1.5em;
-    background-color: #4299e1;
-    color: white;
+    background-color: var(--color-action);
+    color: var(--color-button-text);
     border: none;
     border-radius: 25px;
     font-weight: 600;
@@ -281,7 +298,7 @@
 }
 
 .explorepg-view-all-btn:hover {
-    background-color: #3182ce;
+    background-color: var(--color-action-hover);
     transform: translateY(-2px);
 }
 
@@ -291,30 +308,6 @@
     align-items: center;
     gap: 1em;
     position: relative;
-}
-
-.explorepg-nav-btn {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: none;
-    background-color: #fff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #4299e1;
-    transition: all 0.3s ease;
-    z-index: 2;
-}
-
-.explorepg-nav-btn:hover {
-    background-color: #4299e1;
-    color: white;
-    transform: scale(1.1);
 }
 
 /* Cards Wrapper */
@@ -333,16 +326,16 @@
 /* Product Cards */
 .explorepg-product-card {
     min-width: 250px;
-    background: white;
+    background: var(--color-card-bg);
+    border: 0.01em solid var(--color-border);
     border-radius: 15px;
     padding: 1.5em;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
 .explorepg-product-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 40px var(--color-divider);
 }
 
 .explorepg-card-image {
@@ -367,7 +360,7 @@
 .explorepg-card-description {
     font-size: 1.1em;
     font-weight: 700;
-    color: #2d3748;
+    color: var(--color-text-primary);
     margin-bottom: 1em;
     text-align: center;
 }
@@ -381,14 +374,14 @@
 .explorepg-card-price {
     font-size: 1.2em;
     font-weight: 700;
-    color: #4299e1;
+    color: var(--color-price);
 }
 
 .explorepg-shop-now-btn {
     padding: 0.5em 1em;
-    background-color: #fafafa;
-    color: #4299e1;
-    border: 1px solid #4299e1;
+    background-color: var(--color-action);
+    color: var(--color-button-text);
+    border: none;
     border-radius: 20px;
     font-weight: 600;
     cursor: pointer;
@@ -396,8 +389,7 @@
 }
 
 .explorepg-shop-now-btn:hover {
-    background-color: #4299e1;
-    color: white;
+    background-color: var(--color-action-hover);
     transform: scale(1.05);
 }
 
@@ -412,7 +404,7 @@
 .explorepg-best-offer-for_todaySection {
     width: 100%;
     padding: 2em;
-    background-color: #fff;
+    background-color: transparent;
     margin-top: 2em;
 }
 
@@ -427,34 +419,34 @@
 .explorepg-offer-title {
     font-size: clamp(1.5rem, 4vw, 2.5rem);
     font-weight: 700;
-    color: #2d3748;
+    color: var(--color-text-primary);
     margin: 0;
 }
 
 .explorepg-offer-nav {
+    /* display: flex;
+    gap: 0.5em; */
+    flex: 1;
     display: flex;
     gap: 0.5em;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .explorepg-offer-nav-btn {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    border: 2px solid #4299e1;
-    background-color: #fff;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.1em;
     font-weight: bold;
-    color: #4299e1;
     transition: all 0.3s ease;
 }
 
 .explorepg-offer-nav-btn:hover {
-    background-color: #4299e1;
-    color: white;
     transform: scale(1.1);
 }
 
@@ -477,18 +469,17 @@
 /* Offer Cards */
 .explorepg-offer-card {
     min-width: 280px;
-    background: white;
+    background: var(--color-card-bg);
     border-radius: 15px;
     padding: 1.2em;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    border: 1px solid #e2e8f0;
+    border: 0.01em solid var(--color-border);
 }
 
 .explorepg-offer-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    border-color: #4299e1;
+    box-shadow: 0 15px 40px  var(--color-divider);
+    border-color: var(--color-divider);
 }
 
 .explorepg-offer-card-image {
@@ -516,7 +507,7 @@
     top: 10px;
     right: 10px;
     background: linear-gradient(45deg, #ff6b35, #f7931e);
-    color: white;
+    color: var(--color-text-primary);
     padding: 0.3em 0.8em;
     border-radius: 15px;
     font-size: 0.8em;
@@ -526,7 +517,7 @@
 .explorepg-offer-card-description {
     font-size: 1.1em;
     font-weight: 700;
-    color: #2d3748;
+    color: var(--color-text-primary);
     margin-bottom: 0.8em;
     text-align: left;
     line-height: 1.3;
@@ -545,7 +536,7 @@
 
 .explorepg-rating-text {
     font-size: 0.9em;
-    color: #666;
+    color: var(--color-text-muted);
     font-weight: 600;
 }
 
@@ -558,7 +549,7 @@
 
 .explorepg-original-price {
     font-size: 1em;
-    color: #999;
+    color: var(--color-text-muted);
     text-decoration: line-through;
     font-weight: 500;
 }
@@ -566,14 +557,14 @@
 .explorepg-discount-price {
     font-size: 1.3em;
     font-weight: 700;
-    color: #ff6b35;
+    color: var(--color-price);
 }
 
 .explorepg-offer-shop-btn {
     width: 100%;
     padding: 0.8em;
-    background: linear-gradient(45deg, #4299e1, #3182ce);
-    color: white;
+    background: var(--color-action);
+    color: var(--color-button-text);
     border: none;
     border-radius: 10px;
     font-size: 1em;
@@ -583,7 +574,7 @@
 }
 
 .explorepg-offer-shop-btn:hover {
-    background: linear-gradient(45deg, #3182ce, #2c5aa0);
+    background: var(--color-action-hover);
     transform: translateY(-2px);
 }
 

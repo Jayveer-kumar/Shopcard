@@ -51,7 +51,7 @@ router.post("/register", validateUser, upload.single("user[image]"), async (req,
         })
     } catch (error) {
         req.flash("errorMessage", error.message);
-        res.redirect("/shopcard/authenticate/register");
+        res.redirect("/shopcard/authenticate/register?action=register");
     }
 });
 

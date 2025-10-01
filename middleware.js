@@ -12,7 +12,7 @@ module.exports.isLoggesIn =(req,res,next)=>{
         }else{
             // normal browser request hai, page render karna
             req.flash("errorMessage","Please Login to continue shoping : ");
-            return res.redirect("/shopcard/authenticate/register");    
+            return res.redirect("/shopcard/authenticate/register?action=login");    
         }   
     }
     return next();    
