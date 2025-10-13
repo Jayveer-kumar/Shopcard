@@ -59,31 +59,27 @@ router.post("/login", (req, res, next) => {
     if (req.body.user) {
         req.body.username = req.body.user.username;
         req.body.password = req.body.user.password;
-        console.log(req.body.username, req.body.password);
     } 
     next();
 }, savedRedirectUrl, (req, res, next) => {
-    passport.authenticate("local", (err, user, info) => {
+    passport.authenticate("local", (err, user, info) => {        
         if (err) {
             return next(err);
         }
         if (!user) {
-            // Authentication failed
-            req.flash("errorMessage", "Invalid username or password");
+            req.flash("errorMessage", "Invalid username/email or password");
             return res.redirect("/shopcard/authenticate/register?action=login");
         }
-        // Login successful
         req.logIn(user, (err) => {
             if (err) {
                 return next(err);
             }
             req.flash("successMessage", `Welcome Back ${user.name}`);
-            let redirectPath = res.locals.redirectUrl || "/shopcard";
-            return res.redirect(`${redirectPath}`);
+            let redirectPath = res.locals.redirectUrl || "/shopcard";            
+            return res.redirect(redirectPath);            
         });
     })(req, res, next);
 });
-
 
 
 const transporter = nodemailer.createTransport({

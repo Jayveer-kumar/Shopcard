@@ -1,46 +1,116 @@
 <%-layout("layouts/boilerPlateCode.ejs")%> 
 <body>
     <div class="us-Profile-main_container">
-        <div class="us-Profile_head_Box">
-            <div class="us-Profile_wel_sys">
-                <h3>Welcome to your account <span><%-user.name %></span> </h3>
-                <p class="user_profile_head_mail"><%-user.email %></p>
+        <div class="us-profile-left-main">
+            <div class="user-profile-left-head">
+                <div class="user-profile-l-img">
+                    <img src="<%-user.image.url %>" alt="<%-user.name %>">
+                </div>
+                <div class="user-profile-l-says">
+                    <p>Hello</p>
+                    <p id="user-profile-name" ><%-user.name%></p>
+                </div>
             </div>
-            <div class="us_Profile_imageBox">
-                <img src="<%-user.image.url %>" alt="<%-user.name %>">
+            <hr>
+
+            <div class="user-profile-left-main-menu">
+
+                <div class="us-prfle-left-myorders">
+                    <button class="us-profile-left-menu-link-button activeMenuButton"  data-target="myorders" >
+                        <span class="material-symbols-outlined">local_shipping</span>
+                        <span class="user-profile-left-menu-title" >My Orders</span>
+                    </button>
+                </div>
+                <div class="us-prfle-left-profileInfo">
+                    <button class="us-profile-left-menu-link-button" data-target="profileInformation">
+                        <span class="material-symbols-outlined">3p</span>
+                        <span class="user-profile-left-menu-title">Profile Information</span>
+                    </button>
+                </div>
+                <div class="us-prfle-left-ManageAddress">
+                    <button class="us-profile-left-menu-link-button" data-target="manageAddress">
+                        <span class="material-symbols-outlined">add_home</span>
+                        <span class="user-profile-left-menu-title">Manage Address</span>
+                    </button>
+                </div>
+                <div class="us-prfle-left-PancardInfo">
+                    <button class="us-profile-left-menu-link-button" data-target="panCardInformation" >
+                        <span class="material-symbols-outlined">add_card</span>
+                        <span class="user-profile-left-menu-title">PAN Card Information</span>
+                    </button class="us-profile-left-menu-link-button">
+                </div>
+                <div class="us-prfle-left-GiftCard">
+                    <button class="us-profile-left-menu-link-button" data-target="giftCard" >
+                        <span class="material-symbols-outlined">featured_seasonal_and_gifts</span>
+                        <span class="user-profile-left-menu-title">Gift Cards</span>
+                    </button>
+                </div>
+                <div class="us-prfle-left-SavedUPI">
+                    <button class="us-profile-left-menu-link-button" data-target="savedUPI">
+                        <span class="material-symbols-outlined">credit_score</span>
+                        <span class="user-profile-left-menu-title">Saved UPI </span>
+                    </button>
+                </div>
+                <div class="us-prfle-left-MyCoupon">
+                    <button class="us-profile-left-menu-link-button" id="myCoupon" >
+                        <span class="material-symbols-outlined">percent_discount</span>
+                        <span class="user-profile-left-menu-title">My Coupons </span>
+                    </button>
+                </div>
+                <div class="us-prfle-left-MyReview_Rating">
+                    <button class="us-profile-left-menu-link-button" data-target="myReview_Rating">
+                        <span class="material-symbols-outlined">rate_review</span>
+                        <span class="user-profile-left-menu-title">My Review and Rating </span>
+                    </button class="us-profile-left-menu-link-button">
+                </div>
+                <div class="us-prfle-left-allNotification">
+                    <button class="us-profile-left-menu-link-button" data-target="Notification" >
+                        <span class="material-symbols-outlined">notifications_unread</span>
+                        <span class="user-profile-left-menu-title">All Notification </span>
+                    </button>
+                </div>
+                <div class="us-prfle-left-myWatchList">
+                    <button class="us-profile-left-menu-link-button" data-target="Watchlist">
+                        <span class="material-symbols-outlined">add_to_queue</span>
+                        <span class="user-profile-left-menu-title">My watchlist </span>
+                    </button>
+                </div> 
+
             </div>
+
         </div>
-        <div class="us-Profile_info_selection_box">
-            <div class="us-Profile_personal_infoB">
-                <div class="us-Profile_personal_infoHead">
-                    <i class="fa-solid fa-user"></i>
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </div>
-                <div class="us-Profile_presonal_des">
-                    <h3>Personal Information</h3>
-                    <a class="profile_per_des" href="*">Provide and update your personal Information</a>
-                </div>
-            </div>            
-            <div class="us-Profile_OrderHistoryB">
-                <div class="us-Profile_orderHistoryHead">
-                    <i class="fa-solid fa-box-open"></i>
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </div>
-                <div class="us-Profile_orderHistory_des">
-                    <h3>Order History</h3>
-                    <a href="*"> View Your Order History and track your order</a>
-                </div>
+        <div class="us-profile-right-main">
+            <div class="us-profile-right-content activeMenu" id="myorders" >
+                <p>My Orders</p>
             </div>
-            <div class="us-Profile_AddressBookB">
-                <div class="us-Profile_AddressBook_Head">
-                    <i class="fa-solid fa-book-open-reader"></i>
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </div>
-                <div class="us-Profile_AddressBook_des">
-                    <h3>Address Book</h3>
-                    <a href="*">Manage your address and default shipping order </a>
-                </div>
+            <div class="us-profile-right-content" id="profileInformation">
+                <p>Profile Information</p>
+            </div>
+            <div class="us-profile-right-content" id="manageAddress">
+                <p>Manage Address</p>
+            </div>
+            <div class="us-profile-right-content" id="panCardInformation">
+                <p>Pan Card Information</p>
+            </div>
+            <div class="us-profile-right-content" id="giftCard">
+                <p>Gift Cards</p>
+            </div>
+            <div class="us-profile-right-content" id="savedUPI" >
+                <p>Saved UPI</p>
+            </div>
+            <div class="us-profile-right-content" id="myCoupon">
+                <p>My Coupons</p>
+            </div>
+            <div class="us-profile-right-content" id="myReview_Rating">
+                <p>My Review and Rating</p>
+            </div>
+            <div class="us-profile-right-content" id="Notification">
+                <p>All Notification</p>
+            </div>
+            <div class="us-profile-right-content" id="Watchlist">
+                <p>My Watchlist</p>
             </div>
         </div>
     </div> 
 </body>
+<script  src="/javascript/profile.js" defer></script>

@@ -197,7 +197,7 @@
     <h3 class="wtc-review-heading">Rate & Review This Product</h3> 
     <div class="wtc-review-main-box">
         <!-- write Review Section -->
-    <div class="wtc-review-write_mainBox">
+    <div class="wtc-review-write_mainBox"> 
         <h3 class="wtc-leave-review-heading">Leave a Review</h3> 
         <div class="wtc-review-input_box">
             <form action="/shopcard/<%=product._id %>/review" class="wtc-review-form" method="post" >
@@ -259,6 +259,10 @@
                     <textarea name="comment"><%= productReview.comment %></textarea>
                     <button class="editReviewUpdateButton" type="submit">Update</button>
                 </form> 
+                <!-- Conditional rendering - only review author ko edit/delete buttons dikhen -->
+                 <% if( user && productReview.userId._id.equals(user._id) ) { %>
+
+                
                 <div class="wtc-review-edit-delete-box"> 
                 <!--Edit  Review Button -->
                 <button class="wtc-review-edit reviewEditButton">Edit</button>
@@ -269,6 +273,7 @@
                 </form>
                 <!--Edit Review Form -->
                </div>
+               <%} %> 
               </div>
             </div>
         </div>

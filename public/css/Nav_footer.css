@@ -286,8 +286,7 @@ nav .user_cd-profile{
 .Open_user-profile_Container:nth-child(2) >div:hover{
     background-color: var(--color-muted);
     border-radius: 0.5em;
-    box-shadow: 0 2px 4px var(--color-info), 
-            0 -2px 4px var(--color-info);
+    box-shadow: 0 2px 4px var(--color-success);
 }
 .user-profile_box a{
     text-decoration: none !important;

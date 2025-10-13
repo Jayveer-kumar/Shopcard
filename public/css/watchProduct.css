@@ -30,14 +30,6 @@
     transition: filter 0.3s ease, mix-blend-mode 0.3s ease;
 }
 
-/* [data-theme="dark"] .wtc-productimage {
-    mix-blend-mode: multiply;
-    filter: brightness(1.1) contrast(1.05);
-} */
-
-
-
-
 .wtc-product-image_selectionBox{
     position: absolute;
     top:0;
@@ -540,6 +532,7 @@
     font-size: 1.2em;
     font-weight: 600;
     border-radius: 0.5em;
+    margin-bottom: 0.5em;
 }
 .wtc-productSizes{
     padding:0.4em 0;

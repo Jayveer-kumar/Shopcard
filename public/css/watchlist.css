@@ -1,220 +1,641 @@
-.watchlist-main-container{
-    width: 100%;
-    height: 100vh;
-    max-height: fit-content;
-    margin:3.5em 0;
-    padding:1em 5em;
-    display: grid;
-    grid-template-columns: 16em 1fr;
-    gap:2em;
-    background-color: var(--bodyBackColor);
+.watchlist-main-container {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 20em 1fr;
+  gap: 1em;
+  background: var(--color-bg);
+  padding: 1em 3em;
 }
-.watchlist-user-account-info{
-    background-color: var(--darkCard);
-    max-height: fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap:1em;
+
+
+/* Left Panel (Fixed Links) */
+.watchlist-user-products-checkoutMain {
+  background: var(--color-card-bg);
+  border-radius: 0.8em;
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  position: sticky;
+  top: 5em;
+  align-self: start;
+  padding: 1em; 
 }
-.watchlist-user-account-box{
-    height: 4em;
-    width: 100%;
-    padding:0 1em;
-    display: flex;
-    justify-content: flex-start;
-    gap:1em;
-    align-items: center;
-    background-color: var(--darkCard);
-    border-radius: 0.2em;
-    box-shadow: 0 0.5em 1em #5f5f5f16;
-    margin-bottom:1.5em;
+
+.watchlist-checkout-head{
+  font-size: 1.3em;
+  color: var(--color-text-muted);
 }
-.watchlist-user-imagebox{
-    width: 3em;
-    height: 3em;
-    border-radius: 50%;
-    overflow: hidden;
+.watchlist-checkout-head hr{
+  color: var(--color-text-muted);
 }
-.watchlist-user-imagebox img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+
+.watchlist-product-details-checkout-m{
+  display: flex;
+  flex-direction: column;
+  /* gap: 1em; */
 }
-.wtc-user-bio{
-    color:var(--CardTextDarkColor);
+
+.watchlist-checkout-product-list ,.watchlist-checkout-footer-item-total{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 0.5em;
+  margin: 0.8em 0;
 }
-.watchlist-user-account-info >div:not(:first-child){
-    width: 100%;
-    height: 3em;
-    padding:0 1em;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap:1.5em;
-    box-shadow: 0 0.5em 1em #97979716;
-    border-bottom: 1px solid #5858585c;
-    color: var(--CardTextDarkColor);
-    i{
-        color:var(--icon_color) 
-    }
-    transition: all 0.2s ease;
+.watchlist-checkout-product-left-list{
+  display: flex;
+  align-items: center;
 }
-.watchlist-user-account-info >div:not(:first-child):hover{
-   cursor: pointer;
-   p{
-     color:var(--icon_color);
+.watchlist-checkout-items-title , #watchlist-checkout-total-productCount{
+  font-size: 1em;
+  color: var(--color-text-secondary);
+}
+#watchlist-checkout-total-productCount{
+  margin-left: 0.4em;
+}
+.watchlist-checkout-item-icon{
+  font-size: 0.9em;
+  color: var(--color-success);
+  margin-left: 0.3em;
+}
+
+.watchlist-checkout-allproduct-totalprice-right , .watchlist-checkout-platform-fee-right{
+  font-size: 1em;
+  color: var(--color-text-secondary);
+}
+
+.watchlist-checkout-allproduct-discount-right ,.watchlist-checkout-allproduct-coupons-right{
+  font-size: 1em;
+  color: var(--color-price);
+}
+
+.watchlist-checkout-footer-item-total{
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.watchlist-checkout-footer p{
+  margin: 0.5em 0;
+  color: var(--color-price);
+}
+
+
+/* Scrollable Right Section */
+.watchlist-user-product-main-box {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  overflow-y: auto;
+  padding-right: 0.5em;
+  /* scrollbar-width: thin; */
+  background-color: transparent;
+  margin-top: 4em;
+}
+
+.watchlist-user-product-main-box::-webkit-scrollbar {
+  width: 6px;
+}
+.watchlist-user-product-main-box::-webkit-scrollbar-thumb {
+  /* background: var(--color-divider); */
+  background-color: none;
+  border-radius: 1em;
+}
+
+/* Product Header */
+.watchlist-product-main-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 2em;
+  background: var(--color-card-bg);
+  /* color: var(--color-text-primary); */
+  border: 0.01em solid var(--color-border);
+  border-radius: 0.5em;
+  margin-bottom: 1em;
+  box-shadow: 0 0.3em 0.8em #00000015;
+}
+
+.watchlist-product-address-head{
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+}
+
+.watchlist-product-address-head p{
+  font-size: 0.9em;
+  color: var(--color-text-primary);
+}
+
+.watchlist-product-address-head h3{
+  font-size: 1em;
+  color: var(--color-text-primary);
+}
+.watchlist-product-change-address-box {
+  position: relative; 
+}
+#watchlist-product-change-address-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+  font-size: 0.8em;
+  padding: 0.4em 1em;
+  border-radius: 1em;
+  border: none;
+  background-color: var(--color-action);
+  color: var(--color-button-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+#watchlist-product-change-address-btn:hover {
+  background-color: var(--color-action-hover);
+}
+
+.watchlist-address-change-main-box {
+  position: absolute;
+  top: 140%;
+  right: 0;
+  z-index: 100;
+  min-height: 300px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--color-bg);
+  border-radius: 0.8em;
+  box-shadow: 0 4px 15px var(--color-divider);
+  padding: 1em;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none; 
+  transition: all 0.3s ease;
+}
+
+/* When visible */
+.watchlist-address-change-main-box.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto; 
+}
+
+
+.watchlist-address-change-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.watchlist-address-change-head{
+  color: var(--color-text-primary);
+}
+.address-box-close-icon {
+  cursor: pointer;
+  font-size: 1.5em;
+  color: var(--color-warning);
+  transition: color 0.2s;
+}
+.address-box-close-icon:hover {
+  opacity: 0.8;
+}
+
+.watchlist-address-change-select-main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 15em;
+  overflow-y: auto;
+}
+
+.watchlist-address-change-select-main::-webkit-scrollbar {
+  width: 6px;
+}
+.watchlist-address-change-select-main::-webkit-scrollbar-thumb {
+  background-color: none;
+  border-radius: 1em;
+}
+
+.no-address-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-address-box p{
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  padding: 1em 0;
+}
+.no-address-box button{
+  padding: 0.6em 1em;
+  border-radius: 0.5em;
+  border: none;
+  color: var(--color-button-text);
+  background-color: var(--color-action);
+  cursor: pointer;
+}
+
+.watchlist-all-address-option-box{
+  width: 100%;
+  height: 100%;
+}
+
+.watchlist-address-option{
+  margin: 0.4em 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6em;
+  background: var(--color-card-bg);
+  border-radius: 0.6em;
+  padding: 0.6em;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.watchlist-address-option:hover {
+  border: 1px solid var(--color-action);
+}
+
+.watchlist-address-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.watchlist-address-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.watchlist-address-change-user-name{
+  color: var(--color-text-primary);
+}
+
+.watchlist-address-tag {
+  font-size: 0.7em;
+  padding: 0.1em 0.5em;
+  border-radius: 0.4em;
+  color: var(--color-secondary);
+}
+
+.watchlist-address-tag.home {
+  background-color: var(--color-success);
+}
+
+.watchlist-address-tag.office {
+  background-color: var(--color-info);
+}
+
+.pincode,
+.full-address {
+  font-size: 0.8em;
+  color: var(--color-text-muted);
+}
+
+.watchlist-address-change-footer {
+  border-top: 1px solid var(--color-border);
+  padding-top: 1em;
+}
+.watchlist-addrs-cng-headline{
+  font-size: 1em;
+  color: var(--color-text-primary);
+}
+.watchlist-addrs-chng-pincode-input{
+  margin-top: 1em;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+.watchlist-addrs-chng-pincode-input input {
+  width: 100%;
+  padding: 0.5em;
+  border-radius: 0.4em;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  border: 0.1em solid var(--color-border);
+}
+.watchlist-addrs-chng-pincode-input input:focus{
+  outline: 1px solid var(--color-info);
+}
+
+.watchlist-address-pincode-sbmt-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.4em;
+  width: 6em;
+  /* font-size: 0.8em; */
+  padding: 0.4em 1em;
+  border-radius: 0.5em;
+  margin-left: 0.3em;
+  border: none;
+  background-color: var(--color-action);
+  color: var(--color-button-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.watchlist-address-pincode-sbmt-btn >span{
+  color: var(--color-button-text);
+  font-size: 0.9em;
+}
+
+.watchlist-address-pincode-sbmt-btn:hover{
+  background-color: var(--color-action-hover);
+}
+
+.watchlist-address-pincode-sbmt-btn.btn-disable{
+  background-color: var(--color-text-muted);
+  color: var(--color-bg);
+  cursor: not-allowed;
+}
+.watchlist-address-pincode-sbmt-btn.btn-disable:hover{
+  opacity: 0.9;
+}
+
+.wtc-loader-hidden{
+  display: none;
+}
+
+
+.dot-spinner {
+  --uib-size:1.5rem;
+  --uib-speed: .9s;
+  --uib-color: var(--color-button-text);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: var(--uib-size);
+  width: var(--uib-size);
+}
+
+.watchlist-address-change-select-main .dot-spinner{
+  /* Different Color for No address Exist Loader .  */
+  /* We Can Also Remain the color as the Pincode Submit Button Loader .  */
+  --uib-color: var(--color-info) !important;
+}
+
+.dot-spinner__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+.dot-spinner__dot::before {
+  content: '';
+  height: 20%;
+  width: 20%;
+  border-radius: 50%;
+  background-color: var(--uib-color);
+  transform: scale(0);
+  opacity: 0.5;
+  animation: pulse0112 calc(var(--uib-speed) * 1.111) ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(18, 31, 53, 0.3);
+}
+
+.dot-spinner__dot:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.dot-spinner__dot:nth-child(2)::before {
+  animation-delay: calc(var(--uib-speed) * -0.875);
+}
+
+.dot-spinner__dot:nth-child(3) {
+  transform: rotate(90deg);
+}
+
+.dot-spinner__dot:nth-child(3)::before {
+  animation-delay: calc(var(--uib-speed) * -0.75);
+}
+
+.dot-spinner__dot:nth-child(4) {
+  transform: rotate(135deg);
+}
+
+.dot-spinner__dot:nth-child(4)::before {
+  animation-delay: calc(var(--uib-speed) * -0.625);
+}
+
+.dot-spinner__dot:nth-child(5) {
+  transform: rotate(180deg);
+}
+
+.dot-spinner__dot:nth-child(5)::before {
+  animation-delay: calc(var(--uib-speed) * -0.5);
+}
+
+.dot-spinner__dot:nth-child(6) {
+  transform: rotate(225deg);
+}
+
+.dot-spinner__dot:nth-child(6)::before {
+  animation-delay: calc(var(--uib-speed) * -0.375);
+}
+
+.dot-spinner__dot:nth-child(7) {
+  transform: rotate(270deg);
+}
+
+.dot-spinner__dot:nth-child(7)::before {
+  animation-delay: calc(var(--uib-speed) * -0.25);
+}
+
+.dot-spinner__dot:nth-child(8) {
+  transform: rotate(315deg);
+}
+
+.dot-spinner__dot:nth-child(8)::before {
+  animation-delay: calc(var(--uib-speed) * -0.125);
+}
+
+@keyframes pulse0112 {
+  0%,
+  100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+/* Product Cards */
+.watchlist-user-product-box {
+  display: flex;
+  gap: 1.5em;
+  background-color: var(--color-card-bg);
+  border: 0.01em solid var(--color-border);
+  padding: 1em;
+  border-radius: 0.5em;
+  margin-bottom: 1em;
+  transition: all 0.25s ease;
+}
+.watchlist-products-container a{
+    text-decoration: none !important;
+}
+
+.watchlist-user-product-image img {
+  width: 8em;
+  height: 8em;
+  object-fit: contain;
+  transform: scale(1);
+  transition: all 0.25s ease;
+}
+.watchlist-user-product-box:hover{
+   .watchlist-user-product-image img{
+    transform: scale(1.08);
+   } 
+   .watchlist-user-product-title{
+    color: var(--color-info);
    }
 }
-.watchlist-user-product-main-box{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+.watchlist-user-product-description-with-delete-btn {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
-.watchlist-product-main-head{
-    height: 4em;
-    width: 100%;
-    padding:0 2em;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: var(--darkCard);
-    color:var(--CardTextDarkColor);
-    border-radius: 0.2em;
-    box-shadow: 0 0.5em 1em #5f5f5f16;
-    border-bottom: 1px solid #5858585c;
+.watchlist-user-product-deleteBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3em;
 }
-.watchlist-product-link-in-view{
-    text-decoration: none;
-    transition: 0.2s;
+
+/* Elegant delete button */
+.delete-btn {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  width: 2.6em;
+  height: 2.6em;
+  border-radius: 0.6em;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: all 0.35s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
-.watchlist-product-link-in-view:hover{
-    .watchlist-user-product-title{
-        color:var(--links);
-    }
+
+.delete-btn .material-symbols-outlined {
+  display: block; 
+  line-height: 1; 
+  vertical-align: middle;
+  font-size: 22px;
+  color: var(--color-text-primary, #444);
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
-.watchlist-user-product-box{
-    height: 10em;
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap:1em;
-    padding:0 1em;
-    background-color: var(--darkCard);
-    border-bottom: 1px solid #5858585c;
+
+.delete-btn:hover {
+  background: rgba(255, 77, 77, 0.1);
+  border-color: #ff4d4d;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 77, 77, 0.25);
 }
-.watchlist-user-product-image{
-    height: 9em;
-    width: 10em;
-    padding:1em;
-    overflow: hidden;
+
+.delete-btn:hover .material-symbols-outlined {
+  color: #ff4d4d;
 }
-.watchlist-user-product-image img{
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
+
+.delete-btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 6px rgba(255, 77, 77, 0.2);
 }
-.watchlist-user-product-description-with-delete-btn{
-    flex:1;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+
+
+
+.watchlist-user-product-description {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
-.watchlist-user-product-title{
-    color: var(--CardTextDarkColor);
+
+.watchlist-user-product-title {
+    color: var(--color-text-primary);
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    font-weight: 500;
+    margin-bottom: 0.3em;
+}
+
+.watchlist-user-product-brand {
+  color: var(--color-price);
+  margin-bottom: 0.8em;
+}
+
+.watchlist-user-product-price-main span {
+  margin-right: 0.4em;
 }
 .watchlist-user-product-price{
-    color: var(--CardTextDarkColor);
+  font-size: 1.1em;
+  font-weight: bold;
+  color: var(--color-success);
 }
-.watchlist-user-product-brand{
-    color: #07a007;
-    padding: 0.5em 0 1em 0;
+.watchlist-user-product-discount {
+  text-decoration: line-through;
+  color: var(--color-text-secondary);
+  font-size: 0.9em;
 }
-.watchlist-user-product-price{
-    font-size: 1.2em;
-    font-weight: 600;
-}
-.watchlist-user-product-discount{
-    text-decoration: line-through;
-    margin:0 0.3em;
-    color: var(--md_blackText);
-}
-.watchlist-user-product-discount-off{
-    color: #0b860b;
-    margin:0 0.3em;
-}
-.watchlist-user-product-deleteBtn{
-    cursor: pointer;
-}
-.watchlist-user-product-deleteBtn  .button {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: rgb(20, 20, 20);
-  border: none;
+
+.watchlist-user-product-discount-off {
+  font-size: 0.95em;
   font-weight: 600;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
-  cursor: pointer;
-  transition-duration: 0.3s;
-  overflow: hidden;
-  position: relative;
-  gap: 1px;
+  color: var(--color-warning);
 }
 
-.svgIcon {
-  width: 12px;
-  transition-duration: 0.3s;
+/* Responsive Design */
+@media (max-width: 900px) {
+  .watchlist-main-container {
+    grid-template-columns: 1fr;
+    padding: 1em;
+  }
+
+  .watchlist-user-account-info {
+    position: relative;
+    top: 1em;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1em;
+    border-radius: 0.5em;
+  }
+
+  .watchlist-menu {
+    flex-direction: row;
+    gap: 1em;        
+  }
+  .watchlist-user-product-main-box {
+    margin-top: 1em !important;
+    height: auto;
+  }
+
+  .watchlist-user-product-box {
+    /* flex-direction: column;
+    align-items: flex-start; */
+  }
+
+  .watchlist-user-product-image img {
+      width: 8em;
+      height: 8em;
+      object-fit: contain;
+  }
 }
 
-.svgIcon path {
-  fill: white;
-}
-
-.watchlist-user-product-deleteBtn  .button:hover {
-  width: 110px;
-  border-radius: 50px;
-  transition-duration: 0.3s;
-  background-color: rgb(255, 69, 69);
-  align-items: center;
-  gap: 0;
-}
-
-.watchlist-user-product-deleteBtn  .button:hover .bin-bottom {
-  width: 30px;
-  transition-duration: 0.3s;
-  transform: translateY(60%);
-}
-.bin-top {
-  transform-origin: bottom right;
-}
-.watchlist-user-product-deleteBtn  .button:hover .bin-top {
-  width: 30px;
-  transition-duration: 0.3s;
-  transform: translateY(60%) rotate(160deg);
-}
-.watchlist-user-product-deleteBtn  .button::before {
-  position: absolute;
-  top: -35px;
-  content: "Delete";
-  color: white;
-  transition-duration: 0.3s;
-  font-size: 2px;
-}
-
-.watchlist-user-product-deleteBtn  .button:hover::before {
-  font-size: 13px;
-  opacity: 1;
-  transform: translateY(35px);
-  transition-duration: 0.3s;
-}

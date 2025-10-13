@@ -1,13 +1,24 @@
 document.addEventListener("DOMContentLoaded",()=>{
 
+    const cartHandler = new CartHandler();
+
     let allPrizes =document.querySelectorAll(".search_route_card_prizeBox");  
     
-    allPrizes.forEach((card)=>{
-        let originalPrize=card.childNodes[1].textContent.slice(2);
-        let {fakePrice , discountPercentage}=generateFakePrize(originalPrize);
-        card.childNodes[3].innerHTML=`&#8377;${fakePrice}`;
-        card.childNodes[5].textContent=`${discountPercentage}%Off`;
-    }) 
+    allPrizes.forEach((card) => {
+        const originalSpan = card.querySelector(".search_route_card_prize");
+        const fPriceSpan = card.querySelector(".search_route_card_fPrice");
+        const offSpan = card.querySelector(".search_route_card_off_prize");
+
+        // Original price from DB (remove ₹ sign and commas)
+        let originalPrice = parseFloat(originalSpan.textContent.replace(/[^\d\.]/g, ""));
+
+        // Generate fake price using CartHandler instance
+        let { fakeOriginalPrice, discountPercentage } = cartHandler.generateFakePrice(originalPrice);
+
+        // Update the spans
+        fPriceSpan.textContent = `₹${fakeOriginalPrice.toLocaleString()}`;
+        offSpan.textContent = `${discountPercentage}% off`;
+    }); 
 
     let sortButton=document.querySelectorAll(".hm-listing-SortBtn");
     sortButton.forEach((button)=>{ 
@@ -139,17 +150,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     
 
 })
-
-function generateFakePrize(originalPrize){
-    let randomMultiplier=Math.random() * (3 - 1.2) + 1.2;
-    let fakePrice = Math.round(originalPrize * randomMultiplier);
-    let discountPercentage = Math.round(((fakePrice - originalPrize) / fakePrice) * 100);
-    return {
-        fakePrice,
-        discountPercentage
-    };
-}
-
 
 
 function addCard_userSelection(card) {
@@ -297,5 +297,3 @@ function hideFilterBox(cardName) {
         cardName.classList.remove("hide_filter_Box_smoothly"); // After get Transition then remove this class
     }, 300); // Match transition duration 
 }
-
-export{generateFakePrize ,addCard_userSelection};

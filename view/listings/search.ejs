@@ -1,178 +1,201 @@
 <%-layout("layouts/boilerPlateCode.ejs")%>
-<body>
-    <div class="search_r_main_box"> 
-        <div class="hm-listing_sort_box">
-            <button id="hm-listing-availablity" class="hm-listing-SortBtn" >  
-             <i class="fa-solid fa-filter"></i>
-               availablity
-               <i class="fa-solid fa-angle-down"></i>
-               <div class="hm-listing_availablity_container listing_filter_card"> 
-                   <div class="hm-lis_avai_selectbox">
-                     <div class="availablity_select-box"> <input type="radio" id="inStock">  <label for="inStock">In Stock</label> </div>
-                     <div class="availablity_select-box"> <input type="radio" id="outStock"> <label for="outStock">Out Of Stock</label> </div>
-                   </div>
-                   <div class="hm-lis-avai-clear-apply_box applyFilter">
-                     <span id="filterclearBtn">Clear</span>
-                     <span id="filterapplyBtn">Apply</span>
-                   </div>
-               </div>
-              </button>
 
-            <button id="hm-listing-price" class="hm-listing-SortBtn">
-              <i class="fa-solid fa-indian-rupee-sign"></i>
-               Price
-               <i class="fa-solid fa-angle-down"></i> 
-               <div  id="price_selectBox" class="hm-listing-price-container listing_filter_card">
-                 <div class="hm-lis-price_selectBox">
-                   <p id="priceSelectionMainHeading">Price</p>
-                   <p  id="price_selc_showMaxPara">the highest price is $26370</p>
-                   <input type="range" id="hm_lis_price" max="100000" min="1" value="0">
-                   <div class="price_min_max_box">
-                     <div class="minPrice">
-                       <p>min Price</p>
-                       <input type="number" name="price" id="priceMin" class="minPriceBox">
-                     </div>
-                     <div class="maxPrice ">
-                       <p>max Price</p>
-                       <input type="number" name="price" id="priceMax" class="maxPriceBox">
-                     </div>
-                   </div>
-                 </div>
-                 <div class="hm-lis-price_clear-apply_box">
-                   <span id="filterclearBtn">Clear</span>
-                   <span id="filterapplyBtn" class="priceFilterApply" >Apply</span>
-                 </div>
-               </div>
-             </button>
-
-            <button id="hm-listing-color" class="hm-listing-SortBtn"> <i class="fa-solid fa-fill-drip"></i> Color <i class="fa-solid fa-angle-down"></i>
-             <div class="hm-listing-sort-color-box listing_filter_card">
-               <div class="sort-color-box-inputBox">
-                <div>
-                 <input type="radio" id="Black_color">
-                 <label for="Black_color">Black</label>
-                </div>
-                <div>
-                 <input type="radio" id="Blue_color">
-                 <label for="Blue_color">Blue</label>
-                </div>
-                <div>
-                 <input type="radio" id="Red_color">
-                <label for="Red_color">Red</label>
-                </div>
-                <div>
-                 <input type="radio" id="Orange_color">
-                <label for="Orange_color">Orange</label>
-                </div>
-                <div>
-                 <input type="radio" id="Pink_color">
-                <label for="Pink_color">Pink</label>
-                </div>
-                <div>
-                 <input type="radio" id="Pnik_And_Light_color">
-                 
-                 <label for="Pnik_And_Light_color">Pink and Light</label>
-                </div>
-                <div>
-                 <input type="radio" id="Violet_color">
-                 <label for="Violet_color">Violet</label>
-                </div>
-                <div>
-                 <input type="radio" id="Green_color">
-                 <label for="Green_color">Green</label>
-                </div>
-               </div>
-               <div class="sort-color-box-apply_box">
-                 <span id="filterclearBtn">Clear</span>
-                 <span id="filterapplyBtn">Apply</span>
-               </div>
-             </div>
-             
-            </button>
-            <button id="hm-listing-tag" class="hm-listing-SortBtn"> <i class="fa-solid fa-tag"></i> Tags <i class="fa-solid fa-angle-down"></i>
-             <div class="hm-listing-tag_sort_box listing_filter_card">
-               <div class="sort-tag-box-inputBox">
-                 <div>
-                   <input type="radio" id="Accessory">
-                   <label for="Accessory">Accessory</label>
-                 </div>
-                 <div>
-                   <input type="radio" id="tag_men">
-                   <label for="tag_men">Men</label>
-                 </div>
-                 <div>
-                   <input type="radio" id="premium">
-                   <label for="premium">Premium</label>
-                 </div>
-                 <div><input type="radio" id="sport"><label for="sport">Sport</label></div>
-                 <div><input type="radio" id="winter"><label for="winter">Winter</label></div>
-                 <div><input type="radio" id="women"><label for="women">Women</label></div>
-                 <div><input type="radio" id="snow"><label for="snow">Snow</label></div>
-                 <div><input type="radio" id="snowboard"><label for="snowboard">Snowboard</label></div>
-                 <div><input type="radio" id="archived"><label for="archived">Archived</label></div>
-               </div>
-               <div class="sort-tag-box-applyBox">
-                 <span id="filterclearBtn">Clear</span>
-                 <span id="filterapplyBtn">Apply</span>
-               </div>
-             </div>
-            </button>
-            <button id="hm-listing-size" class="hm-listing-SortBtn"> <i class="fa-solid fa-up-right-and-down-left-from-center"></i> Size <i class="fa-solid fa-angle-down"></i> 
-             <div class="hm-listing-sizes_box listing_filter_card">
-               <div class="sort-sizes-box-inputBox">
-                 <div><input type="radio" id="S_Size"><label for="S_Size">S</label></div>
-                 <div><input type="radio" id="Small_size"><label for="Small_size">Small</label></div>
-                 <div><input type="radio" id="M_Size"><label for="M_Size">M</label></div>
-                 <div><input type="radio" id="medium_Size"><label for="medium_Size">Medium</label></div>
-                 <div><input type="radio" id="L_size"><label for="L_size">L</label></div>
-                 <div><input type="radio" id="Large_size"><label for="Large_size">Large</label></div>
-                 <div><input type="radio" id="XL_size"><label for="XL_size">XL</label></div>
-                 <div><input type="radio" id="XXL_size"><label for="XXL_size">XXL</label></div>
-                 <div><input type="radio" id="lithograph"><label for="lithograph">Lithograph</label></div>
-                 <div><input type="radio" id="S_Size"><label for="S_Size">S</label></div>
-                 <div><input type="radio" id="Small_size"><label for="Small_size">Small</label></div>
-                 <div><input type="radio" id="M_Size"><label for="M_Size">M</label></div>
-                 <div><input type="radio" id="medium_Size"><label for="medium_Size">Medium</label></div>
-                 <div><input type="radio" id="L_size"><label for="L_size">L</label></div>
-                 <div><input type="radio" id="Large_size"><label for="Large_size">Large</label></div>
-                 <div><input type="radio" id="XL_size"><label for="XL_size">XL</label></div>
-                 <div><input type="radio" id="XXL_size"><label for="XXL_size">XXL</label></div>
-                 <div><input type="radio" id="lithograph"><label for="lithograph">Lithograph</label></div>
-               </div>
-               <div class="sort_sizes-box-applyBox">
-                 <span id="filterclearBtn">Clear</span>
-                 <span id="filterapplyBtn">Apply</span>
-               </div>
-             </div>
-           </button>
+  <body>
+    <div class="search_r_main_box">
+      <div class="hm-listing_sort_box">
+        <button id="hm-listing-availablity" class="hm-listing-SortBtn">
+          <i class="fa-solid fa-filter"></i>
+          availablity
+          <i class="fa-solid fa-angle-down"></i>
+          <div class="hm-listing_availablity_container listing_filter_card">
+            <div class="hm-lis_avai_selectbox">
+              <div class="availablity_select-box"> <input type="radio" id="inStock"> <label for="inStock">In
+                  Stock</label> </div>
+              <div class="availablity_select-box"> <input type="radio" id="outStock"> <label for="outStock">Out Of
+                  Stock</label> </div>
+            </div>
+            <div class="hm-lis-avai-clear-apply_box applyFilter">
+              <span id="filterclearBtn">Clear</span>
+              <span id="filterapplyBtn">Apply</span>
+            </div>
           </div>
-        
-        <div class="search_r_required_card_container">
-          <% for(card of product){ %>
-          <a  class="_search_route_card_link" href="/shopcard/<%=card._id %>"> 
-          <div data-aos="fade-up"  data-aos-offset="20" data-aos-delay="10" data-aos-duration="500" class="search_route_data_card">
-            <div class="search_route_card_image_box">
-              <img src="<%=card.image[0] %>" alt="">
-            </div>
-            <div class="search_route_card_description_box">
-              <p class="search_route_card_title"><%=card.title %></p>
-              <p class="search_route_card_description"><%=card.description %></p>
-              <div class="search_route_card_prizeBox">
-                <span class="search_route_card_prize"> &#8377;<%=card.prize %></span>
-                <span class="search_route_card_fPrice">130,380</span>
-                <span class="search_route_card_off_prize">49% off</span>
+        </button>
+
+        <button id="hm-listing-price" class="hm-listing-SortBtn">
+          <i class="fa-solid fa-indian-rupee-sign"></i>
+          Price
+          <i class="fa-solid fa-angle-down"></i>
+          <div id="price_selectBox" class="hm-listing-price-container listing_filter_card">
+            <div class="hm-lis-price_selectBox">
+              <p id="priceSelectionMainHeading">Price</p>
+              <p id="price_selc_showMaxPara">the highest price is $26370</p>
+              <input type="range" id="hm_lis_price" max="100000" min="1" value="0">
+              <div class="price_min_max_box">
+                <div class="minPrice">
+                  <p>min Price</p>
+                  <input type="number" name="price" id="priceMin" class="minPriceBox">
+                </div>
+                <div class="maxPrice ">
+                  <p>max Price</p>
+                  <input type="number" name="price" id="priceMax" class="maxPriceBox">
+                </div>
               </div>
-              <p class="search_route_card_free_delivery">Free delivery</p>
-              <p class="search_route_card_bank_offer">Bank Offer  </p> 
-             
             </div>
-            <div class="search_route_card_like_box">
-              <i class="fa-regular fa-heart"></i>
+            <div class="hm-lis-price_clear-apply_box">
+              <span id="filterclearBtn">Clear</span>
+              <span id="filterapplyBtn" class="priceFilterApply">Apply</span>
             </div>
-          </div> 
-         </a>  
-          <%} %> 
-        </div>
+          </div>
+        </button>
+
+        <button id="hm-listing-color" class="hm-listing-SortBtn"> <i class="fa-solid fa-fill-drip"></i> Color <i
+            class="fa-solid fa-angle-down"></i>
+          <div class="hm-listing-sort-color-box listing_filter_card">
+            <div class="sort-color-box-inputBox">
+              <div>
+                <input type="radio" id="Black_color">
+                <label for="Black_color">Black</label>
+              </div>
+              <div>
+                <input type="radio" id="Blue_color">
+                <label for="Blue_color">Blue</label>
+              </div>
+              <div>
+                <input type="radio" id="Red_color">
+                <label for="Red_color">Red</label>
+              </div>
+              <div>
+                <input type="radio" id="Orange_color">
+                <label for="Orange_color">Orange</label>
+              </div>
+              <div>
+                <input type="radio" id="Pink_color">
+                <label for="Pink_color">Pink</label>
+              </div>
+              <div>
+                <input type="radio" id="Pnik_And_Light_color">
+
+                <label for="Pnik_And_Light_color">Pink and Light</label>
+              </div>
+              <div>
+                <input type="radio" id="Violet_color">
+                <label for="Violet_color">Violet</label>
+              </div>
+              <div>
+                <input type="radio" id="Green_color">
+                <label for="Green_color">Green</label>
+              </div>
+            </div>
+            <div class="sort-color-box-apply_box">
+              <span id="filterclearBtn">Clear</span>
+              <span id="filterapplyBtn">Apply</span>
+            </div>
+          </div>
+
+        </button>
+        <button id="hm-listing-tag" class="hm-listing-SortBtn"> <i class="fa-solid fa-tag"></i> Tags <i
+            class="fa-solid fa-angle-down"></i>
+          <div class="hm-listing-tag_sort_box listing_filter_card">
+            <div class="sort-tag-box-inputBox">
+              <div>
+                <input type="radio" id="Accessory">
+                <label for="Accessory">Accessory</label>
+              </div>
+              <div>
+                <input type="radio" id="tag_men">
+                <label for="tag_men">Men</label>
+              </div>
+              <div>
+                <input type="radio" id="premium">
+                <label for="premium">Premium</label>
+              </div>
+              <div><input type="radio" id="sport"><label for="sport">Sport</label></div>
+              <div><input type="radio" id="winter"><label for="winter">Winter</label></div>
+              <div><input type="radio" id="women"><label for="women">Women</label></div>
+              <div><input type="radio" id="snow"><label for="snow">Snow</label></div>
+              <div><input type="radio" id="snowboard"><label for="snowboard">Snowboard</label></div>
+              <div><input type="radio" id="archived"><label for="archived">Archived</label></div>
+            </div>
+            <div class="sort-tag-box-applyBox">
+              <span id="filterclearBtn">Clear</span>
+              <span id="filterapplyBtn">Apply</span>
+            </div>
+          </div>
+        </button>
+        <button id="hm-listing-size" class="hm-listing-SortBtn"> <i
+            class="fa-solid fa-up-right-and-down-left-from-center"></i> Size <i class="fa-solid fa-angle-down"></i>
+          <div class="hm-listing-sizes_box listing_filter_card">
+            <div class="sort-sizes-box-inputBox">
+              <div><input type="radio" id="S_Size"><label for="S_Size">S</label></div>
+              <div><input type="radio" id="Small_size"><label for="Small_size">Small</label></div>
+              <div><input type="radio" id="M_Size"><label for="M_Size">M</label></div>
+              <div><input type="radio" id="medium_Size"><label for="medium_Size">Medium</label></div>
+              <div><input type="radio" id="L_size"><label for="L_size">L</label></div>
+              <div><input type="radio" id="Large_size"><label for="Large_size">Large</label></div>
+              <div><input type="radio" id="XL_size"><label for="XL_size">XL</label></div>
+              <div><input type="radio" id="XXL_size"><label for="XXL_size">XXL</label></div>
+              <div><input type="radio" id="lithograph"><label for="lithograph">Lithograph</label></div>
+              <div><input type="radio" id="S_Size"><label for="S_Size">S</label></div>
+              <div><input type="radio" id="Small_size"><label for="Small_size">Small</label></div>
+              <div><input type="radio" id="M_Size"><label for="M_Size">M</label></div>
+              <div><input type="radio" id="medium_Size"><label for="medium_Size">Medium</label></div>
+              <div><input type="radio" id="L_size"><label for="L_size">L</label></div>
+              <div><input type="radio" id="Large_size"><label for="Large_size">Large</label></div>
+              <div><input type="radio" id="XL_size"><label for="XL_size">XL</label></div>
+              <div><input type="radio" id="XXL_size"><label for="XXL_size">XXL</label></div>
+              <div><input type="radio" id="lithograph"><label for="lithograph">Lithograph</label></div>
+            </div>
+            <div class="sort_sizes-box-applyBox">
+              <span id="filterclearBtn">Clear</span>
+              <span id="filterapplyBtn">Apply</span>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <div class="search_r_required_card_container">
+        <% for(card of product) { %>
+          <div class="search_route_data_card">
+            <a class="_search_route_card_link" href="/shopcard/<%=card._id%>">
+              <div class="search_route_card_image_box">
+                <img src="<%=card.image[0]%>" alt="">
+              </div>
+              <div class="search_route_card_description_box">
+                <p class="search_route_card_title">
+                  <%=card.title%>
+                </p>
+                <p class="search_route_card_description">
+                  <%=card.description%>
+                </p>
+                <div class="search_route_card_prizeBox">
+                  <span class="search_route_card_prize">&#8377;<%=card.prize%></span>
+                  <span class="search_route_card_fPrice">130,380</span>
+                  <span class="search_route_card_off_prize">49% off</span>
+                </div>
+                <p class="search_route_card_free_delivery">Free delivery</p>
+                <p class="search_route_card_bank_offer">Bank Offer</p>
+              </div>
+            </a>
+
+            <% const isLiked=user?.likedProduct?.includes(card._id) ?? false; %>
+
+              <!-- Like Button OUTSIDE the link -->
+              <div class="search_route_card_like_box productLikeBoxContainer <%= isLiked ? 'activeLikeBtn' : '' %>"
+                data-product-id="<%= card._id %>" data-is-liked="<%= isLiked %>">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                  class="<%= isLiked ? 'activeLikeSVG' : '' %>">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09
+                 C13.09 3.81 14.76 3 16.5 3
+                 19.58 3 22 5.42 22 8.5
+                 c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                </svg>
+
+              </div>
+          </div>
+          <% } %>
+      </div>
     </div>
     <script type="module" src="/javascript/search.js"></script>
-</body> 
+  </body>

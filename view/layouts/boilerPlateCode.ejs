@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"  >
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
     <link rel="stylesheet" href="/css/startExploring.css">
     <link rel="stylesheet" href="/css/search.css">
     <link rel="stylesheet" href="/css/watchProduct.css">
-    <link rel="stylesheet" href="/css/review.css">     
+    <link rel="stylesheet" href="/css/review.css">
     <link rel="stylesheet" href="/css/login_register.css">
     <link rel="stylesheet" href="/css/user_profile.css">
     <link rel="stylesheet" href="/css/buy.css">
@@ -17,73 +18,136 @@
     <link rel="stylesheet" href="/css/watchlist.css">
     <link rel="stylesheet" href="/css/Explore.css">
     <!-- Google fonts and icons Link -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=favorite" /> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet"
+     
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=favorite" /> -->
+        <link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+/>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Github Transition Cdn Link To get Smooth Transition -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> 
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- Sweet Alert library link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5/dark.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+     <!-- 1. Event Manager (Base System) -->
+    <script src="/javascript/utils/eventManager.js" defer ></script>
 </head>
 
-<body   >
+<body>
     <%-include("../includes/navbar.ejs") %>
-    <div id="bodyContainer"  >
-        <%-include("../includes/flash.ejs") %> 
-        <%-body -%> 
-        <!-- User Card Box Start Here -->
-        <div class="userCard_container">
-           <h2>Your All Product</h2>
-           <button id="close_userCard_container" ><i class="fa-solid fa-arrow-right"></i></button>
-           <div class="user_add_toCard_Product_box">
-            <div class="user_add_toCard_image_desciption_box">
-                <div class="user_add_toCard_image">
-                    <img src="data:image/webp;base64,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" alt="Card Product image">
-                </div>
-                <div class="user_add_toCard_description">
-                    <p class="user_add_toCard_des_me_title"> Product title   Hell This is Product Title </p>
-                    <p class="user_add_toCard_quantity" ><span>Product Quantity </span></p>
-                    <button id="removeCardProduct">Remove</button>
-                </div>
-            </div>
-           </div>
+        <div id="bodyContainer">
+            <%-include("../includes/flash.ejs") %>
+                <%-body -%>
+                    <!-- User Card Box Start Here -->
+                    <div class="userCard_container">
+                        <div class="userCard_header">
+                            <h2 id="userCardHeader-text">Your All Products</h2>
+                            <button id="close_userCard_container"><i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                        <div class="userCard_container_main">
+                            <div class="user_add_toCard_Product_box">
+                                <div class="user_add_toCard_image_desciption_box">
+                                    <!-- Product Image -->
+                                    <div class="user_add_toCard_image">
+                                        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT0wM-dXt5AijTbUOdkoiMONHqbLkAmg9M5n9j-ako14aJLP3u8V_nWHtmNFqLckWYvHzSCGoYLvvmx3KrLS7QbnoL3GPMB1jHZN4fU1MVa"
+                                            alt="Product" />
+                                    </div>
+
+                                    <!-- Product Details -->
+                                    <div class="user_add_toCard_description">
+                                        <p class="user_add_toCard_des_me_title">Hell This is Product Title</p>
+                                        <p class="user_add_toCard_quantity"><span>Quantity: 2</span></p>
+
+                                        <!-- Pricing Section -->
+                                        <div class="user_add_toCard_priceBox">
+                                            <div class="user_add_toCard_price-details">
+                                                <span class="user_add_toCard_discounted-price">₹499</span>
+                                                <span class="user_add_toCard_original-price">₹999</span>
+                                                <span class="user_add_toCard_discount-percent">50% OFF</span>
+                                            </div>
+                                            <p class="user_add_toCard_you-save">You Save: ₹500</p>
+                                        </div>
+
+                                        <button id="removeCardProduct">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="userCard_footer">
+                            <div class="cart-total-container">
+                                <p>Total:
+                                    <span class="cart-total">
+                                        <span class="cart-total-skeleton"></span>
+                                    </span>
+                                </p>
+                            </div>
+                            <button class="userCard-checkout-btn">Checkout</button>
+                        </div>
+
+                    </div>
+                    <!--User Card Box End Here -->
+                    <!-- User Like & Dislike Message Box -->
+                    <div id="userlikeMsgBox" class="userLikemsg-box userLikehidden"></div>
         </div>
-        <!--User Card Box End Here -->
-        <!-- User Like & Dislike Message Box -->
-        <div id="userlikeMsgBox" class="userLikemsg-box userLikehidden"></div> 
-    </div>
-    <%-include("../includes/footer.ejs") %>
+        <%-include("../includes/footer.ejs") %>
+
+            <!-- Github Transition Cdn Link To get Smooth Transition Start Here -->
+            <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+            <script defer>
+                window.addEventListener("load", () => {
+                    if (typeof AOS !== "undefined") {
+                        AOS.init();
+                    } else {
+                        console.error("AOS did not loaded!");
+                    }
+                });
+
+            </script>
+
+
+
     
-    <!-- Github Transition Cdn Link To get Smooth Transition Start Here -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"  defer></script>
-    <script defer>
-        window.addEventListener("load", () => {
-            if (typeof AOS !== "undefined") {
-                AOS.init();
-            } else {
-                console.error("AOS did not loaded!");
-            }
-        });
+    <!-- 2. Message Box (Notifications) -->
+    <script src="/javascript/modules/messageBox.js" defer></script>
 
-    </script>
-     <!-- Github Transition Cdn Link To get Smooth Transition End Here -->
-    <script type="module" src="/javascript/nav_side.js" defer></script>
-    <script>
-        function showMessage(text, type = 'success') {
-            const msgBox = document.getElementById('userlikeMsgBox');
-            msgBox.textContent = text;
-            msgBox.className = `userLikemsg-box ${type}`;
+    <!-- 4. Cart Handler (Cart Management) -->
+    <script src="/javascript/modules/cartHandler.js" defer></script>
+    
+    <!-- 3. Like Handler (Like/Unlike System) -->
+    <script src="/javascript/modules/likeHandler.js" defer></script>
+    
+    
+    
+    <!-- 5. Main Initialization -->
+    <script src="/javascript/main.js" defer></script>
 
-            setTimeout(() => {
-                msgBox.classList.add('userLikehidden');
-            }, 3000);
-        }
 
-        // Examples:
-        // showMessage('Product added to wishlist!', 'success');
-        // showMessage('Please login first', 'warning');
-        // showMessage('Something went wrong', 'error');
-    </script>
+
+            <!-- Github Transition Cdn Link To get Smooth Transition End Here -->
+            <script type="module" src="/javascript/nav_side.js" defer></script>
+            <script>
+                function showMessage(text, type = 'success') {
+                    const msgBox = document.getElementById('userlikeMsgBox');
+                    msgBox.textContent = text;
+                    msgBox.className = `userLikemsg-box ${type}`;
+
+                    setTimeout(() => {
+                        msgBox.classList.add('userLikehidden');
+                    }, 3000);
+                }
+
+                // Examples:
+                // showMessage('Product added to wishlist!', 'success');
+                // showMessage('Please login first', 'warning');
+                // showMessage('Something went wrong', 'error');
+            </script>
 </body>
 
 </html>

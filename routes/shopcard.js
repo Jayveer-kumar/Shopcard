@@ -7,6 +7,7 @@ const ExpressError=require("../utills/expressError.js");
 const {reviewSchema}=require("../joiSchema.js");
 const {isReviewOwner,isLoggesIn}=require("../middleware.js");
 const User=require("../models/user.js");
+const mongoose = require("mongoose");
 
 const validateReview=(req,res,next)=>{
   try{
@@ -41,6 +42,7 @@ router.get("/privacy-policy",(req,res)=>{
 //  Search Route 
 router.get("/search",async (req,res)=>{
   let SearchQuery=req.query.q;
+  let user = req.user;
   if(!SearchQuery) return res.redirect(`/shopcard`);
   let product=await Product.find({category:{$regex:SearchQuery,$options:"i"}}).limit(4);
   // Agar JSON response chahiye hoga toh JSON send karenge
@@ -48,14 +50,36 @@ router.get("/search",async (req,res)=>{
     return res.json(product);
   }
   // nhi to ejs search page render karenge 
-  return res.render("listings/search.ejs",{product});  
+  return res.render("listings/search.ejs",{product , user});  
 });
 
 router.get("/liked-product",isLoggesIn,wrapAsync(async(req,res)=>{
   const userId=req.user._id;
   const user= await User.findById(userId).populate("likedProduct");
   if(!user) return  next(new ExpressError(400,"User Not Found"));
-  return res.json(user.likedProduct);
+  setTimeout(()=>{
+    return res.json(user.likedProduct);
+  },500)  
+}));
+
+//  NEW ROUTE - Get single product details (for dynamic cart add)
+router.get("/product/:id", wrapAsync(async(req, res, next) => {
+  const { id } = req.params;
+  
+  // Validate product ID
+  if(!mongoose.Types.ObjectId.isValid(id)){
+    return res.status(400).json({ error: "Invalid Product ID" });
+  }
+  
+  // Find product
+  const product = await Product.findById(id);
+  
+  if(!product) {
+    return res.status(404).json({ error: "Product not found" });
+  }
+  
+  // Return product data as JSON
+  return res.json(product);
 }));
 
 router.get("/watchlist",isLoggesIn, wrapAsync(async (req,res)=>{
@@ -70,7 +94,7 @@ router.get("/watchlist",isLoggesIn, wrapAsync(async (req,res)=>{
 router.get("/:id", wrapAsync(async (req, res) => {
   let { id } = req.params;
   if (id.length > 24 || id.length < 24 || !id) {
-    throw new ExpressError(400, "Requested Product is not Found");
+    throw new ExpressError(400, "Requested Product is not Found"); 
   }
   else {
     let product = await Product.findById(id).populate({path:"ratings.reviews",populate:{path:"userId"}});
@@ -81,44 +105,64 @@ router.get("/:id", wrapAsync(async (req, res) => {
 })); 
 
 // Product Add Like Route 
-router.post("/:id/like",isLoggesIn,wrapAsync(async(req,res)=>{
-  let {id}=req.params;
-  if (id.length > 24 || id.length < 24 || !id) {
-    throw new ExpressError(400, "Requested Product is not Found");
-  }
-  else {
-    let product = await Product.findById(id);
-    if(!product) return next(new ExpressError(400,"Requested Product not Found!"));
-    let userId=req.user.id;
-    let user= await User.findById(userId);
-    if(!user) return next(new ExpressError(400,"User Not Registered!"));
-    // Before Saving to new product inside user likedProductArray first check if the same product is allready exist or not 
-    if(user.likedProduct.includes(id)){
-      return res.json({message:"Product is already added to your cart!"})
-    }
-    user.likedProduct.push(product._id);
-    await user.save(); 
-    res.json({message:"Product added to your cart."});
-  }
-}))
+router.post("/:id/like",isLoggesIn,wrapAsync(async (req, res, next) => {
+    try {
+      let { id } = req.params; // Product id
 
-// Product delete Like Route
-router.delete("/:id/like",isLoggesIn,wrapAsync(async(req,res)=>{
-  let {id}=req.params;
-  if (id.length > 24 || id.length < 24 || !id) {
-    throw new ExpressError(400, "Requested Product is not Found");
-  }
-  else {
+      // Validate Product id
+
+      if (!mongoose.Types.ObjectId.isValid(id)) {
+        throw new ExpressError(400, "Invalid Product id.");
+      }
+
+      // Check if product exists
+      let product = await Product.findById(id);
+      if (!product) throw new ExpressError(400, "Requested Product not Found!");
+
+      let user = await User.findById(req.user._id);
+
+      // Check if product is already liked by user
+      if (user.likedProduct.some((productId) => productId.toString() === id)) {
+        return res.json({ message: "Product is already added to your cart!" });
+      }
+
+      // Add product to user's likedProduct array
+      user.likedProduct.push(id);
+      await user.save();
+      return res.json({ message: "Product added to your cart." });
+    } catch (err) {
+      console.error("Product add like route error:", err);
+      return res.status(500).json({ error: err.message || "Server error" });
+    }
+  })
+);
+
+// Product like delete Route
+router.delete("/:id/like", isLoggesIn, wrapAsync(async (req, res, next) => {
+  try {
+    let { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      throw new ExpressError(400, "Invalid Product id.");
+    }
+
     let product = await Product.findById(id);
-    if(!product) return next(new ExpressError(400,"Requested Product not Found!"));
-    let userId=req.user.id;
-    let user= await User.findById(userId);
-    if(!user) return next(new ExpressError(400,"Requested Product not Found!"));
-    user.likedProduct = user.likedProduct.filter(id=> id.toString() !==product._id.toString() );
-    await user.save();
-    res.json({message:"Product removed from your cart"});
+    if (!product) {
+      throw new ExpressError(400, "Requested Product not Found!");
+    }
+
+    // Atomic Update
+
+    await User.findByIdAndUpdate(req.user._id,{$pull:{likedProduct:id}});
+
+    return res.json({ message: "Product removed from your liked list." });
+  } catch (err) {
+    console.error("Delete route error:", err);
+    return res.status(500).json({ error: err.message || "Server error" });
   }
-}))
+}));
+
+
 
 router.get("/:id/checkout", isLoggesIn,  wrapAsync(async(req,res)=>{
  let {id}=req.params;

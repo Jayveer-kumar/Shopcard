@@ -1,162 +1,100 @@
 .us-Profile-main_container{
-    min-height: 80vh;
+    min-height: 100vh;
     margin-top:5em;
     width:100%;
-    padding:3em 5em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: space-between;
+    padding:1em 3em;
+    display: grid;
+    grid-template-columns: 20em 1fr;
+    gap: 0.4em;
     background-color: var(--color-bg);
 }
-.us-Profile-main_container > .us-Profile_head_Box{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-.us-Profile_wel_sys{
-    font-size: 1rem;
-    padding:1em 2em;    
+
+.us-profile-left-main ,.us-profile-right-main{
+    border: 1px solid var(--color-border);
     background-color: var(--color-card-bg);
-    border-radius: 0.7em;
-    border:0.1em solid var(--color-border);
+    border-radius: 0.5em;
 }
-.us-Profile_wel_sys h3{
-    font-size: 1.5em;
-    color:var(--color-text-primary-low);
+.user-profile-left-head{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.5em;
+    margin: 0.3em 0;
 }
-.us-Profile_wel_sys h3 span{
-    color:var(--color-text-primary) !important;
-}
-.us-Profile_wel_sys p{
-    padding:0.5em 0;
-    font-size: 1em;
-    color:var(--color-text-muted);
-}
-.us_Profile_imageBox{
-    width: max-content;
-    height: max-content;
-    height: 10em;
-    width:10em;
-    overflow: hidden;
+.user-profile-l-img{
+    height: 2.5em;
+    width: 2.5em;
     border-radius: 50%;
-    box-shadow: 0 0 1em var(--color-divider);
-    border:0.1em solid var(--color-border);
+    overflow: hidden;
 }
-.us_Profile_imageBox img{
-   height: 100%;
-   width:100%;
-   object-fit: cover;
-   object-position: center;
-   cursor: pointer;
+.user-profile-l-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
 }
-
-
-/* Main Container */
-.us-Profile_info_selection_box {
-    margin-top: 5em;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20em, 0.5fr));
-    gap: 1em;
-    justify-content: center;
+.user-profile-l-says p{
+   font-size: 0.9em;
+   color: var(--color-text-muted);
+}
+.user-profile-l-says #user-profile-name{
+    color: var(--color-text-primary);
+    font-weight: 600;
 }
 
-/* Card Styling */
-.us-Profile_info_selection_box > div {
-    height: 12em;
+.user-profile-left-main-menu{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 1em;
-    border: 0.01em solid var(--color-border);
-    border-radius: 1em;
-    background-color: var(--color-card-bg);
+    margin-top: 2em;
+    gap: 0.5em;
+}
+.user-profile-left-main-menu >div{
+    width: 100%;
+}
+.user-profile-left-main-menu >div >button{
+    width: 100%;
+    padding: 0.6em 1em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    color: var(--color-text-primary);
+    background-color: transparent;
+    border: none;
     cursor: pointer;
     transition: all 0.1s ease;
 }
 
-.us-Profile_info_selection_box > div:hover {
-    box-shadow: 0 0 1em var(--color-divider);
-    border-color: var(--color-info);
-    transform: translateY(-0.1em);
-}
-
-.us-Profile_info_selection_box > div:hover i,
-.us-Profile_info_selection_box > div:hover a {
+.user-profile-left-main-menu > div > button:hover span{
     color: var(--color-info) !important;
 }
 
-/* Icon Header */
-.us-Profile_personal_infoHead,
-.us-Profile_orderHistoryHead,
-.us-Profile_AddressBook_Head {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.us-Profile_personal_infoHead i,
-.us-Profile_orderHistoryHead i,
-.us-Profile_AddressBook_Head i {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 2.4em;
-    width: 2.4em;
-    border-radius: 50%;
-    color: var(--color-text-muted);
-    transition: all 0.2s ease;
-    cursor: pointer;
-}
 
-.us-Profile_personal_infoHead i:hover,
-.us-Profile_orderHistoryHead i:hover,
-.us-Profile_AddressBook_Head i:hover {
-    color: var(--color-info);
-    background-color: var(--color-secondary);
+.us-profile-right-main{
+  display: flex;
+  flex-direction: column;
 }
-
-/* Content Description */
-.us-Profile_presonal_des,
-.us-Profile_orderHistory_des,
-.us-Profile_AddressBook_des {
-    margin-bottom: 2em;
+.us-profile-right-content{
+    display: none;
 }
-
-.us-Profile_presonal_des h3,
-.us-Profile_orderHistory_des h3,
-.us-Profile_AddressBook_des h3 {
-    padding-bottom: 0.4em;
-    font-size: 1.3em;
-    color: var(--color-text-primary);
+.us-profile-right-content.activeMenu{
+    display: block;
 }
-
-.us-Profile_presonal_des a,
-.us-Profile_orderHistory_des a,
-.us-Profile_AddressBook_des a {
-    font-size: 1em;
-    color: var(--color-text-primary-low);
-    text-decoration: none;
-    transition: all 0.1s ease;
+.us-profile-left-menu-link-button.activeMenuButton {
+  color: var(--color-success) !important;
+  font-weight: bold !important;
 }
-
-.us-Profile_presonal_des a:hover,
-.us-Profile_orderHistory_des a:hover,
-.us-Profile_AddressBook_des a:hover {
-    text-decoration: underline;
-}
-
 
 /* user Profile Responsiveness */
 @media (max-width:865px){
-   .us-Profile_head_Box{
-     display: flex;
-     flex-direction: column-reverse;
-     justify-content: space-around;
-   } 
-   .us-Profile_head_Box .us-Profile_wel_sys{
-    margin-top:2em;
-   }
+
 }
+
+
+/* <div class="us-Profile_wel_sys">
+                <h3>Welcome to your account <span><%-user.name %></span> </h3>
+                <p class="user_profile_head_mail"><%-user.email %></p>
+            </div>
+            <div class="us_Profile_imageBox">
+                <img src="<%-user.image.url %>" alt="<%-user.name %>">
+</div> */

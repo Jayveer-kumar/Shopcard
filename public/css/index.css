@@ -1,32 +1,4 @@
 /* CSS Variables for Dark mode and light mode */
-
-
-/* New Updated Colors */
-
-/* :root{
-  --color-bg: #f4f4f4d6;         
-  --color-card-bg: #ffffffff;    
-  --color-text-primary: #173317; 
-  --color-text-primary-low: #173317e0; 
-  --color-action: #173317;   
-  --color-disabled: #D9D9D9; 
-  --color-muted: #B3BDB3;    
-  --color-button-text: #FFFFFF;      
-  --color-price:#4fd826;
-}
-
-html[data-theme="dark"]{
-  --color-bg: #121212;           
-  --color-card-bg: #1E1E1E;      
-  --color-text-primary: #FFFFFF; 
-  --color-text-primary-low: #edededbd;
-  --color-action: #173317;      
-  --color-disabled: #555555;   
-  --color-muted: #B3BDB3;       
-  --color-button-text: #FFFFFF;       
-  --color-price:#4fd826;
-} */
-
 /* New Additional Colors */
 
 :root {
@@ -69,7 +41,7 @@ html[data-theme="dark"]{
   --color-bestseller: #f97316;            /* Bestseller badges */
   
   /* Background Variations */
-  --color-bg-soft: #f9faf9;               /* Soft background for sections */
+  --color-bg-soft: #c3c3c394;               /* Soft background for sections */
   --color-bg-overlay: #00000080;          /* Modal/overlay background */
   
   /* Link Colors */
@@ -723,18 +695,24 @@ html, body{
 }
 
 /* User Card Stylling Start Here */
+
+
 .userCard_container{
    position: fixed;
-   top:60px;
+   top:55px;
    right:-500px;
    height: 90vh;
    width: 25em;
    padding: 0.5em;
-   background-color: var(--color-card-bg); 
+   /* background-color: var(--color-card-bg);  */
+   background-color: var(--color-bg);
+   border: 0.01em solid var(--color-border);
    border-radius: 1em;
    box-shadow: -10px 10px 50px var(--color-divider);
    z-index: 800;
    transition: all 0.6s ease-in-out;
+   display: flex;
+   flex-direction: column;
 }
 .openUserCardContainer{
     right:0px; 
@@ -744,22 +722,39 @@ html, body{
     top:1em;
     left:1em;
     padding:1em 1.2em;
-    background-color: var(--color-card-bg);
+    /* background-color: var(--color-card-bg); */
+    background-color: var(--color-bg);
     border: 0.1em solid var(--color-info);
     color: var(--color-info);
     cursor: pointer;
 }
-.userCard_container h2{
-    text-align: center;
-    color: var(--color-text-primary);
-    padding:1em;
+
+.userCard_header {
+  position: relative;
+  padding: 1em;
+  text-align: center;
+  border-bottom: 0.01em solid var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.userCard_container_main{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    -ms-overflow-style: none;
+    padding: 1em 0.2em 1em 0.1em;
 }
 .user_add_toCard_Product_box{
-    height: 8em;
+    min-height: 8em;
+    height: auto;
     width: 100%;
-    box-shadow: 0 8px 20px var(--color-divider);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     background-color: var(--color-card-bg);
-    border-radius: 1em;
+    border: 0.01em solid var(--color-border);
+    border-radius: 0.3em;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -781,21 +776,67 @@ html, body{
     object-fit: contain;
     object-position: center;
 }
-.user_add_toCard_description{
-    flex:1;
-    padding:0.5em;
-    display: flex;
-    flex-direction: column;
+.user_add_toCard_description {
+  flex: 1;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* Pricing Box */
+.user_add_toCard_priceBox {
+  margin-top: 0.5em;
 }
 
-.user_add_toCard_des_me_title{
-    color:var(--color-text-primary);
+.user_add_toCard_price-details {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+}
+
+.user_add_toCard_discounted-price {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: var(--color-success);
+}
+
+.user_add_toCard_original-price {
+  text-decoration: line-through;
+  color: var(--color-text-secondary);
+  font-size: 0.9em;
+}
+
+.user_add_toCard_discount-percent {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--color-warning);
+}
+
+.user_add_toCard_you-save {
+  font-size: 0.85em;
+  color: var(--color-info) !important;
+  margin-top: 0.3em;
+}
+
+.user_add_toCard_titleWrapper {
+    margin-bottom: 0.4em; /* proper spacing */
+}
+.user_add_toCard_des_me_title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: var(--color-text-primary);
 }
 .user_add_toCard_quantity{
+    font-size: 0.8em;
     color:var(--color-text-secondary);
 }
-#removeCardProduct{
+.removeCardProduct{
+    position: relative;
+    bottom: 1em;
     align-self: flex-end;
+    /* margin-bottom: 3em; */
     padding: 0.5em 1em;
     border-radius: 0.5em;
     cursor: pointer;
@@ -804,17 +845,131 @@ html, body{
     color:var(--color-warning);
     transition: all 0.3s ease;
 }
-#removeCardProduct:hover{
+.removeCardProduct:hover{
     background-color: var(--color-warning);
     color:var(--color-card-bg);
 }
+
+.userCard_footer {
+  padding: 1em;
+  border-top: 0.01em solid var(--color-border);
+  background-color: var(--color-card-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userCard_footer p {
+  color: var(--color-text-primary);
+  font-weight: bold;
+}
+
+
+.userCard-checkout-btn {
+  padding: 0.6em 1.2em;
+  background: var(--color-success);
+  color: var(--color-button-text);
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.userCard-checkout-btn:hover {
+  background: #008c5a;
+}
+
+/* Skeleton Effect */
+
+.skeleton_card {
+  display: flex;
+  gap: 0.5em;
+  padding: 0.5em;
+  background-color: var(--color-card-bg);
+  border-radius: 1em;
+  animation: shimmer 1.5s infinite linear; 
+}
+
+.skeleton_image {
+  width: 30%;
+  height: 6em;
+  background: linear-gradient(90deg, #e0e0e0 25%, #f2f2f2 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  border-radius: 0.5em;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.skeleton_text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.skeleton_line {
+  height: 1em;
+  background: linear-gradient(90deg, #e0e0e0 25%, #f2f2f2 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  border-radius: 0.3em;
+  animation: shimmer 1.5s infinite linear;
+  margin-bottom: 0.3em;
+}
+.skeleton_line.short { width: 40%; }
+.skeleton_line.long { width: 70%; }
+.skeleton_line.discount { width: 50%; }
+
+.cart-total-skeleton {
+  display: inline-block;
+  width: 60px;
+  height: 1em;
+  background: linear-gradient(90deg, #e0e0e0 25%, #f2f2f2 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  border-radius: 0.3em;
+  animation: shimmer 1.5s infinite linear;
+  vertical-align: middle;
+  margin-left: 0.4em;  
+}
+
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .userCard_container {
+        width: 100vw;
+        right: -100vw;
+        border-radius: 0;
+    }
+    
+    .openUserCardContainer {
+        right: 0;
+    }
+    
+    .user_add_toCard_Product_box {
+        min-height: auto;
+    }
+    
+    .user_add_toCard_image {
+        height: 5em;
+        width: 5em;
+        min-width: 5em;
+    }
+}
+
+
 /* User Card Stylling End Here */
 
 
 
 /* User Like and Dislike Box */
-
-
 .userLikemsg-box {
     position: fixed;
     top: 100px;

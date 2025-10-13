@@ -27,13 +27,13 @@
   color:var(--color-info);
 }
 .search_r_required_card_container .search_route_data_card{
-  height: 23em;
+  height: 24em;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  padding:0.3em 0.7em;
+  padding:0.3em 0.5em;
   position: relative;
   background-color: var(--color-card-bg);
   border-radius: 0.5em;
@@ -107,26 +107,57 @@
   font-weight: 600;
 }
 
-.search_route_card_like_box{
+
+.productLikeBoxContainer {
   position: absolute;
-  top:1em;
-  right:1em;
+  top: 1em;
+  right: 1em;
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0;
-  color:var(--color-text-muted);
+  color: var(--color-text-muted);
   visibility: hidden;
   transition: all 0.3s ease;
 }
-.search_route_data_card:hover{
-  box-shadow:  0 0 1em var(--color-divider);
-  .search_route_card_like_box{
-    opacity: 1;
-    visibility: visible;
-  }
-  /* .search_route_card_image_box{
-    transform: scale(1.05);
-    transition: all 0.9s linear;
-  } */
+
+/* Heart SVG default outline style */
+.productLikeBoxContainer svg {
+  fill: none; /* No fill by default */
+  stroke: var(--color-text-primary); /* Outline color depends on theme */
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: all 0.3s ease;
 }
+
+/* Liked (active) heart fill red */
+.productLikeBoxContainer.activeLikeBtn svg , .activeLikeSVG{
+  fill: red;
+  stroke: red;
+}
+
+
+
+
+
+.search_route_data_card:hover .search_route_card_like_box {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* .hm-listing-dt-card-box:hover .listing_item_likeBtn{
+  opacity: 1;
+  visibility: visible;
+  cursor: pointer;
+} */
+
+.search_route_card_like_box.activeLikeBtn  {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* .listing_item_likeBtn.activeLikeBtn{
+  opacity: 1 !important;
+  visibility: visible !important;
+} */

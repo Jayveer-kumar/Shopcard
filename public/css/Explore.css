@@ -424,8 +424,6 @@
 }
 
 .explorepg-offer-nav {
-    /* display: flex;
-    gap: 0.5em; */
     flex: 1;
     display: flex;
     gap: 0.5em;

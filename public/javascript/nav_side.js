@@ -65,27 +65,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // SearchBoxContainer This Box only for adding some stylling
   let Search_product_input = document.getElementById("Search_product_input");
-  let SearchBoxContainer = document.querySelector(
-    ".search_input_box_container"
-  );
-  let SearchProductPreviewBox = document.querySelector(
-    ".search-input-preview-container"
-  );
-  let previewBoxCard = document.querySelector(
-    ".search-product-preview-card_container"
-  );
+  let SearchBoxContainer = document.querySelector(".search_input_box_container");
+  let SearchProductPreviewBox = document.querySelector(".search-input-preview-container");
+  let previewBoxCard = document.querySelector(".search-product-preview-card_container");
+
   window.addEventListener("click", (event) => {
     if (!event.target.closest(".search_input_box_container")) {
       SearchProductPreviewBox.classList.remove("activePreviewBox");
     }
   });
+
   SearchBoxContainer.addEventListener("mouseenter", () => {
     SearchBoxContainer.classList.add("activeInputBox");
   });
   SearchBoxContainer.addEventListener("mouseleave", () => {
     SearchBoxContainer.classList.remove("activeInputBox");
   });
-  SearchBoxContainer.addEventListener("click", (event) => {
+  SearchBoxContainer.addEventListener("click", (e) => {
+    if(Search_product_input.value.length<1){
+      return;
+    }
     SearchProductPreviewBox.classList.add("activePreviewBox");
   });
 
@@ -136,82 +135,48 @@ document.addEventListener("DOMContentLoaded", () => {
     nav_my_accountArrow.classList.remove("rotate-account-arrow");
   });
 
-  // Open & Close User Cart Container
-  let close_userCard_containerBtn = document.getElementById(
-    "close_userCard_container"
-  );
-  let userCartOpen_CloseBtn = document.querySelector(".user-card");
-  let userCard_container = document.querySelector(".userCard_container");
-  userCartOpen_CloseBtn.addEventListener("click", toggleUserCart);
-  function toggleUserCart() {
-    userCard_container.classList.toggle("openUserCardContainer");
+  function showLiveSearchProduct(card) {
+    let mainCardAppendContainer = document.querySelector(
+      ".search-product-preview-card_container"
+    );
+    // Create an anchor tag show we able to use this card  in watch route
+    let cardLink = document.createElement("a");
+    cardLink.href = `/shopcard/${card._id}`;
+    let mainCard = document.createElement("div");
+    mainCard.classList.add("search-product-preview-card");
+    let cardImageBox = document.createElement("div");
+    cardImageBox.classList.add("search-product-card-img");
+    let cardImage = document.createElement("img");
+    cardImage.src = card.image[0];
+    cardImageBox.appendChild(cardImage);
+    mainCard.appendChild(cardImageBox);
+
+    let cardDescription = document.createElement("div");
+    cardDescription.classList.add("search-product-card-description");
+    let cardTitlePara = document.createElement("p");
+    cardTitlePara.classList.add("search-product-title");
+    cardTitlePara.textContent = card.title;
+
+    let cardBrandIcon = document.createElement("i");
+    cardBrandIcon.classList.add("fa-solid", "fa-tag");
+    let cardBrand = document.createElement("span");
+    cardBrand.classList.add("search-product-cardBrand");
+
+    cardBrand.innerText = card.Brand;
+
+    let cardPrizePara = document.createElement("p");
+    cardPrizePara.innerHTML = `&#8377;${card.prize}`;
+    cardPrizePara.classList.add("search-product-price");
+
+    cardBrand.appendChild(cardBrandIcon);
+    cardDescription.appendChild(cardBrand);
+
+    cardDescription.appendChild(cardTitlePara);
+    cardDescription.appendChild(cardPrizePara);
+    mainCard.appendChild(cardDescription);
+    cardLink.appendChild(mainCard);
+    mainCardAppendContainer.appendChild(cardLink);
+    return mainCard;
   }
-  close_userCard_containerBtn.addEventListener("click", () => {
-    userCard_container.classList.remove("openUserCardContainer");
-  });
-  // Hero section image change Logic Start Here
-
-  let imageSourceContainer = [
-    "/src/hero-section-image-2.png",
-    "/src/hero-section-image-3.png",
-    "/src/hero-section-image-4.png",
-    "/src/hero-section-image-5.png",
-    "/src/hero-section-img.png",
-  ];
-  let currentHeroImage = document.getElementById("hero_section_image");
-
-  let heroImageChangePrevBtn = document.getElementById("prev-img-sld");
-  let heroImageChangeNextBtn = document.getElementById("next-img-sld");
-
-  // heroImageChangeNextBtn.addEventListener("click", function (event) {
-  //    console.log("Next Slide button Clicked : ");
-  // });
-
-  // heroImageChangePrevBtn.addEventListener("click", function (event) {
-  //     console.log("Prev Slide button Clicked : ");
-  // });
 });
-
-let mainCardAppendContainer = document.querySelector(
-  ".search-product-preview-card_container"
-);
-function showLiveSearchProduct(card) {
-  // Create an anchor tag show we able to use this card  in watch route
-  let cardLink = document.createElement("a");
-  cardLink.href = `/shopcard/${card._id}`;
-  let mainCard = document.createElement("div");
-  mainCard.classList.add("search-product-preview-card");
-  let cardImageBox = document.createElement("div");
-  cardImageBox.classList.add("search-product-card-img");
-  let cardImage = document.createElement("img");
-  cardImage.src = card.image[0];
-  cardImageBox.appendChild(cardImage);
-  mainCard.appendChild(cardImageBox);
-
-  let cardDescription = document.createElement("div");
-  cardDescription.classList.add("search-product-card-description");
-  let cardTitlePara = document.createElement("p");
-  cardTitlePara.classList.add("search-product-title");
-  cardTitlePara.textContent = card.title;
-
-  let cardBrandIcon = document.createElement("i");
-  cardBrandIcon.classList.add("fa-solid", "fa-tag");
-  let cardBrand = document.createElement("span");
-  cardBrand.classList.add("search-product-cardBrand");
-
-  cardBrand.innerText = card.Brand;
-
-  let cardPrizePara = document.createElement("p");
-  cardPrizePara.innerHTML = `&#8377;${card.prize}`;
-  cardPrizePara.classList.add("search-product-price");
-
-  cardBrand.appendChild(cardBrandIcon);
-  cardDescription.appendChild(cardBrand);
-
-  cardDescription.appendChild(cardTitlePara);
-  cardDescription.appendChild(cardPrizePara);
-  mainCard.appendChild(cardDescription);
-  cardLink.appendChild(mainCard);
-  mainCardAppendContainer.appendChild(cardLink);
-  return mainCard;
-}
+// Search functionality end here

@@ -1,11 +1,11 @@
 // Import necessary function 
 
-import { generateFakePrize , addCard_userSelection } from "./search.js";
+// import { generateFakePrize , addCard_userSelection } from "./search.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   // 1.  user liked product ko Handle Karna
 
-  handleUserLikedProduct_when_page_reload();
+  // handleUserLikedProduct_when_page_reload();
 
     // User Related Products Slider
     initializeSlider('.user-releted-card_box', 'rel_slide_prev', 'rel_slide_next', 320);
@@ -26,18 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
     });
-
-  // New Arival Collections
-//   const newarivalsliderbox = document.querySelector(".new-arival-slider-box");
-//   const arivalAmount = newarivalsliderbox.clientWidth * 0.4;
-//   const arivalnextBtn = document.getElementById("new-arival-nextBtn");
-//   const arvalprevBtn = document.getElementById("new-arval-prevBtn");
-//   arivalnextBtn.addEventListener("click", () => {
-//     newarivalsliderbox.scrollLeft += arivalAmount;
-//   });
-//   arvalprevBtn.addEventListener("click", () => {
-//     newarivalsliderbox.scrollLeft -= arivalAmount;
-//   });
 
   // Explore Section Button add active class
   const buttons = document.querySelectorAll(".exploreSec_Btn");
@@ -181,58 +169,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Add Event Listner on Like Button
-  const likeBtns = document.querySelectorAll(".listing_item_likeBtn");
-  likeBtns.forEach((likeBtn) => {
-    likeBtn.addEventListener("click", async (event) => {
-      event.preventDefault();
-      if (likeBtn.classList.contains("activeLikeBtn")) {
-        // Product is already liked
-        likeBtn.classList.remove("activeLikeBtn");
-        let likeForm = likeBtn.parentElement;
-        let productId = likeForm.children[0].name;
-        let likedResponse = await fetch(`/shopcard/${productId}/like`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            "X-Requested-With": "XMLHttpRequest", // important flag to tell server this is ajax/fetch request
-          },
-          body: JSON.stringify({ productId }),
-          redirect: "manual",
-        });
-        if (likedResponse.ok) {
-          let likedMessage = await likedResponse.json();
-          showLikeMessageBox(likedMessage.message, "#f44336");
-        } else if (likedResponse.status === 401) {
-          window.location.href = "/shopcard/authenticate/register?action=login";
-        } else {
-          console.log("An error occurred:", likedResponse.status);
-        }
-      } else {
-        // Product is not liked
-        let likeForm = likeBtn.parentElement;
-        let productId = likeForm.children[0].name;
-        likeBtn.classList.add("activeLikeBtn");
-        let likedResponse = await fetch(`/shopcard/${productId}/like`, {
-          method: "post",
-          headers: {
-            "Content-Type": "application/json",
-            "X-Requested-With": "XMLHttpRequest", // important flag to tell server this is ajax/fetch request
-          },
-          body: JSON.stringify({ productId }),
-          redirect: "manual",
-        });
-        if (likedResponse.ok) {
-          let likedMessage = await likedResponse.json();
-          showLikeMessageBox(likedMessage.message, "#4caf50");
-        } else if (likedResponse.status === 401) {
-          window.location.href = "/shopcard/authenticate/register?action=login";
-        } else {
-          console.log("An error occurred:", likedResponse.status);
-        }
-      }
-    });
-  });
+
+
 
   // Funcation to add Cards based on user Selection
   function addCard_userSelection(card) {
@@ -306,27 +244,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 })
-
-function showLikeMessageBox(messageText, color = "#4caf50") {
-    const msgBox = document.getElementById("userlikeMsgBox");
-    msgBox.textContent = messageText;
-    msgBox.style.backgroundColor = "#f0f0f0";
-    msgBox.style.color = "#333";
-    msgBox.classList.remove("userLikehidden");
-
-    // Animate border color dynamically
-    msgBox.style.setProperty('--bar-color', color);
-
-    // Trigger reflow to restart animation
-    msgBox.classList.remove("userLikemsg-box");
-    void msgBox.offsetWidth;
-    msgBox.classList.add("userLikemsg-box");
-
-    // Hide after 3.2 seconds
-    setTimeout(() => {
-        msgBox.classList.add("userLikehidden");
-    }, 3200);
-}
 
 
 function colorBasedSortCard(){
@@ -416,26 +333,6 @@ function hideFilterBox(cardName) {
 }
 
 
-
-async  function handleUserLikedProduct_when_page_reload(){
-    try{
-      let response= await  fetch("/shopcard/liked-product",{
-        method:"GET",
-        headers:{
-            "Content-Type":"application/json",
-            "X-Requested-With":"XMLHttpRequest",
-        },
-      })
-      if(response.status===401 ){
-        console.info("Please Login to See Your Liked Product : ");
-      }
-      else{
-        console.info("Failed to Fetch User Liked Product : ");
-      }
-    } catch(err){
-        console.error("An Error Occured When Fetching User Liked Product : ")
-    }
-}
 
 
 
