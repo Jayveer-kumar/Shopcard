@@ -33,7 +33,7 @@
         <input type="checkbox" id="buy_product_return_allow" >
         <label for="buy_product_return_allow">Returning Customers?</label>
     </div>
-     <!-- Address input lene ke liye Box -->
+     <!-- Address input lene ke liye Boxes -->
     <div class="buy_route_add_address_box" data-aos="fade-down" data-aos-duration="500" data-aos-delay="100" > 
         <div class="buy_route_address_header">
             <h3>Deleivery Information</h3>
@@ -87,7 +87,7 @@
                 </div>
             </div>
             <div class="buy_product_from_submit_box">
-                <button id="place_order_button">Place Order</button>
+                <button id="place_order_button" class="disabled-place-order-btn" >Place Order</button>
             </div> 
         </div>
     </form>
@@ -120,10 +120,10 @@
                 <label for="credit_card_debit_card">Credit or Debit card </label>
             </div>
             <div class="buy_route_payment_methods_imageBox">
-                <img src="https://cdn.iconscout.com/icon/free/png-256/free-upi-logo-icon-download-in-svg-png-gif-file-formats--unified-payments-interface-payment-money-transfer-logos-icons-1747946.png?f=webp" alt="">
-                <img src="https://image.similarpng.com/file/similarpng/very-thumbnail/2020/06/Logo-google-pay-vector-PNG.png" alt="">
-                <img src="https://cdn4.iconfinder.com/data/icons/flat-brand-logo-2/512/amazon-512.png" alt="">
-                <img src="https://www.citypng.com/public/uploads/preview/hd-visa-payment-logo-png-7017516947777256ndfrewd52.png" alt="">
+                <img src="https://cdn.iconscout.com/icon/free/png-256/free-upi-logo-icon-download-in-svg-png-gif-file-formats--unified-payments-interface-payment-money-transfer-logos-icons-1747946.png?f=webp" alt="UPI Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/2560px-Google_Pay_Logo.svg.png"   alt="Google Pay Logo">
+                 <img src="https://icon2.cleanpng.com/20180630/pfg/aayryayrr.webp" alt="Paypal Logo">
+                <img src="https://www.freepnglogos.com/uploads/visa-card-and-mastercard-logo-png-28.png" alt="Visa Logo">
             </div>
         </div>
         <!-- agar user Debit card Select karta hai to uske card ki information lene ke liye card  -->
@@ -132,28 +132,28 @@
             <div>
                 <p>Email <sup style="color:var(--color-error)">*</sup></p>
                 <input type="email" placeholder="Type here..">
-                <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300" >Email is required!</p>
+                <p class="buy_product_creditCard_invalid_msg" data-aos="fade-up" data-aos-duration="300" >Email is required!</p>
             </div>
             <div>
                 <p>Card Holder Name <sup style="color: var(--color-error);">*</sup></p>
                 <input type="text" placeholder="Type here..">
-                <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300" >Card Holder name is required!</p>
+                <p class="buy_product_creditCard_invalid_msg" data-aos="fade-up" data-aos-duration="300" >Card Holder name is required!</p>
             </div>
             <div>
                 <p>Card Number <sup style="color: var(--color-error);">*</sup> </p>
                 <input type="text" placeholder="0000****1234" maxlength="16" >
-                <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300" >Card number is required!</p>
+                <p class="buy_product_creditCard_invalid_msg" data-aos="fade-up" data-aos-duration="300" >Card number is required!</p>
             </div>
             <div class="buy_route_debit_card_cvv_expireDate_box">
                 <div>
                     <p>Expiry Date (MM/YY)<sup style="color:  var(--color-error);">*</sup> </p>
                     <input type="text" placeholder="MM/YY" maxlength="5">
-                    <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300" >Expiry date is required!</p>
+                    <p class="buy_product_creditCard_invalid_msg" data-aos="fade-up" data-aos-duration="300" >Expiry date is required!</p>
                 </div>
                 <div>
                     <p>CVV <sup style="color: var(--color-error)">*</sup></p>
                     <input type="password" placeholder="CVV" maxlength="4" autocomplete="on" >
-                    <p class="buy_product_form_invalid_msg" data-aos="fade-up" data-aos-duration="300" >CVV is required!</p>
+                    <p class="buy_product_creditCard_invalid_msg" data-aos="fade-up" data-aos-duration="300" >CVV is required!</p>
                 </div>
             </form>
             </div>

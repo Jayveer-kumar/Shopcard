@@ -135,7 +135,7 @@
     padding:0.4em 0;
     color:var(--color-text-primary-low);
 }
-.buy_product_form_invalid_msg{
+.buy_product_form_invalid_msg ,.buy_product_creditCard_invalid_msg{
     color:var(--color-error) !important;
     font-size: 0.9em;
     display: none;
@@ -164,7 +164,7 @@
     display: flex;
     flex-direction: row-reverse;
 }
-.buy_product_from_submit_box #place_order_button{
+#place_order_button{
     border: 0.01em solid var(--color-border);
     background-color: var(--color-action);
     color: var(--color-button-text);
@@ -177,6 +177,12 @@
 #place_order_button:hover{
     background: var(--color-action-hover);
 }
+
+.disabled-place-order-btn{
+    cursor: not-allowed !important;
+    opacity: 0.7 !important;
+}
+
 .buy_route_order_container{
     min-height: 10em;
     height: auto;
@@ -249,13 +255,16 @@
     height: 2.5em;
     display: flex;
     gap: 1em;
-    img{
-        width: 20%;
-        height: 100%;
-        object-fit: contain;
-        border: 1px solid var(--CardTextDarkColor);
-        border-radius: 0.5em;
-    }
+}
+.buy_route_payment_methods_imageBox img {
+    width: 20%;
+    height: 100%;
+    object-fit: contain;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5em;
+}
+.payment_method_icons{
+   /* mix-blend-mode:multiply; */
 }
 .buy_route_payment_selection_box label ,
 .buy_route_payment_selection_box input[type="radio"]

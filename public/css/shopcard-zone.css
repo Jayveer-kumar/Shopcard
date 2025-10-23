@@ -1,0 +1,117 @@
+body {
+  background: var(--color-bg);
+  color: var(--color-text-secondary);
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== SHOPCARD-ZONE MAIN ===== */
+.shopcard-zone {
+    padding: 3rem 1.5rem;
+    max-width: 1100px;
+    margin: 3em auto;
+}
+
+/* ===== HEADER ===== */
+.shopcard-zone-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.shopcard-zone-title {
+  font-size: 2.3rem;
+  color: var(--color-text-primary);
+}
+
+.shopcard-zone-title span {
+  color: var(--color-price);
+}
+
+.shopcard-zone-desc {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* ===== FILTER BUTTONS ===== */
+.shopcard-zone-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.zone-filter-btn {
+  background: var(--color-secondary, #f3f4f6);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.zone-filter-btn:hover,
+.zone-filter-btn.activeZoneBtn {
+  background: var(--color-action);
+  color: var(--color-button-text);
+}
+
+/* ===== CARDS SECTION ===== */
+.shopcard-zone-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.zone-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.zone-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.zone-card-title {
+  font-size: 1.3rem;
+  color: var(--color-text-primary-low);
+  margin-bottom: 0.8rem;
+}
+
+.zone-card-text {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.2rem;
+}
+
+.zone-card-btn {
+  background: var(--color-action);
+  color: var(--color-button-text);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.zone-card-btn:hover {
+  background: var(--color-action-hover);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .shopcard-zone-title {
+    font-size: 1.8rem;
+  }
+  .zone-filter-btn {
+    padding: 0.5rem 1rem;
+  }
+}

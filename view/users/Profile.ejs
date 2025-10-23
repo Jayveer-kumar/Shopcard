@@ -8,109 +8,557 @@
                 </div>
                 <div class="user-profile-l-says">
                     <p>Hello</p>
-                    <p id="user-profile-name" ><%-user.name%></p>
+                    <p id="user-profile-name"><%-user.name%></p>
                 </div>
             </div>
             <hr>
-
+    
             <div class="user-profile-left-main-menu">
-
+    
                 <div class="us-prfle-left-myorders">
-                    <button class="us-profile-left-menu-link-button activeMenuButton"  data-target="myorders" >
+                    <button class="us-profile-left-menu-link-button activeMenuButton" data-target="myorders"
+                        data-path="/myorders">
                         <span class="material-symbols-outlined">local_shipping</span>
-                        <span class="user-profile-left-menu-title" >My Orders</span>
+                        <span class="user-profile-left-menu-title">My Orders</span>
                     </button>
                 </div>
                 <div class="us-prfle-left-profileInfo">
-                    <button class="us-profile-left-menu-link-button" data-target="profileInformation">
+                    <button class="us-profile-left-menu-link-button" data-target="profileInformation"
+                        data-path="/profile-information">
                         <span class="material-symbols-outlined">3p</span>
                         <span class="user-profile-left-menu-title">Profile Information</span>
                     </button>
                 </div>
                 <div class="us-prfle-left-ManageAddress">
-                    <button class="us-profile-left-menu-link-button" data-target="manageAddress">
+                    <button class="us-profile-left-menu-link-button" data-target="manageAddress" data-path="/address">
                         <span class="material-symbols-outlined">add_home</span>
                         <span class="user-profile-left-menu-title">Manage Address</span>
                     </button>
                 </div>
                 <div class="us-prfle-left-PancardInfo">
-                    <button class="us-profile-left-menu-link-button" data-target="panCardInformation" >
+                    <button class="us-profile-left-menu-link-button" data-target="panCardInformation"
+                        data-path="/pancard-information">
                         <span class="material-symbols-outlined">add_card</span>
                         <span class="user-profile-left-menu-title">PAN Card Information</span>
                     </button class="us-profile-left-menu-link-button">
                 </div>
                 <div class="us-prfle-left-GiftCard">
-                    <button class="us-profile-left-menu-link-button" data-target="giftCard" >
+                    <button class="us-profile-left-menu-link-button" data-target="giftCard" data-path="/gift-card">
                         <span class="material-symbols-outlined">featured_seasonal_and_gifts</span>
                         <span class="user-profile-left-menu-title">Gift Cards</span>
                     </button>
                 </div>
                 <div class="us-prfle-left-SavedUPI">
-                    <button class="us-profile-left-menu-link-button" data-target="savedUPI">
+                    <button class="us-profile-left-menu-link-button" data-target="savedUPI" data-path="/saved-upi">
                         <span class="material-symbols-outlined">credit_score</span>
                         <span class="user-profile-left-menu-title">Saved UPI </span>
                     </button>
                 </div>
                 <div class="us-prfle-left-MyCoupon">
-                    <button class="us-profile-left-menu-link-button" id="myCoupon" >
+                    <button class="us-profile-left-menu-link-button" data-target="myCoupon" data-path="/coupon">
                         <span class="material-symbols-outlined">percent_discount</span>
                         <span class="user-profile-left-menu-title">My Coupons </span>
                     </button>
                 </div>
                 <div class="us-prfle-left-MyReview_Rating">
-                    <button class="us-profile-left-menu-link-button" data-target="myReview_Rating">
+                    <button class="us-profile-left-menu-link-button" data-target="myReview_Rating"
+                        data-path="/review-rating">
                         <span class="material-symbols-outlined">rate_review</span>
                         <span class="user-profile-left-menu-title">My Review and Rating </span>
                     </button class="us-profile-left-menu-link-button">
                 </div>
                 <div class="us-prfle-left-allNotification">
-                    <button class="us-profile-left-menu-link-button" data-target="Notification" >
+                    <button class="us-profile-left-menu-link-button" data-target="Notification" data-path="/notification">
                         <span class="material-symbols-outlined">notifications_unread</span>
                         <span class="user-profile-left-menu-title">All Notification </span>
                     </button>
                 </div>
                 <div class="us-prfle-left-myWatchList">
-                    <button class="us-profile-left-menu-link-button" data-target="Watchlist">
+                    <button class="us-profile-left-menu-link-button" data-target="Watchlist" data-path="/watchlist">
                         <span class="material-symbols-outlined">add_to_queue</span>
                         <span class="user-profile-left-menu-title">My watchlist </span>
                     </button>
-                </div> 
-
+                </div>
+    
             </div>
-
+    
         </div>
         <div class="us-profile-right-main">
-            <div class="us-profile-right-content activeMenu" id="myorders" >
-                <p>My Orders</p>
+    
+            <div class="us-profile-right-main-loader">
+                <div class="dot-spinner">
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                </div>
             </div>
-            <div class="us-profile-right-content" id="profileInformation">
-                <p>Profile Information</p>
+    
+            <div class="us-profile-right-content   activeMenu" id="myorders">
+            </div> 
+            <div class="us-profile-right-content " id="profileInformation">
+    
+                <div class="us-profile-right-profileInformationMainBox">
+    
+                    <div class="us-profile-right-profileInfoHead">
+                        <h3>Profile Information</h3>
+                        <button class="us-profile-right-edit-profile-button" id="editProfileBtn">
+                            <span class="material-symbols-outlined">edit</span>
+                            <span>Edit</span>
+                        </button>
+                    </div>
+    
+                    <div class="us-profile-right-profileInfoContainer">
+                        <!-- Box 1: Name -->
+                        <div class="profile-info-box">
+                            <p>Your Name</p>
+                            <div class="name-box">
+                                <input type="text" id="firstName" value="Jayveer" disabled>
+                                <input type="text" id="lastName" value="Kumar" disabled>
+                            </div>
+                        </div>
+    
+                        <!-- Box 2: Gender -->
+                        <div class="profile-info-box">
+                            <p>Your Gender</p>
+                            <div class="gender-box">
+                                <label><input type="radio" name="gender" value="male" disabled> Male</label>
+                                <label><input type="radio" name="gender" value="female" disabled> Female</label>
+                                <label><input type="radio" name="gender" value="other" disabled> Other</label>
+                            </div>
+                        </div>
+    
+                        <!-- Box 3: Email -->
+                        <div class="profile-info-box">
+                            <p>Your Email</p>
+                            <input type="email" id="email" value="jayveer@gmail.com" disabled>
+                        </div>
+    
+                        <!-- Box 4: Mobile Number -->
+                        <div class="profile-info-box">
+                            <p>Your Mobile Number</p>
+                            <input type="tel" id="mobile" value="+91 7248060696" disabled>
+                        </div>
+                    </div>
+                    <div class="us-profile-right-profileInfo-faqBox">
+                        <h4>FAQs</h4>
+    
+                        <div class="us-profile-faq-item">
+                            <h5>What happens when I update my email address (or mobile number)?</h5>
+                            <p>
+                                Your login email ID (or mobile number) changes likewise. You'll receive
+                                all your account-related communication on your updated email address (or mobile number).
+                            </p>
+                        </div>
+    
+                        <div class="us-profile-faq-item">
+                            <h5>When will my ShopCard account be updated with the new email address (or mobile number)?</h5>
+                            <p>
+                                It happens as soon as you confirm the verification code sent to your email (or mobile)
+                                and save the changes.
+                            </p>
+                        </div>
+    
+                        <div class="us-profile-faq-item">
+                            <h5>What happens to my existing ShopCard account when I update my email address (or mobile
+                                number)?</h5>
+                            <p>
+                                Updating your email address (or mobile number) doesn't invalidate your account.
+                                Your account remains fully functional. You'll continue seeing your order history,
+                                saved information, and personal details.
+                            </p>
+                        </div>
+    
+                        <div class="us-profile-faq-item">
+                            <h5>Does my Seller account get affected when I update my email address?</h5>
+                            <p>
+                                ShopCard follows a ‘single sign-on’ policy. Any changes will reflect in your Seller account
+                                as well.
+                            </p>
+                        </div>
+    
+                        <div class="us-profile-faq-actions">
+                            <button class="us-profile-deactivate-btn">Deactivate Account</button>
+                            <button class="us-profile-delete-btn">Delete Account</button>
+                        </div>
+                    </div>
+                </div>
+    
             </div>
             <div class="us-profile-right-content" id="manageAddress">
-                <p>Manage Address</p>
+
+                <div class="us-profile-right-manageAddressMainBox">
+                    
+                    <div class="profile-manageaddress-head">
+                        <h3>Manage Address</h3>
+                        <button class="add-new-address-btn">
+                            <span class="material-symbols-outlined">add</span>
+                            <span>Add a new address</span>
+                        </button>
+                    </div>
+    
+                    <!-- Saved Address Cards -->
+                    <div class="saved-address-list">
+                        <div class="address-card">
+                            <div class="address-card-top">
+                                <span class="address-tag">Home</span>
+                                <div class="address-menu">
+                                    <span class="material-symbols-outlined menu-icon">more_vert</span>
+                                    <div class="menu-options">
+                                        <button class="manageAddress-edit-btn">Edit</button>
+                                        <button class="manageAddress-delete-btn">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <p class="address-user">
+                                <span class="user-name">Jayveer</span> |
+                                <span class="user-phone">7248060696</span>
+                            </p>
+                            <p class="address-full">
+                                207, Near R P M inter college, Risouli, UJHANI, Uttar Pradesh - 243639.
+                            </p>
+                        </div>
+                    </div>
+    
+                    <!-- Hidden Edit Form -->
+                    <div class="edit-address-form hide-form">
+                        <h4>Edit Address</h4>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" value="Jayveer">
+                        </div>
+                        <div class="form-group">
+                            <label>10-digit Mobile Number</label>
+                            <input type="text" value="7248060696">
+                        </div>
+                        <div class="form-group">
+                            <label>Pincode</label>
+                            <input type="text" value="243639">
+                        </div>
+                        <div class="form-group">
+                            <label>Locality</label>
+                            <input type="text" value="Near R P M inter college, Risouli">
+                        </div>
+                        <div class="form-group">
+                            <label>Address (Area and Street)</label>
+                            <input type="text" value="207">
+                        </div>
+                        <div class="form-group">
+                            <label>City/District/Town</label>
+                            <input type="text" value="UJHANI">
+                        </div>
+                        <div class="form-group">
+                            <label>State</label>
+                            <input type="text" value="Uttar Pradesh">
+                        </div>
+                        <div class="form-group">
+                            <label>Landmark (Optional)</label>
+                            <input type="text" value="MOHAN PATTI">
+                        </div>
+                        <div class="form-group">
+                            <label>Alternate Phone (Optional)</label>
+                            <input type="text" value="9634074752">
+                        </div>
+                        <div class="form-group">
+                            <label>Address Type</label>
+                            <div class="address-type">
+                                <label><input type="radio" name="type" checked> Home</label>
+                                <label><input type="radio" name="type"> Work</label>
+                            </div>
+                        </div>
+                        <div class="form-buttons">
+                            <button class="manageAddress-save-btn">Save</button>
+                            <button class="manageAddress-cancel-btn">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+    
             </div>
             <div class="us-profile-right-content" id="panCardInformation">
-                <p>Pan Card Information</p>
+    
+                <div class="us-profile-pancard-mainBox">
+                    <h3 class="us-profile-pancard-heading">PAN Card Information</h3>
+    
+                    <div class="us-profile-pancard-form">
+                        <div class="us-profile-pancard-inputBox">
+                            <label for="panNumber">PAN Card Number</label>
+                            <input type="text" id="panNumber" placeholder="Enter your PAN card number" />
+                        </div>
+    
+                        <div class="us-profile-pancard-inputBox">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" placeholder="Enter your full name" />
+                        </div>
+    
+                        <div class="us-profile-pancard-inputBox">
+                            <label for="uploadPan">Upload PAN Card (Only JPEG file is allowed)</label>
+                            <input type="file" id="uploadPan" accept="image/jpeg" />
+                        </div>
+    
+                        <div class="us-profile-pancard-declarationBox">
+                            <input type="checkbox" id="declarePan" />
+                            <label for="declarePan">
+                                I do hereby declare that PAN furnished/stated above is correct and belongs to me, registered
+                                as an
+                                account holder with www.shopcart.com.
+                                I further declare that I shall solely be held responsible for the consequences, in case of
+                                any false
+                                PAN declaration.
+                            </label>
+                        </div>
+    
+                        <button class="us-profile-pancard-uploadBtn">UPLOAD</button>
+    
+                        <p class="us-profile-pancard-terms">
+                            Read <a href="#">Terms & Conditions</a> of PAN Card Information.
+                        </p>
+                    </div>
+                </div>
+    
             </div>
             <div class="us-profile-right-content" id="giftCard">
-                <p>Gift Cards</p>
+
+                <div class="us-profile-right-giftCardMainBox">
+                    <h2 class="us-profile-giftCard-heading">Gift Cards</h2>
+                    <hr />
+    
+                    <div class="us-profile-giftCard-content">
+                        <div class="us-profile-giftCard-inner">
+                            <img src="https://lepure.in/cdn/shop/files/GiftCard.png?v=1754908948&width=2048" alt="Gift Card"
+                                class="us-profile-giftCard-image" />
+                            <div class="us-profile-giftCard-text">
+                                <h3>No Gift Cards Available</h3>
+                                <p>
+                                    You don’t have any active gift cards right now.
+                                    When you purchase or receive a ShopCart Gift Card, it will appear here.
+                                </p>
+                                <button class="us-profile-giftCard-btn">Buy a Gift Card</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+    
             </div>
-            <div class="us-profile-right-content" id="savedUPI" >
-                <p>Saved UPI</p>
+            <div class="us-profile-right-content" id="savedUPI">
+                <div class="us-profile-savedupi-mainBox">
+                    <h3 class="us-profile-savedupi-heading">Manage Saved UPI</h3>
+    
+                    <div class="us-profile-savedupi-listBox">
+                        <div class="us-profile-savedupi-card">
+                            <div class="us-profile-savedupi-left">
+                                <h4>Google Pay UPI</h4>
+                                <p>jayveerk394@oksbi</p>
+                            </div>
+                            <div class="us-profile-savedupi-right">
+                                <span class="material-symbols-outlined delete-icon">delete</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="us-profile-savedupi-faqBox">
+                        <h4>FAQs</h4>
+    
+                        <div class="us-profile-savedupi-faq">
+                            <p class="question">Why is my UPI being saved on Shopcart?</p>
+                            <p class="answer">
+                                It's quicker. You can save the hassle of typing in the complete UPI information every time
+                                you shop
+                                at Shopcart by saving your UPI details.
+                                You can make your payment by selecting the saved UPI ID of your choice at checkout. While
+                                this is
+                                obviously faster, it is also very secure.
+                            </p>
+                        </div>
+    
+                        <div class="us-profile-savedupi-faq">
+                            <p class="question">Is it safe to save my UPI on Shopcart?</p>
+                            <p class="answer">
+                                Absolutely. Your UPI ID information is 100 percent safe with us. UPI ID details are non PCI
+                                compliant and are non confidential data.
+                            </p>
+                        </div>
+    
+                        <div class="us-profile-savedupi-faq">
+                            <p class="question">What all UPI information does Shopcart store?</p>
+                            <p class="answer">
+                                Shopcart only stores UPI ID and payment provider details. We do not store UPI PIN/MPIN.
+                            </p>
+                        </div>
+    
+                        <div class="us-profile-savedupi-faq">
+                            <p class="question">Can I delete my saved UPI?</p>
+                            <p class="answer">
+                                Yes, you can delete your UPI ID at any given time.
+                            </p>
+                        </div>
+    
+                        <p class="us-profile-savedupi-viewFaqs">View all FAQs</p>
+                    </div>
+                </div>
+    
             </div>
             <div class="us-profile-right-content" id="myCoupon">
-                <p>My Coupons</p>
+
+                <div class="us-profile-coupons-mainBox">
+                    <h3 class="us-profile-coupons-heading">Available Coupons</h3>
+    
+                    <div class="us-profile-coupons-list">
+                        <!-- Coupon Card -->
+                        <div class="us-profile-coupons-card">
+                            <div class="us-profile-coupons-left">
+                                <h4>Get product at Re.1</h4>
+                                <p>Valid till 31 Oct, 2025</p>
+                                <p class="coupon-detail">
+                                    Get product at Re.1 (Valid till: 11:59 PM, 31 Oct)
+                                </p>
+                                <p class="coupon-terms">View T&amp;C</p>
+                            </div>
+                        </div>
+    
+                        <div class="us-profile-coupons-card">
+                            <div class="us-profile-coupons-left">
+                                <h4>Get products at Re.1</h4>
+                                <p>Valid till 31 Oct, 2025</p>
+                                <p class="coupon-detail">
+                                    Get products at Re.1 (Valid till: 11:59 PM, 31 Oct)
+                                </p>
+                                <p class="coupon-terms">View T&amp;C</p>
+                            </div>
+                        </div>
+    
+                        <div class="us-profile-coupons-card">
+                            <div class="us-profile-coupons-left">
+                                <h4>Get product at Re.1</h4>
+                                <p>Valid till 31 Oct, 2025</p>
+                                <p class="coupon-detail">
+                                    Get product at Re.1 (Valid till: 11:59 PM, 31 Oct)
+                                </p>
+                                <p class="coupon-terms">View T&amp;C</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <p class="us-profile-coupons-viewMore">View more</p>
+    
+                    <h3 class="us-profile-coupons-heading">Upcoming Coupons</h3>
+    
+                    <div class="us-profile-coupons-list">
+                        <div class="us-profile-coupons-card upcoming">
+                            <div class="us-profile-coupons-left">
+                                <h4>Steal Deal on Coffee Maker</h4>
+                                <p>Valid till 17 Oct, 2025</p>
+                                <p class="coupon-detail">
+                                    Steal Deal on Coffee Maker (Valid till: 05:20 PM, 17 Oct)
+                                </p>
+                                <p class="coupon-terms">View T&amp;C</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
             </div>
             <div class="us-profile-right-content" id="myReview_Rating">
-                <p>My Review and Rating</p>
+                <div class="us-profile-reviews-mainBox">
+                    <h3 class="us-profile-reviews-heading">My Reviews (1)</h3>
+    
+                    <!-- User Review List -->
+                    <div class="us-profile-reviews-list">
+    
+                        <!-- Single Review Card -->
+                        <div class="us-profile-reviews-card">
+                            <div class="us-profile-reviews-product">
+                                <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRAWX-W3CQ2r4wyTOGYuT9vJ6HRP0-40i-D9zz-Y9PLI324cYwwOQbhYuBBjLxgstVsF5TJbeFw8asa4XfbXYfPIxCw3zfaghxBzunes9A"
+                                    alt="Product Image" />
+                                <div class="us-profile-reviews-details">
+                                    <h4>TRIGGR Ultrabuds N1 Neo with ENC, 40Hr Playback, 13mm Drivers, Rich Bass, Fast
+                                        Charging
+                                        Bluetooth</h4>
+                                    <div class="us-profile-reviews-rating">
+                                        ⭐⭐⭐⭐⭐ <span>5</span>
+                                    </div>
+                                    <h5>Wonderful</h5>
+                                    <p>
+                                        Amazing buds 😁 👏 sound quality is good and battery backup is also good
+                                    </p>
+                                    <div class="us-profile-reviews-userInfo">
+                                        <span>Jayveer</span> | <span class="certified">Certified Buyer</span> | <span>10
+                                            Jun,
+                                            2025</span>
+                                    </div>
+    
+                                    <div class="us-profile-reviews-actions">
+                                        <button><span class="material-symbols-outlined">edit</span> Edit</button>
+                                        <button><span class="material-symbols-outlined">delete</span> Delete</button>
+                                        <button><span class="material-symbols-outlined">share</span> Share</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                    </div>
+    
+                    <!-- Orders pending review -->
+                    <h3 class="us-profile-reviews-subheading">Orders you might be interested reviewing</h3>
+    
+                    <div class="us-profile-reviews-pending-list">
+    
+                        <!-- Pending Review Card -->
+                        <div class="us-profile-reviews-pending-card">
+                            <img src="https://m.media-amazon.com/images/I/71LAS1-Tr4L._UF1000,1000_QL80_.jpg"
+                                alt="Product Image" />
+                            <div class="us-profile-reviews-pending-details">
+                                <h4>SSC General Awareness | Chapter Wise And Type Wise | Aditya Ranjan Sir | HINDI MEDIUM |
+                                    SSC GS
+                                </h4>
+                                <div class="stars">★★★★★</div>
+                                <button class="review-btn">Rate and Review</button>
+                            </div>
+                        </div>
+    
+                        <div class="us-profile-reviews-pending-card">
+                            <img src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/MQTQ3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=dkp4djAxbnA1NnpYWDIvVklnLzRpUWtuVHYzMERCZURia3c5SzJFOTlPZ3oveDdpQVpwS0ltY2w2UW05aU90T1lYTmlwOFY3ZXdFd0FRY2dWaUc5UlE"
+                                alt="Product Image" />
+                            <div class="us-profile-reviews-pending-details">
+                                <h4>VDTECH Airdrops pro 3 White wireless bluetooth earbuds & earbuds case Bluetooth</h4>
+                                <div class="stars">★★★★★</div>
+                                <button class="review-btn">Write a Review</button>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+    
             </div>
             <div class="us-profile-right-content" id="Notification">
-                <p>All Notification</p>
+                <div class="us-profile-right-notificationMainBox">
+                    <h2 class="us-profile-notification-title">Notifications</h2>
+                    <hr>
+    
+                    <div class="us-profile-notification-card">
+                        <img src="https://thumbs.dreamstime.com/b/phone-alert-notification-phone-alert-notification-vector-flat-style-illustration-human-hand-holding-mobile-smartphone-speech-110306568.jpg"
+                            alt="Notification Icon" class="us-profile-notification-icon" />
+                        <div class="us-profile-notification-content">
+                            <h3 class="us-profile-notification-heading">All caught up!</h3>
+                            <p class="us-profile-notification-text">
+                                There are no new notifications for you.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
             </div>
             <div class="us-profile-right-content" id="Watchlist">
-                <p>My Watchlist</p>
+
+               
+    
             </div>
         </div>
-    </div> 
-</body>
-<script  src="/javascript/profile.js" defer></script>
+    </div>
+    </body>
+<script src="/javascript/profile.js" defer></script>

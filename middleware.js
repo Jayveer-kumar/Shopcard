@@ -1,7 +1,9 @@
 const Review = require("./models/reviewSchema");
 const asyncWrap = require("./utills/asyncWrap");
 
-module.exports.isLoggesIn =(req,res,next)=>{
+const { addressValidationSchema } = require("./joiSchema");
+
+module.exports.isLoggedIn =(req,res,next)=>{
     if(!req.isAuthenticated()){
         req.session.redirectUrl=req.originalUrl;
         // Now check if request is AJAX (Fetch) 
@@ -13,6 +15,8 @@ module.exports.isLoggesIn =(req,res,next)=>{
             // normal browser request hai, page render karna
             req.flash("errorMessage","Please Login to continue shoping : ");
             return res.redirect("/shopcard/authenticate/register?action=login");    
+            // return res.status(401).redirect("/shopcard/authenticate/register?action=login");
+            // return res.status(401).message("Only Authorized User can access this page : ").redirect("/shopcard/authenticate/register?action=login");
         }   
     }
     return next();    
@@ -34,3 +38,15 @@ module.exports.isReviewOwner=  asyncWrap(async (req,res,next)=>{
     }
     return next();
 })
+
+module.exports.validateAddress = function(req,res,next){
+  const { error } = addressValidationSchema.validate(req.body,{ abortEarly : false});
+  if(error){
+    console.log("Some important Address Field are missing in new address : see below  ");
+    const errorMessage = error.details.map((err) => err.message);
+    console.log(errorMessage);
+    req.flash("errorMessage","Some Required Field are missing in new address");
+    return res.status(400).json({success:false, errors: errorMessage})
+  }
+  next();
+}

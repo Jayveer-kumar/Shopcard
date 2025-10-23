@@ -16,4 +16,20 @@ const reviewSchema=Joi.object({
     Comment:Joi.string().required(),
 })
 
-module.exports = { userSchema , reviewSchema };
+const addressValidationSchema = Joi.object({
+    fullName : Joi.string().min(3).max(50).required(),
+    gender : Joi.string().valid("Male","Femail","Other").default("Other"),
+    mobileNumber : Joi.string().pattern(/^[6-9]\d{9}$/).message("Enter a valid 10-digit indian mobile Number").required(),
+    alternatePhone : Joi.string().pattern(/^[6-9]\d{9}$/).message("Enter a valid 10-dogit alternate mobile Number").optional(),
+    pincode : Joi.string().pattern(/^\d{6}$/).message("Enter a valid 6 digit pincode"),
+    locality : Joi.string().min(3).required(),
+    addressLine : Joi.string().min(3).required(),
+    city : Joi.string().min(2).required(),
+    state : Joi.string().min(2).required(),
+    landmark : Joi.string().allow("").optional(),
+    addressType : Joi.string().valid("Home","Work","Office").required()
+})
+
+
+
+module.exports = { userSchema , reviewSchema , addressValidationSchema };

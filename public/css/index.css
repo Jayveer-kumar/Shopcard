@@ -11,13 +11,16 @@
   --color-text-muted: #6b7c6b;           /* Muted text - improved readability */
   --color-action: #173317;                /* Primary buttons */
   --color-price: #4fd826;                 /* Price color */
-  --color-button-text: #ffffff;           /* Button text */
+  --color-button-text: #ffffff;            /* Button text */
   
   /* Missing Essential Colors for E-commerce */
   --color-success: #22c55e;               /* Success messages, in stock */
   --color-warning: #f59e0b;               /* Warnings, low stock */
   --color-error: #ef4444;                 /* Errors, out of stock */
   --color-info: #3b82f6;                  /* Information, notifications */
+
+  /* Input Color  */
+  --color-input-bg :#f6fff2;
   
   /* Interactive States */
   --color-action-hover: #0f290f;          /* Darker green for hover */
@@ -53,8 +56,10 @@
 /* Dark Theme */
 [data-theme="dark"] {
   --color-bg: #0f1419;
-  --color-card-bg: #1a1f2e;
-  /* --color-card-bg: #242527; */
+  /* --color-card-bg: #1a1f2e; */
+   /* color-card-bg |  old */ 
+  --color-card-bg: #12141a;
+  /* color-card-bg | New */
   --color-text-primary: #ffffff;
   --color-text-primary-low: #ffffffd0;
   --color-text-secondary: #b0b0b0;
@@ -69,6 +74,9 @@
   --color-warning: #f59e0b;
   --color-error: #f87171;
   --color-info: #60a5fa;
+  
+   /* Input Color  */
+  --color-input-bg :#222421;
   
   --color-action-hover: #8bfc9a;
   --color-action-active: #3ab018;

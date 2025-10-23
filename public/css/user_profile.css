@@ -4,7 +4,8 @@
     width:100%;
     padding:1em 3em;
     display: grid;
-    grid-template-columns: 20em 1fr;
+    /* grid-template-columns: 20em 1fr; */
+    grid-template-columns: 15em 1fr;
     gap: 0.4em;
     background-color: var(--color-bg);
 }
@@ -12,6 +13,7 @@
 .us-profile-left-main ,.us-profile-right-main{
     border: 1px solid var(--color-border);
     background-color: var(--color-card-bg);
+    overflow: hidden;
     border-radius: 0.5em;
 }
 .user-profile-left-head{
@@ -73,16 +75,43 @@
 .us-profile-right-main{
   display: flex;
   flex-direction: column;
+  position: relative;
 }
+
+.us-profile-right-main-loader {
+  position: absolute;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-card-bg);
+  border-radius: 0.5em;
+  z-index: 10;
+}
+
+.us-profile-right-main-loader.show {
+  display: flex;
+}
+
+.us-profile-right-main-loader .dot-spinner{
+    --uib-size:3rem !important;
+    --uib-color: var(--color-info) !important;
+}
+
 .us-profile-right-content{
+    width: 100%;
+    height: 100%;
+    /* background-color: var(--color-card-bg); */
+    background-color: var(--color-bg);
+    color: white;
+    /* border-radius: 0.5em; */
     display: none;
 }
 .us-profile-right-content.activeMenu{
-    display: block;
+  display: block;
 }
 .us-profile-left-menu-link-button.activeMenuButton {
   color: var(--color-success) !important;
-  font-weight: bold !important;
 }
 
 /* user Profile Responsiveness */
@@ -91,10 +120,1610 @@
 }
 
 
-/* <div class="us-Profile_wel_sys">
-                <h3>Welcome to your account <span><%-user.name %></span> </h3>
-                <p class="user_profile_head_mail"><%-user.email %></p>
-            </div>
-            <div class="us_Profile_imageBox">
-                <img src="<%-user.image.url %>" alt="<%-user.name %>">
-</div> */
+/* My Orders Stylling Start */
+
+.us-profile-right-myOrdersMainBox{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 10em 1fr;
+  gap: 0.3em;
+  background-color: var(--color-card-bg);
+}
+
+.us-profile-right-myorder-contentCardsBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-height: 400px;
+  background-color: var(--color-bg);
+  transition: all 0.3s ease-in-out;
+}
+
+.us-profile-empty-orders {
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  background: var(--color-card-bg);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 500px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.us-profile-empty-orders:hover {
+  box-shadow: 0 8px 24px var(--color-divider);
+}
+
+.empty-orders-img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.empty-orders-text {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 20px;
+}
+
+.shop-now-btn {
+  background: linear-gradient(135deg, #ff7b54, #ff4b2b);
+  color: var(--color-button-text);
+  border: none;
+  padding: 10px 28px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.shop-now-btn:hover {
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255, 75, 43, 0.3);
+}
+
+
+.us-profile-right-myOrder-filterBox{
+  height: fit-content; /* It won’t stretch */
+  position: sticky; /* Stay fixed on scroll */
+  top: 0;
+  padding: 0.5em;
+  /* border: 1px solid var(--color-border); */
+  background-color: var(--color-card-bg);
+  color: var(--color-text-primary);
+}
+
+.us-profile-rght-myordr-fltr-cler{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.us-profile-right-myorder-filter-head .us-profile-right-myorder-fltr-head-btnBox{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.us-profile-right-myorder-filter-head .us-profile-right-myorder-fltr-head-btnBox button ,.profile-order-filter-clear button {
+  padding: 0.3em;
+  margin: 0.2em 0;
+  border-radius: 0.03em;
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+  background-color: color-mix(in srgb, var(--color-info), transparent 80%);
+  color: var(--color-info);
+  border: none;
+  cursor: pointer;
+}
+
+.us-profile-right-myorder-fltr-head-btnBox button span ,.profile-order-filter-clear button span{
+  font-size: 0.8em;
+}
+
+.hideAllClear{
+  display: none;
+}
+
+.us-profile-right-myorder-fltr-head-btnBox button span.material-symbols-outlined{
+  font-size: 0.8em;
+}
+
+.us-profile-right-myorder-filter-status ,
+.us-profile-right-myorder-filter-timeline{
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+  margin-top: 1em;
+}
+.us-profile-right-myorder-filter-status p{
+  padding: 1em 0;
+  color: var(--color-text-primary);
+}
+.us-profile-right-myorder-filter-status >div ,
+.us-profile-right-myorder-filter-timeline >div{
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.us-profile-right-myorder-filter-status >div input , label ,
+.us-profile-right-myorder-filter-timeline >div input , label{
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+
+
+.us-profile-right-myorder-content-head{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.us-profile-right-myorder-content-head input{
+  width: 80%;
+  height: 3em;
+  color: var(--color-text-primary);
+  border: 0.01em solid var(--color-border);
+  background-color: var(--color-card-bg);
+  padding: 0 0.4em;
+  font-size: 0.8em;
+}
+.us-profile-right-myorder-content-head input:focus{
+  outline:0.01em solid var(--color-info) ;
+}
+.us-profile-right-myorder-content-head button{
+  height: 3em;
+  padding: 0 1em;
+  color: var(--color-button-text);
+  background-color: var(--color-action);
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+  cursor: pointer;
+}
+.us-profile-right-myorder-content-head button:hover{
+  background-color: var(--color-action-hover);
+}
+.us-profile-right-myorder-content-head button span{
+  font-size: 1.1em;
+}
+
+.us-profile-right-myorder-contentCardsBox{
+  height: 80vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+}
+
+.us-profile-right-myorder-contentCardsBox::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.us-profile-right-myorder-contentCardsBox {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+.us-profile-right-myorder-contentCardsBox {
+  scroll-behavior: smooth;
+}
+
+.us-profile-right-myorder-contentCard {
+  width: 100%;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  /* border-radius: 12px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+  margin: 0.4em 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.us-profile-right-myorder-contentCard:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* Left: Image + Info */
+.us-profile-right-myorder-contentCard-left {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  width: 70%;
+}
+
+.us-profile-right-myorder-contentCard-image {
+  height: 6em;
+  width: 6em;
+  flex-shrink: 0;
+}
+
+.us-profile-right-myorder-contentCard-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.us-profile-right-myorder-contentCard-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+.us-profile-order-item-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+}
+
+.us-profile-order-item-price {
+  color: var(--color-price);
+  font-size: 0.9rem;
+}
+
+/* Right: Status + Review */
+.us-profile-right-myorder-contentCard-right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5em;
+}
+
+.order-status {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+/* Color Based on Status */
+.us-profile-right-myorder-contentCard.delivered .order-status {
+  color: green;
+}
+.us-profile-right-myorder-contentCard.cancelled .order-status {
+  color: #e74c3c;
+}
+.us-profile-right-myorder-contentCard.pending .order-status {
+  color: #f39c12;
+}
+
+/* Rate & Review Button */
+.us-profile-myorder-item-rate-review-btn {
+  font-size: 0.9rem;
+  color: #0073ff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.us-profile-myorder-item-rate-review-btn:hover {
+  text-decoration: underline;
+  color: #004aad;
+}
+
+/* Hide review button for non-delivered */
+.us-profile-right-myorder-contentCard.cancelled .rate-review-btn,
+.us-profile-right-myorder-contentCard.pending .rate-review-btn {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .us-profile-right-myorder-contentCard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+  }
+
+  .us-profile-right-myorder-contentCard-right {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+
+
+/* My Orders Stylling End */
+
+
+
+/* Profile Information Stylling Start */
+
+
+.us-profile-right-profileInformationMainBox {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  background-color: var(--color-card-bg);
+}
+
+.us-profile-right-profileInfoHead {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.us-profile-right-profileInfoHead h3 {
+  color: var(--color-text-primary);
+  font-size: 1.3em;
+  text-align: left;
+}
+
+.us-profile-right-edit-profile-button {
+  font-size: 0.8em;
+  color: var(--color-info);
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.us-profile-right-edit-profile-button .material-symbols-outlined {
+  font-size: 1.1em;
+}
+
+/* Container for all boxes */
+.us-profile-right-profileInfoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5em;
+  margin-top: 1em;
+}
+
+/* Each info box */
+.profile-info-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.profile-info-box p {
+  font-size: 0.9em;
+  color: var(--color-text-primary);
+}
+
+.name-box {
+  display: flex;
+  gap: 1em;
+}
+
+/* Default input style */
+.profile-info-box input  {
+  padding: 0.6em;
+  border: 1px solid var(--color-divider);
+  border-radius: 6px;
+  outline: none;
+  cursor: not-allowed;
+  color: var(--color-text-primary);
+  background-color: var(--color-card-bg);
+  transition: border 0.3s, cursor 0.3s;
+}
+.profile-info-box input , .profile-info-box  label{
+  cursor: not-allowed;
+}
+
+/* Enabled (editable) style */
+.profile-info-box input:enabled {
+  background-color: var(--color-bg);
+  cursor: text;
+}
+
+.profile-info-box label.editable {
+  cursor: text;
+}
+
+.profile-info-box input:enabled:focus{
+  border: 1px solid var(--color-info);
+}
+
+.gender-box {
+  display: flex;
+  gap: 1em;
+}
+
+.gender-box label {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  font-size: 0.9em;
+  /* color: #333; */
+  color: var(--color-text-primary);
+}
+
+.gender-box input {
+  accent-color: #007bff;
+  cursor: not-allowed;
+}
+
+.gender-box input:enabled {
+  cursor: pointer;
+}
+
+
+
+.us-profile-right-profileInfo-faqBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  margin-top: 2em;
+}
+
+.us-profile-right-profileInfo-faqBox h4 {
+  font-size: 1.3em;
+  color: var(--color-text-primary, #222);
+  border-bottom: 2px solid var(--color-info, #007bff);
+  padding-bottom: 0.4em;
+  width: fit-content;
+}
+
+/* Each FAQ */
+.us-profile-faq-item {
+  background-color: var(--color-card-bg);
+  padding: 1em;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+}
+
+.us-profile-faq-item:hover {
+  border-color: var(--color-info);
+  transform: translateY(-2px);
+}
+
+.us-profile-faq-item h5 {
+  font-size: 1em;
+  color: var(--color-text-primary);
+  font-weight: 600;
+  margin-bottom: 0.4em;
+}
+
+.us-profile-faq-item p {
+  font-size: 0.9em;
+  color: var(--color-text-secondary);
+  line-height: 1.5em;
+}
+
+/* Action buttons */
+
+.us-profile-faq-actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.us-profile-faq-actions button {
+  /* min-width: 10em !important; */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  box-sizing: border-box;
+  padding: 0.6em 1.2em !important;
+  border-radius: 6px;
+  font-size: 0.9em;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.us-profile-deactivate-btn {
+  background-color: var(--color-warning);
+  color: var(--color-button-text);
+}
+
+.us-profile-deactivate-btn:hover {
+  background-color: #e0a800;
+}
+
+.us-profile-delete-btn {
+  background-color: var(--color-error) !important;
+  color: var(--color-button-text) !important;
+}
+
+.us-profile-delete-btn:hover {
+  background-color: #b02a37;
+}
+
+
+
+/* Profile Information Stylling End */
+
+
+/* Manage Address Stylling start */
+.us-profile-right-manageAddressMainBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  background-color: var(--color-card-bg);
+}
+
+.profile-manageaddress-head {
+  width: 100%;
+  color: var(--color-text-primary);
+}
+
+.profile-manageaddress-head button  {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  background-color: var(--color-card-bg);
+  padding: 0.6em 1em;
+  margin: 1em 0;
+  border: 0.01em solid var(--color-divider);
+  font-size: 0.85em;
+  color: var(--color-info);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.profile-manageaddress-head button:hover   {
+  background-color: var(--color-hover-bg);
+}
+
+.empty-address-box {
+  /* text-align: center; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+.empty-address-box img {
+  width: 120px;
+  opacity: 1;
+}
+.empty-address-box h1{
+  font-size: 1.3rem;
+  margin: 15px 0;
+  color: var(--color-text-primary);
+}
+.empty-address-box p {
+  font-size: 1.2rem;
+  margin: 15px 0;
+  color: var(--color-text-secondary);
+  padding: 0 4em;
+}
+.empty-address-box p b{
+  color: var(--color-info);
+}
+.empty-address-box .add-new-address-btn {
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  background-color: var(--color-input-bg);
+  color: var(--color-text-primary);
+  border: 0.01em solid var(--color-info);
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+.empty-address-box .add-new-address-btn:hover {
+  opacity: 0.9;
+}
+
+.empty-address-box .add-new-address-hidden-box {
+  margin-top: 1em;
+  width: 100%;
+}
+
+
+/* Saved Address Card */
+.saved-address-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.address-card {
+  position: relative;
+  border: 1px solid var(--color-divider);
+  border-radius: 8px;
+  background-color: var(--color-card-bg);
+  padding: 1em;
+  color: var(--color-text-primary);
+  margin: 0.3em 0;
+}
+
+.address-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.address-tag {
+  font-size: 0.85em;
+  color: var(--color-info);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.address-menu {
+  position: relative;
+}
+
+.menu-icon {
+  cursor: pointer;
+  font-size: 1.2em;
+  color: var(--color-text-secondary);
+}
+
+.menu-options {
+  position: absolute;
+  top: 80%;
+  right: 0;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-divider);
+  border-radius: 6px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 100px;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.menu-options button {
+  background: none;
+  border: none;
+  padding: 0.6em 1em;
+  text-align: left;
+  cursor: pointer;
+  color: var(--color-text-primary);
+  font-size: 0.9em;
+}
+
+.menu-options button:hover {
+  background-color: var(--color-bg);
+  color: var(--color-info);
+}
+
+/* Hover effect to open options */
+.address-menu:hover .menu-options {
+  display: flex;
+}
+
+/* Address text */
+.address-user, .address-full {
+  margin-top: 0.5em;
+  font-size: 0.9em;
+}
+
+.user-name {
+  font-weight: 600;
+}
+
+/* Edit Form */
+.edit-address-form , .addnew-address-form {
+  /* margin-top: 2em; */
+  border: 1px solid var(--color-divider);
+  border-radius: 8px;
+  padding: 1.5em;
+  background-color: var(--color-card-bg);
+  color: var(--color-text-primary);
+}
+
+.hide-form {
+  display: none;
+}
+
+.edit-address-form  h4 , .addnew-address-form h4 {
+  margin-bottom: 1em;
+  color: var(--color-text-primary);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.form-group label {
+  font-size: 0.85em;
+  margin-bottom: 0.3em;
+}
+
+.form-group input {
+  padding: 0.6em;
+  border: 1px solid var(--color-divider);
+  border-radius: 5px;
+  background: var(--color-input-bg);  
+  color: var(--color-text-primary);
+}
+
+.form-group input:focus {
+  outline: none;
+  border: 1px solid var(--color-info);
+}
+
+.address-type , .gender-type {
+  display: flex;
+  align-items: center !important;
+  gap: 1em;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.manageAddress-save-btn ,.addnewAddress-save-btn {
+  background-color: var(--color-info);
+  color: var(--color-button-text);
+  padding: 0.6em 1.2em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.manageAddress-cancel-btn , .addnewAddress-cancel-btn {
+  background-color: var(--color-error);
+  color: var(--color-button-text);
+  padding: 0.6em 1.2em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+/* Address Delete confirmation Style */
+
+.confirm-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.custom-confirm-card {
+  background: var(--color-card-bg);
+  border: 0.1em solid var(--color-divider);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+  transform: scale(0.8);
+  animation: scaleUp 0.3s forwards;
+}
+
+@keyframes scaleUp {
+  to { transform: scale(1); }
+}
+
+.confirm-card-content {
+  padding: 20px 0;
+}
+
+.confirm-card-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-text-primary);
+  margin-bottom: 10px;
+}
+
+.confirm-card-description {
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.confirm-card-button-wrapper {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.confirm-card-button {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.confirm-card-button.secondary {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.confirm-card-button.secondary:hover {
+  background-color: #e0e0e0;
+}
+
+.confirm-card-button.primary {
+  background-color: #f44336;
+  color: white;
+}
+
+.confirm-card-button.primary:hover {
+  background-color: #d32f2f;
+}
+
+.confirm-exit-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.confirm-exit-button:hover {
+  transform: scale(1.1);
+}
+
+.confirm-exit-button svg {
+  fill: #999;
+}
+
+/* Manage Address Stylling End */
+
+
+/* Pancard Information Stylling Start */
+
+.us-profile-pancard-mainBox {
+  width: 100%;
+  min-height: 100vh;
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-card-bg);
+  color: var(--color-text-primary);
+}
+
+.us-profile-pancard-heading {
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1em;
+}
+
+.us-profile-pancard-form {
+  background-color: var(--color-card-bg);
+  padding: 1.5em;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid var(--color-divider);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+
+.us-profile-pancard-inputBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.us-profile-pancard-inputBox label {
+  font-size: 0.9em;
+  font-weight: 500;
+  margin-bottom: 0.3em;
+  color: var(--color-text-secondary);
+}
+
+.us-profile-pancard-inputBox input[type="text"],
+.us-profile-pancard-inputBox input[type="file"] {
+  width: 17em;
+  padding: 0.5em 0.8em;
+  border-radius: 5px;
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-divider);
+  outline: none;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+}
+
+.us-profile-pancard-inputBox input:focus {
+  border-color: var(--color-info);
+}
+
+.us-profile-pancard-declarationBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6em;
+  font-size: 0.85em;
+  line-height: 1.4em;
+  color: var(--color-text-secondary);
+}
+
+.us-profile-pancard-declarationBox input[type="checkbox"] {
+  margin-top: 0.2em;
+  cursor: pointer;
+}
+
+.us-profile-pancard-uploadBtn {
+  width: max-content;
+  padding: 0.7em 1.5em;
+  background-color: var(--color-action);
+  color: var(--color-button-text);
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.us-profile-pancard-uploadBtn:hover {
+  background-color: var(--color-action-hover);
+}
+
+.us-profile-pancard-terms {
+  font-size: 0.85em;
+  color: var(--color-text-secondary);
+}
+
+.us-profile-pancard-terms a {
+  color: var(--color-info);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.us-profile-pancard-terms a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* Pancard Information stylling End  */
+
+/* Gift Cart Stylling Start  */
+.us-profile-right-giftCardMainBox {
+  background-color: var(--color-card-bg);
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+.us-profile-giftCard-heading {
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+/* Center the content perfectly */
+.us-profile-giftCard-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh; /* Centers content vertically */
+}
+
+.us-profile-giftCard-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.us-profile-giftCard-image {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 10px;
+  opacity: 0.95;
+}
+
+.us-profile-giftCard-text h3 {
+  font-size: 1.2rem;
+  color: var(--color-text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.us-profile-giftCard-text p {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  max-width: 420px;
+  line-height: 1.6;
+  margin: 0 auto;
+}
+
+.us-profile-giftCard-btn {
+  margin-top: 1rem;
+  background-color: var(--color-action);
+  color: var(--color-button-text);
+  border: none;
+  border-radius: 6px;
+  padding: 0.7em 1.5em;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.us-profile-giftCard-btn:hover {
+  background-color: var(--color-action-hover);
+  transform: scale(1.05);
+}
+
+
+
+/*  Gift Cart Stylling End */
+
+/* Saved UPI Stylling Start */
+
+.us-profile-savedupi-mainBox {
+  width: 100%;
+  min-height: 100vh;
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-card-bg);
+  color: var(--color-text-primary);
+}
+
+.us-profile-savedupi-heading {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1em;
+}
+
+/* Saved UPI Card */
+.us-profile-savedupi-listBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-bottom: 2em;
+}
+
+.us-profile-savedupi-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-divider);
+  border-radius: 10px;
+  padding: 1em 1.2em;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: 0.3s ease;
+}
+
+.us-profile-savedupi-card:hover {
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.us-profile-savedupi-left h4 {
+  font-size: 1em;
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+.us-profile-savedupi-left p {
+  font-size: 0.85em;
+  color: var(--color-text-secondary);
+  margin-top: 0.3em;
+}
+
+.us-profile-savedupi-right .delete-icon {
+  font-size: 1.4em;
+  color: var(--color-error);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.us-profile-savedupi-right .delete-icon:hover {
+  color: red;
+}
+
+/* FAQ Section */
+.us-profile-savedupi-faqBox {
+  margin-top: 1.5em;
+  padding-top: 1.2em;
+  border-top: 1px solid var(--color-divider);
+}
+
+.us-profile-savedupi-faqBox h4 {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 0.8em;
+}
+
+.us-profile-savedupi-faq {
+  margin-bottom: 1.2em;
+}
+
+.us-profile-savedupi-faq .question {
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 0.3em;
+}
+
+.us-profile-savedupi-faq .answer {
+  font-size: 0.85em;
+  color: var(--color-text-secondary);
+  line-height: 1.5em;
+}
+
+.us-profile-savedupi-viewFaqs {
+  font-size: 0.9em;
+  font-weight: 500;
+  color: var(--color-info);
+  cursor: pointer;
+  margin-top: 1em;
+  transition: 0.3s;
+}
+
+.us-profile-savedupi-viewFaqs:hover {
+  text-decoration: underline;
+}
+
+
+/* Saved UPI Stylling End */
+
+
+/*  My Coupons Stylling Start */
+
+.us-profile-coupons-mainBox {
+  width: 100%;
+  min-height: 100vh;
+  padding: 1.5em;
+  background-color: var(--color-card-bg);
+  color: var(--color-text-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+.us-profile-coupons-heading {
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1em;
+}
+
+/* Coupon list layout */
+.us-profile-coupons-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1em;
+  margin-bottom: 1.5em;
+}
+
+/* Coupon card */
+.us-profile-coupons-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-divider);
+  border-radius: 10px;
+  padding: 1.2em;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.us-profile-coupons-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.us-profile-coupons-left h4 {
+  font-size: 1em;
+  font-weight: 600;
+  margin-bottom: 0.4em;
+  color: var(--color-price);
+}
+
+.us-profile-coupons-left p {
+  font-size: 0.85em;
+  color: var(--color-text-secondary);
+  margin: 0.2em 0;
+  line-height: 1.4em;
+}
+
+.us-profile-coupons-left .coupon-detail {
+  font-style: italic;
+}
+
+.us-profile-coupons-left .coupon-terms {
+  color: var(--color-info);
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 0.3em;
+  transition: 0.3s ease;
+}
+
+.us-profile-coupons-left .coupon-terms:hover {
+  text-decoration: underline;
+}
+
+/* View more button */
+.us-profile-coupons-viewMore {
+  font-size: 0.9em;
+  color: var(--color-info);
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 1.5em;
+  transition: 0.3s ease;
+}
+
+.us-profile-coupons-viewMore:hover {
+  text-decoration: underline;
+}
+
+/* Upcoming Coupon Styling */
+.us-profile-coupons-card.upcoming {
+  background-color: var(--color-card-bg);
+  border: 1px dashed var(--color-divider);
+}
+
+
+/* My Coupons Stylling End */
+
+/*  My Review and Rating Stylling Start */
+
+.us-profile-reviews-mainBox {
+  width: 100%;
+  min-height: 100vh;
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-text-primary);
+  background-color: var(--color-card-bg);
+}
+
+/* Headings */
+.us-profile-reviews-heading {
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1em;
+}
+
+.us-profile-reviews-subheading {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin: 2em 0 1em;
+  color: var(--color-text-primary);
+}
+
+/* Review List */
+.us-profile-reviews-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-divider);
+  border-radius: 10px;
+  padding: 1em;
+  display: flex;
+  gap: 1em;
+  align-items: flex-start;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: 0.3s ease;
+  margin-bottom: 1.2em;
+}
+
+.us-profile-reviews-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.us-profile-reviews-product {
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+}
+
+.us-profile-reviews-product img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.us-profile-reviews-details h4 {
+  font-size: 0.95em;
+  margin-bottom: 0.5em;
+}
+
+.us-profile-reviews-rating {
+  color: #f5a623;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.us-profile-reviews-details h5 {
+  margin: 0.4em 0;
+  color: var(--color-text-primary);
+}
+
+.us-profile-reviews-details p {
+  font-size: 0.9em;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.6em;
+  line-height: 1.4em;
+}
+
+.us-profile-reviews-userInfo {
+  font-size: 0.8em;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.6em;
+}
+
+.us-profile-reviews-userInfo .certified {
+  color: var(--color-success);
+  font-weight: 500;
+}
+
+.us-profile-reviews-actions {
+  display: flex;
+  gap: 0.6em;
+}
+
+.us-profile-reviews-actions button {
+  border: none;
+  background-color: transparent;
+  color: var(--color-info);
+  font-size: 0.85em;
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.us-profile-reviews-actions button .material-symbols-outlined{
+  font-size: 1em;
+}
+
+.us-profile-reviews-actions button:hover {
+  text-decoration: underline;
+}
+
+/* Pending Review Section */
+.us-profile-reviews-pending-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.us-profile-reviews-pending-card {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-divider);
+  border-radius: 10px;
+  padding: 0.8em;
+  gap: 1em;
+  transition: 0.3s ease;
+}
+
+.us-profile-reviews-pending-card:hover {
+  transform: translateY(-2px);
+}
+
+.us-profile-reviews-pending-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.us-profile-reviews-pending-details h4 {
+  font-size: 0.95em;
+  margin-bottom: 0.4em;
+}
+
+.us-profile-reviews-pending-details .stars {
+  color: #f5a623;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}
+
+.us-profile-reviews-pending-details .review-btn {
+  border: 1px solid var(--color-info);
+  background-color: transparent;
+  color: var(--color-info);
+  padding: 0.4em 0.8em;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85em;
+  transition: 0.3s ease;
+}
+
+.us-profile-reviews-pending-details .review-btn:hover {
+  background-color: var(--color-info);
+  color: var(--color-button-text);
+}
+
+
+/* My Review and Rating Stylling End */
+
+
+/*   Notification Stylling Start */
+
+.us-profile-right-notificationMainBox {
+  height: 100vh;
+  background-color: var(--color-card-bg);
+  border-radius: 10px;
+  padding: 2rem;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+  text-align: center;
+}
+
+.us-profile-notification-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.us-profile-notification-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  background-color: transparent;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.us-profile-notification-icon {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 1.2rem;
+  opacity: 0.85;
+}
+
+.us-profile-notification-heading {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.us-profile-notification-text {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+}
+
+
+/* Notification Stylling End */
+
+/* My WatchList Stylling Start */
+
+
+.us-profile-right-wishlistMainBox {
+  height: 100vh;
+  background-color: var(--color-card-bg);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.us-profile-wishlist-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.us-profile-wishlist-title span {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+}
+
+.us-profile-wishlist-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.us-profile-wishlist-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: var(--color-card-bg);
+  border-radius: 8px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.us-profile-wishlist-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.us-profile-wishlist-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 6px;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.us-profile-wishlist-details {
+  flex: 1;
+  text-align: left;
+}
+
+.us-profile-wishlist-details p {
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.us-profile-wishlist-price {
+  font-size: 1rem;
+  color: var(--color-info);
+  font-weight: 600;
+}
+
+.us-profile-wishlist-oldPrice {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+  margin-left: 8px;
+  font-weight: 400;
+}
+
+.us-profile-wishlist-off {
+  color: var(--color-price);
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+.us-profile-wishlist-deleteBtn{
+  border: none;
+  background-color: transparent;
+}
+
+.us-profile-wishlist-deleteBtn .watchList-delete-icon {
+  font-size: 1.4em;
+  color: var(--color-error);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.us-profile-wishlist-deleteBtn .watchList-delete-icon:hover {
+  color: red;
+}
+
+
+
+/* My Watchlist Stylling End */

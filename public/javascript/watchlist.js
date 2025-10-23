@@ -11,64 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
   let pincodeInput = document.querySelector(".watchlist-pincode-input");
   let pincodeSubmitBtn = document.querySelector(".watchlist-address-pincode-sbmt-btn");
 
-  //  open box
-  // changeBtn.addEventListener("click", async (e) => {
-  //   e.stopPropagation(); // stop window click
-  //   if(!addressBox.classList.contains("show")){
-  //     // Show Loader until we not get Data 
-  //     let data = await getUserAddress();
-  //     let selectAddressMainBox = document.querySelector(".watchlist-address-change-select-main");
-
-  //     let addressOptionHTML = `
-  //     <label class="watchlist-address-option">
-  //             <input type="radio" name="selectedAddress" />
-  //             <div class="watchlist-address-details">
-  //               <div class="watchlist-address-top">
-  //                 <p class="watchlist-address-change-user-name">Jayveer Kumar</p>
-  //                 <span class="watchlist-address-tag home">Home</span>
-  //               </div>
-  //               <p class="pincode">Pincode: 243639</p>
-  //               <p class="full-address">Village and post risouli, Badaun</p>
-  //             </div>
-  //     </label>`;
-  //     let loaderHTML = 
-  //                `<div class="dot-spinner">
-  //                   <div class="dot-spinner__dot"></div>
-  //                   <div class="dot-spinner__dot"></div>
-  //                   <div class="dot-spinner__dot"></div>
-  //                   <div class="dot-spinner__dot"></div>
-  //                   <div class="dot-spinner__dot"></div>
-  //                   <div class="dot-spinner__dot"></div>
-  //                   <div class="dot-spinner__dot"></div>
-  //                   <div class="dot-spinner__dot"></div>
-  //                 </div>` ;
-
-  //     if(data.length){
-  //       // Address Exist 
-  //       selectAddressMainBox.innerHTML="";
-  //       let addressOptionsMainBox = document.createElement("div");
-  //       addressOptionsMainBox.className = "watchlist-all-address-option-box";
-
-  //       data.forEach((adrs)=>{
-  //         addressOptionHTML
-  //       })
-          
-  //     }else{
-  //       // No Any Address Exist
-  //       selectAddressMainBox.innerHTML="";
-  //       // selectAddressMainBox.innerHTML=noAddressHTML;
-  //     }
-      
-  //   }
-  //   addressBox.classList.toggle("show");
-  // });
 changeBtn.addEventListener("click", (e) => {
   e.stopPropagation(); // stop window click
 
   if (!addressBox.classList.contains("show")) {
     let selectAddressMainBox = document.querySelector(".watchlist-address-change-select-main");
 
-    // 🔹 Step 1: Show Loader
+    //  Show Loader
     const loaderHTML = `
       <div class="dot-spinner">
         <div class="dot-spinner__dot"></div>
@@ -82,16 +31,16 @@ changeBtn.addEventListener("click", (e) => {
       </div>`;
     selectAddressMainBox.innerHTML = loaderHTML;
 
-    //  Step 2: Give browser time to render loader before fetching data
+    //  setTimeout(..., 0) se JavaScript thoda delay deti hai taaki browser loader paint kar sake.
     setTimeout(async () => {
       try {
-        // Fetch addresses (this will take ~6 seconds in your backend)
+        // Fetch addresses 
         let data = await getUserAddress();
 
-        //  Step 3: Remove loader
+        //  Now Remove loader
         selectAddressMainBox.innerHTML = "";
 
-        //  Step 4: If address exists
+        //   If address exists
         if (data && data.length > 0) {
           let addressOptionsMainBox = document.createElement("div");
           addressOptionsMainBox.className = "watchlist-all-address-option-box";
@@ -102,11 +51,11 @@ changeBtn.addEventListener("click", (e) => {
                 <input type="radio" name="selectedAddress" />
                 <div class="watchlist-address-details">
                   <div class="watchlist-address-top">
-                    <p class="watchlist-address-change-user-name">${adrs.name}</p>
-                    <span class="watchlist-address-tag home">${adrs.type}</span>
+                    <p class="watchlist-address-change-user-name">${adrs.fullName}</p>
+                    <span class="watchlist-address-tag home">${adrs.addressType}</span>
                   </div>
                   <p class="pincode">Pincode: ${adrs.pincode}</p>
-                  <p class="full-address">${adrs.fullAddress}</p>
+                  <p class="full-address">${adrs.locality} &nbsp; <span> ${adrs.landmark? adrs.landmark : adrs.state} </span> </p>
                 </div>
               </label>`;
             addressOptionsMainBox.innerHTML += addressOptionHTML;
@@ -114,7 +63,7 @@ changeBtn.addEventListener("click", (e) => {
 
           selectAddressMainBox.appendChild(addressOptionsMainBox);
         } else {
-          //  Step 5: No Address Exists
+          //  No Address Exists
           selectAddressMainBox.innerHTML = `
             <div class="no-address-box">
               <p>No saved addresses found 😕</p>
@@ -130,8 +79,6 @@ changeBtn.addEventListener("click", (e) => {
       }
     }, 0);
   }
-
-  // Toggle address box visibility
   addressBox.classList.toggle("show");
 });
 

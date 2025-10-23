@@ -5,7 +5,7 @@ const Review=require("../models/reviewSchema.js");
 const wrapAsync=require("../utills/asyncWrap.js");
 const ExpressError=require("../utills/expressError.js");
 const {reviewSchema}=require("../joiSchema.js");
-const {isReviewOwner,isLoggesIn}=require("../middleware.js");
+const {isReviewOwner,isLoggedIn}=require("../middleware.js");
 const User=require("../models/user.js");
 const mongoose = require("mongoose");
 
@@ -53,7 +53,7 @@ router.get("/search",async (req,res)=>{
   return res.render("listings/search.ejs",{product , user});  
 });
 
-router.get("/liked-product",isLoggesIn,wrapAsync(async(req,res)=>{
+router.get("/liked-product",isLoggedIn,wrapAsync(async(req,res)=>{
   const userId=req.user._id;
   const user= await User.findById(userId).populate("likedProduct");
   if(!user) return  next(new ExpressError(400,"User Not Found"));
@@ -82,13 +82,20 @@ router.get("/product/:id", wrapAsync(async(req, res, next) => {
   return res.json(product);
 }));
 
-router.get("/watchlist",isLoggesIn, wrapAsync(async (req,res)=>{
+router.get("/watchlist",isLoggedIn, wrapAsync(async (req,res)=>{
   const userId=req.user._id;
   const user= await User.findById(userId).populate('likedProduct');
   if(!user) return  next(new ExpressError(400,"User Not Found"));
   let userLikedProduct=user.likedProduct;
   return  res.render("listings/watchlist.ejs",{userLikedProduct,user:res.locals.currentUser});
 }))
+
+// Shopcard Zone Route
+
+router.get("/shopcard-zone",isLoggedIn,async(req,res)=>{
+  console.log("Request Recived : ");
+  return res.render("listings/shopcard-zone.ejs");
+})
 
 // Product Show Route
 router.get("/:id", wrapAsync(async (req, res) => {
@@ -105,7 +112,7 @@ router.get("/:id", wrapAsync(async (req, res) => {
 })); 
 
 // Product Add Like Route 
-router.post("/:id/like",isLoggesIn,wrapAsync(async (req, res, next) => {
+router.post("/:id/like",isLoggedIn,wrapAsync(async (req, res, next) => {
     try {
       let { id } = req.params; // Product id
 
@@ -138,7 +145,7 @@ router.post("/:id/like",isLoggesIn,wrapAsync(async (req, res, next) => {
 );
 
 // Product like delete Route
-router.delete("/:id/like", isLoggesIn, wrapAsync(async (req, res, next) => {
+router.delete("/:id/like", isLoggedIn, wrapAsync(async (req, res, next) => {
   try {
     let { id } = req.params;
 
@@ -164,7 +171,7 @@ router.delete("/:id/like", isLoggesIn, wrapAsync(async (req, res, next) => {
 
 
 
-router.get("/:id/checkout", isLoggesIn,  wrapAsync(async(req,res)=>{
+router.get("/:id/checkout", isLoggedIn,  wrapAsync(async(req,res)=>{
  let {id}=req.params;
  if (id.length > 24 || id.length < 24 || !id) {
   throw new ExpressError(400, "Requested Product is not Found");
@@ -179,7 +186,7 @@ router.get("/:id/checkout", isLoggesIn,  wrapAsync(async(req,res)=>{
 }))
 
 // Review Routes
-router.post("/:id/review", isLoggesIn,wrapAsync(async (req, res, next) =>{
+router.post("/:id/review", isLoggedIn,wrapAsync(async (req, res, next) =>{
   try {
     let { id } = req.params;
     if (!id) return next(new ExpressError(400, "Invalid Product Id"));
@@ -203,7 +210,7 @@ router.post("/:id/review", isLoggesIn,wrapAsync(async (req, res, next) =>{
   }
 }));
 // Update Review 
-router.put("/:id/review/:reviewId", isLoggesIn,isReviewOwner,wrapAsync( async (req,res)=>{   
+router.put("/:id/review/:reviewId", isLoggedIn,isReviewOwner,wrapAsync( async (req,res)=>{   
   let {id,reviewId}=req.params;
   let updatedReview=req.body.comment;
   if(!updatedReview){
@@ -219,7 +226,7 @@ router.put("/:id/review/:reviewId", isLoggesIn,isReviewOwner,wrapAsync( async (r
   res.redirect(`/shopcard/${id}`); 
 }));
 
-router.delete("/:id/review/:reviewId",isLoggesIn,isReviewOwner,wrapAsync( async(req,res,next)=>{
+router.delete("/:id/review/:reviewId",isLoggedIn,isReviewOwner,wrapAsync( async(req,res,next)=>{
   let {id,reviewId}=req.params;
   let review=await Review.findByIdAndDelete(reviewId);
   if(!review) return next(new ExpressError(400,"Requested Review Not Found :"));
