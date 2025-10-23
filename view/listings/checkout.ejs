@@ -1,0 +1,158 @@
+<%-layout("layouts/boilerPlateCode.ejs")%>
+
+<div class="buy_route_main_container">
+  <p class="buy_route_path_para">Home/Watch/buy</p>
+  <div class="buy_route_product_and_payment_main_container">
+    <div class="buy_route_address_and_product_showBox">
+        <!-- Product ka overview dene ke liye means user ne konsa product select kiya hai -->
+    <div class="buy_route_product_container_with_heading" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" >
+            <h3 class="buy_route_product_Heading">Review Item And Shipping</h3>
+            <div class="buy_route_product_container">
+            <div class="buy_route_selected_product_image">
+                <img src="<%=buyProduct.image[0]%>" alt="">            
+            </div>
+            <div class="buy_route_selected_product_description_box">
+                <p class="buy_route_selected_product_title"><%=buyProduct.title %></p>
+                <% if(buyProduct.color.length>0){ %>
+                <p class="buy_route_selected_product_color_show">Color : <span class="buy_route_selected_product_color"><%=buyProduct.color[0].colorName %></span></p>
+                <%} %>
+            </div> 
+            <% if(buyProduct.sizes.length>0){ %>
+            <div class="buy_route_selected_product_sizesBox">
+                <p class="buy_route_selected_product_size" >Selected Size</p>
+                <p class="buy_route_product_size_value" >Size : <span class="buy_product_sizeValue"> Not Selected! </span></p>
+            </div>
+            <%} %>
+            <div class="buy_route_selected_product_prize_box">
+                <p class="buy_route_selected_product_prize"> &#8377; <span id="product_price" > <%=buyProduct.prize%></span></p>
+                <p class="buy_route_selected_product_quantity_show"> Quantity :  <span class="buy_route_selected_product_quantity">1</span> </p>
+            </div>
+        </div>
+    </div>
+     <!-- Address input lene ke liye Boxes -->
+    <div class="buy_route_add_address_box" data-aos="fade-down" data-aos-duration="500" data-aos-delay="100" > 
+        <div class="buy_route_address_header">
+            <h3>Shipping Information</h3> 
+            <button class="buy_route_address_add_btn">
+                <span class="material-symbols-outlined">add</span>
+                <span>Add a new address</span>
+            </button>
+        </div>
+        <div class="buy-route-add-new-address-hidden" style="display: none;"></div>
+        <div class="buy-route-saved-address-list">
+
+            
+
+        </div>
+
+    </div>
+    </div>
+    <div class="buy_route_order_container" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200" >
+       <h3 id="OrderSummeryHeading">Order Summary</h3>
+       <div class="buy_route_applyCoopon_container">
+        <input type="text" placeholder="Enter Coupon Code">
+        <button class="applyCouponButton">Apply Coupon</button>
+       </div>
+
+       <div class="buy_route_paymentDetails_container">
+        <hr>
+        <h3 id="paymentDetailsHeading"> Select Payment Method</h3>
+
+        <div class="paymentSelectionOption">
+            <div class="paymentOptionBox" id="upiPaymentOption">
+                <input type="radio" name="paymentMethod" value="UPI" id="upiRadio">
+                <label for="upiRadio">UPI</label>
+            </div>
+            <div class="paymentOptionBox" id="cardPaymentOption">
+                <input type="radio" name="paymentMethod" value="Card" id="cardRadio">
+                <label for="cardRadio">Card</label>
+            </div>
+            <div class="paymentOptionBox" id="netBankingPaymentOption">
+                <input type="radio" name="paymentMethod" value="NetBanking" id="netBankingRadio">
+                <label for="netBankingRadio">Net Banking</label>
+            </div>
+            <div class="paymentOptionBox" id="codPaymentOption">
+                <input type="radio" name="paymentMethod" value="COD" id="codRadio">
+                <label for="codRadio">Cash on Delivery</label>
+            </div>
+        </div>
+
+         <!-- UPI Details -->
+        <div class="paymentDetailsSection" id="upiDetails">
+            <h3 class="payment-detail-title">UPI Payment</h3>
+            <div class="input-group">
+                <label for="upiId">Enter UPI ID</label>
+                <input type="text" id="upiId" placeholder="example@upi">
+                <button class="verify-btn" id="verifyUpiBtn">Verify & Pay</button>
+                <p class="success-message" id="upiSuccess" style="display: none;">✓ Payment Successful</p>
+            </div>
+            <div class="qr-option">
+                <p><strong>OR</strong></p>
+                <p>Scan QR Code to Pay</p>
+                <div class="qr-placeholder" id="qrCodeContainer">QR Code Here</div>
+                <!-- <button class="verify-btn" id="verifyQrBtn">I have paid via QR</button> -->
+            </div>
+        </div>
+
+         <!-- Card Details -->
+        <div class="paymentDetailsSection" id="cardDetails">
+            <h3 class="payment-detail-title">Card Payment</h3>
+            <div class="input-group">
+                <label for="cardNumber">Card Number</label>
+                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+            </div>
+            <div class="input-group">
+                <label for="cardName">Cardholder Name</label>
+                <input type="text" id="cardName" placeholder="John Doe">
+            </div>
+            <div class="card-row">
+                <div class="input-group">
+                    <label for="expiryDate">Expiry Date</label>
+                    <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5">
+                </div>
+                <div class="input-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" placeholder="123" maxlength="3">
+                </div>
+            </div>
+            <button class="verify-btn" id="verifyCardBtn">Verify & Pay</button>
+            <p class="success-message" id="cardSuccess" style="display: none;">✓ Payment Successful</p>
+        </div>
+
+         <!-- Net Banking Details -->
+        <div class="paymentDetailsSection" id="netBankingDetails">
+            <h3 class="payment-detail-title">Net Banking</h3>
+            <div class="input-group">
+                <label for="bankSelect">Select Your Bank</label>
+                <select id="bankSelect" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;">
+                    <option value="">-- Select Bank --</option>
+                    <option value="sbi">State Bank of India</option>
+                    <option value="hdfc">HDFC Bank</option>
+                    <option value="icici">ICICI Bank</option>
+                    <option value="axis">Axis Bank</option>
+                    <option value="pnb">Punjab National Bank</option>
+                </select>
+            </div>
+            <button class="verify-btn" id="verifyBankBtn">Proceed to Bank</button>
+            <p class="success-message" id="bankSuccess" style="display: none;">✓ Payment Successful</p>
+        </div>
+
+        <!-- COD Details -->
+        <div class="paymentDetailsSection" id="codDetails">
+            <h3 class="payment-detail-title">Cash on Delivery</h3>
+            <div class="cod-info">
+                <p><strong>✓ You can place order with COD</strong></p>
+                <p>Pay when you receive your order. Cash payment to the delivery person.</p>
+                <p style="margin-top: 10px;">Note: COD charges may apply.</p>
+            </div>
+        </div>
+
+        <!-- Place Order Button -->
+        <button class="place-order-btn" id="placeOrderBtn" disabled>Place Order</button>
+         
+       </div>
+       <hr>
+    </div><!--buy_route_order_container End Here-->
+    </div>   
+</div>
+<script type="module"  src="/javascript/checkout.js"></script>

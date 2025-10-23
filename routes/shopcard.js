@@ -180,7 +180,7 @@ router.get("/:id/checkout", isLoggedIn,  wrapAsync(async(req,res)=>{
   if(!buyProduct){
     throw new ExpressError(400,"Requested Product not Found!");
   }else{
-    res.render("listings/buy.ejs",{buyProduct});
+    res.render("listings/checkout.ejs",{buyProduct});
   }
 }
 }))

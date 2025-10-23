@@ -285,8 +285,7 @@ async function handleDeleteAddress(button) {
   let manageAddressMainBox = document.querySelector("#manageAddress");
   console.log("Handle DeleteAddress Function  manageAddressMainBox : "); 
   let addressBox = button.closest(".address-card");
-  try{
-    // const confirmDelete = confirm("Are you sure you want to delete this address?");    
+  try{   
 
     const confirmDelete = await showCustomConfirm("Delete Address?","Are you sure you want to delete this address? This action cannot be undone.");
 

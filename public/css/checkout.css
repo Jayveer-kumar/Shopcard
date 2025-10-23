@@ -1,0 +1,494 @@
+.buy_route_main_container{
+    min-height: 100vh;
+    min-width: 100%;
+    height: auto;
+    margin-top:4em; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding:0 3em;
+    background-color: var(--color-bg);
+}
+.buy_route_path_para{
+    font-size: 0.8em;
+    color:var(--color-text-muted);
+    padding:1em 0;
+}
+.buy_route_product_and_payment_main_container{
+    min-height: 15em;
+    height: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns:38em 1fr;
+    gap:0.7em;
+    justify-content: center;
+    background-color: transparent;
+}
+.buy_route_address_and_product_showBox{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap:1em;
+}
+.buy_route_product_container_with_heading{
+    height: 14em;
+    width:100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border:0.01em solid var(--color-border);
+    border-radius: 0.3em;
+    padding:0.7em 0.4em;
+    overflow: hidden;
+    background-color: var(--color-card-bg);
+}
+.buy_route_product_Heading{
+    padding:0.5em 0.2em;
+    color:var(--color-text-primary);
+}
+.buy_route_product_container{
+    height: 10em;
+    width:100%;
+    display: flex;
+    justify-content: flex-start;
+    gap:2em;
+    align-items: center; 
+}
+.buy_route_selected_product_image{
+   height: 10em;
+   width: 10em;
+   padding:0.7em;
+   background-color: transparent;
+   border-radius: 0.4em;
+   margin-bottom: 1.5em;
+}
+.buy_route_selected_product_image img{
+    height: 100%;
+    width:100%;
+    object-fit: contain;
+}
+.buy_route_selected_product_title ,.buy_route_selected_product_size{
+    font-size: 1.2em;
+    font-weight: 600;
+    color:var(--color-text-primary);
+}
+.buy_route_selected_product_prize{
+    color: var(--color-price);
+}
+.buy_route_selected_product_color_show ,.buy_route_selected_product_quantity_show, .buy_route_product_size_value{
+    font-size: 0.8em !important;
+    color:var(--color-text-primary-low);
+}
+
+.buy_route_add_address_box{
+    width: 100%;
+    min-height: 10em;
+    height: auto;
+    border:0.01em solid var(--color-border);
+    border-radius: 0.3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: var(--color-card-bg);
+}
+
+.buy_route_address_header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:1.2em;
+}
+.buy_route_address_header h3{
+    color:var(--color-text-primary);
+}
+
+.buy_route_address_add_btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    background-color: var(--color-card-bg);
+    padding: 0.6em 1em;
+    margin: 1em 0;
+    border: 0.01em solid var(--color-divider);
+    font-size: 0.85em;
+    color: var(--color-info);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.buy_route_address_add_btn:hover{
+    opacity: 0.9;
+}
+
+.buy-route-add-new-address-hidden{
+    width: 100%;
+}
+
+
+
+
+/*  Saved Address List Styles Start */
+.buy-route-saved-address-list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 0.8em
+}
+
+
+/* Each address card */
+.saved-address-card {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  border: 1px solid var(--color-divider);
+  border-radius: 10px;
+  padding: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--color-card-bg);
+}
+.select-address-radio{
+    accent-color: var(--color-info); 
+    transform: scale(1.2);
+}
+
+.saved-add-card-content{
+    flex: 1;
+}
+.address-cd-user{
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+.saved-address-card-fulladdress{
+    font-size: 0.9em;
+    color: var(--color-secondary-text);
+    margin: 0.2em 0;
+}
+
+.saved-address-card:hover {
+  border-color: var(--color-warning);
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.select-address-radio:checked + .saved-add-card-content{
+    border-left: 4px solid var(--color-info);
+}
+
+.saved-address-card:has(.select-address-radio:checked) {
+  border-color: var(--color-info);
+  /* background-color: #f0f8ff; */
+  background-color: var( --color-input-bg);
+}
+
+/*  Saved Address List Styles End */
+
+.buy_route_order_container{
+    min-height: 10em;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border:0.01em solid var(--color-border);
+    border-radius: 0.3em;
+    padding:1em 1.4em;
+    background-color: var(--color-card-bg);
+}
+.buy_route_order_container hr{
+    margin: 1em 0;
+    color:var(--color-divider);
+}
+#OrderSummeryHeading,#paymentDetailsHeading{
+    padding:0.7em 0;
+    color:var(--color-text-primary);
+}
+.buy_route_applyCoopon_container{
+    padding:0.3em 0.2em;
+    height: 2.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    border:0.01em solid var(--color-border);
+    border-radius: 0.4em;
+    overflow: hidden;
+}
+.buy_route_applyCoopon_container input{
+    height: 100%;
+    padding:0 0.6em;
+    background-color: transparent;
+    color: var(--color-text-primary);
+    border:none;
+}
+.buy_route_applyCoopon_container input:focus{
+    outline:none;
+}
+.buy_route_applyCoopon_container:focus-within{
+    border: 0.01em solid var(--color-info);
+}
+.applyCouponButton{
+    border:0.01em solid var(--color-action);
+    background-color: var(--color-action);
+    color: var(--color-button-text);
+    border-radius: 1.4em;
+    padding:0.7em 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-wrap: nowrap;
+}
+
+.applyCouponButton:hover{
+    background: var(--color-action-hover);
+}
+.buy_route_paymentDetails_container {
+    width: 100%;
+    background-color: var(--color-card-bg);
+    border-radius: 0.2em;
+}
+
+.paymentSelectionOption {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.paymentOptionBox {
+    flex: 1;
+    min-width: 120px;
+    border: 2px solid var(--color-divider);
+    /* color: var(--color-text-primary); */
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.paymentOptionBox:hover {
+    border-color: var(--color-warning);
+    /* background: #f9f9f9; */
+    background-color: var(--color-input-bg);
+}
+
+.paymentOptionBox.active {
+    border-color: var(--color-warning);
+    /* background: #e8f5e9; */
+    background-color: var(--color-input-bg);
+}
+
+.paymentOptionBox input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.paymentOptionBox label {
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--color-text-primary); 
+    display: block;
+    text-align: center;
+}
+
+.paymentOptionBox.active label {
+    color: var(--color-warning);
+}
+
+/* Payment Details Section */
+.paymentDetailsSection {
+    display: none;
+    animation: slideDown 0.3s ease;
+    margin-bottom: 25px;
+    padding: 20px;
+    background: var(--color-card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--color-divider);
+}
+
+.paymentDetailsSection.active {
+    display: block;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.payment-detail-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-primary); 
+    margin-bottom: 15px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--color-text-primary-low); 
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-divider);
+    background-color: var(--color-input-bg);
+    color: var(--color-text-primary);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--color-info);
+}
+
+.qr-option {
+    text-align: center;
+    margin-top: 15px;
+    padding: 15px;
+    background: var(--color-card-bg);
+    border-radius: 6px;
+}
+
+.qr-option p {
+    color: var(--color-text-primary-low);
+    margin-bottom: 10px;
+}
+
+.qr-placeholder {
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
+    background: var(--color-input-bg);
+    border: 2px dashed var(--color-divider);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-primary-low);
+    border-radius: 8px;
+}
+
+#qrCodeContainer img {
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.card-row {
+    display: flex;
+    gap: 15px;
+}
+
+.card-row .input-group {
+    flex: 1;
+}
+
+.cod-info {
+    /* background: #fff3cd; */
+    background-color: var(--color-warning-bg);
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 4px solid #ffc107;
+}
+
+.cod-info p {
+    /* color: #856404; */
+    color: var(--color-button-text);
+    line-height: 1.6;
+}
+
+/* Place Order Button */
+.place-order-btn {
+    width: 100%;
+    padding: 15px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.place-order-btn:hover:not(:disabled) {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.place-order-btn:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.verify-btn {
+    background: #2196F3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.verify-btn:hover {
+    background: #1976D2;
+}
+
+.success-message {
+    color: #2e7d32;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.error-message {
+    color: #c62828;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+
+@media(max-width:1150px){
+   .buy_route_product_and_payment_main_container{
+    grid-template-columns:1fr;
+   }
+   .buy_route_address_and_product_showBox,.buy_route_order_container{
+    width:80%;
+   }
+}
+@media(max-width:600px){
+    .buy_route_product_and_payment_main_container{
+     grid-template-columns:1fr;
+    }
+    .buy_route_address_and_product_showBox ,.buy_route_order_container{
+     width:100%;
+    }
+}

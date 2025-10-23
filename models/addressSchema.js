@@ -32,7 +32,7 @@ const addressSchema = new mongoose.Schema({
   },
   addressLine: {
     type: String,
-    required: true // like "207"
+    required: true // like "207" 
   },
   city: {
     type: String,
@@ -42,7 +42,7 @@ const addressSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  landmark: {
+  landmark: { 
     type: String,
     required: false // optional
   },

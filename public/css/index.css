@@ -16,6 +16,7 @@
   /* Missing Essential Colors for E-commerce */
   --color-success: #22c55e;               /* Success messages, in stock */
   --color-warning: #f59e0b;               /* Warnings, low stock */
+   --color-warning-bg: #e39308b1;
   --color-error: #ef4444;                 /* Errors, out of stock */
   --color-info: #3b82f6;                  /* Information, notifications */
 
